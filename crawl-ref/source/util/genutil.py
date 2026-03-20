@@ -5,6 +5,7 @@
 
 # import argparse
 import os
+import io
 import sys
 import traceback
 import collections
@@ -83,4 +84,5 @@ def make_list(list_str, is_spell_list = False):
 
 
 def load_template(templatedir, name):
-    return open(os.path.join(templatedir, name)).read()
+    with io.open(os.path.join(templatedir, name), 'r', encoding='utf-8') as f:
+        return f.read()
