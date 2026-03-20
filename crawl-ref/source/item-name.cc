@@ -86,12 +86,12 @@ string quant_name(const item_def &item, int quant,
 static const char* _interesting_origin(const item_def &item)
 {
     if (origin_as_god_gift(item) != GOD_NO_GOD)
-        return "god gift";
+        return "神祇赠礼";
 
     if (item.orig_monnum == MONS_DONALD && get_equip_desc(item)
         && item.is_type(OBJ_ARMOUR, ARM_KITE_SHIELD))
     {
-        return "Donald";
+        return "唐纳德";
     }
 
     return nullptr;
@@ -537,21 +537,21 @@ const char* special_armour_type_name(special_armour_type ego, bool terse)
 #if TAG_MAJOR_VERSION == 34
         case SPARM_RUNNING:           return "obsolescence";
 #endif
-        case SPARM_FIRE_RESISTANCE:   return "fire resistance";
-        case SPARM_COLD_RESISTANCE:   return "cold resistance";
-        case SPARM_POISON_RESISTANCE: return "poison resistance";
-        case SPARM_SEE_INVISIBLE:     return "see invisible";
-        case SPARM_INVISIBILITY:      return "invisibility";
-        case SPARM_STRENGTH:          return "strength";
-        case SPARM_DEXTERITY:         return "dexterity";
-        case SPARM_INTELLIGENCE:      return "intelligence";
+        case SPARM_FIRE_RESISTANCE:   return "抗火";
+        case SPARM_COLD_RESISTANCE:   return "抗寒";
+        case SPARM_POISON_RESISTANCE: return "抗毒";
+        case SPARM_SEE_INVISIBLE:     return "看见隐形";
+        case SPARM_INVISIBILITY:      return "隐形";
+        case SPARM_STRENGTH:          return "力量";
+        case SPARM_DEXTERITY:         return "敏捷";
+        case SPARM_INTELLIGENCE:      return "智力";
         case SPARM_PONDEROUSNESS:     return "ponderousness";
-        case SPARM_FLYING:            return "flying";
-        case SPARM_WILLPOWER:         return "willpower";
-        case SPARM_PROTECTION:        return "protection";
-        case SPARM_STEALTH:           return "stealth";
-        case SPARM_RESISTANCE:        return "resistance";
-        case SPARM_POSITIVE_ENERGY:   return "positive energy";
+        case SPARM_FLYING:            return "飞行";
+        case SPARM_WILLPOWER:         return "意志";
+        case SPARM_PROTECTION:        return "防护";
+        case SPARM_STEALTH:           return "潜行";
+        case SPARM_RESISTANCE:        return "抗性";
+        case SPARM_POSITIVE_ENERGY:   return "正能量";
         case SPARM_ARCHMAGI:          return "the Archmagi";
 #if TAG_MAJOR_VERSION == 34
         case SPARM_JUMPING:           return "obsolescence";

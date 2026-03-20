@@ -325,164 +325,164 @@ static const vector<property_descriptor> & _get_all_artp_desc_data()
     static vector<property_descriptor> data =
     {
         { ARTP_AC,
-            "It affects your AC (%d).",
+            "它会影响你的护甲值（%d）。",
             prop_note::numeral },
         { ARTP_EVASION,
-            "It affects your evasion (%d).",
+            "它会影响你的闪避值（%d）。",
             prop_note::numeral },
         { ARTP_STRENGTH,
-            "It affects your strength (%d).",
+            "它会影响你的力量（%d）。",
             prop_note::numeral },
         { ARTP_INTELLIGENCE,
-            "It affects your intelligence (%d).",
+            "它会影响你的智力（%d）。",
             prop_note::numeral },
         { ARTP_DEXTERITY,
-            "It affects your dexterity (%d).",
+            "它会影响你的敏捷（%d）。",
             prop_note::numeral },
         { ARTP_SLAYING,
-            "It affects your accuracy & damage with ranged weapons and melee (%d).",
+            "它会影响你的命中与伤害（远程与近战）（%d）。",
             prop_note::numeral },
         { ARTP_FIRE,
-            "fire",
+            "火焰",
             prop_note::symbolic },
         { ARTP_COLD,
-            "cold",
+            "寒冷",
             prop_note::symbolic },
         { ARTP_ELECTRICITY,
-            "It insulates you from electricity.",
+            "它能让你免受电击。",
             prop_note::plain },
         { ARTP_POISON,
-            "It protects you from poison.",
+            "它能保护你免受毒素侵害。",
             prop_note::plain },
         { ARTP_NEGATIVE_ENERGY,
-            "negative energy",
+            "负能量",
             prop_note::symbolic },
         { ARTP_WILLPOWER,
-            "buggy willpower",
+            "意志（异常）",
             prop_note::symbolic },
         { ARTP_HP,
-            "It affects your health (%d).",
+            "它会影响你的生命值（%d）。",
             prop_note::numeral },
         { ARTP_MAGICAL_POWER,
-            "It affects your magic capacity (%d).",
+            "它会影响你的魔法容量（%d）。",
             prop_note::numeral },
         { ARTP_SEE_INVISIBLE,
-            "It lets you see invisible.",
+            "它让你能看见隐形。",
             prop_note::plain },
         { ARTP_INVISIBLE,
-            "It lets you turn invisible.",
+            "它让你可以隐形。",
             prop_note::plain },
         { ARTP_FLY,
-            "It grants you flight.",
+            "它赋予你飞行能力。",
             prop_note::plain },
         { ARTP_BLINK,
-            "It lets you blink.",
+            "它让你可以闪现。",
             prop_note::plain },
         { ARTP_NOISE,
-            "It may make a loud noise when swung.",
+            "挥动时它可能发出巨大声响。",
             prop_note::plain },
         { ARTP_PREVENT_SPELLCASTING,
-            "It prevents spellcasting.",
+            "它会阻止施法。",
             prop_note::plain },
         { ARTP_PREVENT_TELEPORTATION,
-            "It prevents most forms of teleportation.",
+            "它会阻止大多数形式的传送。",
             prop_note::plain },
         { ARTP_ANGRY,
-            "It berserks you when you make melee attacks (%d% chance).",
+            "你进行近战攻击时，它可能使你狂暴（%d% 概率）。",
             prop_note::plain },
         { ARTP_CLARITY,
-            "It protects you from confusion, rage, mesmerisation and fear.",
+            "它能保护你免受混乱、狂暴、魅惑与恐惧。",
             prop_note::plain },
         { ARTP_CONTAM,
-            "It causes magical contamination when unequipped.",
+            "卸下时它会造成魔法污染。",
             prop_note::plain },
         { ARTP_RMSL,
-            "It protects you from missiles.",
+            "它能保护你免受投射物攻击。",
             prop_note::plain },
         { ARTP_REGENERATION,
-            "It increases your rate of health regeneration.",
+            "它会提高你的生命回复速度。",
             prop_note::symbolic },
         { ARTP_RCORR,
-            "It protects you from acid and corrosion.",
+            "它能保护你免受酸蚀与腐蚀。",
             prop_note::plain },
         { ARTP_RMUT,
-            "It protects you from mutation.",
+            "它能保护你免受突变。",
             prop_note::plain },
         { ARTP_CORRODE,
-            "It may corrode you when you take damage.",
+            "你受伤时，它可能使你被腐蚀。",
             prop_note::plain },
         { ARTP_DRAIN,
-            "It drains your maximum health when unequipped.",
+            "卸下时它会抽取你的最大生命值。",
             prop_note::plain },
         { ARTP_SLOW,
-            "It may slow you when you take damage.",
+            "你受伤时，它可能使你减速。",
             prop_note::plain },
         { ARTP_FRAGILE,
-            "It will be destroyed if unequipped.",
+            "如果卸下，它会被摧毁。",
             prop_note::plain },
         { ARTP_SHIELDING,
-            "It affects your SH (%d).",
+            "它会影响你的盾防值（%d）。",
             prop_note::numeral },
         { ARTP_HARM,
-            "It increases damage dealt and taken.",
+            "它会增加你造成与承受的伤害。",
             prop_note::plain },
         { ARTP_RAMPAGING,
-            "It causes one to take an extra step when moving towards enemies, "
-            "briefly stunning them if this results in an attack.",
+            "当你朝敌人移动时，它会让你额外前进一步，"
+            "若因此发起攻击，还会令其短暂眩晕。",
             prop_note::plain },
         { ARTP_STEALTH,
-            "buggy stealth",
+            "潜行（异常）",
             prop_note::symbolic },
         { ARTP_ARCHMAGI,
-            "It increases the power of your magical spells.",
+            "它会提升你魔法法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_CONJ,
-            "It increases the power of your Conjurations spells.",
+            "它会提升你咒术学法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_HEXES,
-            "It increases the power of your Hexes spells.",
+            "它会提升你妖术法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_SUMM,
-            "It increases the power of your Summonings spells.",
+            "它会提升你召唤术法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_NECRO,
-            "It increases the power of your Necromancy spells.",
+            "它会提升你死灵术法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_TLOC,
-            "It increases the power of your Translocations spells.",
+            "它会提升你传送术法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_FIRE,
-            "It increases the power of your Fire spells.",
+            "它会提升你火焰法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_ICE,
-            "It increases the power of your Ice spells.",
+            "它会提升你寒冰法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_AIR,
-            "It increases the power of your Air spells.",
+            "它会提升你空气法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_EARTH,
-            "It increases the power of your Earth spells.",
+            "它会提升你大地法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_ALCHEMY,
-            "It increases the power of your Alchemy spells.",
+            "它会提升你炼金术法术的威力。",
             prop_note::plain },
         { ARTP_ENHANCE_FORGECRAFT,
-            "It increases the power of your Forgecraft spells.",
+            "它会提升你锻造术法术的威力。",
             prop_note::plain },
         { ARTP_ACROBAT,
-            "It increases your evasion after moving or waiting.",
+            "它会在你移动或等待后提高闪避。",
             prop_note::plain },
         { ARTP_MANA_REGENERATION,
-            "It increases your rate of magic regeneration.",
+            "它会提高你的魔法回复速度。",
             prop_note::symbolic },
         { ARTP_WIZARDRY,
-            "It increases the success rate of your magical spells.",
+            "它会提高你魔法法术的成功率。",
             prop_note::plain },
         { ARTP_SILENCE,
-            "It may silence you when you take damage.",
+            "你受伤时，它可能使你沉默。",
             prop_note::plain },
         { ARTP_BANE,
-            "It inflicts you with a random bane when you equip it.",
+            "装备时，它会赋予你一个随机灾厄。",
             prop_note::plain },
     };
     return data;
@@ -506,7 +506,7 @@ static string _randart_prop_abbrev(artefact_prop_type prop, int val)
     case prop_note::plain: // e.g. rPois or SInv
         return artp_name(prop);
     }
-    return "buggy";
+    return "异常";
 }
 
 static const vector<artefact_prop_type> artprop_annotation_order =
@@ -694,7 +694,7 @@ static const char* _jewellery_base_ability_description(int subtype)
     case AMU_THE_GOURMAND:
         return "It allows you to eat raw meat even when not hungry.";
     case AMU_HARM:
-        return "It increases damage dealt and taken.";
+        return "它会增加你造成与承受的伤害。";
     case AMU_CONSERVATION:
         return "It protects your inventory from destruction.";
     case AMU_CONTROLLED_FLIGHT:
@@ -2367,7 +2367,7 @@ string describe_item_rarity(const item_def &item)
         return "very common";
     case RARITY_NONE:
     default:
-        return "buggy";
+        return "异常";
     }
 }
 
@@ -4344,8 +4344,8 @@ static string _miscast_damage_string(spell_type spell)
     const map <spschool, string> damage_flavor = {
         { spschool::conjuration, "irresistible" },
         { spschool::necromancy, "draining" },
-        { spschool::fire, "fire" },
-        { spschool::ice, "cold" },
+        { spschool::fire, "火焰" },
+        { spschool::ice, "寒冷" },
         { spschool::air, "electric" },
         { spschool::earth, "fragmentation" },
     };
@@ -4943,17 +4943,17 @@ static const char* _get_resist_name(mon_resist_flags res_type)
     case MR_RES_POISON:
         return "poison";
     case MR_RES_FIRE:
-        return "fire";
+        return "火焰";
     case MR_RES_STEAM:
         return "steam";
     case MR_RES_COLD:
-        return "cold";
+        return "寒冷";
     case MR_RES_CORR:
         return "acid and corrosion";
     case MR_RES_MIASMA:
         return "miasma";
     case MR_RES_NEG:
-        return "negative energy";
+        return "负能量";
     case MR_RES_DAMNATION:
         return "damnation";
     case MR_RES_TORMENT:
@@ -5166,8 +5166,8 @@ static string _monster_staff_damage_string(const monster_info &mi,
     // "earth" tries to communicate the damage reduction when flying
     // XXX "conj" isn't a damage type, but we want to communicate
     // that the damage is flat staff bonus damage somehow.
-    string dam_type_string = staff == STAFF_FIRE          ? "fire"
-                           : staff == STAFF_COLD          ? "cold"
+    string dam_type_string = staff == STAFF_FIRE          ? "火焰"
+                           : staff == STAFF_COLD          ? "寒冷"
                            : staff == STAFF_AIR           ? "elec"
                            : staff == STAFF_EARTH         ? "earth"
                            : staff == STAFF_NECROMANCY    ? "drain" // pain?

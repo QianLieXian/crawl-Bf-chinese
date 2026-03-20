@@ -243,17 +243,14 @@ static void _monster_headsup(const vector<monster*> &monsters,
         if (monsters.size() == 1)
             monname = mon->pronoun(PRONOUN_SUBJECTIVE);
         else if (mon->type == MONS_DANCING_WEAPON)
-            monname = "There";
+            monname = "那里";
         else if (single.count(mon))
             monname = mon->full_name(DESC_THE);
         else
             monname = mon->full_name(DESC_A);
         out << uppercase_first(monname) << " ";
 
-        if (monsters.size() == 1)
-            out << conjugate_verb("are", mon->pronoun_plurality());
-        else
-            out << "is";
+        out << "是";
 
         if (mon->type != MONS_DANCING_WEAPON)
             out << " ";

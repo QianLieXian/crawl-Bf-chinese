@@ -248,7 +248,7 @@ int main(int argc, char *argv[])
 #ifdef USE_TILE_WEB
     if (strcasecmp(nl_langinfo(CODESET), "UTF-8"))
     {
-        fprintf(stderr, "Webtiles require an UTF-8 locale.\n");
+        fprintf(stderr, "Webtiles 需要 UTF-8 语言环境。\n");
         exit(1);
     }
 #endif
@@ -438,10 +438,10 @@ NORETURN static void _launch_game()
 
     if (!crawl_state.game_is_tutorial())
     {
-        msg::stream << "<yellow>Welcome" << (game_start? "" : " back") << ", "
-                    << you.your_name << " the "
+        msg::stream << "<yellow>欢迎" << (game_start? "" : "回来") << "，"
+                    << you.your_name << "（"
                     << species::name(you.species)
-                    << " " << get_job_name(you.char_class) << ".</yellow>";
+                    << " " << get_job_name(you.char_class) << "）。</yellow>";
         // TODO: seeded sprint?
         if (crawl_state.type == GAME_TYPE_CUSTOM_SEED)
             msg::stream << endl << "<white>" << seed_description() << "</white>";
@@ -465,7 +465,7 @@ NORETURN static void _launch_game()
     _god_greeting_message(game_start);
 
     if (!crawl_state.game_is_tutorial())
-        mpr("Press <w>?</w> for a list of commands and other information.");
+        mpr("按 <w>?</w> 可查看指令列表及其他信息。");
 
     _prep_input();
 
