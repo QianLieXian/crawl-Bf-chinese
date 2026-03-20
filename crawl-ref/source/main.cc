@@ -838,7 +838,7 @@ static bool _cmd_is_repeatable(command_type cmd, bool is_again = false)
     case CMD_READ_MESSAGES:
     case CMD_SEARCH_STASHES:
     case CMD_LOOKUP_HELP:
-        mpr("You can't repeat informational commands.");
+        mpr("你不能重复信息类命令。");
         return false;
 
     // Multi-turn commands
@@ -859,7 +859,7 @@ static bool _cmd_is_repeatable(command_type cmd, bool is_again = false)
     case CMD_REMOVE_ARMOUR:
     case CMD_EQUIP:
     case CMD_WEAR_ARMOUR:
-        mpr("You can't repeat multi-turn commands.");
+        mpr("你不能重复多回合命令。");
         return false;
 
     // Miscellaneous non-repeatable commands.
@@ -884,20 +884,20 @@ static bool _cmd_is_repeatable(command_type cmd, bool is_again = false)
     case CMD_EDIT_PLAYER_TILE:
 #endif
     case CMD_LUA_CONSOLE:
-        mpr("You can't repeat that command.");
+        mpr("你不能重复该命令。");
         return false;
 
     case CMD_DISPLAY_MAP:
-        mpr("You can't repeat map commands.");
+        mpr("你不能重复地图命令。");
         return false;
 
     case CMD_MOUSE_MOVE:
     case CMD_MOUSE_CLICK:
-        mpr("You can't repeat mouse clicks or movements.");
+        mpr("你不能重复鼠标点击或移动。");
         return false;
 
     case CMD_REPEAT_CMD:
-        mpr("You can't repeat the repeat command!");
+        mpr("你不能重复“重复命令”本身！");
         return false;
 
     case CMD_RUN_LEFT:
@@ -908,14 +908,14 @@ static bool _cmd_is_repeatable(command_type cmd, bool is_again = false)
     case CMD_RUN_DOWN_LEFT:
     case CMD_RUN_UP_RIGHT:
     case CMD_RUN_DOWN_RIGHT:
-        mpr("Why would you want to repeat a run command?");
+        mpr("你为什么要重复跑动命令？");
         return false;
 
     case CMD_PREV_CMD_AGAIN:
         ASSERT(!is_again);
         if (crawl_state.prev_cmd == CMD_NO_CMD)
         {
-            mpr("No previous command to repeat.");
+            mpr("没有可重复的上一条命令。");
             return false;
         }
 
@@ -943,15 +943,14 @@ static bool _cmd_is_repeatable(command_type cmd, bool is_again = false)
     case CMD_MOVE_DOWN_RIGHT:
         if (!i_feel_safe())
         {
-            return yesno("Really repeat movement command while danger "
-                         "is nearby?", false, 'n');
+            return yesno("附近有危险，真的要重复移动命令吗？", false, 'n');
         }
 
         return true;
 
     case CMD_NO_CMD:
     case CMD_NO_CMD_DEFAULT:
-        mpr("Unknown command, not repeating.");
+        mpr("未知命令，不进行重复。");
         return false;
 
     default:
@@ -1353,8 +1352,8 @@ static bool _can_take_stairs(dungeon_feature_type ftype, bool down,
     {
         if (crawl_state.doing_prev_cmd_again)
         {
-            mprf("You can't repeat %s actions.",
-                ftype == DNGN_ENTER_SHOP ? "shop" : "altar");
+            mprf("你不能重复%s操作。",
+                ftype == DNGN_ENTER_SHOP ? "商店" : "祭坛");
             crawl_state.cancel_cmd_all();
         }
         else if (you.berserk())
@@ -1383,7 +1382,7 @@ static bool _can_take_stairs(dungeon_feature_type ftype, bool down,
         return true;
     else if (you.duration[DUR_VAINGLORY])
     {
-        mpr("It simply wouldn't do to leave so soon after announcing yourself.");
+        mpr("刚宣告完自己便离开，实在不合适。");
         return false;
     }
 
@@ -1391,7 +1390,7 @@ static bool _can_take_stairs(dungeon_feature_type ftype, bool down,
     if (you.beheld() && !you.confused())
     {
         const monster* beholder = you.get_any_beholder();
-        mprf("You cannot move away from %s!",
+        mprf("你无法离开%s！",
              beholder->name(DESC_THE, true).c_str());
         return false;
     }
@@ -1407,18 +1406,18 @@ static bool _can_take_stairs(dungeon_feature_type ftype, bool down,
             && (!down || !known_shaft))
         {
             if (ftype == DNGN_STONE_ARCH)
-                mpr("There is nothing on the other side of the stone arch.");
+                mpr("石拱门另一侧什么都没有。");
             else if (ftype == DNGN_ABANDONED_SHOP)
-                mpr("This shop appears to be closed.");
+                mpr("这家商店似乎关门了。");
             else if (ftype == DNGN_SEALED_STAIRS_UP
                      || ftype == DNGN_SEALED_STAIRS_DOWN )
             {
-                mpr("A magical barricade bars your way!");
+                mpr("一道魔法路障挡住了你的去路！");
             }
             else if (down)
-                mpr("You can't go down here!");
+                mpr("你不能在这里下行！");
             else
-                mpr("You can't go up here!");
+                mpr("你不能在这里上行！");
             return false;
         }
     }
@@ -1429,14 +1428,14 @@ static bool _can_take_stairs(dungeon_feature_type ftype, bool down,
     case DNGN_EXIT_VAULTS:
         if (runes_in_pack() < 1)
         {
-            mpr("You need a rune to leave the Vaults.");
+            mpr("离开宝库需要一枚符文。");
             return false;
         }
         break;
     case DNGN_ENTER_ZOT:
         if (runes_in_pack() < ZOT_ENTRY_RUNES && !crawl_state.game_is_descent())
         {
-            mprf("You need at least %d runes to enter the Realm of Zot.",
+            mprf("进入索特界至少需要 %d 枚符文。",
                  ZOT_ENTRY_RUNES);
             return false;
         }
@@ -1448,7 +1447,7 @@ static bool _can_take_stairs(dungeon_feature_type ftype, bool down,
     if (player_in_branch(BRANCH_SLIME) && !down && you.depth > 1
             && !you_worship(GOD_JIYVA) && !you.royal_jelly_dead)
     {
-        mpr("The stairs are too slimy for you to climb back up!");
+        mpr("楼梯太过黏滑，你无法爬回去！");
         return false;
     }
 
@@ -1472,9 +1471,9 @@ static bool _prompt_unique_pan_rune(dungeon_feature_type ygrd)
     item_def* rune = find_floor_item(OBJ_RUNES);
     if (rune && item_is_unique_rune(*rune))
     {
-        return confirm_prompt("yes", "A rune of Zot still resides in this realm, "
-                                     "and once you leave you can never return. "
-                                     "Are you sure you want to leave?");
+        return confirm_prompt("yes", "本区域仍有一枚索特符文；"
+                                     "一旦离开将永远无法返回。"
+                                     "你确定要离开吗？");
     }
     return true;
 }
@@ -1503,8 +1502,8 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
     // Prompt for entering excluded transporters.
     if (ygrd == DNGN_TRANSPORTER && is_exclude_root(you.pos()))
     {
-        mprf(MSGCH_WARN, "This transporter is marked as excluded!");
-        if (!yesno("Enter transporter anyway?", true, 'n', true, false))
+        mprf(MSGCH_WARN, "这个传送器被标记为排除区域！");
+        if (!yesno("仍要进入传送器吗？", true, 'n', true, false))
         {
             canned_msg(MSG_OK);
             return false;
@@ -1521,7 +1520,7 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
     {
         // "unsafe", as often you bail at single-digit hp and a wasted turn to
         // an overeager prompt cancellation might be nasty.
-        if (!yesno("Are you sure you want to leave this ziggurat?", false, 'n'))
+        if (!yesno("你确定要离开这个之字塔吗？", false, 'n'))
         {
             canned_msg(MSG_OK);
             return false;
@@ -1532,7 +1531,7 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
     if (ygrd == DNGN_EXIT_TROVE
         && you.depth == brdepth[BRANCH_TROVE])
     {
-        if (!yesno("Are you sure you want to leave this trove?", false, 'n'))
+        if (!yesno("你确定要离开这个宝窟吗？", false, 'n'))
         {
             canned_msg(MSG_OK);
             return false;
@@ -1544,7 +1543,7 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
         && you.depth == brdepth[BRANCH_ZIGGURAT]
         && find_floor_item(OBJ_MISCELLANY, MISC_ZIGGURAT))
     {
-        if (!yesno("Really leave the ziggurat figurine behind?", false, 'n'))
+        if (!yesno("真的要把之字塔雕像留在这里吗？", false, 'n'))
         {
             canned_msg(MSG_OK);
             return false;
@@ -1562,7 +1561,7 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
         && you.depth == brdepth[BRANCH_ZOT]
         && you.chapter == CHAPTER_ANGERED_PANDEMONIUM)
     {
-        if (!yesno("Really leave the Orb behind?", false, 'n'))
+        if (!yesno("真的要把宝珠留在这里吗？", false, 'n'))
         {
             canned_msg(MSG_OK);
             return false;
@@ -1572,13 +1571,13 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
     // Escaping.
     if (!down && ygrd == DNGN_EXIT_DUNGEON && !player_has_orb())
     {
-        string prompt = make_stringf("Are you sure you want to leave %s?%s",
+        string prompt = make_stringf("你确定要离开%s吗？%s",
                                      branches[root_branch].longname,
                                      crawl_state.game_is_tutorial() ? "" :
-                                     " This will make you lose the game!");
+                                     " 这会导致你输掉游戏！");
         if (!yesno(prompt.c_str(), false, 'n'))
         {
-            mpr("Alright, then stay!");
+            mpr("好吧，那就留下！");
             return false;
         }
     }
@@ -1593,7 +1592,7 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
     {
         if (feat_is_escape_hatch(ygrd))
         {
-            if (!yesno("Really go through this one-way escape hatch?", true, 'n'))
+            if (!yesno("真的要通过这个单向逃生舱口吗？", true, 'n'))
             {
                 canned_msg(MSG_OK);
                 return false;
@@ -1602,7 +1601,7 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
 
         if (down && shaft) // voluntary shaft usage
         {
-            if (!yesno("Really dive through this shaft in the floor?", true, 'n'))
+            if (!yesno("真的要跳进地板上的竖井吗？", true, 'n'))
             {
                 canned_msg(MSG_OK);
                 return false;
@@ -1612,9 +1611,8 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
 
     if (down && ygrd == DNGN_ENTER_VAULTS && !runes_in_pack())
     {
-        if (!confirm_prompt("yes", "You cannot leave the Vaults without holding a Rune of "
-                                   "Zot, and the runes within are jealously guarded."
-                                   " Continue?"))
+        if (!confirm_prompt("yes", "没有持有索特符文你无法离开宝库，"
+                                   "而其中符文守卫森严。继续吗？"))
         {
             canned_msg(MSG_OK);
             return false;
@@ -1625,8 +1623,8 @@ static bool _prompt_stairs(dungeon_feature_type ygrd, bool down, bool shaft)
     if (down && player_in_branch(BRANCH_SLIME) && you.depth == 1
         && !you.royal_jelly_dead && !you_worship(GOD_JIYVA))
     {
-        if (!yesno("You will be unable to climb back up again until you either destroy or join "
-                   "the power ruling this place. Continue?", true, 'n'))
+        if (!yesno("在你摧毁或加入统治此地的力量之前，"
+                   "你将无法再爬回上层。继续吗？", true, 'n'))
         {
             canned_msg(MSG_OK);
             return false;
@@ -1645,7 +1643,7 @@ static void _take_transporter()
 
     if (dest == INVALID_COORD || !you.is_habitable(dest))
     {
-        mpr("The transporter is blocked on the other side!");
+        mpr("传送器另一侧被堵住了！");
         return;
     }
 
@@ -1658,7 +1656,7 @@ static void _take_transporter()
         // monsters. -gammafunk
         if (!mon->find_home_near_place(dest))
         {
-            mpr("The transporter is blocked by a creature on the other side!");
+            mpr("传送器另一侧被生物挡住了！");
             return;
         }
         // Trigger any traps thatmight be at the displaced monster's destination.
@@ -1678,7 +1676,7 @@ static void _take_transporter()
             li->update_transporter(old_pos, you.pos());
             explored_tracked_feature(DNGN_TRANSPORTER);
         }
-        mpr("You enter the transporter and appear at another place.");
+        mpr("你踏入传送器，出现在另一处地点。");
         you.finalise_movement();
     }
 }
@@ -1737,7 +1735,7 @@ static void _take_stairs(bool down)
 
 static void _experience_check()
 {
-    mprf("You are a level %d %s %s.",
+    mprf("你是 %d 级%s%s。",
          you.experience_level,
          species::name(you.species).c_str(),
          get_job_name(you.char_class));
@@ -1745,13 +1743,13 @@ static void _experience_check()
 
     if (you.experience_level < you.get_max_xl())
     {
-        mprf("You are %d%% of the way to level %d.", perc,
-              you.experience_level + 1);
+        mprf("你距离升到 %d 级还差 %d%%。",
+              you.experience_level + 1, perc);
     }
     else
     {
-        mprf("I'm sorry, level %d is as high as you can go.", you.get_max_xl());
-        mpr("With the way you've been playing, I'm surprised you got this far.");
+        mprf("很遗憾，%d 级已经是你的上限。", you.get_max_xl());
+        mpr("按你现在这打法，能走到这一步我都很惊讶。");
     }
 
     if (you.has_mutation(MUT_MULTILIVED))
@@ -1769,20 +1767,20 @@ static void _experience_check()
              / (exp_needed(xl + 1) - exp_needed(xl));
         perc = (nl - xl) * 100 - perc;
         you.lives < 2 ?
-             mprf("You'll get an extra life in %d.%02d levels' worth of XP.", perc / 100, perc % 100) :
-             mprf("If you died right now, you'd get an extra life in %d.%02d levels' worth of XP.",
+             mprf("再获得相当于 %d.%02d 级的经验值，你将获得一条额外生命。", perc / 100, perc % 100) :
+             mprf("如果你现在死亡，再获得相当于 %d.%02d 级的经验值就能获得一条额外生命。",
              perc / 100 , perc % 100);
     }
 
     handle_real_time();
-    msg::stream << "Play time: " << make_time_string(you.real_time())
-                << " (" << you.num_turns << " turns)."
+    msg::stream << "游戏时长： " << make_time_string(you.real_time())
+                << "（" << you.num_turns << " 回合）。"
                 << endl;
 
     if (!crawl_state.game_is_sprint())
     {
         if (zot_immune())
-            msg::stream << "You are forever immune to Zot's power.";
+            msg::stream << "你将永远免疫索特之力。";
         else if (player_in_branch(BRANCH_ABYSS))
             msg::stream << "You have unlimited time to explore this branch.";
         else
@@ -1811,7 +1809,7 @@ static void _do_rest()
     }
 #endif
 
-    if (should_fear_zot() && !yesno("Really rest while Zot is near?", false, 'n'))
+    if (should_fear_zot() && !yesno("索特逼近时真的要休息吗？", false, 'n'))
     {
         canned_msg(MSG_OK);
         return;
@@ -1903,7 +1901,7 @@ static bool _check_recklessness(command_type prev_cmd)
             || prev_cmd == CMD_AUTOFIGHT_NOMOVE
             || prev_cmd == CMD_AUTOFIRE))
     {
-        mprf(MSGCH_DANGER, "You should not fight recklessly!");
+        mprf(MSGCH_DANGER, "你不该鲁莽作战！");
         return true;
     }
     return false;
@@ -1920,7 +1918,7 @@ static const string _autofight_lua_fn(command_type cmd)
     case CMD_AUTOFIGHT:
         return "hit_closest";
     default:
-        die("Unknown autofight command");
+        die("未知自动战斗命令");
     }
 }
 
@@ -1935,7 +1933,7 @@ static void _handle_autofight(command_type cmd, command_type prev_cmd)
     {
         if (quiver::is_empty())
         {
-            mpr("Nothing quivered!");
+            mpr("箭袋中没有装填任何动作！");
             return;
         }
 
@@ -1953,7 +1951,7 @@ static void _handle_autofight(command_type cmd, command_type prev_cmd)
             if (!clua.callfn("get_af_fire_stop", ">b", &target.isEndpoint))
             {
                 if (!clua.error.empty())
-                    mprf(MSGCH_ERROR, "Lua error: %s", clua.error.c_str());
+                    mprf(MSGCH_ERROR, "Lua 错误：%s", clua.error.c_str());
                 // just continue with the default value in this case
             }
             // set this so that it prints appropriate error messages for
@@ -1971,7 +1969,7 @@ static void _handle_autofight(command_type cmd, command_type prev_cmd)
     const string fnname = _autofight_lua_fn(cmd);
 
     if (!clua.callfn(fnname.c_str(), 0, 0))
-        mprf(MSGCH_ERROR, "Lua error: %s", clua.error.c_str());
+        mprf(MSGCH_ERROR, "Lua 错误：%s", clua.error.c_str());
 }
 
 class GameMenu : public Menu
@@ -2043,39 +2041,39 @@ public:
     {
         clear();
         add_entry(new CmdMenuEntry("", MEL_SUBTITLE));
-        add_entry(new CmdMenuEntry("Return to game", MEL_ITEM, CK_ESCAPE,
+        add_entry(new CmdMenuEntry("返回游戏", MEL_ITEM, CK_ESCAPE,
             CMD_NO_CMD, false));
         items[1]->add_tile(tileidx_command(CMD_GAME_MENU));
         // n.b. CMD_SAVE_GAME_NOW crashes on returning to the main menu if we
         // don't exit out of this popup now, not sure why
         add_entry(new CmdMenuEntry(
             (crawl_should_restart(game_exit::save)
-                            ? "Save and return to main menu"
-                            : "Save and exit"),
+                            ? "保存并返回主菜单"
+                            : "保存并退出"),
             MEL_ITEM, 'S', CMD_SAVE_GAME_NOW, false));
-        add_entry(new CmdMenuEntry("Generate and view character dump",
+        add_entry(new CmdMenuEntry("生成并查看角色日志",
             MEL_ITEM, '#', CMD_SHOW_CHARACTER_DUMP));
 #ifdef USE_TILE_LOCAL
-        add_entry(new CmdMenuEntry("Edit player tile",
+        add_entry(new CmdMenuEntry("编辑角色图块",
             MEL_ITEM, '-', CMD_EDIT_PLAYER_TILE));
 #endif
-        add_entry(new CmdMenuEntry("Edit macros",
+        add_entry(new CmdMenuEntry("编辑宏",
             MEL_ITEM, '~', CMD_MACRO_MENU));
-        add_entry(new CmdMenuEntry("Help and manual",
+        add_entry(new CmdMenuEntry("帮助与手册",
             MEL_ITEM, '?', CMD_DISPLAY_COMMANDS));
-        add_entry(new CmdMenuEntry("Lookup info",
+        add_entry(new CmdMenuEntry("查询信息",
             MEL_ITEM, '/', CMD_LOOKUP_HELP));
 #ifdef TARGET_OS_MACOSX
-        add_entry(new CmdMenuEntry("Show options file in finder",
+        add_entry(new CmdMenuEntry("在访达中显示选项文件",
             MEL_ITEM, 'O', CMD_REVEAL_OPTIONS));
 #endif
 #ifdef __ANDROID__
-        add_entry(new CmdMenuEntry("Toggle on-screen keyboard",
+        add_entry(new CmdMenuEntry("切换屏幕键盘",
             MEL_ITEM, CK_F12, CMD_TOGGLE_KEYBOARD));
 #endif
         add_entry(new CmdMenuEntry("", MEL_SUBTITLE));
         add_entry(new CmdMenuEntry(
-                            "Quit and <lightred>abandon character</lightred>",
+                            "退出并<lightred>放弃角色</lightred>",
             MEL_ITEM, 'Q', CMD_QUIT, false));
     }
 
@@ -2354,7 +2352,7 @@ void process_command(command_type cmd, command_type prev_cmd)
     case CMD_SHOW_CHARACTER_DUMP:
     case CMD_CHARACTER_DUMP:
         if (!dump_char(you.your_name))
-            mpr("Char dump unsuccessful! Sorry about that.");
+            mpr("角色日志生成失败，抱歉。");
 #ifdef USE_TILE_WEB
         else
             tiles.send_dump_info("command", you.your_name);
@@ -2439,8 +2437,8 @@ void process_command(command_type cmd, command_type prev_cmd)
     {
         const char * const prompt
             = (crawl_should_restart(game_exit::save))
-              ? "Save game and return to main menu?"
-              : "Save game and exit?";
+              ? "保存游戏并返回主菜单？"
+              : "保存游戏并退出？";
         explicit_keymap map;
         map['S'] = 'y';
         if (yesno(prompt, true, 'n', true, true, false, &map))
@@ -2451,7 +2449,7 @@ void process_command(command_type cmd, command_type prev_cmd)
     }
 
     case CMD_SAVE_GAME_NOW:
-        mpr("Saving game... please wait.");
+        mpr("正在保存游戏……请稍候。");
         save_game(true);
         break;
 
@@ -2459,11 +2457,11 @@ void process_command(command_type cmd, command_type prev_cmd)
     {
         // TODO: msg whether this will start a new game? not very important
         if (crawl_state.disables[DIS_CONFIRMATIONS]
-            || confirm_prompt("quit", "Are you sure you want to abandon this character%s?",
+            || confirm_prompt("quit", "你确定要放弃这个角色吗%s？",
                 Options.newgame_after_quit ? "" : // hard to predict this case
                 (crawl_should_restart(game_exit::quit)
-                                            ? " and return to the main menu"
-                                            : " and quit the game")))
+                                            ? " 并返回主菜单"
+                                            : " 并退出游戏")))
         {
             player_die(KILLED_BY_QUITTING);
         }
@@ -2490,13 +2488,13 @@ void process_command(command_type cmd, command_type prev_cmd)
     default:
         // The backslash in ?\? is there so it doesn't start a trigraph.
         if (crawl_state.game_is_hints())
-            mpr("Unknown command. (For a list of commands type <w>?\?</w>.)");
+            mpr("未知命令。（输入 <w>?\?</w> 可查看命令列表。）");
         else // well, not examine, but...
-            mprf(MSGCH_EXAMINE_FILTER, "Unknown command.");
+            mprf(MSGCH_EXAMINE_FILTER, "未知命令。");
 
         if (feat_is_altar(env.grid(you.pos())))
         {
-            string msg = "Press <w>%</w> or <w>%</w> to pray at altars.";
+            string msg = "按 <w>%</w> 或 <w>%</w> 在祭坛祈祷。";
             insert_commands(msg, { CMD_GO_UPSTAIRS, CMD_GO_DOWNSTAIRS });
             mpr(msg);
         }
@@ -2838,13 +2836,13 @@ static void _do_berserk_no_combat_penalty()
         switch (you.berserk_penalty)
         {
         case 2:
-            mprf(MSGCH_DURATION, "You feel a strong urge to attack something.");
+            mprf(MSGCH_DURATION, "你强烈地想要攻击点什么。");
             break;
         case 4:
-            mprf(MSGCH_DURATION, "You feel your anger nearly subside.");
+            mprf(MSGCH_DURATION, "你感到怒火几乎平息。");
             break;
         case 6:
-            mprf(MSGCH_DURATION, "Your blood rage is quickly leaving you.");
+            mprf(MSGCH_DURATION, "你的血怒正在迅速退去。");
             break;
         }
 
@@ -2915,13 +2913,11 @@ static void _check_cmd_repeat(int last_turn)
         // it does take zero turns, to cancel command repetition
         // before we reach here.
 #ifdef WIZARD
-        crawl_state.cant_cmd_repeat("Can't repeat a command which "
-                                    "takes no turns (unless it's a "
-                                    "wizard command), cancelling ");
+        crawl_state.cant_cmd_repeat("无法重复不消耗回合的命令"
+                                    "（除非是巫师命令），正在取消");
 #else
-        crawl_state.cant_cmd_repeat("Can't repeat a command which "
-                                    "takes no turns, cancelling "
-                                    "repetitions.");
+        crawl_state.cant_cmd_repeat("无法重复不消耗回合的命令，"
+                                    "正在取消重复。");
 #endif
         crawl_state.cancel_cmd_repeat();
         return;
@@ -2944,7 +2940,7 @@ static void _run_input_with_keys(const keyseq& keys)
 
     if (get_macro_buf_size() < old_buf_size)
     {
-        mprf(MSGCH_ERROR, "(Key replay stole keys)");
+        mprf(MSGCH_ERROR, "（按键回放夺走了按键）");
         crawl_state.cancel_cmd_all();
     }
 }
@@ -2964,12 +2960,12 @@ static void _do_cmd_repeat()
     char buf[80];
 
     // Function ensures that the buffer contains only digits.
-    int ch = _get_num_and_char("Number of times to repeat, then command key: ",
+    int ch = _get_num_and_char("输入重复次数，然后输入命令键：",
                                buf, sizeof(buf));
 
     if (strlen(buf) == 0)
     {
-        mpr("You must enter the number of times for the command to repeat.");
+        mpr("你必须输入命令重复次数。");
         _cancel_cmd_repeat();
         return;
     }
@@ -2987,7 +2983,7 @@ static void _do_cmd_repeat()
     c_input_reset(true);
     if (ch == ' ' || ch == CK_ENTER)
     {
-        mprf(MSGCH_PROMPT, "Enter command to be repeated: ");
+        mprf(MSGCH_PROMPT, "输入要重复的命令：");
         // Enable the cursor to read input.
         cursor_control con(true);
 
@@ -3063,7 +3059,7 @@ static void _do_prev_cmd_again()
 {
     if (is_processing_macro())
     {
-        mpr("Can't re-do previous command from within a macro.");
+        mpr("在宏中无法重做上一条命令。");
         flush_input_buffer(FLUSH_ABORT_MACRO);
         crawl_state.cancel_cmd_again();
         crawl_state.cancel_cmd_repeat();
@@ -3072,7 +3068,7 @@ static void _do_prev_cmd_again()
 
     if (crawl_state.prev_cmd == CMD_NO_CMD || crawl_state.prev_cmd_keys.empty())
     {
-        crawl_state.cancel_cmd_again("No previous command to re-do.", true);
+        crawl_state.cancel_cmd_again("没有可重做的上一条命令。", true);
         crawl_state.cancel_cmd_repeat();
         repeat_again_rec.clear();
         return;
@@ -3080,7 +3076,7 @@ static void _do_prev_cmd_again()
 
     if (crawl_state.doing_prev_cmd_again)
     {
-        mprf(MSGCH_ERROR, "Trying to re-do re-do command, aborting.");
+        mprf(MSGCH_ERROR, "尝试重做“重做命令”，已中止。");
         crawl_state.cancel_cmd_all();
         return;
     }

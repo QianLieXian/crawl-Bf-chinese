@@ -203,9 +203,9 @@ function ($, comm, client, ui, enums, cr, util, scroller, main, gui, player, opt
             suffix = ".";
             action_text = action_text.slice(0, -1);
         }
-        if (action_text.startsWith("or "))
+        if (action_text.startsWith("or ") || action_text.startsWith("或 "))
         {
-            prefix = "or ";
+            prefix = action_text.startsWith("或 ") ? "或 " : "or ";
             action_text = action_text.substr(3);
         }
         var hotkeys = action_text.match(/\(.\)/); // very inclusive for the key name
