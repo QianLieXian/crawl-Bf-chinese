@@ -14,7 +14,7 @@ public:
     virtual bool update_tab_tip_text(string &tip, bool active) override;
     virtual bool update_alt_text(string &alt) override;
 
-    virtual const string name() const override { return "Skills"; }
+    virtual const string name() const override { return "技能"; }
 
 protected:
     virtual void pack_buffers() override;

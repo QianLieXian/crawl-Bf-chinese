@@ -112,7 +112,7 @@ bool SpellRegion::update_tip_text(string& tip)
         cmd.push_back(CMD_CAST_SPELL);
     }
 
-    tip += "\n[R-Click] Describe (%)";
+    tip += "\n[右键] 查看描述 (%)";
     cmd.push_back(CMD_DISPLAY_SPELLS);
     insert_commands(tip, cmd);
 

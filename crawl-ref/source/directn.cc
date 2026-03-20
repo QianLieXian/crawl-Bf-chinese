@@ -1969,7 +1969,7 @@ string get_square_desc(const coord_def &pos)
 
     string mon_desc = cell_monster_description(pos);
     if (!mon_desc.empty())
-        out << "<cyan>Here:</cyan> " << mon_desc << "\n";
+        out << "<cyan>此处：</cyan> " << mon_desc << "\n";
 
     string desc = cell_items_description(pos);
     if (!desc.empty())
@@ -1979,7 +1979,7 @@ string get_square_desc(const coord_def &pos)
     if (!desc.empty())
     {
         if (mon_desc.empty())
-            out << "<cyan>Here:</cyan> ";
+            out << "<cyan>此处：</cyan> ";
         out << desc << "\n";
     }
 

@@ -147,7 +147,7 @@ static void _initialize()
 #endif
 
     // Read special levels and vaults.
-    _loading_message("Loading maps...");
+    _loading_message("正在加载地图...");
     read_maps();
     run_map_global_preludes();
 
@@ -420,25 +420,23 @@ struct game_modes_menu_item
 
 static const vector<game_modes_menu_item> entries =
 {
-    {GAME_TYPE_NORMAL, "Dungeon Crawl",
-        "Dungeon Crawl: The main game: full of monsters, items, "
-        "gods and danger!" },
-    {GAME_TYPE_CUSTOM_SEED, "Choose Game Seed",
-        "Play with a chosen custom dungeon seed." },
-    {GAME_TYPE_TUTORIAL, "Tutorial for Dungeon Crawl",
-        "Tutorial that covers the basics of Dungeon Crawl survival." },
-    {GAME_TYPE_HINTS, "Hints Mode for Dungeon Crawl",
-        "A mostly normal game that provides more advanced hints "
-        "than the tutorial."},
-    {GAME_TYPE_DESCENT, "Dungeon Descent",
-        "Mode with a branching, one-way path through the Dungeon." },
-    {GAME_TYPE_SPRINT, "Dungeon Sprint",
-        "Hard, fixed single level game mode." },
-    {GAME_TYPE_INSTRUCTIONS, "Instructions", "Help menu." },
-    {GAME_TYPE_ARENA, "The Arena",
-        "Pit computer controlled teams versus each other!" },
-    {GAME_TYPE_HIGH_SCORES, "High Scores",
-        "View the high score list." },
+    {GAME_TYPE_NORMAL, "地牢爬行",
+        "地牢爬行：主游戏模式，充满怪物、物品、神祇与危险！" },
+    {GAME_TYPE_CUSTOM_SEED, "选择游戏种子",
+        "使用指定的地下城种子开始游戏。" },
+    {GAME_TYPE_TUTORIAL, "地牢爬行教程",
+        "涵盖地牢爬行生存基础的教学模式。" },
+    {GAME_TYPE_HINTS, "地牢爬行提示模式",
+        "基本与普通模式相同，但提供比教程更进阶的提示。"},
+    {GAME_TYPE_DESCENT, "地牢速降",
+        "拥有分支结构、且只能单向前进的地牢模式。" },
+    {GAME_TYPE_SPRINT, "地牢冲刺",
+        "高难度、固定单层的游戏模式。" },
+    {GAME_TYPE_INSTRUCTIONS, "说明", "帮助菜单。" },
+    {GAME_TYPE_ARENA, "竞技场",
+        "让电脑控制的队伍彼此对战！" },
+    {GAME_TYPE_HIGH_SCORES, "高分榜",
+        "查看高分列表。" },
 };
 
 static void _construct_game_modes_menu(shared_ptr<OuterMenu>& container)
@@ -594,7 +592,7 @@ public:
         auto grid = make_shared<Grid>();
         grid->set_margin_for_crt(0, 0, 1, 0);
 
-        auto name_prompt = make_shared<Text>("Enter your name:");
+        auto name_prompt = make_shared<Text>("输入你的名字：");
         name_prompt->set_margin_for_crt(0, 1, 1, 0);
         name_prompt->set_margin_for_sdl(0, 0, 10, 0);
 
@@ -610,7 +608,7 @@ public:
 
         descriptions = make_shared<Switcher>();
 
-        auto mode_prompt = make_shared<Text>("Choices:");
+        auto mode_prompt = make_shared<Text>("模式选择：");
         mode_prompt->set_margin_for_crt(0, 1, 1, 0);
         mode_prompt->set_margin_for_sdl(0, 0, 10, 0);
         game_modes_menu = make_shared<OuterMenu>(true, 1, entries.size());

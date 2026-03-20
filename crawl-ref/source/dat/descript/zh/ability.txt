@@ -3,7 +3,7 @@ No ability ability
 
 如果你得到这个描述，那就是一个错误。
 %%%%
-Spit Poison ability
+喷吐毒液能力
 
 向目标生物吐出毒液。
 %%%%

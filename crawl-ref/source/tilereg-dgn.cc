@@ -885,7 +885,7 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
             has_monster = true;
             // TODO: is see_cell_no_trans too strong?
             if (mon->friendly())
-                _add_tip(tip, "[L-Click] Move");
+                _add_tip(tip, "[左键] 移动");
             else if (you.see_cell_no_trans(mon->pos()))
             {
                 tip = mon->name(DESC_A);
@@ -893,7 +893,7 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
                 {
                     if (!primary_is_secondary)
                     {
-                        _add_tip(tip, "[L-Click] "
+                        _add_tip(tip, "[左键] "
                             + quiver::get_primary_action()->quiver_description().tostring()
                             + " (%)");
                         cmd.push_back(CMD_PRIMARY_ATTACK);
@@ -901,16 +901,16 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
                     // else case: tip handled below
                 }
                 else if ((gc - you.pos()).rdist() <= melee_dist)
-                    _add_tip(tip, "[L-Click] Attack"); // show weapon?
+                    _add_tip(tip, "[左键] 攻击"); // show weapon?
                 else
-                    _add_tip(tip, "[L-Click] Move towards");
+                    _add_tip(tip, "[左键] 向目标移动");
 
                 if (quiver::get_secondary_action()->is_valid())
                 {
                     // this doesn't show the CMD_PRIMARY_ATTACK key
                     const string clickdesc = primary_is_secondary
-                        ? "[L-Click / Shift + L-Click] "
-                        : "[Shift + L-Click] ";
+                        ? "[左键 / Shift + 左键] "
+                        : "[Shift + 左键] ";
                     _add_tip(tip, clickdesc
                         + quiver::get_secondary_action()->quiver_description().tostring()
                         + " (%)");
@@ -922,19 +922,19 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
         {
             if (adjacent(gc, you.pos()))
             {
-                _add_tip(tip, "[L-Click] Move");
+                _add_tip(tip, "[左键] 移动");
                 if (feat_is_open_door(env.grid(gc)))
                 {
-                    _add_tip(tip, "[Shift + L-Click] Close (%)");
+                    _add_tip(tip, "[Shift + 左键] 关闭 (%)");
                     cmd.push_back(CMD_CLOSE_DOOR);
                 }
             }
             else if (env.map_knowledge(gc).feat() != DNGN_UNSEEN)
             {
                 if (click_travel_safe(gc))
-                    _add_tip(tip, "[L-Click] Travel");
+                    _add_tip(tip, "[左键] 自动寻路");
                 else
-                    _add_tip(tip, "[L-Click] Move towards");
+                    _add_tip(tip, "[左键] 向目标移动");
             }
         }
         else if (feat_is_closed_door(env.grid(gc)))
@@ -942,13 +942,13 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
             if (!adjacent(gc, you.pos()))
             {
                 if (click_travel_safe(gc))
-                    _add_tip(tip, "[L-Click] Travel");
+                    _add_tip(tip, "[左键] 自动寻路");
                 else
-                    _add_tip(tip, "[L-Click] Move towards");
+                    _add_tip(tip, "[左键] 向目标移动");
             }
             else
             {
-                _add_tip(tip, "[L-Click] Open door (%)");
+                _add_tip(tip, "[左键] 开门 (%)");
                 cmd.push_back(CMD_OPEN_DOOR);
             }
         }
@@ -963,7 +963,7 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
             const item_def * const item = env.map_knowledge(gc).item();
             if (item && !item_is_stationary(*item))
             {
-                _add_tip(tip, "[L-Click] Pick up items (%)");
+                _add_tip(tip, "[左键] 拾取物品 (%)");
                 cmd.push_back(CMD_PICKUP);
             }
         }
@@ -972,7 +972,7 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
         const command_type dir = feat_stair_direction(feat);
         if (dir != CMD_NO_CMD)
         {
-            _add_tip(tip, "[Shift + L-Click] ");
+            _add_tip(tip, "[Shift + 左键] ");
             if (feat == DNGN_ENTER_SHOP)
                 tip += "enter shop";
             else if (feat_is_altar(feat)
@@ -1031,14 +1031,14 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
         // Religion.
         if (!you_worship(GOD_NO_GOD))
         {
-            _add_tip(tip, "[Shift + R-Click] Religion (%)");
+            _add_tip(tip, "[Shift + 右键] 宗教信息 (%)");
             cmd.push_back(CMD_DISPLAY_RELIGION);
         }
     }
     else if (you.see_cell(gc)
              && env.map_knowledge(gc).feat() != DNGN_UNSEEN)
     {
-        _add_tip(tip, "[R-Click] Describe");
+        _add_tip(tip, "[右键] 查看描述");
     }
 
     if (!tip.empty())
