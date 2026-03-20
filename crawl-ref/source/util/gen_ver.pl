@@ -19,12 +19,17 @@ mkdir dirname($outfile);
 # intended to contain the output of `git describe`, and anything that
 # conforms to the regex below is fine. For example, "0.28-a" would be safe.
 #
-# Source tarbells distributed as part of a release include this file already
+# Source tarballs distributed as part of a release include this file already
 # generated with the release version.
-$_ = `git describe $mergebase 2> $nullfile`
-    || (open(IN, "<", "$scriptpath/release_ver") ? <IN>
-        : die "Error: Can't get version information: `git describe` failed (no git, no repository, or shallow clone), and $scriptpath/release_ver doesn't exist.\n")
-    or die "Error: couldn't get the version information\n";
+my $git_ver = `git describe $mergebase 2> $nullfile`;
+my $release_ver;
+if (open(my $in, "<", "$scriptpath/release_ver"))
+{
+    $release_ver = <$in>;
+    close($in);
+}
+
+$_ = $git_ver || $release_ver || $ENV{SRC_VERSION} || "0.0-a0";
 
 chomp;
 
