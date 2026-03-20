@@ -308,7 +308,7 @@ static void _give_player_experience(int experience, killer_type killer,
 
     // Give a message for monsters dying out of sight.
     if (exp_gain > 0 && !was_visible)
-        mpr("You feel a bit more experienced.");
+        mpr("你感觉自己又成长了一点。");
 }
 
 /**
@@ -784,7 +784,7 @@ static bool _vampire_make_thrall(monster* mons, killer_type killer)
     const unsigned int exp = exp_value(*mons);
 
     // Okay, let's try to make them for real!
-    mprf("%s rises to serve you!", mons->name(DESC_THE).c_str());
+    mprf("%s复苏了，开始为你效命！", mons->name(DESC_THE).c_str());
     record_monster_defeat(mons, KILL_YOU);
 
     mons->hit_points = mons->max_hit_points;
@@ -1844,7 +1844,7 @@ static void _cassandra_death_ambush()
     // player off lucky.
     if (spots.empty())
     {
-        mpr("You feel as though you may have cheated fate.");
+        mpr("你感觉自己仿佛骗过了命运。");
         return;
     }
 
@@ -1902,9 +1902,9 @@ static void _cassandra_death_ambush()
     }
 
     if (placed > 0)
-        mpr("You feel an ambush drawing close....");
+        mpr("你感到一场伏击正在逼近……");
     else
-        mpr("You feel as though you may have cheated fate.");
+        mpr("你感觉自己仿佛骗过了命运。");
 
     // Now seal all stairs on the floor for a moderate duration.
     const int seal_duration = random_range(150, 300);
@@ -2371,13 +2371,13 @@ static void _player_on_kill_effects(monster& mons, killer_type killer,
         {
             const int bonus = (2 + random2(4)) / 2;
             you.increase_duration(DUR_BERSERK, bonus);
-            mpr("The necklace of Bloodlust glows a violent red.");
+            mpr("嗜血项链亮起了狂暴的红光。");
         }
         else if (you.unrand_equipped(UNRAND_TROG) && coinflip())
         {
             const int bonus = (2 + random2(4)) / 2;
             you.increase_duration(DUR_BERSERK, bonus);
-            mpr("You feel the ancient rage of your axe.");
+            mpr("你感受到了战斧中远古的怒火。");
         }
     }
 
@@ -2397,7 +2397,7 @@ static void _player_on_kill_effects(monster& mons, killer_type killer,
 
             // Give a message for hitting max stacks
             if (slaying_bonus + 1 == FUGUE_MAX_STACKS)
-                mpr("The wailing of the fallen reaches a fever pitch!");
+                mpr("陨者的哀嚎攀升到了狂热的顶点！");
         }
     }
 
@@ -2666,7 +2666,7 @@ item_def* monster_die(monster& mons, killer_type killer,
             else if (source->is_player())
             {
                 you.duration[DUR_WEAK] = 0;
-                mprf(MSGCH_RECOVERY, "You feel your strength returning.");
+                mprf(MSGCH_RECOVERY, "你感到力量正在回归。");
             }
 
             silent = true;
@@ -2782,7 +2782,7 @@ item_def* monster_die(monster& mons, killer_type killer,
     {
         you.props[SOLAR_EMBER_REVIVAL_KEY].get_int() = you.elapsed_time + random_range(200, 320);
         if (!you.can_see(mons))
-            mprf(MSGCH_MONSTER_DAMAGE, MDAM_DEAD, "You feel your sun fade away.");
+            mprf(MSGCH_MONSTER_DAMAGE, MDAM_DEAD, "你感到体内的太阳正在黯淡。");
     }
     else if (mons.type == MONS_BATTLESPHERE)
         end_battlesphere(&mons, true);
@@ -2790,7 +2790,7 @@ item_def* monster_die(monster& mons, killer_type killer,
         end_spectral_weapon(&mons, true, true);
     else if (mons.type == MONS_RENDING_BLADE)
     {
-        mprf(MSGCH_DURATION, "Your magic returns to you!");
+        mprf(MSGCH_DURATION, "你的魔法回归了！");
         inc_mp(you.props[RENDING_BLADE_MP_KEY].get_int());
         you.props.erase(RENDING_BLADE_MP_KEY);
     }
@@ -3048,7 +3048,7 @@ item_def* monster_die(monster& mons, killer_type killer,
                     && !mons.is_unrewarding()
                     && !mons.friendly())
                 {
-                    mpr("That felt strangely unrewarding.");
+                    mpr("这感觉诡异地没有任何收获。");
                 }
             }
 
@@ -3358,7 +3358,7 @@ item_def* monster_die(monster& mons, killer_type killer,
     {
         you.props.erase(TESSERACT_SPAWN_COUNTER_KEY);
 
-        mprf(MSGCH_ORB, "A wave of disorienting energy ripples outward as you feel the reach of Zot diminish.");
+        mprf(MSGCH_ORB, "一道令人眩晕的能量波向外扩散，你感到佐特的触及正在减弱。");
         mark_milestone("tesseract.kill", "destroyed the tesseracts.");
 
         draw_ring_animation(mons.pos(), LOS_RADIUS, MAGENTA, BLUE, true, 5);
@@ -3399,9 +3399,9 @@ item_def* monster_die(monster& mons, killer_type killer,
             && !was_banished)
         {
             if (mons_base_type(mons) == MONS_KRAKEN)
-                mpr("The kraken's tentacles disappear.");
+                mpr("海妖的触手消失了。");
             else if (mons.type == MONS_TENTACLED_STARSPAWN)
-                mpr("The starspawn's tentacles wither and die.");
+                mpr("星裔的触手枯萎而亡。");
         }
     }
     else if (mons_is_tentacle_or_tentacle_segment(mons.type)

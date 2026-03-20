@@ -2269,8 +2269,8 @@ string RuneMenu::get_title()
                runes_in_pack() < you.obtainable_runes ? "green" :
                                                    "lightgreen";
 
-    return make_stringf("<white>Runes of Zot (</white>"
-                        "<%s>%d</%s><white> collected) & Orbs of Power</white>",
+    return make_stringf("<white>佐特符文（</white>"
+                        "<%s>%d</%s><white> 已收集）与力量宝珠</white>",
                         col, runes_in_pack(), col);
 }
 
@@ -2278,9 +2278,9 @@ string RuneMenu::gem_title()
 {
     const int found = gems_found();
     const int lost = gems_lost();
-    string gem_title = make_stringf("<white>Gems (%d collected", found);
+    string gem_title = make_stringf("<white>宝石（已收集%d", found);
     if (Options.more_gem_info && lost < found)
-        gem_title += make_stringf(", %d intact", found - lost);
+        gem_title += make_stringf(", 完好%d", found - lost);
     // don't explicitly mention that your gems are all broken otherwise - sad!
 
     return gem_title + ")</white>";
@@ -2295,9 +2295,9 @@ void RuneMenu::set_footer()
 #ifdef USE_TILE_LOCAL
             "|<w>Right-click</w>"
 #endif
-            "]: %s", show_gems ? "Show Runes" : "Show Gems");
+            "]: %s", show_gems ? "显示符文" : "显示宝石");
     if (!Options.more_gem_info && can_show_more_gems())
-        more_text += make_stringf("\n[<w>-</w>]: %s", more_gems ? "Less" : "More");
+        more_text += make_stringf("\n[<w>-</w>]: %s", more_gems ? "更少" : "更多");
     set_more(more_text);
 }
 
@@ -3063,22 +3063,22 @@ static string _general_cannot_read_reason()
 {
     // general checks
     if (player_in_branch(BRANCH_GEHENNA))
-        return "You cannot see clearly; the smoke and ash is too thick!";
+        return "你看不清楚；烟尘与灰烬太浓了！";
 
     if (you.berserk())
-        return "You are too berserk!";
+        return "你过于狂暴，无法阅读！";
 
     if (you.confused())
-        return "You are too confused!";
+        return "你太混乱了，无法阅读！";
 
     if (you.duration[DUR_NO_SCROLLS])
-        return "You cannot read scrolls in your current state!";
+        return "你当前状态下无法阅读卷轴！";
 
     if (you.is_silenced())
-        return make_stringf("You cannot read scrolls while %s!", player_silenced_reason());
+        return make_stringf("当你%s时无法阅读卷轴！", player_silenced_reason());
 
     if (you.has_mutation(MUT_RENOUNCE_SCROLLS) && you.props.exists(RENOUNCE_SCROLLS_TIMER_KEY))
-        return "You refuse to depend on such disposable conveniences.";
+        return "你拒绝依赖这种一次性的便利之物。";
 
     return "";
 }
@@ -3228,13 +3228,13 @@ string cannot_drink_item_reason(const item_def *item, bool temp,
     if (temp)
     {
         if (!you.can_drink(true))
-            return "You cannot drink potions in your current state!";
+            return "你当前状态下无法饮用药水！";
 
         if (you.berserk())
-            return "You are too berserk!";
+            return "你过于狂暴，无法饮用药水！";
 
         if (you.has_mutation(MUT_RENOUNCE_POTIONS) && you.props.exists(RENOUNCE_POTIONS_TIMER_KEY))
-            return "You refuse to indulge in frivolous drinking.";
+            return "你拒绝沉溺于这种无谓的饮用行为。";
 
         if (player_in_branch(BRANCH_COCYTUS))
             return "It's too cold; everything's frozen solid!";
