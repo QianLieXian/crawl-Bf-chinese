@@ -209,9 +209,13 @@ function dgn_map_meta_wrap(map, tab)
    -- We must set this each time - the map may have the same name, but
    -- be a different C++ object.
    for fn, val in pairs(tab) do
-      meta[fn] = function (...)
-                    return crawl.err_trace(val, map, ...)
-                 end
+      if type(val) == "function" then
+         meta[fn] = function (...)
+                       return crawl.err_trace(val, map, ...)
+                    end
+      else
+         meta[fn] = val
+      end
    end
 
    -- Convenience global variable, e.g. mapgrd[x][y] = 'x'
