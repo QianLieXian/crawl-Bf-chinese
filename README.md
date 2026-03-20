@@ -1,118 +1,145 @@
 [![Build Status](https://github.com/crawl/crawl/workflows/Build/badge.svg)](https://github.com/crawl/crawl/actions/)
 
-# Dungeon Crawl Stone Soup
+# 地城爬行：石汤（Dungeon Crawl Stone Soup）
 
-Dungeon Crawl Stone Soup is a game of dungeon exploration, combat and magic, involving characters of diverse skills, worshipping deities of great power and caprice. To win, you'll need to be a master of tactics and strategy, and prevail against overwhelming odds.
+《地城爬行：石汤》（DCSS）是一款围绕地城探索、战术战斗与魔法构筑展开的经典 Roguelike。你将扮演不同种族与职业的冒险者，面对变化莫测的神祇、凶险的怪物与层层深入的迷宫。想要通关，你需要的不只是“数值强”，更是冷静判断、资源管理与临场应变。
 
-## Contents
+如果你喜欢“每一步都很关键”的游戏体验，这就是那种会让你又紧张又上头的作品。
 
-1. [How to Play](#how-to-play)
-3. [Community](#community)
-5. [How you can help](#how-you-can-help)
-4. [License and history information](#license-and-history-information)
+## 目录
 
-## How to Play
+1. [开始游玩](#开始游玩)
+2. [中文汉化与打包（含 Windows 10）](#中文汉化与打包含-windows-10)
+3. [社区与交流](#社区与交流)
+4. [你可以如何参与](#你可以如何参与)
+5. [许可证与项目历史](#许可证与项目历史)
 
-For information on how to install the game, please visit [the installation documentation](crawl-ref/INSTALL.md).
+## 开始游玩
 
-If you'd like to dive in immediately, we suggest one of:
+安装方式请先阅读官方安装文档：[crawl-ref/INSTALL.md](crawl-ref/INSTALL.md)。
 
-* Start a game and pick a tutorial (select tutorial in the game menu),
-* Read [quickstart.md](crawl-ref/docs/quickstart.md) (in the [docs/](crawl-ref/docs/) directory), or
-* For the studious, [read Crawl's full manual](crawl-ref/docs/crawl_manual.rst).
+如果你想马上开一局，建议按这个顺序入门：
 
-There is also an ingame list of frequently asked questions which you can access by typing
-`?Q`.
+- 进入游戏后选择教程模式（Tutorial）；
+- 阅读新手速通指南：[crawl-ref/docs/quickstart.md](crawl-ref/docs/quickstart.md)；
+- 想系统学习机制，再看完整手册：[crawl-ref/docs/crawl_manual.rst](crawl-ref/docs/crawl_manual.rst)。
 
-#### Internet Play
+游戏内也提供常见问题列表：输入 `?Q` 即可查看。
 
-You can play Crawl online, competing with other players or watching them. Click "Play Online Now!" on [the Crawl homepage](https://crawl.develz.org/) to find your closest server. You can play in your browser or over SSH.
+### 在线游玩
 
-#### Offline Play
+你可以直接在线体验 DCSS，与其他玩家同服竞争、围观观战或复盘学习。前往官网 [crawl.develz.org](https://crawl.develz.org/)，点击 **“Play Online Now!”**，选择离你最近的服务器即可。支持浏览器游玩，也支持 SSH 连接。
 
-Both classical ASCII and tiles (GUI) versions of Crawl are available to [download for Linux, Windows and OS X](https://crawl.develz.org/download.htm).
+### 离线游玩
 
+DCSS 提供经典 ASCII 版本与图形 Tiles 版本，可在此下载（Linux / Windows / macOS）：
+[https://crawl.develz.org/download.htm](https://crawl.develz.org/download.htm)
 
-## 中文汉化与打包
+## 中文汉化与打包（含 Windows 10）
 
-本仓库包含面向中文玩家的深度汉化内容，重点覆盖怪物、战斗提示、场景与分支、UI 文本、属性/状态说明等。
+本仓库包含面向中文玩家的深度汉化，重点覆盖：
 
-- 汉化文本目录：`crawl-ref/source/dat/database/zh/`、`crawl-ref/source/dat/descript/zh/`
-- 打包教程（中文）：[`PACKAGING_ZH.md`](PACKAGING_ZH.md)
+- 怪物名称与描述
+- 战斗提示、状态文本
+- 场景/分支说明
+- UI 菜单与帮助文本
+- 属性、技能、职业、种族等核心说明
 
-如果你在游戏中发现未汉化文本，欢迎提交 issue 或 PR。
+主要汉化目录：
 
-## Community
+- `crawl-ref/source/dat/database/zh/`
+- `crawl-ref/source/dat/descript/zh/`
 
-* Our official homepage: [crawl.develz.org](https://crawl.develz.org/)
-  * Online webtiles play
-  * Offline downloads
-  * Our community forum: [tavern.dcss.io](https://tavern.dcss.io/)
-* [/r/roguelikes Discord](https://discord.gg/S5F2H32)
-* The [/r/dcss subreddit](https://www.reddit.com/r/dcss/)
-* IRC: #crawl on Libera (or #crawl-dev to chat development)
+如果你在游玩过程中发现漏翻、误译、术语不统一，欢迎提交 Issue 或 PR。
 
-## How you can help
+### 打包教程入口
 
-If you like the game and you want to help make it better, there are a number
-of ways to do so. For a detailed guide to the crawl workflow, look at
-the [contributor's guide](crawl-ref/docs/develop/contribution-process.md).
+- 中文打包文档（含 Windows 10）：[`PACKAGING_ZH.md`](PACKAGING_ZH.md)
 
-### Reporting bugs
+### Windows 10 快速打包流程（简版）
 
-At any time, there will be bugs -- finding and reporting them is a great help.
-Many of the online servers host the regularly updated development version. Bugs
-should be reported to [our github issue
-tracker](https://github.com/crawl/crawl/issues). Thoughtful ideas on how to
-improve interface or gameplay are welcome, but it's often best to
-[discuss](#community) changes before opening an issue or pull request.
+如果你主要在 Windows 10 上构建，建议优先使用 **MSYS2 / MinGW64** 环境：
 
-### Map making
-Crawl creates levels by combining many hand-made (but often randomised) maps,
-known as *vaults*. Making them is fun and easy. It's best to start with simple
-entry vaults: see [simple.des](crawl-ref/source/dat/des/arrival/simple.des) for
-examples. You can also read [the level-design manual](crawl-ref/docs/develop/levels/introduction.txt) for more help.
+1. 安装 MSYS2，并打开 `MSYS2 MinGW 64-bit` 终端。
+2. 安装基础工具链与常用依赖（`git`、`make`、`gcc`、`python`、`SDL2` 等）。
+3. 进入 `crawl-ref/source`，执行图形版构建：
+   ```bash
+   make -j"$(nproc)" TILES=y
+   ```
+4. 构建完成后，连同可执行文件与运行所需资源目录一起打包分发。
 
-If you're ambitious, you can create new vaults for anywhere in the game. If
-you've made some vaults, you can test them on your own system (no compiling
-needed) and submit them via a github pull request. See the [contributor's guide](crawl-ref/docs/develop/contribution-process.md) for details.
+> 详细步骤、注意事项与常见问题请以 `PACKAGING_ZH.md` 为准。
 
-### Monster Speech & Item Descriptions
-Monster speech provides a lot of flavour. Just like vaults, varied speech depends
-upon a large set of entries. Speech syntax is effective but unusual, so you may want to read [the formatting guide](crawl-ref/docs/develop/monster_speech.txt).
+## 社区与交流
 
-Current item descriptions can be read in-game with `?/` or out-of-game
-them in [dat/descript/](crawl-ref/source/dat/descript/). The following conventions should be more or less obeyed:
-* Descriptions ought to contain flavour text, ideally pointing out major weaknesses/strengths.
-* No numbers, please.
-* Citations are okay, but try to stay away from the most generic ones.
+- 官方主页：[crawl.develz.org](https://crawl.develz.org/)
+  - 在线 WebTiles
+  - 各平台离线下载
+  - 官方论坛：[tavern.dcss.io](https://tavern.dcss.io/)
+- [/r/roguelikes Discord](https://discord.gg/S5F2H32)
+- [/r/dcss subreddit](https://www.reddit.com/r/dcss/)
+- IRC：Libera 上的 `#crawl`（开发相关可在 `#crawl-dev`）
 
-### Tiles
-We're always open to improvements to existing tiles or variants of often-used
-tiles (eg floor tiles). If you want to give this a shot, please [contact us](#community). In case you drew some tiles of your own, you can simply share
-them with a developer or submit them via a github pull request. See the
-[contributor's guide](crawl-ref/docs/develop/contribution-process.md) for
-details.
+## 你可以如何参与
 
-### Patches
-For developers (both existing & aspiring!), you can download/fork the source code and write patches. Bug fixes as well as new features are very much welcome.
+如果你喜欢这款游戏，欢迎一起把它变得更好。完整协作流程请参考贡献指南：
+[crawl-ref/docs/develop/contribution-process.md](crawl-ref/docs/develop/contribution-process.md)
 
-For large changes, it's always a good idea to [talk with the dev team](#community) first, to see if any plans already exist and if your suggestion is likely to be accepted.
+### 反馈问题（Bug Report）
 
-Please be sure to read [docs/develop/coding_conventions.md](crawl-ref/docs/develop/coding_conventions.md) too.
+任何时候，稳定复现并清晰描述问题，都是最有价值的帮助之一。很多线上服务器运行的是持续更新的开发版，若发现 Bug，请提交到：
+[https://github.com/crawl/crawl/issues](https://github.com/crawl/crawl/issues)
 
-## License and history information
+如果你有界面交互或玩法改进建议，也欢迎提出；但对于较大改动，通常先在社区讨论会更高效。
 
-Crawl is licensed as GPLv2+. See [LICENSE](LICENSE) for the full text.
+### 地图（Vault）制作
 
-Crawl is a descendant of Linley's Dungeon Crawl. The final alpha of Linley's Dungeon Crawl (v4.1) was released by Brent Ross in 2005. Since 2006, the Dungeon Crawl Stone Soup team has continued development. [CREDITS.txt](crawl-ref/CREDITS.txt) contains a full list of contributors.
+DCSS 的关卡由大量手工设计（同时支持随机变化）的 vault 组合而成。入门建议从简单的入口 vault 开始：
+[crawl-ref/source/dat/des/arrival/simple.des](crawl-ref/source/dat/des/arrival/simple.des)
 
-Crawl uses the following open source packages; thanks to their developers:
+还可以参考关卡设计文档：
+[crawl-ref/docs/develop/levels/introduction.txt](crawl-ref/docs/develop/levels/introduction.txt)
 
-* The Lua scripting language, for in-game functionality and user macros ([license](crawl-ref/docs/license/lualicense.txt)).
-* The PCRE library, for regular expressions ([license](crawl-ref/docs/license/pcre_license.txt)).
-* The SQLite library, as a database engine ([license](https://www.sqlite.org/copyright.html)).
-* The SDL and SDL_image libraries, for tiles display ([license](crawl-ref/docs/license/lgpl.txt)).
-* The libpng library, for tiles image loading ([license](crawl-ref/docs/license/libpng-LICENSE.txt)).
+### 怪物台词与物品描述
 
-Thank you, and have fun crawling!
+怪物台词是游戏风味的重要来源。你可以参考格式说明：
+[crawl-ref/docs/develop/monster_speech.txt](crawl-ref/docs/develop/monster_speech.txt)
+
+物品描述可在游戏内通过 `?/` 查看，也可离线查看：
+[crawl-ref/source/dat/descript/](crawl-ref/source/dat/descript/)
+
+建议遵循这些写作原则：
+
+- 突出风味，同时尽量体现关键优劣势；
+- 避免堆砌具体数值；
+- 引用可用，但尽量避免过于泛化、缺少辨识度的表达。
+
+### 图块（Tiles）
+
+无论是优化现有图块，还是制作常见元素（例如地板）的变体，我们都欢迎。你可以先在社区联系开发者，再通过 PR 提交作品。
+
+### 代码补丁（Patches）
+
+不论你是资深开发者还是刚开始接触项目，都可以 fork 源码后提交补丁。Bug 修复与新功能都很受欢迎。
+
+对于规模较大的改动，建议先与开发团队沟通，确认方向与可合入性。
+
+编码前建议先阅读：
+[crawl-ref/docs/develop/coding_conventions.md](crawl-ref/docs/develop/coding_conventions.md)
+
+## 许可证与项目历史
+
+DCSS 使用 GPLv2+ 许可证，完整文本见：[LICENSE](LICENSE)
+
+DCSS 源自 Linley 的 Dungeon Crawl。Linley 版最后一个 alpha（v4.1）由 Brent Ross 于 2005 年发布。自 2006 年起，Dungeon Crawl Stone Soup 团队持续维护与开发至今。完整贡献者名单见：
+[crawl-ref/CREDITS.txt](crawl-ref/CREDITS.txt)
+
+DCSS 使用了以下开源组件，感谢对应开发者：
+
+- Lua 脚本语言（游戏内功能与宏）：[license](crawl-ref/docs/license/lualicense.txt)
+- PCRE 正则库：[license](crawl-ref/docs/license/pcre_license.txt)
+- SQLite 数据库：[license](https://www.sqlite.org/copyright.html)
+- SDL / SDL_image（图形显示）：[license](crawl-ref/docs/license/lgpl.txt)
+- libpng（图像加载）：[license](crawl-ref/docs/license/libpng-LICENSE.txt)
+
+感谢你的关注，祝你每一局都有精彩瞬间，少一点“手滑送命”，多一点“绝境翻盘”。
