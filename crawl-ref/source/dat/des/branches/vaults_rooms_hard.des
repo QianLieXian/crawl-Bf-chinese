@@ -38,8 +38,8 @@ function init_protected_by_tso(e)
   e.tags('vaults_hard')
   e.kmons('A = angel')
   e.kmons('1 = generate_awake daeva')
-  e.kmons('2 = vault warden ; great sword ' .. h .. ' | battleaxe .. ' .. h ..
-                             'glaive ' .. h .. ' | great mace ' .. h .. ' . ' ..
+  e.kmons('2 = vault warden ; great sword ' .. h .. ' | battleaxe ' .. h ..
+                             ' | glaive ' .. h .. ' | great mace ' .. h .. ' . ' ..
                              ' . chain mail | plate armour')
   e.kmons('3 = generate_awake vault guard / \
                generate_awake ironbound mechanist w:2')
