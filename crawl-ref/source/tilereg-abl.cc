@@ -110,7 +110,7 @@ bool AbilityRegion::update_tip_text(string& tip)
         cmd.push_back(CMD_USE_ABILITY);
     }
 
-    tip += "\n[R-Click] Describe";
+    tip += "\n[右键] 查看描述";
     insert_commands(tip, cmd);
 
     return true;

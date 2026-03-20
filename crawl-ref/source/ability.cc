@@ -1060,7 +1060,7 @@ static const string _detailed_cost_description(ability_type ability)
     ostringstream ret;
 
     bool have_cost = false;
-    ret << "This ability costs: ";
+    ret << "该能力消耗：";
 
     if (abil.get_mp_cost())
     {
@@ -1090,45 +1090,45 @@ static const string _detailed_cost_description(ability_type ability)
         if (gold_amount)
             ret << gold_amount;
         else if (ability == ABIL_GOZAG_POTION_PETITION)
-            ret << "free";
+            ret << "免费";
         else
-            ret << "variable";
+            ret << "浮动";
     }
 
     if (abil.flags & abflag::curse)
     {
         have_cost = true;
-        ret << "\nOne cursed item";
+        ret << "\n一件被诅咒的物品";
     }
 
     if (abil.flags & abflag::torchlight)
     {
         have_cost = true;
-        ret << "\nTorchlight";
+        ret << "\n火炬照明";
     }
     if (!have_cost)
-        ret << "nothing.";
+        ret << "无。";
 
     if (abil.flags & abflag::breath)
-        ret << "\nYou must catch your breath between uses of this ability.";
+        ret << "\n该能力两次使用之间需要喘息恢复。";
 
     if (abil.flags & abflag::delay)
-        ret << "\nThis ability takes some time before being effective.";
+        ret << "\n该能力需要一段时间才会生效。";
 
     if (abil.flags & abflag::injury)
-        ret << "\nUsing this ability will hurt you for a large fraction of your current HP.";
+        ret << "\n使用该能力会使你损失当前生命值中的很大一部分。";
 
     if (abil.flags & abflag::torment)
-        ret << "\nUsing this ability invokes torment.";
+        ret << "\n使用该能力会引发折磨效果。";
 
     if (abil.flags & abflag::exhaustion)
-        ret << "\nThis ability causes exhaustion, and cannot be used when exhausted.";
+        ret << "\n该能力会造成力竭，力竭时无法使用。";
 
     if (abil.flags & abflag::instant)
-        ret << "\nThis ability is instantaneous.";
+        ret << "\n该能力为瞬发。";
 
     if (abil.flags & abflag::conf_ok)
-        ret << "\nYou can use this ability even if confused.";
+        ret << "\n即使处于混乱状态，你也可以使用该能力。";
 
     if (abil.flags & abflag::max_hp_drain
         && (ability != ABIL_EVOKE_TURN_INVISIBLE || _invis_causes_drain()))
@@ -1609,8 +1609,8 @@ string get_ability_desc(const ability_type ability, bool need_title)
     lookup += "\n";
 
     if (damage_str != "")
-        lookup += make_stringf("Damage: %s\n ", damage_str.c_str());
-    lookup += make_stringf("Range: %s\n", range_str.c_str());
+        lookup += make_stringf("伤害：%s\n ", damage_str.c_str());
+    lookup += make_stringf("射程：%s\n", range_str.c_str());
 
     ostringstream res;
     if (need_title)

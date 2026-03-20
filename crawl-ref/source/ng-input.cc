@@ -17,7 +17,7 @@
 formatted_string opening_screen()
 {
     string msg =
-    "<yellow>Hello, welcome to " CRAWL " " + string(Version::Long) + "!</yellow>\n"
+    "<yellow>你好，欢迎来到 " CRAWL " " + string(Version::Long) + "！</yellow>\n"
     "<brown>" CRAWL_COPYRIGHT;
 
     return formatted_string::parse_string(msg);

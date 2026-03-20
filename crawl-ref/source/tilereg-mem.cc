@@ -116,7 +116,7 @@ bool MemoriseRegion::update_tip_text(string& tip)
         cmd.push_back(CMD_MEMORISE_SPELL);
     }
 
-    tip += "\n[R-Click] Describe";
+    tip += "\n[右键] 查看描述";
 
     insert_commands(tip, cmd);
     return true;

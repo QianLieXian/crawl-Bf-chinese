@@ -1602,22 +1602,21 @@ static string _handedness_string(const item_def &item)
     switch (you.hands_reqd(item))
     {
     case HANDS_ONE:
-        n = "one";
+        n = "单";
         break;
     case HANDS_TWO:
         if (quad)
             handname = pluralise(handname);
-        n = "two";
+        n = "双";
         break;
     }
 
     if (quad)
-        return make_stringf("It is a weapon for %s %s.", n.c_str(), handname.c_str());
+        return make_stringf("这是一把供%s%s使用的武器。", n.c_str(), handname.c_str());
     else
     {
-        return make_stringf("It is a %s-%s%s weapon.", n.c_str(),
-            handname.c_str(),
-            ends_with(handname, "e") ? "d" : "ed");
+        return make_stringf("这是一把%s-%s%s武器。", n.c_str(),
+            handname.c_str(), "式");
     }
 
 }
@@ -1628,17 +1627,17 @@ static string _category_string(const item_def &item, bool monster)
         return ""; // handled in art-data DBRAND
 
     string description = "";
-    description += "This ";
+    description += "这把";
     if (is_unrandom_artefact(item))
         description += get_artefact_base_name(item);
     else
-        description += "weapon";
-    description += " falls into the";
+        description += "武器";
+    description += "归入";
 
     const skill_type skill = item_attack_skill(item);
 
     description +=
-        make_stringf(" '%s' category. ",
+        make_stringf("“%s”类别。 ",
                      skill == SK_FIGHTING ? "buggy" : skill_name(skill));
 
     switch (item_attack_skill(item))
@@ -1653,14 +1652,14 @@ static string _category_string(const item_def &item, bool monster)
     case SK_AXES:
         description += "它会攻击持有者邻近的所有敌人";
         if (!is_unrandom_artefact(item, UNRAND_WOE))
-            description += ", dealing less damage to those not targeted";
+            description += "，对非主要目标造成的伤害会更低";
         description += ". ";
         break;
     case SK_SHORT_BLADES:
         {
             description += make_stringf(
-                "It is%s good for stabbing helpless or unaware enemies. ",
-                (item.sub_type == WPN_DAGGER) ? " extremely" : "");
+                "它%s适合背刺无助或未察觉你的敌人。 ",
+                (item.sub_type == WPN_DAGGER) ? "非常" : "");
 
         }
         break;
@@ -1718,8 +1717,8 @@ static string _describe_point_change(float points)
 {
     string point_diff_description;
 
-    point_diff_description += make_stringf("%s by %.1f",
-                                           points > 0 ? "increase" : "decrease",
+    point_diff_description += make_stringf("%s %.1f",
+                                           points > 0 ? "提高" : "降低",
                                            abs(points));
 
     return point_diff_description;
@@ -1731,7 +1730,7 @@ static string _describe_point_diff(int original,
     string description;
 
     if (original == changed)
-        return "remain unchanged";
+        return "保持不变";
 
     // Truncate to 1 decimal place, rather than round (so that it matches what
     // will be displayed as the player's AC/EV if they actually put this on.)
@@ -1755,9 +1754,9 @@ static string _equip_type_name(const item_def &item)
     if (item.base_type == OBJ_JEWELLERY)
     {
         if (jewellery_is_amulet(item))
-            return "amulet";
+            return "护符";
         else
-            return "ring";
+            return "戒指";
     }
 
     return base_type_string(item.base_type);
@@ -1766,10 +1765,10 @@ static string _equip_type_name(const item_def &item)
 static string _equipment_switchto_string(const item_def &item)
 {
     if (item.base_type == OBJ_WEAPONS || item.base_type == OBJ_STAVES)
-        return "wielding";
+        return "持用";
     // Not always the same verb used elsewhere, but "switch putting on" sounds weird
     else
-        return "wearing";
+        return "穿戴";
 }
 
 /**
@@ -1835,27 +1834,27 @@ static string _equipment_property_change_description(const item_def &item,
 
     if (remove)
     {
-        description += "If you " + item_unequip_verb(item) + " this "
-                        + _equip_type_name(item) + ":";
+        description += "如果你卸下这件"
+                        + _equip_type_name(item) + "：";
     }
     else if (item.base_type == OBJ_TALISMANS)
-        description += "If you transformed using this talisman:";
+        description += "如果你使用该护符变形：";
     else if (item.base_type == OBJ_JEWELLERY && !jewellery_is_amulet(item))
-        description += "If you were wearing this ring:";
+        description += "如果你佩戴这枚戒指：";
     else if (item.base_type == OBJ_WEAPONS && you.has_mutation(MUT_WIELD_OFFHAND))
-        description += "If you switch to wielding this weapon in your main hand:";
+        description += "如果你改为在主手持用这把武器：";
     else
     {
-        description += "If you switch to " + _equipment_switchto_string(item)
-                         + " this " + _equip_type_name(item) + ":";
+        description += "如果你改为" + _equipment_switchto_string(item)
+                         + "这件" + _equip_type_name(item) + "：";
     }
 
     // Always display AC line on proper armour, even if there is no change
     if (item.base_type == OBJ_ARMOUR && get_armour_slot(item) != SLOT_OFFHAND
         || cur_ac != new_ac)
     {
-        description += "\nYour AC would "
-                       + _describe_point_diff(cur_ac, new_ac) + ".";
+        description += "\n你的 AC 将"
+                       + _describe_point_diff(cur_ac, new_ac) + "。";
     }
 
     // Always display EV line on non-orb armour, even if there is no change
@@ -1863,26 +1862,26 @@ static string _equipment_property_change_description(const item_def &item,
     if (item.base_type == OBJ_ARMOUR && item.sub_type != ARM_ORB
         || cur_ev != new_ev)
     {
-        description += "\nYour EV would "
-                       + _describe_point_diff(cur_ev, new_ev) + ".";
+        description += "\n你的 EV 将"
+                       + _describe_point_diff(cur_ev, new_ev) + "。";
     }
 
     // Always display SH line on shields, even if there is no change
     if (is_shield(item) || cur_sh != new_sh)
     {
-        description += "\nYour SH would "
-                       + _describe_point_diff(cur_sh, new_sh) + ".";
+        description += "\n你的 SH 将"
+                       + _describe_point_diff(cur_sh, new_sh) + "。";
     }
 
     if (fail_change != 0)
     {
-        description += "\nYour spell failure would ";
-        description += (fail_change > 0) ? "worsen" : "improve";
+        description += "\n你的法术失败率将";
+        description += (fail_change > 0) ? "变差" : "改善";
         if (visible_fail_change == 0)
-            description += " trivially.";
+            description += "（变化极小）。";
         else
         {
-            description += make_stringf(" by up to %d%% (press '!' for details).",
+            description += make_stringf("，最多变化 %d%%（按 '!' 查看详情）。",
                                     abs(visible_fail_change)).c_str();
         }
     }
@@ -6501,11 +6500,10 @@ static string _monster_stat_description(const monster_info& mi, bool mark_spells
         !mons_class_is_stationary(mi.type))
     {
         if (mon_shape_is_humanoid(get_mon_shape(mi.type)))
-            result << uppercase_first(pronoun) << " can open doors.\n";
+            result << uppercase_first(pronoun) << "可以开门。\n";
         else
         {
-            result << "Despite " << mi.pronoun(PRONOUN_POSSESSIVE)
-                   << " appearance, " << pronoun << " can open doors.\n";
+            result << "尽管从外形上看不像，" << pronoun << "依然可以开门。\n";
         }
     }
     else if (mons_class_flag(mi.type, M_CRASH_DOORS))

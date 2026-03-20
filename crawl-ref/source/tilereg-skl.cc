@@ -105,7 +105,7 @@ bool SkillRegion::update_tab_tip_text(string &tip, bool active)
 {
     const char *prefix = active ? "" : "[L-Click] ";
 
-    tip = make_stringf("%s%s", prefix, "Manage skills");
+    tip = make_stringf("%s%s", prefix, "管理技能");
 
     return true;
 }
@@ -121,23 +121,23 @@ bool SkillRegion::update_tip_text(string& tip)
 
     const int flag = m_items[item_idx].flag;
     if (flag & TILEI_FLAG_INVALID)
-        tip = "You cannot train this skill now.";
+        tip = "你目前无法训练该技能。";
     else if (!you.has_mutation(MUT_DISTRIBUTED_TRAINING))
     {
         const skill_type skill = (skill_type) m_items[item_idx].idx;
 
-        tip = "[L-Click] ";
+        tip = "[左键] ";
         if (you.train[skill])
-            tip += "Disable training";
+            tip += "停止训练";
         else
-            tip += "Enable training";
+            tip += "开始训练";
     }
 #ifdef WIZARD
     if (you.wizard)
-        tip += "\n[Ctrl + L-Click] Change skill level (wizmode)";
+        tip += "\n[Ctrl + 左键] 修改技能等级（巫师模式）";
 #endif
 
-    tip += "\n[R-Click] Describe";
+    tip += "\n[右键] 查看描述";
 
     return true;
 }

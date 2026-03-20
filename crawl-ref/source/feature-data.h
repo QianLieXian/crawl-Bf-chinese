@@ -556,7 +556,7 @@ PORTAL_EXIT(DNGN_EXIT_CRUCIBLE, "gate leading back out of this place", "exit_cru
 }
 
 {
-    DNGN_EXIT_DUNGEON, "staircase leading out of the dungeon", "exit_dungeon",
+    DNGN_EXIT_DUNGEON, "通往地牢外的楼梯", "exit_dungeon",
     DCHAR_STAIRS_UP, NUM_DCHAR_TYPES,
     LIGHTBLUE, GREEN, LIGHTBLUE, LIGHTBLUE, LIGHTBLUE,
     FFT_NONE, MF_STAIR_UP,
