@@ -170,6 +170,8 @@ void init_mon_name_cache()
 
         Mon_Name_Cache[name] = mon;
     }
+       Mon_Name_Cache["rat"] = MONS_RAT;
+    Mon_Name_Cache["frilled lizard"] = MONS_FRILLED_LIZARD;
 }
 
 static const char *_mon_entry_name(size_t idx)
