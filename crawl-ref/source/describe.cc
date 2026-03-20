@@ -1707,7 +1707,7 @@ static string _describe_weapon_brand(const item_def &item)
     if (ego == SPWPN_VALOUR)
     {
         dice_def dmg = zap_damage(ZAP_VALOUR_BEAM, property(item, PWPN_DAMAGE), false, false);
-        ego_desc += make_stringf("The beam does %dd%d damage.", dmg.num, dmg.size);
+        ego_desc += make_stringf("这道射线造成 %dd%d 伤害。", dmg.num, dmg.size);
     }
 
     return ego_desc;
@@ -1940,9 +1940,9 @@ static string _spell_fail_change_description(const item_def &item,
 
     // Otherwise, generate a complete list of all non-trivial changes
     string desc;
-    desc = make_stringf("If you %s this item, your spell failure would %s:\n",
-                        remove ? "removed" : "equipped",
-                        fail_change < 0 ? "worsen" : "improve");
+    desc = make_stringf("如果你%s此物品，你的法术失败率将会%s：\n",
+                        remove ? "卸下" : "装备",
+                        fail_change < 0 ? "变差" : "改善");
 
     // Sort spells by degree of change in their fail rates (and then by
     // absolute fail rate after that)
@@ -2143,20 +2143,20 @@ static string _orb_ego_details(special_armour_type ego)
     switch (ego)
     {
         case SPARM_ENERGY:
-            return make_stringf("\n\nSpell refund chance: %d%% (max %d%%)",
+            return make_stringf("\n\n返还法术位概率：%d%%（最高 %d%%）",
                                 player_channelling_chance(), player_channelling_chance(true));
 
         case SPARM_GUILE:
-            return make_stringf("\n\nEnemy Willpower: -%d (max -%d)",
+            return make_stringf("\n\n敌方意志：-%d（最高 -%d）",
                                 guile_will_reduction(), guile_will_reduction(true));
 
         case SPARM_GLASS:
-            return make_stringf("\n\nVitrify chance: %d%% (max %d%%)",
+            return make_stringf("\n\n玻璃化概率：%d%%（最高 %d%%）",
                         (20 + you.skill(SK_EVOCATIONS, 5)) * 100 / 500,
                         (20 + 135) * 100 / 500);
 
         case SPARM_PYROMANIA:
-            return make_stringf("\n\nExplosion chance: %d%% (max %d%%)\nExplosion damage: %dd%d (max %dd%d)\n",
+            return make_stringf("\n\n爆炸概率：%d%%（最高 %d%%）\n爆炸伤害：%dd%d（最高 %dd%d）\n",
                                 pyromania_trigger_chance(), pyromania_trigger_chance(true),
                                 pyromania_damage(false, false).num, pyromania_damage(false, false).size,
                                 pyromania_damage(false, true).num, pyromania_damage(false, true).size);
@@ -2165,15 +2165,15 @@ static string _orb_ego_details(special_armour_type ego)
         {
             dice_def base_dam = zap_damage(ZAP_SHOOTING_STAR, stardust_orb_power(0), false, false);
             dice_def max_dam = zap_damage(ZAP_SHOOTING_STAR, stardust_orb_power(0, true), false, false);
-            return make_stringf("\n\nBase shooting star damage: %dd%d (max %dd%d) + 25%% per MP spent"
-                                "\nShooting stars conjured: 1 + 1 per visible enemy, up to %d (%d at max skill)",
+            return make_stringf("\n\n基础流星伤害：%dd%d（最高 %dd%d）+ 每点魔力额外 25%%"
+                                "\n召唤流星数量：1 + 每个可见敌人 1，最多 %d（满技能为 %d）",
                                     base_dam.num, base_dam.size,
                                     max_dam.num, max_dam.size,
                                     stardust_orb_max(), stardust_orb_max(true));
         }
 
         case SPARM_MESMERISM:
-            return make_stringf("\n\nMesmerism radius: %d (max %d)", mesmerism_orb_radius(), mesmerism_orb_radius(true));
+            return make_stringf("\n\n魅惑半径：%d（最高 %d）", mesmerism_orb_radius(), mesmerism_orb_radius(true));
 
         default:
             return "";
@@ -3241,8 +3241,7 @@ void get_feature_desc(const coord_def &pos, describe_info &inf, bool include_ext
         }
         else if (feat == DNGN_ENTER_ABYSS || feat == DNGN_EXIT_THROUGH_ABYSS)
         {
-            long_desc += make_stringf("\n(If you entered the Abyss now, you could be "
-                                          "pulled as deep as Abyss:%d.)",
+            long_desc += make_stringf("\n（如果你现在进入深渊，可能会被拉到最深 Abyss:%d。）",
                                       abyss_default_depth(true));
         }
         else if (feat_is_portal(feat)
@@ -3259,8 +3258,8 @@ void get_feature_desc(const coord_def &pos, describe_info &inf, bool include_ext
         {
             // it's just special case after special case with these descs
             const string how = feat == DNGN_ENTER_HELL
-                ? (stair_dir == CMD_GO_UPSTAIRS ? "to Hell" : "Hell")
-                : make_stringf("through %s", desc_the.c_str());
+                ? (stair_dir == CMD_GO_UPSTAIRS ? "前往地狱" : "地狱")
+                : make_stringf("通过%s", desc_the.c_str());
             long_desc += make_stringf(
                     "\nWhile standing here, you can %s %s "
                     "with the <w>%s</w> key%s.",
@@ -3274,7 +3273,7 @@ void get_feature_desc(const coord_def &pos, describe_info &inf, bool include_ext
     else if (feat_is_altar(feat))
     {
         long_desc +=
-            make_stringf("\nPray here with <w>%s</w> to learn more.\n",
+            make_stringf("\n在此按 <w>%s</w> 祈祷可了解更多信息。\n",
                          command_to_string(CMD_GO_DOWNSTAIRS).c_str());
     }
     else if (feat == DNGN_ENTER_SHOP)
@@ -3299,7 +3298,7 @@ void get_feature_desc(const coord_def &pos, describe_info &inf, bool include_ext
         if (mark)
         {
             dice_def dmg = zap_damage(ZAP_SPIKE_LAUNCHER, mark->power, mark->owner != MID_PLAYER, false);
-            long_desc += make_stringf("\nIt does %dd%d damage.", dmg.num, dmg.size);
+            long_desc += make_stringf("\n它会造成 %dd%d 伤害。", dmg.num, dmg.size);
         }
     }
 

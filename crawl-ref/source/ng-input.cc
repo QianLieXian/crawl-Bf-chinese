@@ -30,7 +30,7 @@ formatted_string options_read_status()
 
     if (!f.error())
     {
-        msg += "<lightgrey>Options read from \"";
+        msg += "<lightgrey>已从以下位置读取配置：\"";
 #ifdef DGAMELAUNCH
         // For dgl installs, show only the last segment of the .crawlrc
         // file name so that we don't leak details of the directory
@@ -39,19 +39,19 @@ formatted_string options_read_status()
 #else
         msg += Options.filename;
 #endif
-        msg += "\".</lightgrey>";
+        msg += "\"。</lightgrey>";
     }
     else
     {
-        msg += "<lightred>Options file ";
+        msg += "<lightred>配置文件";
         if (!Options.filename.empty())
         {
-            msg += make_stringf("\"%s\" is not readable",
+            msg += make_stringf("“%s”无法读取",
                                 Options.filename.c_str());
         }
         else
-            msg += "not found";
-        msg += "; using defaults.</lightred>";
+            msg += "未找到";
+        msg += "；将使用默认配置。</lightred>";
     }
 
     msg += "\n";

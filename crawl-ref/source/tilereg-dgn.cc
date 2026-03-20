@@ -978,12 +978,12 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
             else if (feat_is_altar(feat)
                      && player_can_join_god(feat_altar_god(feat)))
             {
-                tip += "pray at altar";
+                tip += "在祭坛祈祷";
             }
             else if (feat_is_gate(feat))
-                tip += "enter gate";
+                tip += "进入传送门";
             else
-                tip += "use stairs";
+                tip += "使用楼梯";
 
             tip += " (%)";
             cmd.push_back(dir);
@@ -1002,19 +1002,19 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
                 || feat_stair_direction(feat) == CMD_GO_UPSTAIRS)
             {
                 // XXX: wrong for golubria, shops?
-                _add_tip(tip, "[L-Click] Use stairs (%)");
+                _add_tip(tip, "[左键] 使用楼梯 (%)");
                 cmd.push_back(feat_stair_direction(feat));
             }
             else if (feat_is_altar(feat)
                      && player_can_join_god(feat_altar_god(feat)))
             {
-                _add_tip(tip, "[L-Click] Pray at altar (%)");
+                _add_tip(tip, "[左键] 在祭坛祈祷 (%)");
                 cmd.push_back(feat_stair_direction(feat));
             }
             else
             {
                 // otherwise wait
-                _add_tip(tip, "[L-Click] Wait one turn (%)");
+                _add_tip(tip, "[左键] 等待一回合 (%)");
                 cmd.push_back(CMD_WAIT);
             }
         }
@@ -1025,7 +1025,7 @@ bool tile_dungeon_tip(const coord_def &gc, string &tip)
         }
 
         // Character overview.
-        _add_tip(tip, "[R-Click] Overview (%)");
+        _add_tip(tip, "[右键] 角色总览 (%)");
         cmd.push_back(CMD_RESISTS_SCREEN);
 
         // Religion.

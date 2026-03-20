@@ -380,15 +380,15 @@ Unleash Destruction ability
 
 引导一股地狱般的气流{{
     if you.get_base_mutation_level("Gehenna destruction") == 1 then
-        return "piercing fire, lava (from Gehenna's influence), lightning, or negative energy"
+        return "穿透火焰、岩浆（受焦热地狱影响）、闪电或负能量"
     elseif you.get_base_mutation_level("Cocytus destruction") == 1 then
-        return "piercing ice (from Cocytus' influence), cold, lightning, or negative energy"
+        return "穿透寒冰（受寒冰地狱影响）、寒冷、闪电或负能量"
     elseif you.get_base_mutation_level("Tartarus destruction") == 1 then
-        return "piercing fire, cold, devastation (from Tartarus' influence), or negative energy"
+        return "穿透火焰、寒冷、毁灭（受塔耳塔洛斯影响）或负能量"
     elseif you.get_base_mutation_level("Dis destruction") == 1 then
-        return "piercing fire, cold, lightning, acid, or metal splinters (the last two from Dis' influence)"
+        return "穿透火焰、寒冷、闪电、酸液或金属碎片（后两者受铁都影响）"
     else
-        return "fire, cold, lightning, or negative energy"
+        return "火焰、寒冷、闪电或负能量"
     end
 }} 针对目标生物。伤害和准确度通过调用而增加
 技能。
@@ -424,15 +424,15 @@ Globe of Annihilation ability
 
 发射一个由 {{
     if you.get_base_mutation_level("Gehenna destruction") == 1 then
-        return "endless fires of Gehenna."
+        return "焦热地狱的无尽烈焰。"
     elseif you.get_base_mutation_level("Cocytus destruction") == 1 then
-        return "frigid wastes of Cocytus."
+        return "寒冰地狱的极寒荒原。"
     elseif you.get_base_mutation_level("Tartarus destruction") == 1 then
-        return "wailing grief of Tartarus."
+        return "塔耳塔洛斯的哀号悲恸。"
     elseif you.get_base_mutation_level("Dis destruction") == 1 then
-        return "ruthless spite of Dis."
+        return "铁都无情的恶意。"
     else
-        return "very Hells themselves."
+        return "地狱本身的力量。"
     end
 }}
 
@@ -441,15 +441,15 @@ Globe of Annihilation ability
 与生物或其他障碍物碰撞，它会剧烈爆炸
 爆炸{{
     if you.get_base_mutation_level("Gehenna destruction") == 1 then
-        return "fire or lava"
+        return "火焰或岩浆"
     elseif you.get_base_mutation_level("Cocytus destruction") == 1 then
-        return "cold or ice"
+        return "寒冷或冰霜"
     elseif you.get_base_mutation_level("Tartarus destruction") == 1 then
-        return "negative energy or devastation"
+        return "负能量或毁灭"
     elseif you.get_base_mutation_level("Dis destruction") == 1 then
-        return "acid or metal splinters"
+        return "酸液或金属碎片"
     else
-        return "hellish energy"
+        return "地狱能量"
     end
 }} 其半径取决于行进的距离。
 
@@ -884,7 +884,7 @@ Sacrifice a Hand ability
 
 牺牲一只手，导致你失去使用盾牌的能力{{
     if you.race() ~= "Formicid" then
-        return " and two-handed weapons"
+        return " 和双手武器"
     end
 }}，并且能够少戴一枚戒指。
 %%%%

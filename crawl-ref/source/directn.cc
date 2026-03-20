@@ -250,15 +250,15 @@ void direction_chooser::print_top_prompt() const
 void direction_chooser::print_key_hints() const
 {
     // TODO: build this as a vector and insert ,s and \ns in a smarter way
-    string prompt = "Press: ? - help";
+    string prompt = "按键：? - 帮助";
 
     if (just_looking)
     {
         if (you.see_cell(target()))
-            prompt += ", v - describe";
-        prompt += ", . - travel";
+            prompt += "，v - 查看描述";
+        prompt += "，. - 行走";
         if (in_bounds(target()) && env.map_knowledge(target()).item())
-            prompt += ", g - get item";
+            prompt += "，g - 拾取物品";
     }
     else
     {
@@ -270,17 +270,17 @@ void direction_chooser::print_key_hints() const
         }
         string direction_hint = "";
         if (!behaviour->targeted())
-            direction_hint = "Dir - look around, f - activate";
+            direction_hint = "方向键 - 环顾，f - 确认";
         else
         {
             switch (restricts)
             {
             case DIR_NONE:
-                direction_hint = "Shift-Dir - straight line";
+                direction_hint = "Shift+方向键 - 直线";
                 break;
             case DIR_TARGET:
             case DIR_ENFORCE_RANGE:
-                direction_hint = "Dir - move target";
+                direction_hint = "方向键 - 移动目标";
                 break;
             }
         }
@@ -288,7 +288,7 @@ void direction_chooser::print_key_hints() const
         if (direction_hint.size())
         {
             if (prompt[prompt.size() - 1] != '\n')
-                prompt += ", ";
+                prompt += "，";
             prompt += direction_hint;
         }
     }
@@ -315,7 +315,7 @@ void direction_chooser::describe_cell() const
     if (Options.monster_item_view_coordinates)
     {
         const coord_def relpos = target() - you.pos();
-        string location_str = make_stringf("Location (%d, %d)", relpos.x, -relpos.y);
+        string location_str = make_stringf("位置 (%d, %d)", relpos.x, -relpos.y);
         mprf(MSGCH_PLAIN, "%s", location_str.c_str());
     }
     if (!you.see_cell(target()))
@@ -893,7 +893,7 @@ void full_describe_view()
 
     if (list_mons.empty() && list_items.empty() && list_features.empty())
     {
-        mpr("No monsters, items or features are visible.");
+        mpr("视野内没有怪物、物品或地形。");
         return;
     }
 
@@ -982,7 +982,7 @@ bool direction_chooser::move_is_ok() const
             if (hitfunc && hitfunc->can_affect_unseen())
                 return true; // is this too broad?
             if (you.see_cell(target()))
-                mprf(MSGCH_EXAMINE_FILTER, "There's something in the way.");
+                mprf(MSGCH_EXAMINE_FILTER, "中间有东西挡住了。");
             // XXX: Hack to let bump attack with a ranged weapon still work
             //      when Primordial Nightfall is active. Hopefully doesn't
             //      affect anything else?
@@ -992,7 +992,7 @@ bool direction_chooser::move_is_ok() const
                 return true;
             }
             else
-                mprf(MSGCH_EXAMINE_FILTER, "You can't see that place.");
+                mprf(MSGCH_EXAMINE_FILTER, "你看不到那个位置。");
             return false;
         }
 
@@ -1008,9 +1008,9 @@ bool direction_chooser::move_is_ok() const
                     if (moves.interactive)
                     {
                         if (harmful_to_player)
-                            mprf(MSGCH_EXAMINE_FILTER, "That would be overly suicidal.");
+                            mprf(MSGCH_EXAMINE_FILTER, "那样做太过冒险。");
                         else
-                            mprf(MSGCH_EXAMINE_FILTER, "That would be pointless.");
+                            mprf(MSGCH_EXAMINE_FILTER, "那样做没有意义。");
                     }
                     return false;
                 }
@@ -1022,7 +1022,7 @@ bool direction_chooser::move_is_ok() const
                     // calling in non-interactive mode
                     if (!moves.interactive)
                         return false;
-                    return yesno("Really target yourself?", false, 'n',
+                    return yesno("真的要以自己为目标吗？", false, 'n',
                                  true, true, false, nullptr, false);
                 }
             }
@@ -1032,7 +1032,7 @@ bool direction_chooser::move_is_ok() const
                 // avoid printing this message when autotargeting -- it doesn't
                 // make much sense
                 if (moves.interactive)
-                    mprf(MSGCH_EXAMINE_FILTER, "Sorry, you can't target yourself.");
+                    mprf(MSGCH_EXAMINE_FILTER, "你不能以自己为目标。");
                 return false;
             }
         }
@@ -1674,7 +1674,7 @@ bool direction_chooser::pickup_item()
         ii = env.map_knowledge(target()).item();
     if (!ii || !ii->is_valid(true))
     {
-        mprf(MSGCH_EXAMINE_FILTER, "You can't see any item there.");
+        mprf(MSGCH_EXAMINE_FILTER, "那里没有你看得见的物品。");
         return false;
     }
     ii->flags |= ISFLAG_THROWN; // make autoexplore greedy
@@ -1703,7 +1703,7 @@ bool direction_chooser::pickup_item()
 
     if (!just_looking) // firing/casting prompt
     {
-        mprf(MSGCH_EXAMINE_FILTER, "Marked for pickup.");
+        mprf(MSGCH_EXAMINE_FILTER, "已标记为拾取。");
         return false;
     }
 
@@ -1723,7 +1723,7 @@ bool direction_chooser::handle_signals()
         moves.isCancel = true;
         moves.cmd_result = CMD_NO_CMD;
 
-        mprf(MSGCH_ERROR, "Targeting interrupted by HUP signal.");
+        mprf(MSGCH_ERROR, "目标选择被 HUP 信号中断。");
         return true;
     }
     return false;
@@ -2031,7 +2031,7 @@ void direction_chooser::toggle_beam()
 {
     if (!needs_path)
     {
-        mprf(MSGCH_EXAMINE_FILTER, "This spell doesn't need a beam path.");
+        mprf(MSGCH_EXAMINE_FILTER, "这个法术不需要弹道路径。");
         return;
     }
 
@@ -2357,7 +2357,7 @@ bool direction_chooser::process_command(command_type command)
             break;
 
         if (!is_map_persistent())
-            mpr("You cannot set exclusions on this level.");
+            mpr("你不能在这一层设置排除区。");
         else
         {
             const bool was_excluded = is_exclude_root(target());
@@ -2365,11 +2365,11 @@ bool direction_chooser::process_command(command_type command)
             need_viewport_redraw   = true;
             const bool is_excluded = is_exclude_root(target());
             if (!was_excluded && is_excluded)
-                mpr("Placed new exclusion.");
+                mpr("已放置新的排除区。");
             else if (was_excluded && !is_excluded)
-                mpr("Removed exclusion.");
+                mpr("已移除排除区。");
             else
-                mpr("Reduced exclusion size to a single square.");
+                mpr("已将排除区缩小为单格。");
         }
 
         need_cursor_redraw = true;
