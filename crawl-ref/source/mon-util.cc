@@ -561,17 +561,17 @@ const char * holiness_name(mon_holy_type_flags which_holiness)
     switch (which_holiness)
     {
     case MH_HOLY:
-        return "holy";
+        return "神圣";
     case MH_NATURAL:
-        return "natural";
+        return "自然";
     case MH_UNDEAD:
-        return "undead";
+        return "亡灵";
     case MH_DEMONIC:
-        return "demonic";
+        return "恶魔";
     case MH_NONLIVING:
-        return "nonliving";
+        return "非生物";
     case MH_PLANT:
-        return "plant";
+        return "植物";
     default:
         return "bug";
     }
@@ -616,9 +616,9 @@ const char* intelligence_description(mon_intel_type intel)
 {
     switch (intel)
     {
-    case I_BRAINLESS:   return "Mindless";
-    case I_ANIMAL:      return "Animal";
-    case I_HUMAN:       return "Human";
+    case I_BRAINLESS:   return "无心智";
+    case I_ANIMAL:      return "动物";
+    case I_HUMAN:       return "类人";
     default:            return "Eggplantelligent";
     }
 }

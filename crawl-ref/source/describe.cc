@@ -164,8 +164,8 @@ int show_description(const describe_info &inf, const tile_def *tile)
 
     // TODO: maybe use CMD_MENU_CYCLE_MODE
     const char* mores[2] = {
-        "[<w>!</w>]: <w>Description</w>|Quote",
-        "[<w>!</w>]: Description|<w>Quote</w>",
+        "[<w>!</w>]: <w>描述</w>|引文",
+        "[<w>!</w>]: 描述|<w>引文</w>",
     };
 
     for (int i = 0; i < (inf.quote.empty() ? 1 : 2); i++)
@@ -4968,10 +4968,10 @@ static const char* _get_threat_desc(mon_threat_level_type threat)
     switch (threat)
     {
     case MTHRT_UNDEF: // ?
-    case MTHRT_TRIVIAL: return "Minor";
-    case MTHRT_EASY:    return "Low";
-    case MTHRT_TOUGH:   return "High";
-    case MTHRT_NASTY:   return "Lethal";
+    case MTHRT_TRIVIAL: return "轻微";
+    case MTHRT_EASY:    return "较低";
+    case MTHRT_TOUGH:   return "较高";
+    case MTHRT_NASTY:   return "致命";
     default:            return "Eggstreme";
     }
 }
@@ -5530,13 +5530,13 @@ static void _build_table_of_attacks(mon_attack_desc_info &di,
     // Note: columns are separated by (a minimum of) 2 spaces
 
     // First, the table header
-    result << padded_str(di.plural ? "Attacks" : "Attack",
+    result << padded_str(di.plural ? "攻击方式" : "攻击",
                          di.attk_desc_width + 2)
-           << padded_str("Max Damage", di.damage_width + 2);
+           << padded_str("最高伤害", di.damage_width + 2);
     if (di.has_any_flavour)
     {
-        result << padded_str(di.flavour_without_dam ? "Bonus"
-                                                    : "After Damaging Hits",
+        result << padded_str(di.flavour_without_dam ? "附加效果"
+                                                    : "命中后效果",
                              di.bonus_width);
     }
     result << "\n";
@@ -5587,11 +5587,11 @@ static string _monster_attacks_description(const monster_info& mi)
     result << "\n";
 
     // Assign minimum column widths according to the lengths of their headers.
-    di.attk_desc_width = di.plural ? 7 : 6;         // "Attack"/"Attacks"
-    di.damage_width   = 10;                         // "Max Damage"
+    di.attk_desc_width = di.plural ? 8 : 4;         // "攻击"/"攻击方式"
+    di.damage_width   = 8;                          // "最高伤害"
     di.bonus_width = !di.has_any_flavour    ? 0     // no bonus column
-                   : di.flavour_without_dam ? 5     // "Bonus"
-                                            : 19;   // "After Damaging Hits"
+                   : di.flavour_without_dam ? 8     // "附加效果"
+                                            : 12;   // "命中后效果"
 
     // Get the info for the table of attacks
     for (int i = 0; i < MAX_NUM_ATTACKS; ++i)
@@ -5760,25 +5760,26 @@ void describe_hit_chance(int hit_chance, ostringstream &result, const item_def *
                          bool verbose, int distance_from)
 {
     if (verbose)
-        result << "about ";
+        result << "";
 
-    result << hit_chance << "% to hit";
+    result << hit_chance << "% 命中率";
 
     if (verbose)
     {
-        result << " with ";
+        result << "（使用";
         if (weapon == nullptr)
-            result << "your " << you.hand_name(true);
+            result << "你的" << you.hand_name(true);
         else
             result << weapon->name(DESC_YOUR, false, false, false);
+        result << "）";
     }
 
     if (you.duration[DUR_BLIND])
     {
         if (verbose)
-            result << " (while you are blinded and from distance " << distance_from << ")";
+            result << "（你当前失明，且距离为 " << distance_from << "）";
         else
-            result << " at this distance";
+            result << "（按当前距离）";
     }
 }
 
@@ -5841,9 +5842,8 @@ static void _describe_mons_to_hit(const monster_info& mi, ostringstream &result)
     const int beat_sh_chance = mon_beat_sh_pct(shield_bypass, scaled_sh);
 
     const int hit_chance = beat_ev_chance * beat_sh_chance / 100;
-    result << uppercase_first(mi.pronoun(PRONOUN_SUBJECTIVE)) << " "
-           << conjugate_verb("have", mi.pronoun_plurality())
-           << " about " << hit_chance << "% to hit you.\n";
+    result << uppercase_first(mi.pronoun(PRONOUN_SUBJECTIVE))
+           << "大约有 " << hit_chance << "% 的命中率可击中你。\n";
 }
 
 /**
@@ -5873,10 +5873,10 @@ static void _print_bar(int value, int scale, const string &name,
     const bool currently_disabled = !value && base_value;
 
     if (currently_disabled)
-      result << "none (normally ";
+      result << "无（通常为 ";
 
     if (display_max == 0)
-        result << "none";
+        result << "无";
     else
     {
         for (int i = 0; i * scale < display_max; i++)
@@ -5905,7 +5905,7 @@ static string _build_bar(int value, int scale)
     // Round up.
     const int pips = (value + scale - 1) / scale;
     if (pips <= 0)
-        return "none";
+        return "无";
     if (pips > 8) // too many..
         return make_stringf("~%d", pips * scale);
 
@@ -5969,12 +5969,12 @@ string _monster_habitat_description(const monster_info& mi)
 // Size adjectives
 const char* const size_adj[] =
 {
-    "tiny",
-    "very small",
-    "small",
-    "medium",
-    "large",
-    "giant",
+    "极小",
+    "很小",
+    "小",
+    "中等",
+    "大",
+    "巨型",
 };
 COMPILE_CHECK(ARRAYSZ(size_adj) == NUM_SIZE_LEVELS);
 
@@ -6216,8 +6216,8 @@ static string _monster_stat_description(const monster_info& mi, bool mark_spells
     TablePrinter pr;
 
     pr.AddRow();
-    pr.AddCell("Max HP", mi.get_max_hp_desc());
-    pr.AddCell("Will", _describe_monster_wl(mi));
+    pr.AddCell("最大生命", mi.get_max_hp_desc());
+    pr.AddCell("意志", _describe_monster_wl(mi));
     pr.AddCell("AC", _build_bar(mi.ac, 5));
     pr.AddCell("EV", _build_bar(mi.base_ev, 5));
     if (mi.sh / 2 > 0)  // rescale to match player SH
@@ -6230,22 +6230,22 @@ static string _monster_stat_description(const monster_info& mi, bool mark_spells
 
     // Less important common properties. Arguably should be lower down.
     const size_type sz = mi.body_size();
-    const string size_desc = sz == SIZE_LITTLE ? "V. Small" : uppercase_first(get_size_adj(sz));
+    const string size_desc = sz == SIZE_LITTLE ? "极小" : get_size_adj(sz);
     const auto holiness = mons_class_holiness(mi.type);
-    const string holi = holiness == MH_NONLIVING ? "Nonliv."
+    const string holi = holiness == MH_NONLIVING ? "非生物"
                                                  : single_holiness_description(holiness);
     pr.AddRow();
     if (mi.threat != MTHRT_UNDEF && !mons_class_is_peripheral(mi.type))
-        pr.AddCell("Threat", _get_threat_desc(mi.threat));
+        pr.AddCell("威胁", _get_threat_desc(mi.threat));
     else // ?/m
         pr.AddCell(); // ensure alignment
-    pr.AddCell("Class", uppercase_first(holi).c_str());
-    pr.AddCell("Size", size_desc.c_str());
-    pr.AddCell("Int", intelligence_description(mi.intel()));
+    pr.AddCell("类别", uppercase_first(holi).c_str());
+    pr.AddCell("体型", size_desc.c_str());
+    pr.AddCell("智力", intelligence_description(mi.intel()));
     if (mi.is(MB_SICK) || mi.is(MB_NO_REGEN))
-        pr.AddCell("Regen", "None");
+        pr.AddCell("再生", "无");
     else if (mons_class_fast_regen(mi.type) || mi.is(MB_REGENERATION))
-        pr.AddCell("Regen", make_stringf("%d/turn", mi.regen_rate(1)));
+        pr.AddCell("再生", make_stringf("%d/回合", mi.regen_rate(1)));
                                         // (Wait, what's a 'turn'?)
 
     pr.Print(result);
@@ -6254,13 +6254,13 @@ static string _monster_stat_description(const monster_info& mi, bool mark_spells
 
     if (crawl_state.game_started)
     {
-        result << "You have ";
+        result << "你大约有 ";
         describe_to_hit(mi, result, you.weapon(), true);
         if (mi.incapacitated()) // Affects ev and sh
-            result << " (while incapacitated)";
+            result << "（目标失能时）";
         else if (mi.base_ev != mi.ev)
-            result << " (at present)";
-        result << ".\n";
+            result << "（按当前状态）";
+        result << "。\n";
     }
     result << _monster_attacks_description(mi);
     if (crawl_state.game_started)
