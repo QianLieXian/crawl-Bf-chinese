@@ -1,169 +1,169 @@
 %%%%
 Zin lastname
 
-定法者辛
+ 立法者辛恩
 %%%%
 Yredelemnul lastname
 
-黑暗神伊莱德莱姆努尔
+ 堕落者伊雷德莱姆努尔
 %%%%
 Okawaru lastname
 
-战争之主奥卡瓦鲁
+ 战帅奥卡瓦鲁
 %%%%
 Makhleb lastname
 
-毁灭者马科列布
+ 毁灭者马克莱布
 %%%%
 Sif Muna lastname
 
-学识之主席夫·穆纳
+提醒者西夫·穆纳
 %%%%
 Trog lastname
 
-狂怒者特洛戈
+穴居人愤怒
 %%%%
 Elyvilon lastname
 
-治愈者艾利维隆
+艾利维隆治疗者
 %%%%
 Lugonu lastname
 
-无形之神卢格努
+未成形者卢戈努
 %%%%
 Beogh lastname
 
-强盗比欧弗
+Beogh 牧羊人
 %%%%
 Fedhas lastname
 
-费德哈·莽动
+费哈斯·马达什
 %%%%
 Cheibriados lastname
 
-深思者切布理亚多
+沉思者 Cheibriados
 %%%%
 Ashenzari lastname
 
-束缚者艾申扎利
+被束缚的阿什扎里
 %%%%
 Dithmenos lastname
 
-隐没者迪斯姆诺
+Dithmenos 裹尸布
 %%%%
 Nemelex Xobeh lastname
 
-杂耍者尼姆雷斯・索布
+Nemelex Xobeh 骗子
 %%%%
 Gozag lastname
 
-贪婪者哥萨戈·亿·赛格斯
+Gozag Ym Sagoz 贪婪者
 %%%%
 Qazlal lastname
 
-兴风者卡兹拉尔
+ 卡兹拉尔风暴使者
 %%%%
 Ru lastname
 
-觉醒者入
+ 觉醒者茹
 %%%%
 Pakellas lastname
 
-发明者帕克拉斯
+ 发明家帕凯拉斯
 %%%%
 Uskayaw lastname
 
-狂欢者乌斯卡亚
+ 狂欢者乌斯卡亚
 %%%%
 Hepliaklqana lastname
 
-遗忘者惠普利亚卡纳
+ 被遗忘者赫普利亚卡纳
 %%%%
 Ignis lastname
 
-伊格尼斯，曳焰
+ 垂死之火伊格尼斯
 %%%%
 Wu Jian lastname
 
-无间门派
+ 吴健议会
 %%%%
 Xom lastname
 
 w:280
-混沌之主佐姆
+混沌的Xom
 
 w:20
-混沌神佐姆
+混沌的Xom
 
 w:5
-随机之主佐姆
+Xom 随机的
 
 w:5
-随机数之神佐姆
+Xom 随机数之神
 
 w:5
-年长的混沌神佐姆
+远古混沌之神Xom
 
-谲诈之主佐姆
-
-w:5
-不定之主佐姆
+诡计多端的 Xom
 
 w:5
-无常之主佐姆
-
-重门之主佐姆
-
-任性之主佐姆
+不可预测的Xom
 
 w:5
-血腥的奇想之主佐姆
+不可预测的Xom
+
+多门的Xom
+
+反复无常的Xom
 
 w:5
-强施的奇想之主佐姆
-
-冷幽默之主佐姆
+血污奇思妙想的 Xom
 
 w:5
-恶意的咯咯笑之主佐姆
+强化奇思妙想的 Xom
+
+干巴巴幽默的Xom
 
 w:5
-恶毒的咯咯笑之主佐姆
+恶意咯咯笑的 Xom
+
+w:5
+恶意咯咯笑的 Xom
 
 w:2
-深意之主佐姆
+精明的 Xom 的意思
 
 w:2
-妙意之主佐姆
+不可言喻的解释 Xom
 
 w:2
-随意之主佐姆
+善变明白的Xom
 
 w:2
-肆意之主佐姆
+快速的 Xom 倾向意图
 
 w:2
-隐意之主佐姆
+未知的 Xom 意图
 
-易变之主佐姆
+善变的Xom
 
-意图不详之主佐姆
+未知的 Xom 意图
 
 w:4
-佐姆大师
+Xom-迈斯特
 
 w:2
-佐姆大师，佐姆罗姆叮咚
+Xom-Meister，Xom-a-lom-a-ding-dong
 
 w:2
-佐姆大师，乐子神佐姆
+Xom-Meister，Xom-o-Rama
 
 w:2
-佐姆大师，佐姆佐姆与鲍姆，布拉娜范娜与佛姆
+Xom-Meister、Xom-Xom-bo-Bom、Banana-Fana-fo-Fom
 
 w:5
-混乱之源佐姆
+Xom 湍流产生者
 
 w:5
-间断之源佐姆
+Xom 不连续性产生者
 %%%%

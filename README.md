@@ -32,6 +32,16 @@ You can play Crawl online, competing with other players or watching them. Click 
 
 Both classical ASCII and tiles (GUI) versions of Crawl are available to [download for Linux, Windows and OS X](https://crawl.develz.org/download.htm).
 
+
+## 中文汉化与打包
+
+本仓库包含面向中文玩家的深度汉化内容，重点覆盖怪物、战斗提示、场景与分支、UI 文本、属性/状态说明等。
+
+- 汉化文本目录：`crawl-ref/source/dat/database/zh/`、`crawl-ref/source/dat/descript/zh/`
+- 打包教程（中文）：[`PACKAGING_ZH.md`](PACKAGING_ZH.md)
+
+如果你在游戏中发现未汉化文本，欢迎提交 issue 或 PR。
+
 ## Community
 
 * Our official homepage: [crawl.develz.org](https://crawl.develz.org/)

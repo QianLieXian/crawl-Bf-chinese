@@ -1,0 +1,468 @@
+######################################################
+# Miscast
+# -------------
+ # Miscast.txt：为玩家、
+ # 怪物和隐形物体生成法术错误消息
+#
+ # 消息键的格式为：
+ # `<spell-school> misscast <player|monster|unseen>`
+######################################################
+%%%%
+conjuration miscast player
+
+ 火花从你的 @hands@ 中飞出
+
+ 一股奇怪的能量不知从何而来
+
+ 一股猛烈的能量冲刷你的身体
+
+ 能量撕裂你的身体
+
+ 你陷入剧烈的爆炸中
+
+ 你被魔法能量击中
+%%%%
+conjuration miscast monster
+
+ 火花从 @the_monster_possessive@ 飞出@hands@
+
+ @The_monster@ 发出闪光
+
+ @The_monster@ 剧烈摇晃
+
+ @The_monster@ 猛烈抽搐
+
+ @The_monster@ 陷入剧烈爆炸
+
+ @The_monster@ 被魔法能量轰击
+%%%%
+conjuration miscast unseen
+
+ 凭空发生剧烈爆炸
+
+ 魔法能量突然爆发
+%%%%
+hexes miscast player
+
+ 眼前五彩灯光舞动
+
+ 你感觉有点累
+
+ 周围的光线瞬间变暗
+
+ 你听到脑海中隐隐约约的不和谐声低语
+
+ 你感到一股奇怪的能量涌动
+
+ @any_colour@ 的光波在你的身体上荡漾
+
+ 你感到虚弱
+
+ 魔法从你的身体中涌出
+%%%%
+hexes miscast monster
+
+ 多彩的灯光在 @the_monster@ 周围跳舞
+
+ @The_monster@ 看起来很困一秒钟
+
+ @the_monster@ 周围的光线瞬间变暗
+
+ @The_monster@ 抽搐
+
+ @The_monster_possessive@ 身体瞬间发光
+
+ @any_colour@ 的光波在 @the_monster_possessive@ 身上荡漾
+
+ 魔法从 @the_monster@
+%%%%
+hexes miscast unseen
+
+空中舞动五彩光芒
+
+ 一片光芒瞬间黯淡
+
+ 魔法凭空涌出
+%%%%
+summoning miscast player
+
+ 一双眼睛在你眼前闪烁
+
+ 远处的声音在你脑海中呼唤
+
+ 有东西凭空形成
+
+ 合唱心中发出呻吟声
+
+ 绝望的双手向你伸出爪子
+%%%%
+summoning miscast monster
+
+ 绝望的双手向 @the_monster@ 伸出爪子
+%%%%
+summoning miscast unseen
+
+ 绝望的双手随机伸出
+%%%%
+necromancy miscast player
+
+ 你听到奇怪而遥远的声音
+
+ 你周围的世界似乎瞬间变暗了
+
+ 你感觉好像有什么东西走过你的坟墓
+
+ 你感觉到一种邪恶的光环
+
+ 你感觉很不舒服
+
+ 疼痛穿过你的身体
+
+ 你感觉非常昏昏欲睡
+
+ 你的肉体腐烂了
+
+闪烁的阴影围绕着你
+
+ 你被负能量吞噬
+
+ 你无助地抽搐，疼痛撕裂你的身体
+%%%%
+necromancy miscast monster
+
+ @The_monster@ 剧烈抽搐
+
+ @The_monster@ 停顿，明显心烦意乱
+
+ @The_monster@ 似乎暂时变暗
+
+ @The_monster@ 看起来好像有什么东西走过 @possessive@ 坟墓
+
+ @The_monster@ 短暂地染上黑色
+
+ @The_monster@ 皱着眉头
+
+ @The_monster@ 疼痛抽搐
+
+ @The_monster@ 看起来极其无精打采
+
+ @The_monster@ 腐烂消失
+
+ 闪烁的阴影围绕着 @the_monster@
+
+ @The_monster@ 被负能量吞噬
+
+ @The_monster@ 疼痛无助地抽搐
+
+ @The_monster@ 似乎受到了片刻的惊吓
+%%%%
+necromancy miscast unseen
+
+空气瞬间呈现黑色
+
+ 阴影在稀薄的空气中闪烁
+%%%%
+translocation miscast player
+
+ 你瞥见了自己的后脑勺
+
+ 你感到一阵绞痛
+
+ 你瞬间失去平衡
+
+ 地板和天花板短暂交换位置
+
+ 你旋转
+
+ 周围的世界瞬间扭曲
+
+ 你陷入了空间扭曲的领域
+
+ 空间自我扭曲
+
+ 空间 [bends|warps] [crazily |] 在你周围
+%%%%
+translocation miscast monster
+
+ @The_monster@ 猛烈地抽搐了一下
+
+ @The_monster@ 暂时看起来失去平衡
+
+ @The_monster@ 围绕
+
+ 旋转 @The_monster@ 出现暂时扭曲
+
+ @The_monster_possessive@ 功能暂时重新排列
+
+ @The_monster@ 陷入空间扭曲领域
+
+ 空间 [bends|warps] [crazily |]around @the_monster@
+%%%%
+translocation miscast unseen
+
+ 某物周围的空间不可思议地扭曲
+
+ 一片空旷的空间扭曲变形
+
+ 空间结构中暂时打开的裂痕
+%%%%
+fire miscast player
+
+ [Cinders|Ashes] 从您的 @hands@ 飞来
+
+ 你周围的空气因能量而燃烧
+
+ 热量流经你的身体
+
+ 你感到不舒服的热
+
+ 火焰从你的 @hands@ 中旋转
+
+ 火焰灼烧你的肉体
+
+ 你被 [searing |][fire|flames] 炸毁
+
+ 你被困在火中爆炸
+
+ 突然猛烈的火焰爆炸
+%%%%
+fire miscast monster
+
+ [Cinders|Ashes] 从 @the_monster_possessive@ 飞出 @hands@
+
+ @the_monster@ 周围的空气因能量燃烧
+
+ 暗淡的火焰在 @the_monster_possessive@ 身上荡漾
+
+ 火旋出@the_monster_possessive@ @hands@
+
+ 火焰灼烧 @the_monster@
+
+@The_monster@ 与 [searing |][fire|flames] 一起爆炸
+
+ @The_monster@ 陷入剧烈爆炸
+%%%%
+fire miscast unseen
+
+ 火焰不知从何而来
+
+ 火焰在稀薄的空气中短暂燃烧
+
+ 火焰从稀薄的空气中爆炸
+
+ 大火焰燃烧稀薄空气中一时炎热
+%%%%
+ice miscast player
+
+ 你冷得瑟瑟发抖
+
+ 一股寒意贯穿你的全身
+
+ 你的 @hands@ 感觉 @hand_conj@ 冷得麻木
+
+ 你感觉 [a little bit|uncomfortably|extremely] 冷
+
+ [Ice|Frost] 覆盖你的身体
+
+ 你是被包裹在 [ice|frost]
+
+ 你被一层薄薄的 [ice|frost]
+
+ 热量从你的身体中排出
+
+ 你被冰霜爆炸包围
+%%%%
+ice miscast monster
+
+ @The_monster@ 寒冷地颤抖
+
+ 霜覆盖 @the_monster_possessive@ 身体
+
+ @The_monster@ 颤抖
+
+ @The_monster@ 被一层薄薄的 [ice|frost] 覆盖
+
+ 热量从 @the_monster@ 排出
+
+ @The_monster@ 陷入冰霜爆炸中
+
+ @The_monster@ 被包裹在 [ice|frost] 中
+%%%%
+ice miscast unseen
+
+ 空气中飘散的一缕凝结
+
+ 冰霜凭空爆炸
+
+ [ice|frost] 中包裹着看不见的身影
+%%%%
+air miscast player
+
+ 电火花在你身边舞动
+
+ 你周围的空气充满能量爆裂声
+
+ 你被空气击中
+
+ 有一阵短暂而尖锐的火花
+
+ 风在你周围呼啸
+
+ 你突然感到电击
+
+ 电流穿过你的身体
+
+ 你陷入放电爆炸
+%%%%
+air miscast monster
+
+ @The_monster@在空中晃动了一会儿
+
+电火花在 @the_monster_possessive@ @hands@
+
+ 之间舞动 @the_monster@ 周围的空气因能量而爆裂
+
+ @The_monster@ 被空气炸开
+
+ @The_monster@ 短暂地沐浴在火花中
+
+ 风在 @the_monster@ 周围呼啸
+
+ @The_monster@ 被震动
+
+ @The_monster@ 陷入放电爆炸中
+
+ @The_monster@ 被扭曲的空气击中
+%%%%
+air miscast unseen
+
+ 风不知从何而来
+
+ 看不见的东西闪闪发光
+
+ 某物周围的空气因能量而爆裂
+
+ 放电从外部爆炸稀薄的空气
+
+ 空气在一个点周围疯狂扭曲
+%%%%
+earth miscast player
+
+ [Sand|Gravel] 从你的 @hands@ 中倾泻而出
+
+ 你感到一股能量从地面涌来
+
+ 你脚下的地板 [shifts|shudders|quakes|rumbles] 令人震惊
+
+ 你被飞石击中
+
+ 你是被沙子爆破
+
+ 岩石不知从何而来落到你身上
+
+ 你被飞来的弹片爆炸所困
+%%%%
+earth miscast monster
+
+ [Sand|Gravel] 从 @the_monster_possessive@ @hands@ 倾泻而出
+
+ @The_monster@ 被飞石击中
+
+ @The_monster@ 被沙子爆破
+
+ 岩石不知从何而来落在 @the_monster@ 上
+
+ @The_monster@ 被飞弹片爆炸所困
+%%%%
+earth miscast unseen
+
+ 飞石凭空出现
+
+ 短暂出现的微型沙尘暴
+
+ 岩石不知从何而来
+
+ 飞弹片从稀薄空气中爆炸
+%%%%
+alchemy miscast player
+
+ 你被有毒烟雾吞没
+
+ 有一道朱砂闪光
+
+ [Mercury|Quicksilver|Fool's gold|Saltpeter|Sulphur|Liquid metal] 从你的 @hands@ 中流出
+
+ 你身体的一部分短暂转动 [golden|silvery|metallic|leaden|crystalline]
+
+w:4
+ 你被云压倒@any_colour@ 烟雾
+
+w:4
+ 口腔内瞬间尝起来像 @any_colour@
+
+w:2
+你的皮肤变成 @any_colour_pattern@
+
+w:2
+ 你被 @any_glowing_colour@ 粉尘云包围
+%%%%
+alchemy miscast monster
+
+ @The_monster@ 被有毒烟雾吞没
+
+ @The_monster@ 是带有 [cinnabar|sulphur] 粉尘的 [blasted|coated]
+
+ @The_monster@ 被盐覆盖
+
+ @The_monster@ 开始剧烈咳嗽
+
+ @The_monster@ 看起来病得很厉害
+
+w:5
+ @The_monster@ 被 @any_colour@ 烟雾云吞没
+
+w:5
+ @The_monster_possessive@ 皮肤变成 @any_colour_pattern@
+
+w:5
+ @The_monster@ 被 @any_glowing_colour@ 灰尘云包围
+%%%%
+alchemy miscast unseen
+
+ 空气中有一瞬间的绿色调
+
+ 硫磺热量从稀薄的空气中爆炸
+
+ 看不见的人物被盐覆盖
+%%%%
+forgecraft miscast player
+
+ 你失去了结构的完整性
+
+ 你感觉自己在轻微解构
+
+ [buzzing|clanking|creaking|whirring] 声音在你脑海中回响
+
+ 金属零碎不知从何而来
+
+ 你被金属碎片覆盖
+
+ 你陷入金属碎片爆炸中
+%%%%
+forgecraft miscast monster
+
+ @The_monster@ 失去结构完整性
+
+ 金属零碎和碎片末端不知从何而来落到 @the_monster@ 上
+
+ @The_monster@ 被金属碎片覆盖
+
+ @The_monster@ 陷入金属碎片爆炸中
+%%%%
+forgecraft miscast unseen
+
+ 金属零碎从上面落下
+
+ 看不见的人物被金属碎片覆盖
+
+金属碎片从稀薄的空气中爆炸
