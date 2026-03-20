@@ -270,7 +270,7 @@ bool melee_attack::handle_phase_attempted()
             flat_dmg_bonus = random_range(0, 3);
             defender->as_monster()->del_ench(ENCH_KINETIC_GRAPNEL, true);
             if (attacker->is_player())
-                mpr("The grapnel guides your strike.");
+                mpr("抓钩牵引着你的攻击命中目标。");
         }
     }
 
@@ -311,7 +311,7 @@ void melee_attack::handle_phase_blocked()
         {
             if (you.see_cell(defender->pos()))
             {
-                mprf("%s turn%s aside %s attack!",
+                mprf("%s将%s的攻击拨开了！",
                         defender->name(DESC_THE).c_str(),
                         defender->is_monster() ? "s" : "",
                         attacker->name(DESC_ITS).c_str());
@@ -330,7 +330,7 @@ void melee_attack::handle_phase_blocked()
 
     if (needs_block_message)
     {
-        mprf("%s %s %s attack.",
+        mprf("%s%s了%s的攻击。",
                  defender_name(false).c_str(),
                  defender->conj_verb("block").c_str(),
                  attacker == defender ? "its own"
@@ -345,7 +345,7 @@ void melee_attack::handle_phase_blocked()
                                         random_range(3, 5) * BASELINE_DELAY))
             && need_msg)
         {
-            mprf("%s is struck blind by the light of your shield.",
+            mprf("%s被你盾牌上的光芒致盲了。",
                     attacker->name(DESC_THE).c_str());
         }
     }
@@ -408,7 +408,7 @@ void melee_attack::handle_phase_dodged()
                 {
                     you.track_reprisal(REPRISAL_HEADBUTT, attacker->mid);
 
-                    mpr("You furiously retaliate!");
+                    mpr("你狂怒反击！");
                     melee_attack headbutt(&you, attacker);
                     headbutt.player_aux_setup(UNAT_HEADBUTT);
                     headbutt.player_aux_apply(UNAT_HEADBUTT);
@@ -557,7 +557,7 @@ void melee_attack::apply_sign_of_ruin_effects()
                 {
                     defender->as_monster()->add_ench(mon_enchant(ENCH_BLIND, attacker,
                                                     random_range(5, 8) * BASELINE_DELAY));
-                    simple_monster_message(*defender->as_monster(), " is struck blind.");
+                    simple_monster_message(*defender->as_monster(), "被击得失明了。");
                 }
                 else
                     blind_player(random_range(5, 8));
@@ -590,7 +590,7 @@ void melee_attack::try_parry_disarm()
         item_def *wpn = defender->as_monster()->disarm();
         if (wpn)
         {
-            mprf("You knock %s out of %s grip!",
+            mprf("你把%s从%s手中打落了！",
                 wpn->name(DESC_THE).c_str(),
                 defender->name(DESC_ITS).c_str());
         }
@@ -618,14 +618,14 @@ void melee_attack::do_vampire_lifesteal()
 
         if (can_heal && !can_enthrall)
         {
-            mprf("You sink your fangs into %s and drink %s %s.",
+            mprf("你将獠牙刺入%s，啜饮%s的%s。",
                     mon->name(DESC_THE, true).c_str(),
                     mon->pronoun(PRONOUN_POSSESSIVE).c_str(),
                     mon->blood_name().c_str());
         }
         else if (can_enthrall)
         {
-            mprf("You sink your fangs into %s and drain %s dry!",
+            mprf("你将獠牙刺入%s，把%s吸得一滴不剩！",
                     mon->name(DESC_THE, true).c_str(),
                     mon->pronoun(PRONOUN_OBJECTIVE).c_str());
 
@@ -695,7 +695,7 @@ static void _apply_flux_contam(monster &m)
     if (old_glow.degree >= 2)
     {
         const int dam = get_form()->get_special_damage().roll();
-        string msg = make_stringf(" shudders as magic cascades through %s%s",
+        string msg = make_stringf("%s在魔力冲刷下颤抖%s",
                                   m.pronoun(PRONOUN_OBJECTIVE).c_str(),
                                   attack_strength_punctuation(dam).c_str());
         simple_monster_message(m, msg.c_str());
@@ -712,9 +712,9 @@ static void _apply_flux_contam(monster &m)
 
     m.add_ench(mon_enchant(ENCH_CONTAM, &you, 0, 1));
     if (!old_glow.degree)
-        simple_monster_message(m, " begins to glow.");
+        simple_monster_message(m, "开始发光。");
     else
-        simple_monster_message(m, " glows dangerously bright.");
+        simple_monster_message(m, "发出危险而耀眼的光芒。");
 
     // Deduct player energy for the attack and maybe untransform.
     int& energy = you.props[FLUX_ENERGY_KEY].get_int();
@@ -728,7 +728,7 @@ static void _apply_flux_contam(monster &m)
         return_to_default_form();
     }
     else if (above_warning && energy < FLUX_ENERGY_WARNING)
-        mprf(MSGCH_DURATION, "You feel the transmutational energy in your body is nearly expended.");
+        mprf(MSGCH_DURATION, "你感到体内的变形能量已近枯竭。");
 }
 
 void melee_attack::maybe_do_mesmerism()
@@ -746,7 +746,7 @@ void melee_attack::maybe_do_mesmerism()
     const int max_dur = defender->is_player() ? 5 + you.skill_rdiv(SK_EVOCATIONS, 1, 5)
                                               : 3 + defender->get_hit_dice() / 4;
 
-    mprf("%s orb emits a pulse of dizzying energy.", defender->name(DESC_ITS).c_str());
+    mprf("%s的宝珠释放出一阵令人眩晕的能量脉冲。", defender->name(DESC_ITS).c_str());
     draw_ring_animation(defender->pos(), radius, LIGHTMAGENTA, MAGENTA, true, 30);
 
     for (radius_iterator ri(defender->pos(), radius, C_SQUARE, LOS_NO_TRANS); ri; ++ri)
@@ -800,7 +800,7 @@ static void _grow_mushrooms(const monster& mon)
     }
 
     if (created)
-        mprf("Mushrooms sprout behind %s.", mon.name(DESC_THE).c_str());
+        mprf("%s身后长出了蘑菇。", mon.name(DESC_THE).c_str());
 }
 
 /* An attack has been determined to have hit something

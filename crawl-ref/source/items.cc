@@ -1089,7 +1089,7 @@ void pickup_menu(int item_link)
                 // floor.
                 if (!move_item_to_inv(j, num_to_take))
                 {
-                    pickup_warning = "You can't carry that many items.";
+                    pickup_warning = "你带不了那么多物品。";
                     if (env.item[j].defined())
                         env.item[j].flags = oldflags;
                 }
@@ -1386,7 +1386,7 @@ bool pickup_single_item(int link, int qty)
     item_def* item = &env.item[link];
     if (item_is_stationary(env.item[link]))
     {
-        mpr("You can't pick that up.");
+        mpr("你捡不起那个。");
         return false;
     }
     if (item->base_type == OBJ_GOLD && !qty && !i_feel_safe()
@@ -1399,7 +1399,7 @@ bool pickup_single_item(int link, int qty)
     if (qty == 0 && item->quantity > 1 && item->base_type != OBJ_GOLD)
     {
         const string prompt
-                = make_stringf("Pick up how many of %s (; or enter for all)? ",
+                = make_stringf("要捡起多少%s（输入 ; 或回车表示全部）？",
                                item->name(DESC_THE, false,
                                           false, false).c_str());
 
@@ -1430,7 +1430,7 @@ bool pickup_single_item(int link, int qty)
 
     if (!pickup_succ)
     {
-        mpr("You can't carry that many items.");
+        mpr("你带不了那么多物品。");
         learned_something_new(HINT_FULL_INVENTORY);
         return false;
     }
@@ -1465,7 +1465,7 @@ void pickup(bool partial_quantity)
     you.last_pickup.clear();
 
     if (o == NON_ITEM)
-        mpr("There are no items here.");
+        mpr("这里没有物品。");
     else if (num_items == 1) // just one movable item?
     {
         // Get the link to the movable item in the pile.
@@ -1484,9 +1484,9 @@ void pickup(bool partial_quantity)
     {
         int next;
         if (num_items == 0)
-            mpr("There are no objects that can be picked up here.");
+            mpr("这里没有可拾取的物品。");
         else
-            mpr("There are several objects here.");
+            mpr("这里有好几样物品。");
         string pickup_warning;
         bool any_selectable = false;
         while (o != NON_ITEM)
@@ -1503,7 +1503,7 @@ void pickup(bool partial_quantity)
 
             if (keyin != 'a')
             {
-                string prompt = "Pick up %s? ((y)es/(n)o/(a)ll/(m)enu/*?g,/q)";
+                string prompt = "捡起%s？（(y)是/(n)否/(a)全部/(m)菜单/*?g,/q）";
 
                 mprf(MSGCH_PROMPT, prompt.c_str(),
                      menu_colour_item_name(env.item[o], DESC_A).c_str());
@@ -1534,7 +1534,7 @@ void pickup(bool partial_quantity)
                 // attempt to actually pick up the object.
                 if (!move_item_to_inv(o, num_to_take))
                 {
-                    pickup_warning = "You can't carry that many items.";
+                    pickup_warning = "你带不了那么多物品。";
                     env.item[o].flags = old_flags;
                 }
             }
@@ -1745,10 +1745,10 @@ void get_gold(const item_def& item, int quant, bool quiet)
     if (!quiet)
     {
         const string gain = quant != you.gold
-                            ? make_stringf(" (gained %d)", quant)
+                            ? make_stringf("（本次获得%d）", quant)
                             : "";
 
-        mprf("You now have %d gold piece%s%s.",
+        mprf("你现在有%d枚金币%s%s。",
              you.gold, you.gold != 1 ? "s" : "", gain.c_str());
         learned_something_new(HINT_SEEN_GOLD);
     }
@@ -1767,7 +1767,7 @@ static bool _put_item_in_inv(item_def& it, int quant_got, bool quiet, bool& put_
     if (item_is_stationary(it))
     {
         if (!quiet)
-            mpr("You can't pick that up.");
+            mpr("你捡不起那个。");
         // Fake a successful pickup (return 1), so we can continue to
         // pick up anything else that might be on this square.
         return true;
@@ -1850,14 +1850,14 @@ static void _get_book(item_def& it)
     {
         if (you.has_mutation(MUT_INNATE_CASTER))
         {
-            mprf("%s burns to shimmering ash in your grasp.",
+            mprf("%s在你手中燃成闪烁的灰烬。",
                  it.name(DESC_THE).c_str());
             return;
         }
-        mprf("You pick up %s and begin reading...", it.name(DESC_A).c_str());
+        mprf("你捡起%s，开始阅读……", it.name(DESC_A).c_str());
 
         if (!library_add_spells(spells_in_book(it)))
-            mpr("Unfortunately, you learned nothing new or useful.");
+            mpr("可惜你没学到任何新的有用知识。");
 
         taken_new_item(it.base_type);
 
@@ -1870,22 +1870,22 @@ static void _get_book(item_def& it)
 
     if (is_useless_skill(sk))
     {
-        mprf("You pick up %s. Unfortunately, it's quite useless to you.",
+        mprf("你捡起%s。可惜它对你几乎毫无用处。",
              it.name(DESC_A).c_str());
         return;
     }
 
     if (you.skills[sk] >= MAX_SKILL_LEVEL)
     {
-        mprf("You pick up %s, but it has nothing more to teach you.",
+        mprf("你捡起%s，但它已经没什么可教你的了。",
              it.name(DESC_A).c_str());
         return;
     }
 
     if (you.skill_manual_points[sk])
-        mprf("You pick up another %s and continue studying.", it.name(DESC_PLAIN).c_str());
+        mprf("你又捡起一本%s，继续研读。", it.name(DESC_PLAIN).c_str());
     else
-        mprf("You pick up %s and begin studying.", it.name(DESC_A).c_str());
+        mprf("你捡起%s，开始研读。", it.name(DESC_A).c_str());
     you.skill_manual_points[sk] += it.skill_points;
     you.skills_to_show.insert(sk);
 }
@@ -1936,29 +1936,29 @@ static void _get_rune(const item_def& it, bool quiet)
     if (!quiet)
     {
         flash_view_delay(UA_PICKUP, rune_colour(it.sub_type), 300);
-        mprf("You pick up the %s rune and feel its power.",
+        mprf("你捡起了%s符文，感受到其中的力量。",
              rune_type_name(it.sub_type));
         int nrunes = runes_in_pack();
         if (nrunes >= you.obtainable_runes)
-            mpr("You have collected all the runes! Now go and win!");
+            mpr("你已经收集齐了所有符文！现在去赢得胜利吧！");
         else if (nrunes == ZOT_ENTRY_RUNES)
         {
             // might be inappropriate in new Sprints, please change it then
-            mprf("%d runes! That's enough to enter the realm of Zot.",
+            mprf("%d枚符文！这已经足够进入佐特领域了。",
                  nrunes);
         }
         else if (nrunes > 1)
         {
             if (player_in_branch(BRANCH_PANDEMONIUM) && _got_all_pan_runes())
-                mpr("You've emptied out Pandemonium! Nothing left here but demons.");
-            mprf("You now have %d runes.", nrunes);
+                mpr("你已经把潘地狱搜刮一空！这里只剩恶魔了。");
+            mprf("你现在有%d枚符文。", nrunes);
         }
 
-        mpr("Press } to see all the runes you have collected.");
+        mpr("按 } 查看你收集到的全部符文。");
     }
 
     if (it.sub_type == RUNE_ABYSSAL)
-        mpr("You feel the abyssal rune guiding you out of this place.");
+        mpr("你感到深渊符文正在指引你离开此地。");
 }
 
 static bool _is_disabled_gem(gem_type gem)
@@ -2003,14 +2003,14 @@ static void _get_gem(const item_def& it, bool quiet)
 
     flash_view_delay(UA_PICKUP, it.gem_colour(), 300);
     // XXX: consider customizing this message per-gem
-    mprf("You pick up %s and feel its impossibly delicate weight in your %s.",
+    mprf("你捡起%s，感到它在你%s中有着不可思议的轻盈分量。",
          it.name(DESC_THE).c_str(), you.hand_name(true).c_str());
     if (_got_all_gems())
     {
-        mprf("You've found all the gems! Together, they sparkle an otherworldly %s!",
+        mprf("你找齐了所有宝石！它们一同闪耀着超凡脱俗的%s！",
              getSpeakString("misc_colour").c_str());
     }
-    mpr("Press } and ! to see all the gems you have collected.");
+    mpr("按 } 和 ! 查看你收集到的全部宝石。");
     print_gem_warnings(it.sub_type, 0);
 }
 
@@ -2021,10 +2021,10 @@ static void _get_orb()
 {
     run_animation(ANIMATION_ORB, UA_PICKUP);
 
-    mprf(MSGCH_ORB, "You pick up the Orb of Zot!");
+    mprf(MSGCH_ORB, "你捡起了佐特宝珠！");
 
     if (bezotted())
-        mpr("Zot can harm you no longer.");
+        mpr("佐特再也无法伤害你了。");
 
     env.orb_pos = you.pos(); // can be wrong in wizmode
     orb_pickup_noise(you.pos(), 30);
@@ -2846,14 +2846,14 @@ bool drop_item(int item_dropped, int quant_drop)
     {
         if (item.base_type == OBJ_GIZMOS)
         {
-            mpr("That is permanently installed in your exoskeleton.");
+            mpr("那东西已永久安装在你的外骨骼上。");
             return false;
         }
 
         const bool is_wpn = is_weapon(item);
         if (!Options.easy_unequip && !is_wpn)
         {
-            mprf(MSGCH_PROMPT, "You will have to take that off first.");
+            mprf(MSGCH_PROMPT, "你得先把它脱下来。");
             return false;
         }
 
@@ -2880,11 +2880,11 @@ bool drop_item(int item_dropped, int quant_drop)
 
     if (copy_item_to_grid(item, you.pos(), quant_drop, true, true) == NON_ITEM)
     {
-        mpr("Too many items on this level, not dropping the item.");
+        mpr("这一层物品太多了，无法丢下该物品。");
         return false;
     }
 
-    mprf("You drop %s.", quant_name(item, quant_drop, DESC_A).c_str());
+    mprf("你丢下了%s。", quant_name(item, quant_drop, DESC_A).c_str());
 
     // If you drop an item in as a merfolk, it is below the water line and
     // makes no noise falling.
@@ -2914,7 +2914,7 @@ void drop_last()
     }
 
     if (items_to_drop.empty())
-        mpr("No item to drop.");
+        mpr("没有可丢弃的物品。");
     else
     {
         you.last_pickup.clear();
@@ -2988,11 +2988,11 @@ static void _maybe_disable_autopickup_for_dropped_items(vector<SelItem> &items)
     }
     if (autopickup_remove_count == 1)
     {
-        mprf("Autopickup disabled for %s.",
+        mprf("已为%s禁用自动拾取。",
              pluralise(last_touched_item->name(DESC_DBNAME)).c_str());
     }
     else if (autopickup_remove_count > 1)
-        mprf("Autopickup disabled for %d items.", autopickup_remove_count);
+        mprf("已为%d件物品禁用自动拾取。", autopickup_remove_count);
 }
 
 /**
@@ -4758,7 +4758,7 @@ bool get_item_by_name(item_def *item, const char* specs,
                 item->skill = skill;
             else
             {
-                mpr("Sorry, no books on that skill today.");
+                mpr("抱歉，今天没有那项技能的手册。");
                 item->skill = SK_FIGHTING; // Was probably that anyway.
             }
             item->skill_points = random_range(2000, 3000);
@@ -4770,7 +4770,7 @@ bool get_item_by_name(item_def *item, const char* specs,
             if (buf[0] != '\0')
             {
                 if (!_book_from_spell(buf, *item))
-                    mpr("That parchment doesn't seem to exist.");
+                    mpr("那种羊皮纸法术似乎并不存在。");
             }
         }
         else if (type_wanted == BOOK_RANDART_THEME)
@@ -4993,7 +4993,7 @@ static void _identify_last_item(item_def &item)
     const string class_name = item.base_type == OBJ_JEWELLERY ?
                                     item_base_name(item) :
                                     item_class_name(item.base_type, true);
-    mprf("You have identified the last %s.", class_name.c_str());
+    mprf("你鉴定出了最后一种%s。", class_name.c_str());
 
     if (in_inventory(item))
     {

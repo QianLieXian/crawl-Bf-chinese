@@ -251,20 +251,20 @@ bool i_feel_safe(bool announce, bool want_move, bool just_monsters,
             // Qazlal immunity will allow for it, however.
             bool your_fault = cloud_is_yours_at(you.pos());
             if (cloud_damages_over_time(type, want_move, your_fault))
-                UNSAFE_MSG(make_stringf("you are in a cloud of %s", cloud_type_name(type).c_str()).c_str());
+                UNSAFE_MSG(make_stringf("你正身处%s云雾之中", cloud_type_name(type).c_str()).c_str());
         }
 
         if (poison_is_lethal())
-            UNSAFE_MSG("there is a lethal amount of poison in your body");
+            UNSAFE_MSG("你体内毒素已达到致命水平");
 
         if (contam_max_damage() >= you.hp)
-            UNSAFE_MSG("you are contaminated with a potentially lethal amount of magic");
+            UNSAFE_MSG("你受到的魔法污染已高到可能致命");
 
         if (you.duration[DUR_STICKY_FLAME])
-            UNSAFE_MSG("you are on fire");
+            UNSAFE_MSG("你正在燃烧");
 
         if (you.props[EMERGENCY_FLIGHT_KEY])
-            UNSAFE_MSG("you are being drained by your emergency flight");
+            UNSAFE_MSG("你的紧急飞行正在抽取你的生命力");
 
         // No monster will attack you inside a sanctuary,
         // so presence of monsters won't matter -- until it starts shrinking...
@@ -492,12 +492,12 @@ void revive()
     if (you.hp_max <= 0)
     {
         you.lives = 0;
-        mpr("You are too frail to live.");
+        mpr("你太过虚弱，已无法维生。");
         // possible only with an extreme abuse of Borgnjor's
         // might be impossible now that felids don't level down on death?
         player_die(KILLED_BY_DRAINING);
     }
 
-    mpr("You rejoin the land of the living...");
+    mpr("你重新回到了生者的世界……");
     // included in default force_more_message
 }

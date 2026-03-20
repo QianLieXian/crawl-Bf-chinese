@@ -75,7 +75,7 @@ static bool _check_monster_alert(const monster& mon)
         // And if it wasn't a monster that would get an encounter warning due to
         // being a summon, make sure to say something.
         if (mon.is_summoned())
-            mprf(MSGCH_MONSTER_WARNING, "%s comes into view.", mon.name(DESC_A).c_str());
+            mprf(MSGCH_MONSTER_WARNING, "%s进入了你的视野。", mon.name(DESC_A).c_str());
 
         more(true);
         return true;
@@ -364,29 +364,29 @@ static string _abyss_monster_creation_message(const monster* mon)
 {
     if (mon->type == MONS_DEATH_COB)
     {
-        return coinflip() ? " appears in a burst of microwaves!"
-                          : " pops from nullspace!";
+        return coinflip() ? "在一阵微波中现身！"
+                          : "从虚空中猛地弹出！";
     }
 
     // You may ask: "Why these weights?" So would I!
     const vector<pair<string, int>> messages = {
-        { " appears in a shower of translocational energy.", 17 },
-        { " appears in a shower of sparks.", 34 },
-        { " materialises.", 45 },
-        { " emerges from chaos.", 13 },
-        { " emerges from the beyond.", 26 },
-        { make_stringf(" assembles %s!",
+        { "在传送能量的飞雨中出现。", 17 },
+        { "在火花四溅中现身。", 34 },
+        { "显现了出来。", 45 },
+        { "自混沌中涌现。", 13 },
+        { "从彼界现身。", 26 },
+        { make_stringf("重新拼合%s！",
                        mon->pronoun(PRONOUN_REFLEXIVE).c_str()), 33 },
-        { " erupts from nowhere.", 9 },
-        { " bursts from nowhere.", 18 },
-        { " is cast out of space.", 7 },
-        { " is cast out of reality.", 14 },
-        { " coalesces out of pure chaos.", 5 },
-        { " coalesces out of seething chaos.", 10 },
-        { " punctures the fabric of time!", 2 },
-        { " punctures the fabric of the universe.", 7 },
-        { make_stringf(" manifests%s!",
-                       silenced(you.pos()) ? "" : " with a bang"), 3 },
+        { "凭空爆现。", 9 },
+        { "凭空冲出。", 18 },
+        { "被空间抛了出来。", 7 },
+        { "被现实放逐而出。", 14 },
+        { "由纯粹混沌凝聚成形。", 5 },
+        { "由沸腾混沌凝聚成形。", 10 },
+        { "刺穿了时间的帷幕！", 2 },
+        { "刺穿了宇宙的帷幕。", 7 },
+        { make_stringf("显形%s！",
+                       silenced(you.pos()) ? "" : "伴随着一声巨响"), 3 },
 
 
     };
@@ -434,10 +434,8 @@ static void _handle_encounter_messages(const vector<monster*> monsters,
     }
     else if (sc == SC_ORBRUN)
     {
-        out << _describe_monsters_from_species(species).c_str() << " appear";
-        if (monsters.size() == 1)
-            out << "s";
-        out << " in pursuit of the Orb! ";
+        out << _describe_monsters_from_species(species).c_str() << "出现";
+        out << "，正为追逐宝珠而来！";
     }
     else
         out << "你遇到了" << _describe_monsters_from_species(species) << "。";
@@ -625,8 +623,8 @@ void seen_monster(monster* mons, bool do_encounter_message)
         }
         else if (mons->flags & MF_KNOWN_SHIFTER)
         {
-            name += make_stringf(" (%sshapeshifter)",
-                mons->has_ench(ENCH_GLOWING_SHAPESHIFTER) ? "glowing " : "");
+            name += make_stringf("（%s变形怪）",
+                mons->has_ench(ENCH_GLOWING_SHAPESHIFTER) ? "发光" : "");
         }
         take_note(Note(NOTE_SEEN_MONSTER, mons->type, 0, name));
     }
@@ -643,7 +641,7 @@ void seen_monster(monster* mons, bool do_encounter_message)
             wyrmbane = offhand_wpn;
 
         if (wyrmbane && mons->dragon_level() > wyrmbane->plus)
-            mpr("<green>Wyrmbane glows as a worthy foe approaches.</green>");
+            mpr("<green>屠龙枪发出光芒，值得一战的强敌正在逼近。</green>");
     }
 
     // attempt any god conversions on first sight
@@ -685,7 +683,7 @@ void seen_monster(monster* mons, bool do_encounter_message)
         && coinflip()
         && mons->get_experience_level() >= random2(you.experience_level))
     {
-        mprf(MSGCH_GOD, GOD_GOZAG, "Gozag incites %s against you.",
+        mprf(MSGCH_GOD, GOD_GOZAG, "高扎格煽动%s与你为敌。",
                 mons->name(DESC_THE).c_str());
         gozag_incite(mons);
     }
@@ -694,9 +692,9 @@ void seen_monster(monster* mons, bool do_encounter_message)
         && !(mons->flags & MF_KNOWN_SHIFTER)
         && have_passive(passive_t::warn_shapeshifter))
     {
-        string msg = make_stringf(" warns you: %s is a foul%s shapeshifter.",
+        string msg = make_stringf("警告你：%s是个卑劣的%s变形怪。",
                                     uppercase_first(mons->name(DESC_THE)).c_str(),
-                                    mons->has_ench(ENCH_GLOWING_SHAPESHIFTER) ? " glowing" : "");
+                                    mons->has_ench(ENCH_GLOWING_SHAPESHIFTER) ? "发光的" : "");
         simple_god_message(msg.c_str());
         discover_shifter(*mons);
 #ifndef USE_TILE_LOCAL

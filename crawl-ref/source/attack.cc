@@ -498,14 +498,14 @@ bool attack::distortion_affects_defender()
     {
     case SMALL_DMG:
         special_damage += 1 + random2avg(7, 2);
-        special_damage_message = make_stringf("Space warps around %s%s",
+        special_damage_message = make_stringf("空间在%s周围扭曲%s",
                                               defender_name(false).c_str(),
                                               attack_strength_punctuation(special_damage).c_str());
         break;
     case BIG_DMG:
         special_damage += 3 + random2avg(24, 2);
         special_damage_message =
-            make_stringf("Space warps horribly around %s%s",
+            make_stringf("空间在%s周围剧烈扭曲%s",
                          defender_name(false).c_str(),
                          attack_strength_punctuation(special_damage).c_str());
         break;
@@ -683,7 +683,7 @@ void attack::drain_defender_speed()
 {
     if (needs_message)
     {
-        mprf("%s %s %s vigour!",
+        mprf("%s %s %s的活力！",
              atk_name(DESC_THE).c_str(),
              attacker->conj_verb("drain").c_str(),
              def_name(DESC_ITS).c_str());
@@ -764,24 +764,24 @@ void attack::stab_message()
     case 4:     // confused/fleeing/distracted
         if (!one_chance_in(3))
         {
-            mprf("You catch %s completely off-guard!",
+            mprf("你打了%s一个措手不及！",
                   defender->name(DESC_THE).c_str());
         }
         else
         {
-            mprf("You %s %s from behind!",
-                  you.has_mutation(MUT_PAWS) ? "pounce on" : "strike",
+            mprf("你从背后%s%s！",
+                  you.has_mutation(MUT_PAWS) ? "猛扑" : "猛击",
                   defender->name(DESC_THE).c_str());
         }
         break;
     case 1:
         if (you.has_mutation(MUT_PAWS) && coinflip())
         {
-            mprf("You pounce on the unaware %s!",
+            mprf("你猛扑向毫无防备的%s！",
                  defender->name(DESC_PLAIN).c_str());
             break;
         }
-        mprf("%s fails to defend %s.",
+        mprf("%s没能保护好%s。",
               defender->name(DESC_THE).c_str(),
               defender->pronoun(PRONOUN_REFLEXIVE).c_str());
         break;
@@ -1259,8 +1259,8 @@ bool attack::apply_damage_brand(const char *what)
                     attack_strength_punctuation(special_damage);
             special_damage_message =
                 defender->is_player()
-                ? make_stringf("You are electrocuted%s", punctuation.c_str())
-                : make_stringf("Lightning courses through %s%s",
+                ? make_stringf("你被电击了%s", punctuation.c_str())
+                : make_stringf("电流穿过%s%s",
                                defender->name(DESC_THE).c_str(),
                                punctuation.c_str());
             special_damage_flavour = BEAM_ELECTRICITY;
@@ -1528,7 +1528,7 @@ int attack::player_stab(int damage)
         {
             if (!you.duration[DUR_DEVIOUS])
             {
-                mprf(MSGCH_DURATION, "You feel devious.");
+                mprf(MSGCH_DURATION, "你感到自己变得狡黠。");
                 you.props.erase(DEVIOUS_KEY);
             }
 
@@ -1542,7 +1542,7 @@ int attack::player_stab(int damage)
         if (you.has_mutation(MUT_SOUTH_WIND) && !defender->wont_attack())
         {
             if (!you.duration[DUR_TAILWIND])
-                mprf(MSGCH_DURATION, "The winds around you quicken.");
+                mprf(MSGCH_DURATION, "你周围的风势加快了。");
             you.duration[DUR_TAILWIND] = max(you.duration[DUR_TAILWIND], random_range(50, 90));
         }
     }
@@ -1682,7 +1682,7 @@ void attack::maybe_trigger_autodazzler()
         proj.fire(tracer);
         if (tracer.friend_info.count == 0)
         {
-            mpr("Your autodazzler retaliates!");
+            mpr("你的自动炫光器发动了反击！");
 
             proj.fire();
         }
@@ -1694,7 +1694,7 @@ bool attack::paragon_defends_player()
     if (defender->is_player() && paragon_defense_bonus_active()
         && one_chance_in(3))
     {
-        mprf("Your paragon deflects %s attack away from you.",
+        mprf("你的英灵将%s的攻击偏转开来，护你周全。",
                     attacker->name(DESC_ITS).c_str());
         return true;
     }

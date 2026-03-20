@@ -619,7 +619,7 @@ static const like_response _fedhas_kill_living_response()
         nullptr, [] (int &, int &, const monster* victim)
         {
             if (victim && mons_class_can_leave_corpse(mons_species(victim->type)))
-                simple_god_message(" appreciates your contribution to the ecosystem.");
+                simple_god_message("赞赏你对生态系统作出的贡献。");
             else
                 simple_god_message("认可了你的击杀。");
         }
@@ -642,16 +642,16 @@ static const like_response _yred_kill_response()
                     //Print a reminder if the torch isn't lit, but *could* be
                     if (yred_cannot_light_torch_reason().empty())
                     {
-                        mprf(MSGCH_GOD, "With your torch unlit, %s soul goes wasted...",
+                        mprf(MSGCH_GOD, "你的火炬尚未点燃，%s的灵魂就这样白白流失……",
                              you.can_see(*victim) ? victim->pronoun(PRONOUN_POSSESSIVE).c_str() : "a");
                     }
                 }
                 else
                 {
-                    mprf(MSGCH_GOD, "%s %ssoul becomes fuel for the torch.",
-                         you.can_see(*victim) ? victim->pronoun(PRONOUN_POSSESSIVE).c_str() : "A",
-                         mons_is_unique(victim->type) ? "potent "
-                             : victim->holiness() & MH_HOLY ? "unsullied " : "");
+                    mprf(MSGCH_GOD, "%s%s灵魂化作了火炬的燃料。",
+                         you.can_see(*victim) ? victim->pronoun(PRONOUN_POSSESSIVE).c_str() : "一个",
+                         mons_is_unique(victim->type) ? "强大的"
+                             : victim->holiness() & MH_HOLY ? "纯净的" : "");
 
                     if (mons_is_unique(victim->type))
                         piety *= 3;
