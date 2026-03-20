@@ -10,6 +10,7 @@ this.
 from __future__ import print_function
 
 import argparse
+import io
 import os
 import sys
 import traceback
@@ -390,7 +391,8 @@ defaults = {
 }
 
 def load_template(templatedir, name):
-    return open(os.path.join(templatedir, name)).read()
+    with io.open(os.path.join(templatedir, name), 'r', encoding='utf-8') as f:
+        return f.read()
 
 def main():
     parser = argparse.ArgumentParser(description='Generate mon-data.h')
@@ -414,7 +416,8 @@ def main():
             continue
         f_path = os.path.join(args.datadir, f_name)
         try:
-            mon_spec = yaml.safe_load(open(f_path))
+            with io.open(f_path, 'r', encoding='utf-8') as f:
+                mon_spec = yaml.safe_load(f.read())
         except yaml.YAMLError as e:
             print("Failed to load %s: %s" % (f_name, e))
             sys.exit(1)
@@ -429,7 +432,7 @@ def main():
 
     text += load_template(args.templatedir, 'footer.txt')
 
-    with open(args.mon_data, 'w') as f:
+    with io.open(args.mon_data, 'w', encoding='utf-8') as f:
         f.write(text)
 
 if __name__ == '__main__':

@@ -10,6 +10,7 @@ this.
 from __future__ import print_function
 
 import argparse
+import io
 import os
 import sys
 import traceback
@@ -435,7 +436,8 @@ defaults = {
 }
 
 def load_template(templatedir, name):
-    return open(os.path.join(templatedir, name)).read()
+    with io.open(os.path.join(templatedir, name), 'r', encoding='utf-8') as f:
+        return f.read()
 
 def main():
     parser = argparse.ArgumentParser(description='Generate form-data.h')
@@ -462,7 +464,8 @@ def main():
     enum_order = {}
     enum_started = False
     index = 0
-    transformation_h = open(args.form_enum).read()
+    with io.open(args.form_enum, 'r', encoding='utf-8') as f:
+        transformation_h = f.read()
     enum_lines = transformation_h.splitlines()
     for ln in enum_lines:
         trimmed = ln.lstrip()
@@ -483,7 +486,8 @@ def main():
             continue
         f_path = os.path.join(args.datadir, f_name)
         try:
-            form_spec = yaml.safe_load(open(f_path))
+            with io.open(f_path, 'r', encoding='utf-8') as f:
+                form_spec = yaml.safe_load(f.read())
         except yaml.YAMLError as e:
             print("Failed to load %s: %s" % (f_name, e))
             sys.exit(1)
@@ -505,7 +509,7 @@ def main():
 
     text += load_template(args.templatedir, 'footer.txt')
 
-    with open(args.form_data, 'w') as f:
+    with io.open(args.form_data, 'w', encoding='utf-8') as f:
         f.write(text)
 
 if __name__ == '__main__':

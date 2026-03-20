@@ -7,6 +7,7 @@ in ../dat/jobs/.
 from __future__ import print_function
 
 import argparse
+import io
 import os
 import sys
 import traceback
@@ -220,12 +221,12 @@ def generate_job_type_data(s):
 def maybe_write(filename, text):
     """Write `text` to `filename`, but only if the file would be created or changed"""
     if os.path.exists(filename):
-        with open(filename, 'r') as f:
+        with io.open(filename, 'r', encoding='utf-8') as f:
             cur = f.read()
         if cur == text:
             return
 
-    with open(filename, 'w') as f:
+    with io.open(filename, 'w', encoding='utf-8') as f:
         f.write(text)
 
 
@@ -254,7 +255,8 @@ def main():
             continue
         f_path = os.path.join(args.datadir, f_name)
         try:
-            job_spec = yaml.safe_load(open(f_path))
+            with io.open(f_path, 'r', encoding='utf-8') as f:
+                job_spec = yaml.safe_load(f.read())
         except yaml.YAMLError as e:
             print("Failed to load %s: %s" % (f_name, e))
             sys.exit(1)
