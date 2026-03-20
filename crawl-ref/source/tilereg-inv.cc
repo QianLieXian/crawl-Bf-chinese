@@ -223,7 +223,7 @@ static bool _can_use_item(const item_def &item, bool equipped)
 
 bool InventoryRegion::update_tab_tip_text(string &tip, bool active)
 {
-    const char *prefix1 = active ? "" : "[L-Click] ";
+    const char *prefix1 = active ? "" : "[左键] ";
     const char *prefix2 = active ? "" : "          ";
 
     tip = make_stringf("%s%s\n%s%s",
@@ -245,12 +245,12 @@ bool InventoryRegion::update_tip_text(string& tip)
     // page next/prev
     if (_is_next_button(item_idx))
     {
-        tip = "下一页\n[L-Click] 显示下一页物品";
+        tip = "下一页\n[左键] 显示下一页物品";
         return true;
     }
     else if (_is_prev_button(item_idx))
     {
-        tip = "上一页\n[L-Click] 显示上一页物品";
+        tip = "上一页\n[左键] 显示上一页物品";
         return true;
     }
 
@@ -284,11 +284,11 @@ bool InventoryRegion::update_tip_text(string& tip)
 
         if (!item_is_stationary(item))
         {
-            tip += "\n[L-Click] 拾取（%）";
+            tip += "\n[左键] 拾取（%）";
             cmd.push_back(CMD_PICKUP);
             if (item.quantity > 1)
             {
-                tip += "\n[Ctrl + L-Click] 部分拾取（%）";
+                tip += "\n[Ctrl + 左键] 部分拾取（%）";
                 cmd.push_back(CMD_PICKUP_QUANTITY);
             }
         }
@@ -312,7 +312,7 @@ bool InventoryRegion::update_tip_text(string& tip)
 
         if (_can_use_item(item, equipped))
         {
-            string tip_prefix = "\n[L-Click] ";
+            string tip_prefix = "\n[左键] ";
             string tmp = "";
             if (equipped)
             {
@@ -340,7 +340,7 @@ bool InventoryRegion::update_tip_text(string& tip)
                     if (you.has_mutation(MUT_WIELD_OFFHAND)
                         && you.hands_reqd(item) == HANDS_ONE)
                     {
-                        tmp += "\n[Ctrl + L-Click] 副手";
+                        tmp += "\n[Ctrl + 左键] 副手";
                     }
                 }
                 break;
@@ -399,15 +399,15 @@ bool InventoryRegion::update_tip_text(string& tip)
                 tip += tip_prefix + tmp;
         }
 
-        tip += "\n[R-Click] 查看描述";
+        tip += "\n[右键] 查看描述";
         // Has to be non-equipped or non-cursed to drop.
         if (!equipped || !you.inv[idx].cursed())
         {
-            tip += "\n[Shift + L-Click] 丢弃 (%)";
+            tip += "\n[Shift + 左键] 丢弃 (%)";
             cmd.push_back(CMD_DROP);
             if (you.inv[idx].quantity > 1)
             {
-                tip += "\n[Ctrl-Shift + L-Click] 丢弃数量 (%#)";
+                tip += "\n[Ctrl+Shift + 左键] 丢弃数量 (%#)";
                 cmd.push_back(CMD_DROP);
             }
         }

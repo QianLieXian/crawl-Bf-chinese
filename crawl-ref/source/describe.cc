@@ -688,35 +688,32 @@ static const char* _jewellery_base_ability_description(int subtype)
     case RING_SUSTAIN_ATTRIBUTES:
         return "It sustains your strength, intelligence and dexterity.";
     case RING_TELEPORTATION:
-        return "It may teleport you next to monsters.";
+        return "它可能把你传送到怪物身边。";
     case RING_TELEPORT_CONTROL:
-        return "It can be evoked for teleport control.";
+        return "可发动以控制传送。";
     case AMU_THE_GOURMAND:
-        return "It allows you to eat raw meat even when not hungry.";
+        return "即使不饥饿，你也可以生食肉类。";
     case AMU_HARM:
         return "它会增加你造成与承受的伤害。";
     case AMU_CONSERVATION:
-        return "It protects your inventory from destruction.";
+        return "它会保护你的物品栏免受摧毁。";
     case AMU_CONTROLLED_FLIGHT:
-        return "It allows you to control your flight when levitating.";
+        return "悬浮时可控制飞行。";
     case AMU_INACCURACY:
-        return "It reduces the accuracy of all your attacks.";
+        return "它会降低你所有攻击的命中。";
 #endif
     case AMU_GUARDIAN_SPIRIT:
-        return "It causes incoming damage to be divided between your reserves "
-               "of health and magic.";
+        return "它会将受到的伤害分摊到你的生命与魔法储备上。";
     case AMU_FAITH:
-        return "It allows you to gain divine favour quickly.";
+        return "它让你更快获得神祇青睐。";
     case AMU_REFLECTION:
-        return "It reflects blocked missile attacks.";
+        return "它会反弹被格挡的投射攻击。";
     case AMU_WILDSHAPE:
-        return "It improves your skill with shapeshifting (+5).";
+        return "它提升你的变形术技能（+5）。";
     case AMU_CHEMISTRY:
-        return "It restores some MP whenever you drink a potion and also enhances "
-               "your alchemy spells.";
+        return "每当你饮用药水时，它会恢复少量魔法值，并强化你的炼金法术。";
     case AMU_DISSIPATION:
-        return "It reduces the duration of hostile enchantments and decays "
-               "magical contamination more quickly.";
+        return "它会缩短敌对附魔持续时间，并更快消散魔法污染。";
     }
     return "";
 }
@@ -768,18 +765,18 @@ void desc_randart_props(const item_def &item, vector<string> &lines)
         // these two have some custom string replacement
         if (prop == ARTP_WILLPOWER)
         {
-            lines.push_back(make_stringf("%sIt %s%s your willpower.",
+            lines.push_back(make_stringf("%s它会%s你的意志力。",
                      _padded_artp_name(ARTP_WILLPOWER, stval).c_str(),
-                     (stval < -1 || stval > 1) ? "greatly " : "",
-                     (stval < 0) ? "decreases" : "increases"));
+                     (stval < -1 || stval > 1) ? "大幅" : "",
+                     (stval < 0) ? "降低" : "提高"));
             continue;
         }
         else if (prop == ARTP_STEALTH)
         {
-            lines.push_back(make_stringf("%sIt makes you %s%s stealthy.",
+            lines.push_back(make_stringf("%s它会让你变得%s%s隐匿。",
                      _padded_artp_name(ARTP_STEALTH, stval).c_str(),
-                     (stval < -1 || stval > 1) ? "much " : "",
-                     (stval < 0) ? "less" : "more"));
+                     (stval < -1 || stval > 1) ? "明显" : "",
+                     (stval < 0) ? "更不" : "更"));
             continue;
         }
 
@@ -800,13 +797,13 @@ void desc_randart_props(const item_def &item, vector<string> &lines)
 
             const char* prefixes[] =
             {
-                "It makes you extremely vulnerable to ", // XX these two are worded badly? are they even used?
-                "It makes you very vulnerable to ",
-                "It makes you vulnerable to ",
-                "Buggy descriptor!",
-                "It protects you from ",
-                "It greatly protects you from ",
-                "It renders you almost immune to "
+                "它会让你对以下属性极度脆弱：", // XX these two are worded badly? are they even used?
+                "它会让你对以下属性非常脆弱：",
+                "它会让你对以下属性脆弱：",
+                "异常描述！",
+                "它会保护你免受以下属性影响：",
+                "它会大幅保护你免受以下属性影响：",
+                "它会让你几乎免疫以下属性："
             };
             sdesc = prefixes[idx] + sdesc + '.';
         }
@@ -1041,7 +1038,7 @@ static string _describe_demon(const string& name, bool flying, colour_t colour)
         " It smells of rotting flesh.",
         " It stinks of death.",
         " It stinks of decay.",
-        " It smells delicious!",
+        " 它闻起来很美味！",
     };
 
     ostringstream description;
@@ -1362,7 +1359,7 @@ string damage_rating(const item_def *item, int *rating_value)
         if (rating_value)
             *rating_value = 666;
 
-        return "your enemies will bleed and die for Makhleb.";
+        return "你的敌人将为马赫勒布流血并死去。";
     }
 
     const bool thrown = item && item->base_type == OBJ_MISSILES;
@@ -1423,21 +1420,21 @@ string damage_rating(const item_def *item, int *rating_value)
         plusses_desc = make_stringf(" %s %d (%s)",
                                     plusses < 0 ? "-" : "+",
                                     abs(plusses),
-                                    slaying && ench ? "Ench + Slay" :
-                                               ench ? "Ench"
-                                                    : "Slay");
+                                    slaying && ench ? "附魔 + 杀戮" :
+                                               ench ? "附魔"
+                                                    : "杀戮");
     }
 
     const string dmg_brand_desc = thrown ? _describe_missile_dmg_brand(*item) : "";
 
     return make_stringf(
-        "%d (Base %s x %d%% (%s) x %d%% (%s)%s)%s.",
+        "%d（基础 %s x %d%%（%s）x %d%%（%s）%s）%s。",
         rating,
         base_dam_desc.c_str(),
         stat_mult,
-        use_str ? "Str" : "Dex",
+        use_str ? "力量" : "敏捷",
         skill_mult,
-        use_weapon_skill ? "Skill" : "Fight",
+        use_weapon_skill ? "技能" : "战斗",
         plusses_desc.c_str(),
         dmg_brand_desc.c_str());
 }
@@ -1484,8 +1481,7 @@ static void _append_weapon_stats(string &description, const item_def &item)
         && is_useless_skill(staff_skill(static_cast<stave_type>(item.sub_type))))
     {
         description += make_stringf(
-            "Your inability to study %s prevents you from drawing on the"
-            " full power of this staff in melee.\n\n",
+            "你无法学习%s，这使你无法在近战中发挥这根法杖的全部威力。\n\n",
             skill_name(staff_skill(static_cast<stave_type>(item.sub_type))));
     }
 
@@ -1524,22 +1520,21 @@ static void _append_weapon_stats(string &description, const item_def &item)
             const item_def *body_armour = you.body_armour();
             description += (body_armour ? uppercase_first(
                                               body_armour->name(DESC_YOUR))
-                                        : "Your heavy armour");
+                                        : "你的重甲");
 
             const bool significant = armour_penalty >= penalty_scale;
             if (significant)
             {
                 description +=
-                    make_stringf(" slows your attacks with this weapon by %.1f",
+                    make_stringf("使你使用该武器的攻击速度降低 %.1f",
                                  armour_penalty / (10.0f * penalty_scale));
             }
             else
-                description += " slightly slows your attacks with this weapon";
+                description += "会略微减慢你使用该武器的攻击速度";
         }
         else
         {
-            description += "Wearing heavy armour would reduce your attack "
-                           "speed with this weapon";
+            description += "穿重甲会降低你使用该武器的攻击速度";
         }
         description += ".";
     }
@@ -1548,7 +1543,7 @@ static void _append_weapon_stats(string &description, const item_def &item)
     if (want_player_stats)
     {
         description += _desc_attack_delay(item);
-        description += "\nDamage rating: " + damage_rating(&item);
+        description += "\n伤害评级： " + damage_rating(&item);
     }
 
     const string brand_desc = _describe_weapon_brand(item);
@@ -1650,13 +1645,13 @@ static string _category_string(const item_def &item, bool monster)
     {
     case SK_POLEARMS:
         // TODO(PF): maybe remove this whole section for util/monster summaries..?
-        description += "It has an extended reach";
+        description += "它拥有延展攻击距离";
         if (!monster)
             description += " (target with [<white>v</white>])";
         description += ". ";
         break;
     case SK_AXES:
-        description += "It hits all enemies adjacent to the wielder";
+        description += "它会攻击持有者邻近的所有敌人";
         if (!is_unrandom_artefact(item, UNRAND_WOE))
             description += ", dealing less damage to those not targeted";
         description += ". ";
@@ -2046,7 +2041,7 @@ static string _describe_weapon(const item_def &item, bool verbose, bool monster)
     {
         if (is_enchantable_weapon(item))
         {
-            description += "\n\nIt can be maximally enchanted to +"
+            description += "\n\n它最多可被附魔至 +"
                            + to_string(MAX_WPN_ENCHANT) + ".";
         }
         else
@@ -2104,7 +2099,7 @@ static string _describe_ammo(const item_def &item)
             description += _desc_attack_delay(item);
 
             if (property(item, PWPN_DAMAGE))
-                description += "\nDamage rating: " + damage_rating(&item);
+                description += "\n伤害评级： " + damage_rating(&item);
         }
     }
 
@@ -2285,7 +2280,7 @@ static string _describe_armour(const item_def &item, bool verbose, bool monster)
     {
         if (is_enchantable_armour(item))
         {
-            description += "\n\nIt can be maximally enchanted to +"
+            description += "\n\n它最多可被附魔至 +"
                            + to_string(armour_max_enchant(item)) + ".";
         }
         else if (armour_is_enchantable(item))
@@ -2415,8 +2410,8 @@ static string _describe_jewellery(const item_def &item, bool verbose)
                 break;
 
             case RING_SLAYING:
-                description += make_stringf("\n\nIt affects your accuracy and"
-                      " damage with ranged weapons and melee (%+d).",
+                description += make_stringf("\n\n它会影响你的命中与"
+                      "远程和近战伤害（%+d）。",
                       item.plus);
                 break;
 
@@ -2458,7 +2453,7 @@ static string _describe_item_curse(const item_def &item)
 
     ostringstream desc;
 
-    desc << "\nIt has a curse which improves the following skills:\n";
+    desc << "\n它带有一个诅咒，会提升以下技能：\n";
     desc << comma_separated_fn(curses.begin(), curses.end(), desc_curse_skills,
                                ".\n", ".\n") << ".";
 
@@ -2488,13 +2483,12 @@ static string _describe_gizmo(const item_def &item)
                 break;
 
             case SPGIZMO_REVGUARD:
-                desc = "Your AC increases as you Rev (up to +5) and while "
-                       "fully Revved, your attacks may disarm enemies.";
+                desc = "你的 AC 会随 Rev 提升（最高 +5），且在满 Rev 时，"
+                       "你的攻击可能缴械敌人。";
                 break;
 
             case SPGIZMO_AUTODAZZLE:
-                desc  = "It sometimes fires a blinding ray at enemies whose attacks "
-                       "you dodge.";
+                desc  = "它有时会向被你闪避攻击的敌人发射致盲射线。";
                 break;
 
             default:
@@ -2573,7 +2567,7 @@ static void _uselessness_desc(ostringstream &description, const item_def &item)
                 break;
             case OBJ_MISCELLANY:
             case OBJ_WANDS:
-                description << "You can't evoke this right now";
+                description << "你现在无法发动它";
                 break;
             default:
                 description << "This " << base_type_string(item.base_type)
@@ -2664,7 +2658,7 @@ string get_item_description(const item_def &item,
         }
         else if (item.base_type == OBJ_GIZMOS)
         {
-            description << "It is a fabulous contraption, custom-made by your "
+            description << "这是一个精妙绝伦的装置，由你亲手定制打造"
                            "own hands.";
             need_base_desc = false;
         }
@@ -2779,7 +2773,7 @@ string get_item_description(const item_def &item,
         if (item.sub_type == MISC_ZIGGURAT && you.zigs_completed)
         {
             const int zigs = you.zigs_completed;
-            description << "\n\nIt is surrounded by a "
+            description << "\n\n它被一层"
                         << (zigs >= 27 ? "blinding " : // just plain silly
                             zigs >=  9 ? "dazzling " :
                             zigs >=  3 ? "bright " :
@@ -2818,11 +2812,11 @@ string get_item_description(const item_def &item,
 
                 const string damage_str = evoke_damage_string(item);
                 if (damage_str != "")
-                    description << "\nDamage: " << damage_str;
+                    description << "\n伤害：" << damage_str;
 
                 const string noise_str = evoke_noise_string(item);
                 if (noise_str != "")
-                    description << "\nNoise: " << noise_str;
+                    description << "\n噪音：" << noise_str;
             }
         }
 
@@ -2847,7 +2841,7 @@ string get_item_description(const item_def &item,
                         describe_player_cancellation() << ".";
                 }
             }
-            description << "\n\nIt is "
+            description << "\n\n它是"
                         << article_a(describe_item_rarity(item))
                         << " potion.";
             need_extra_line = false;
@@ -2861,11 +2855,11 @@ string get_item_description(const item_def &item,
 
             const string damage_str = evoke_damage_string(item);
             if (damage_str != "")
-                description << "\nDamage: " << damage_str;
+                description << "\n伤害：" << damage_str;
 
             const string noise_str = evoke_noise_string(item);
             if (noise_str != "")
-                description << "\nNoise: " << noise_str;
+                description << "\n噪音：" << noise_str;
 
             if (verbose)
                 _uselessness_desc(description, item);
@@ -2878,7 +2872,7 @@ string get_item_description(const item_def &item,
             if (verbose)
                 _uselessness_desc(description, item);
 
-            description << "\n\nIt is "
+            description << "\n\n它是"
                         << article_a(describe_item_rarity(item))
                         << " scroll.";
             need_extra_line = false;
@@ -3231,8 +3225,7 @@ void get_feature_desc(const coord_def &pos, describe_info &inf, bool include_ext
 
             if (is_unknown_stair(pos))
             {
-                long_desc += " You have not yet explored it and cannot tell "
-                             "where it leads.";
+                long_desc += " 你尚未探索过此处，无法判断它通向哪里。";
             }
             else
             {
@@ -3241,9 +3234,8 @@ void get_feature_desc(const coord_def &pos, describe_info &inf, bool include_ext
                                          ? CMD_MAP_PREV_LEVEL
                                          : CMD_MAP_NEXT_LEVEL;
                 long_desc +=
-                    make_stringf(" You can view the location it leads to by "
-                                 "examining it with <w>%s</w> and pressing "
-                                 "<w>%s</w>.",
+                    make_stringf(" 你可以先用 <w>%s</w> 检视它，再按 "
+                                 "<w>%s</w> 查看它通往的位置。",
                                  command_to_string(CMD_DISPLAY_MAP).c_str(),
                                  command_to_string(look_dir).c_str());
             }
@@ -3917,7 +3909,7 @@ command_type describe_item_popup(const item_def &item,
     if (loc.is_valid() && loc != level_id::current())
     {
         // should be off-level stash search only
-        desc += make_stringf("It can be found on %s.\n\n",
+        desc += make_stringf("可在 %s 找到此物。\n\n",
             loc.describe(true, true).c_str());
     }
 
@@ -3993,7 +3985,7 @@ command_type describe_item_popup(const item_def &item,
     if (!actions.empty())
     {
         if (!spells.empty())
-            footer_text.cprintf("Select a spell, or ");
+            footer_text.cprintf("请选择一个法术，或 ");
         footer_text += formatted_string(_actions_desc(actions));
         auto footer = make_shared<Text>();
         footer->set_text(footer_text);
@@ -4108,8 +4100,8 @@ void inscribe_item(item_def &item)
     mprf_nocap(MSGCH_EQUIPMENT, "%s", item.name(DESC_INVENTORY).c_str());
 
     const bool is_inscribed = !item.inscription.empty();
-    string prompt = is_inscribed ? "Replace inscription with what? "
-                                 : "Inscribe with what? ";
+    string prompt = is_inscribed ? "将铭刻替换为："
+                                 : "铭刻内容：";
 
     char buf[79];
     int ret = msgwin_get_line(prompt, buf, sizeof buf, nullptr,
@@ -4145,11 +4137,11 @@ void inscribe_item(item_def &item)
 static string _player_spell_stats(const spell_type spell)
 {
     string description;
-    description += make_stringf("\nLevel: %d", spell_difficulty(spell));
+    description += make_stringf("\n等级：%d", spell_difficulty(spell));
 
     const string schools = spell_schools_string(spell);
     description +=
-        make_stringf("        School%s: %s",
+        make_stringf("        学派%s：%s",
                      schools.find("/") != string::npos ? "s" : "",
                      schools.c_str());
 
@@ -4173,36 +4165,36 @@ static string _player_spell_stats(const spell_type spell)
     }
     else
         failure = failure_rate_to_string(raw_spell_fail(spell));
-    description += make_stringf("        Fail: %s", failure.c_str());
+    description += make_stringf("        失败率：%s", failure.c_str());
 
     const string damage_string = spell_damage_string(spell);
     const string max_dam_string = spell_max_damage_string(spell);
     const int acc = spell_acc(spell);
     // TODO: generalize this pattern? It's very common in descriptions
     const int padding = (acc != -1) ? 8 : damage_string.size() ? 6 : 5;
-    description += make_stringf("\n\n%*s: ", padding, "Power");
+    description += make_stringf("\n\n%*s: ", padding, "威力");
     description += spell_power_string(spell);
 
     if (damage_string != "")
     {
-        description += make_stringf("\n%*s: ", padding, "Damage");
+        description += make_stringf("\n%*s: ", padding, "伤害");
         description += damage_string;
 
         const string max_dam = spell_max_damage_string(spell);
         if (!max_dam.empty())
-            description += " (max " + max_dam + ")";
+            description += "（最大 " + max_dam + "）";
     }
     if (acc != -1)
     {
         ostringstream acc_str;
         _print_bar(acc, 3, "", acc_str);
-        description += make_stringf("\n%*s: %s", padding, "Accuracy",
+        description += make_stringf("\n%*s: %s", padding, "命中",
                                                     acc_str.str().c_str());
     }
 
-    description += make_stringf("\n%*s: ", padding, "Range");
+    description += make_stringf("\n%*s: ", padding, "射程");
     description += spell_range_string(spell);
-    description += make_stringf("\n%*s: ", padding, "Noise");
+    description += make_stringf("\n%*s: ", padding, "噪音");
     description += spell_noise_string(spell);
     description += "\n";
     return description;

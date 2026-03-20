@@ -255,8 +255,8 @@ namespace quiver
     {
         const bool no_other_items = *get() == *next();
         string key_hint = no_other_items
-                            ? ", <w>%</w> - select action"
-                            : ", <w>%</w> - select action, <w>%</w> or <w>%</w> - cycle";
+                            ? ", <w>%</w> - 选择动作"
+                            : ", <w>%</w> - 选择动作，<w>%</w> 或 <w>%</w> - 循环切换";
         insert_commands(key_hint,
                         { CMD_TARGET_SELECT_ACTION,
                           CMD_TARGET_CYCLE_QUIVER_BACKWARD,
@@ -720,7 +720,7 @@ namespace quiver
                     mpr("你伸手发动攻击！");
                 else
                 {
-                    mprf("%s is in the way.",
+                    mprf("%s挡住了去路。",
                          mons->observable() ? mons->name(DESC_THE).c_str()
                                             : "你看不见的东西");
                 }
@@ -941,7 +941,7 @@ namespace quiver
                 const string verb =
                     make_stringf("%s%s",
                                  you.confused() ? "混乱 " : "",
-                                 is_throwable(&you, quiver) ? "throw" : "toss (no damage)");
+                                 is_throwable(&you, quiver) ? "投掷" : "抛出（无伤害）");
                 qdesc.cprintf("%s: ", uppercase_first(verb).c_str());
             }
 
@@ -2463,17 +2463,17 @@ namespace quiver
             string s = more_message + "\n";
 
             if (any_items)
-                s += "[<w>*/%</w>] inventory  ";
+                s += "[<w>*/%</w>] 物品栏  ";
             if (any_spells)
-                s += "[<w>&</w>] all spells  ";
+                s += "[<w>&</w>] 全部法术  ";
             if (any_abilities)
-                s += "[<w>^</w>] all abilities  ";
+                s += "[<w>^</w>] 全部能力  ";
 
 
-            string mode = make_stringf("%s focus mode: %s",
+            string mode = make_stringf("%s 聚焦模式：%s",
                 menu_keyhelp_cmd(CMD_MENU_CYCLE_MODE).c_str(),
-                focus_mode == Focus::NONE ? "<w>off</w>|on"
-                                          : "off|<w>on</w>");;
+                focus_mode == Focus::NONE ? "<w>关</w>|开"
+                                          : "关|<w>开</w>");;
 
             return pad_more_with(s, mode);
         }
@@ -2485,7 +2485,7 @@ namespace quiver
                 return;
             string action_desc = a->quiver_description();
             if (you.quiver_action.item_is_quivered(a->get_item()))
-                action_desc += " (quivered)";
+                action_desc += "（已装填）";
             MenuEntry *me = new MenuEntry(action_desc,
                                                 MEL_ITEM, 1,
                                                 (int) hotkey);
@@ -2588,7 +2588,7 @@ namespace quiver
             // this key shortcut does still work without arrow selection, but
             // it typically doesn't do much in this menu.
             const string keyhelp =
-                make_stringf(" <lightgrey>(%s to cycle)</lightgrey>",
+                make_stringf(" <lightgrey>(按 %s 循环切换)</lightgrey>",
                             menu_keyhelp_cmd(CMD_MENU_CYCLE_HEADERS).c_str());
 
             first_item = 0;
@@ -2598,7 +2598,7 @@ namespace quiver
             if (it_count && show_headers)
             {
                 add_entry(
-                    new MenuEntry("<lightcyan>Items</lightcyan>" + keyhelp,
+                    new MenuEntry("<lightcyan>物品</lightcyan>" + keyhelp,
                     MEL_SUBTITLE));
                 first_spell += 1;
                 first_abil += 1;
@@ -2611,7 +2611,7 @@ namespace quiver
                 if (i == it_count && spell_count && show_headers)
                 {
                     add_entry(
-                        new MenuEntry("<lightcyan>Spells</lightcyan>" + keyhelp,
+                        new MenuEntry("<lightcyan>法术</lightcyan>" + keyhelp,
                         MEL_SUBTITLE));
                     first_spell += 1;
                     first_abil += 1;
@@ -2619,7 +2619,7 @@ namespace quiver
                 else if (i == it_count + spell_count && show_headers)
                 {
                     add_entry(
-                        new MenuEntry("<lightcyan>Abilities</lightcyan>" + keyhelp,
+                        new MenuEntry("<lightcyan>能力</lightcyan>" + keyhelp,
                         MEL_SUBTITLE));
                     first_abil += 1;
                 }
@@ -2637,7 +2637,7 @@ namespace quiver
             if (actions.size() == 0)
             {
                 more_message =
-                    "<lightred>No regular actions available to quiver.</lightred>";
+                    "<lightred>没有可装填的常规动作。</lightred>";
             }
             if (last_hovered < 0)
             {
