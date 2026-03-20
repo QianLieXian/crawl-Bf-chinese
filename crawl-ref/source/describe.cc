@@ -1242,15 +1242,15 @@ static string _your_skill_desc(skill_type skill, bool show_target_button,
             you.get_training_target(skill) < min_scaled_target)
     {
         target_button_desc = make_stringf(
-            "; use <white>(s)</white> to set %d.%d as a target for %s.",
+            "；可按 <white>(s)</white> 将 %d.%d 设为%s的目标。",
                                 min_scaled_target / 10, min_scaled_target % 10,
                                 skill_name(skill));
     }
     int you_skill_temp = you.skill(skill, 10);
     int you_skill = you.skill(skill, 10, false, false);
 
-    return make_stringf("Your %sskill: %s%d.%d%s",
-                            (you_skill_temp != you_skill ? "(base) " : ""),
+    return make_stringf("你的%s技能：%s%d.%d%s",
+                            (you_skill_temp != you_skill ? "（基础）" : ""),
                             padding.c_str(), you_skill / 10, you_skill % 10,
                             target_button_desc.c_str());
 }
@@ -1279,22 +1279,22 @@ static string _skill_target_desc(skill_type skill, int scaled_target,
     const int level_diff = xp_to_level_diff(diffs.experience / 10, 10);
 
     if (max_training)
-        description += "At 100% training ";
+        description += "在 100% 训练下，";
     else if (!hypothetical)
     {
-        description += make_stringf("At current training (%d%%) ",
+        description += make_stringf("按当前训练值（%d%%），",
                                         you.training[skill]);
     }
     else
-        description += make_stringf("At a training level of %d%% ", training);
+        description += make_stringf("在训练值 %d%% 时，", training);
 
     description += make_stringf(
-        "you %sreach %d.%d in %s %d.%d XLs.",
-            hypothetical ? "would " : "",
-            scaled_target / 10, scaled_target % 10,
+        "你%s在%s %d.%d 个 XL 后达到 %d.%d。",
+            hypothetical ? "将" : "",
             (you.experience_level + (level_diff + 9) / 10) > 27
-                                ? "the equivalent of" : "about",
-            level_diff / 10, level_diff % 10);
+                                ? "约相当于" : "约",
+            level_diff / 10, level_diff % 10,
+            scaled_target / 10, scaled_target % 10);
     if (you.wizard)
     {
         description += make_stringf("\n    (%d xp, %d skp)",
@@ -1332,7 +1332,7 @@ static string _desc_attack_delay(const item_def &item)
 
     const int cur_delay = you.attack_delay_with(&dummy).expected();
 
-    return make_stringf("\n    Current attack delay: %.1f.", (float)cur_delay / 10);
+    return make_stringf("\n    当前攻击延迟：%.1f。", (float)cur_delay / 10);
 }
 
 static string _describe_missile_dmg_brand(const item_def &item)
@@ -1493,24 +1493,24 @@ static void _append_weapon_stats(string &description, const item_def &item)
     {
         const char *inf = Options.char_set == CSET_ASCII ? "inf" : "\u221e"; //"∞"
         description += make_stringf(
-            "Base accuracy: %s  Base damage: %s  ",
+            "基础命中: %s  基础伤害: %s  ",
             inf,
             inf);
     }
     else
     {
         description += make_stringf(
-            "Base accuracy: %+d  Base damage: %d  ",
+            "基础命中: %+d  基础伤害: %d  ",
             property(item, PWPN_HIT),
             base_dam);
     }
 
     description += make_stringf(
-        "Base attack delay: %.1f\n"
-        "This weapon's minimum attack delay (%.1f) is reached at skill level %d.",
+        "基础攻击延迟: %.1f\n"
+        "该武器在技能等级 %d 时可达到最小攻击延迟（%.1f）。",
             (float) property(item, PWPN_SPEED) / 10,
-            (float) weapon_min_delay(item, item.is_identified()) / 10,
-            mindelay_skill / 10);
+            mindelay_skill / 10,
+            (float) weapon_min_delay(item, item.is_identified()) / 10);
 
     _append_skill_needed(description, item);
 
@@ -2982,11 +2982,11 @@ string get_item_description(const item_def &item,
     // a docs file you don't know to exist is tedious.
     if (verbose && mode != IDM_MONSTER)
     {
-        description << "\n\n" << "Stash search prefixes: "
+        description << "\n\n" << "仓库搜索前缀："
                     << userdef_annotate_item(STASH_LUA_SEARCH_ANNOTATE, &item);
         string menu_prefix = item_prefix(item, false);
         if (!menu_prefix.empty())
-            description << "\nMenu/colouring prefixes: " << menu_prefix;
+            description << "\n菜单/着色前缀：" << menu_prefix;
     }
 
     return description.str();
@@ -3692,22 +3692,22 @@ static string _actions_desc(const vector<command_type>& actions)
     // XX code duplication
     static const map<command_type, string> act_str =
     {
-        { CMD_WIELD_WEAPON, "(w)ield" },
-        { CMD_UNWIELD_WEAPON, "(u)nwield" },
-        { CMD_QUIVER_ITEM, "(q)uiver" }, // except for potions, see below
-        { CMD_WEAR_ARMOUR, "(w)ear" },
-        { CMD_REMOVE_ARMOUR, "(t)ake off" },
-        { CMD_EVOKE, "e(v)oke" },
-        { CMD_READ, "(r)ead" },
-        { CMD_WEAR_JEWELLERY, "(p)ut on" },
-        { CMD_REMOVE_JEWELLERY, "(r)emove" },
-        { CMD_QUAFF, "(q)uaff" },
-        { CMD_PICKUP, "(g)et" },
-        { CMD_DROP, "(d)rop" },
-        { CMD_INSCRIBE_ITEM, "(i)nscribe" },
-        { CMD_ADJUST_INVENTORY, "(=)adjust" },
-        { CMD_SET_SKILL_TARGET, "(s)kill target" },
-        { CMD_MAP_GOTO_TARGET, "(g)o to location" },
+        { CMD_WIELD_WEAPON, "(w)装备" },
+        { CMD_UNWIELD_WEAPON, "(u)卸下" },
+        { CMD_QUIVER_ITEM, "(q)装填" }, // except for potions, see below
+        { CMD_WEAR_ARMOUR, "(w)穿上" },
+        { CMD_REMOVE_ARMOUR, "(t)脱下" },
+        { CMD_EVOKE, "(v)发动" },
+        { CMD_READ, "(r)阅读" },
+        { CMD_WEAR_JEWELLERY, "(p)佩戴" },
+        { CMD_REMOVE_JEWELLERY, "(r)取下" },
+        { CMD_QUAFF, "(q)饮用" },
+        { CMD_PICKUP, "(g)拾取" },
+        { CMD_DROP, "(d)丢弃" },
+        { CMD_INSCRIBE_ITEM, "(i)铭刻" },
+        { CMD_ADJUST_INVENTORY, "(=)调整" },
+        { CMD_SET_SKILL_TARGET, "(s)技能目标" },
+        { CMD_MAP_GOTO_TARGET, "(g)前往该位置" },
     };
     bool push_quiver = false;
     return comma_separated_fn(begin(actions), end(actions),
@@ -3716,10 +3716,10 @@ static string _actions_desc(const vector<command_type>& actions)
                                     if (cmd == CMD_QUAFF) // assumes quaff appears first
                                         push_quiver = true;
                                     else if (push_quiver && cmd == CMD_QUIVER_ITEM)
-                                        return string("qui(v)er");
+                                        return string("装填(v)");
                                     return act_str.at(cmd);
                                 },
-                                ", or ") + ".";
+                                "，或 ") + "。";
 }
 
 // Take a key and a list of commands and return the command from the list
@@ -5770,7 +5770,12 @@ void describe_hit_chance(int hit_chance, ostringstream &result, const item_def *
         if (weapon == nullptr)
             result << "你的" << you.hand_name(true);
         else
-            result << weapon->name(DESC_YOUR, false, false, false);
+        {
+            string weap_name = weapon->name(DESC_YOUR, false, false, false);
+            if (starts_with(weap_name, "your "))
+                weap_name = "你的" + weap_name.substr(5);
+            result << weap_name;
+        }
         result << "）";
     }
 
@@ -6564,7 +6569,7 @@ void get_monster_db_desc(const monster_info& mi, describe_info &inf,
     if (inf.title.empty())
         inf.title = getMiscString(mi.common_name(DESC_DBNAME) + " title");
     if (inf.title.empty())
-        inf.title = uppercase_first(mi.full_name(DESC_A)) + ".";
+        inf.title = uppercase_first(mi.full_name(DESC_PLAIN)) + "。";
 
     string db_name;
 
@@ -6973,9 +6978,9 @@ int describe_monster(const monster_info &mi, const string& /*footer*/)
 
     const string mores[3] =
     {
-        "[<w>!</w>]: <w>Description</w>",
-        "[<w>!</w>]: Description",
-        "[<w>!</w>]: Description",
+        "[<w>!</w>]: <w>描述</w>",
+        "[<w>!</w>]: 描述",
+        "[<w>!</w>]: 描述",
     };
 
     const formatted_string *content[3] = { &desc, &status_desc, &quote };
@@ -6997,10 +7002,10 @@ int describe_monster(const monster_info &mi, const string& /*footer*/)
 
         string more = make_stringf("%s%s%s", mores[i].c_str(),
             !status_desc.empty()
-                ? i == 1 ? "|<w>Statuses</w>" : "|Statuses"
+                ? i == 1 ? "|<w>状态</w>" : "|状态"
                 : "",
             !inf.quote.empty()
-                ? i == 2 ? "|<w>Quote</w>" : "|Quote"
+                ? i == 2 ? "|<w>引言</w>" : "|引言"
                 : "");
 
         more_sw->add_child(make_shared<Text>(

@@ -556,11 +556,11 @@ static void _enter_water(dungeon_feature_type old_feat,
 
     if (you.slow_in_water())
     {
-        mpr("Moving in this stuff is going to be slow.");
+        mpr("在这种地形中移动会变慢。");
         if (you.invisible())
-            mpr("...and don't expect to remain undetected.");
+            mpr("……而且别指望还能保持不被发现。");
     } else if (you.invisible())
-        mpr("Don't expect to remain undetected while in the water.");
+        mpr("在水中时，别指望还能保持不被发现。");
 }
 
 static bool _valid_entanglement_target(const monster& mon, bool check_no_tele)

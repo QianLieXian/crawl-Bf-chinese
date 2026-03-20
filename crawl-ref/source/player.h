@@ -785,7 +785,7 @@ public:
     string foot_name(bool plural, bool *can_plural = nullptr) const override;
     string arm_name(bool plural, bool *can_plural = nullptr) const override;
     int arm_count() const;
-    string unarmed_attack_name(string default_name="Nothing wielded") const;
+    string unarmed_attack_name(string default_name="空手") const;
 
     bool fumbles_attack() override;
 

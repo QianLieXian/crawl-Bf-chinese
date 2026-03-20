@@ -1670,30 +1670,30 @@ string monster_info::speed_description() const
         return "";
 
     ostringstream result;
-    result << "Speed: " << speed * 10 << "%";
+    result << "速度: " << speed * 10 << "%";
 
     vector<string> unusuals;
 
-    _add_energy_desc(menergy.attack, "attack", speed, unusuals);
-    _add_energy_desc(menergy.missile, "shoot", speed, unusuals);
-    _add_energy_desc(menergy.move, "travel", speed, unusuals);
+    _add_energy_desc(menergy.attack, "攻击", speed, unusuals);
+    _add_energy_desc(menergy.missile, "远程", speed, unusuals);
+    _add_energy_desc(menergy.move, "移动", speed, unusuals);
     if (menergy.swim != menergy.move)
-        _add_energy_desc(menergy.swim, "swim", speed, unusuals);
+        _add_energy_desc(menergy.swim, "游泳", speed, unusuals);
     // If we ever add a non-magical monster with fast/slow abilities,
     // we'll need to update this.
-    _add_energy_desc(menergy.spell, is_priest() ? "pray" : "magic",
+    _add_energy_desc(menergy.spell, is_priest() ? "祈祷" : "施法",
                      speed, unusuals);
 
     if (!unusuals.empty())
         result << " (" << join_strings(unusuals.begin(), unusuals.end(), ", ") << ")";
 
     if (type == MONS_SIXFIRHY || type == MONS_JIANGSHI)
-        result << " (but often pauses)";
+        result << "（但经常会停顿）";
     else if (travel_delay_diff)
     {
         const bool slow = travel_delay_diff > 0;
-        const string diff_desc = slow ? "slower" : "faster";
-        result << " (normally travels " << diff_desc << " than you)";
+        const string diff_desc = slow ? "更慢" : "更快";
+        result << "（通常移动速度比你" << diff_desc << "）";
         // It would be interesting to qualify this with 'on land',
         // if appropriate, but sort of annoying to get player swim speed.
     }
