@@ -1696,9 +1696,9 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
 
             static const char *potion_qualifiers[] =
             {
-                "",  "bubbling ", "fuming ", "fizzy ", "viscous ", "lumpy ",
-                "smoky ", "glowing ", "sedimented ", "metallic ", "murky ",
-                "gluggy ", "oily ", "slimy ", "emulsified ",
+                "", "起泡", "冒烟", "起沫", "黏稠", "结块",
+                "烟雾缭绕", "发光", "有沉淀", "金属质感", "浑浊",
+                "咕噜作响", "油腻", "黏滑", "乳浊",
             };
             COMPILE_CHECK(ARRAYSZ(potion_qualifiers) == PDQ_NQUALS);
 
@@ -1707,10 +1707,10 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
 #if TAG_MAJOR_VERSION == 34
                 "clear",
 #endif
-                "blue", "black", "silvery", "cyan", "purple", "orange",
-                "inky", "red", "yellow", "green", "brown", "ruby", "white",
-                "emerald", "grey", "pink", "coppery", "golden", "dark", "puce",
-                "amethyst", "sapphire",
+                "蓝色", "黑色", "银色", "青色", "紫色", "橙色",
+                "墨色", "红色", "黄色", "绿色", "棕色", "红宝石色", "白色",
+                "祖母绿色", "灰色", "粉色", "铜色", "金色", "深色", "暗紫红色",
+                "紫晶色", "蓝宝石色",
             };
             COMPILE_CHECK(ARRAYSZ(potion_colours) == PDC_NCOLOURS);
 
@@ -1721,7 +1721,7 @@ string item_def::name_aux(description_level_type desc, bool terse, bool ident,
             const char *clr =  (pcolour < 0 || pcolour >= PDC_NCOLOURS) ?
                                    "bogus" : potion_colours[pcolour];
 
-            buff << qualifier << clr << " potion";
+            buff << qualifier << clr << "药水";
         }
         break;
 

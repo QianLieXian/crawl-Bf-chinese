@@ -150,12 +150,12 @@ static string _seen_monsters_announcement(const vector<monster*> &visible,
     if (visible.size() == 1)
     {
         const monster& m = *visible[0];
-        return make_stringf("%s is nearby", m.name(DESC_A).c_str());
+        return make_stringf("%s在附近", m.name(DESC_A).c_str());
     }
     if (visible.size() > 1)
-        return "there are monsters nearby";
+        return "附近有怪物";
     if (sensed_monster)
-        return "there is a strange disturbance nearby";
+        return "附近有奇怪的动静";
     return "";
 }
 

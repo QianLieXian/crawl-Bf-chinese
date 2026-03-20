@@ -749,10 +749,10 @@ string attack_strength_punctuation(int dmg)
  */
 string attack::evasion_margin_adverb()
 {
-    return (ev_margin <= -20) ? " completely" :
+    return (ev_margin <= -20) ? "完全" :
            (ev_margin <= -12) ? "" :
-           (ev_margin <= -6)  ? " closely"
-                              : " barely";
+           (ev_margin <= -6)  ? "差一点"
+                              : "勉强";
 }
 
 void attack::stab_message()

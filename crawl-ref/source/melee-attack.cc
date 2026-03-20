@@ -370,7 +370,7 @@ void melee_attack::handle_phase_dodged()
             player_warn_miss();
         else
         {
-            mprf("%s%s misses %s.",
+            mprf("%s%s没有击中%s。",
                  atk_name(DESC_THE).c_str(),
                  evasion_margin_adverb().c_str(),
                  defender_name(true).c_str());
@@ -3647,8 +3647,7 @@ void melee_attack::announce_hit()
             verb_degree = " " + verb_degree;
         }
 
-        mprf("You %s %s%s%s%s%s%s",
-             attack_verb.c_str(),
+        mprf("你击中了%s%s%s%s%s%s",
              defender->name(DESC_THE).c_str(), verb_degree.c_str(),
              weapon_desc().c_str(),
              charge_desc().c_str(), debug_damage_number().c_str(),

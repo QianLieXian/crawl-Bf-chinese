@@ -3028,10 +3028,10 @@ item_def* monster_die(monster& mons, killer_type killer,
                 }
                 else
                 {
-                    mprf(MSGCH_MONSTER_DAMAGE, MDAM_DEAD, "You %s %s!",
-                         exploded  ? "blow up" :
-                         destroyed ? "destroy"
-                                   : "kill",
+                    mprf(MSGCH_MONSTER_DAMAGE, MDAM_DEAD, "你%s了%s！",
+                         exploded  ? "炸毁" :
+                         destroyed ? "摧毁"
+                                   : "击杀",
                          mons.name(DESC_THE).c_str());
                 }
             }

@@ -1,4 +1,4 @@
-name: "rat"
+name: "老鼠"
 glyph: {char: "r", colour: brown}
 flags: [warm_blood]
 exp: 1

@@ -440,7 +440,7 @@ static void _handle_encounter_messages(const vector<monster*> monsters,
         out << " in pursuit of the Orb! ";
     }
     else
-        out << "You encounter " << _describe_monsters_from_species(species) << ".";
+        out << "你遇到了" << _describe_monsters_from_species(species) << "。";
 
     _monster_headsup(monsters, single, out);
 
