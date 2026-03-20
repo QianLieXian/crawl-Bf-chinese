@@ -1,319 +1,923 @@
 ############################################################
-# godspeak.txt包含着神的话语消息。
+# godspeak.txt 包含神圣言语的消息。
 #
-# 有关如何读取godspeak.txt以及如何添加新消息的内容，
-# 请参阅docs/develop/目录中的monster_speech.txt文件。
+#有关如何读取godspeak.txt 以及如何
+# 添加新消息的说明，请参阅
+# docs/develop/目录中的monster_speech.txt。
 ############################################################
 %%%%
-# 如果找不到关键词，请回退
-Xom general effect
+# fall-back in case a keyword can't be found
+Xom大致效果
 
-佐姆窃笑着。
+Xom 偷笑。
 
 “这个怎么样？”
 
 “我们来做个实验吧，嗯？”
 
 w:1
-“我想知道……这个按钮是做什么的？”
+“我想知道……这个按钮有什么作用？”
 %%%%
 ##############################
-# 佐姆向你扔东西。
+# Xom 向你扔东西。
 ##############################
-Xom general gift
+Xom 通用礼物
 
-佐姆赐予你一件礼物！
+Xom 提示您一份礼物！
 
-“给你。”
+“这里。”
 
-佐姆显现着祂慷慨的本性。
+Xom 的巴尔本性重现。
 
-佐姆赐予你某种工具。
+Xom 为您赢得了某种工具。
 
-“拿着这件工具！”
+“拿走这个东西的乐器！”
 
-“接受我的敬意。”
+“收下这个代表我敬意的信物吧。”
 
-佐姆对你微笑。
+Xom对你微笑。
 
 “接住！”
 %%%%
-# 赐予你一颗宝珠
-Xom orb gift
+# gifting you an orb
+Xom 球体礼物
 
-“这就是你想要的宝珠吗？”
+“这是您想要的球体吗？”
 
-“许多冒险者都在寻找这个宝珠。”
+“许多冒险家都在寻找这颗宝珠。”
 
 w:3
-“想想我那不可思议的宝珠！”
+“思考我不可思议的宝珠！”
 %%%%
 ####################
-# 友好的召唤物
+# 友好召唤
 ####################
-Xom single summon
+Xom单召唤
 
-“照顾这个凡人，我的孩子！”
+“为凡人服务，我的孩子！”
 
-“照顾这个玩具，我的孩子！”
+“送玩具吧，我的孩子！”
 
-佐姆打开了一扇门。
+Xom打开一扇门。
 %%%%
-# 几个恶魔
 Xom multiple summons
 
-“照顾这个凡人，我的孩子们！”
+“为凡人服务，我的孩子们！”
 
-佐姆给了你一些临时援助。
+Xom 为您提供一些临时援助。
 
-佐姆瞬间打开了一扇门。
+Xom瞬间打开一扇门。
 %%%%
 Xom animate monster weapon
 
-“是时候找点乐子了!”
+“是时候玩点乐趣了！”
 
-你听到佐姆疯狂的笑声。
+听到你 Xom 疯狂的笑声。
 
-佐姆帮了你一个小忙。
+Xom给你一个小恩惠。
 
-佐姆对你微笑。
+Xom对你微笑。
 %%%%
-# 改变场景
-Xom scenery
+Xom flora ring
 
-佐姆略略地接触你周围的环境。
+Xom展示了一把园艺天赋。
 
-佐姆给你的环境加入了一些个人元素。
+Xom在这个充满死亡的地下城中传播生命。
 
-佐姆抱怨景色不够好。
+Xom 引发了互连地板模具的一些戏剧性变革。
 
-佐姆改变了你周围的地牢环境。
+ “还活着！还活着！”
 
-“好了，这看起来就更好了。”
+w:5
+Xom 在这道地牢的蛋糕中添加了新鲜蔬菜。
 
-“只是一个小小的改进……”
+w:5
+Xom在地上种了一些魔豆。
+%%%%
+# all scenery changing effects need to refer to the feature-data.h vaultnames
+Xom风景通用
+
+Xom短暂接触你的周围环境。
+
+Xom 抱怨画面。
+
+Xom 改变你周围的地牢。
+%%%%
+Xom scenery open_door
+
+@Xom scenery generic@
+%%%%
+Xom scenery closed_door
+
+@Xom scenery generic@
+%%%%
+Xom scenery altar_xom
+
+Xom 为您的环境添加一些个人风格。
+
+ “这样，看起来更好了。”
+
+ “只是一个小小的改进...”
+
+@Xom scenery generic@
+%%%%
+Xom scenery cache_of_fruit
+
+Xom不小心忘记了一些零食。
+
+Xom准备了一系列可见的最好的水果品种，然后将它们丢弃。
+%%%%
+Xom scenery cache_of_meat
+
+Xom [offers|fetches]你有一些零食。
+
+Xom 准备好了一顿由你在地牢中的杀戮膳食准备的晚餐。
+%%%%
+Xom scenery cache_of_baked_goods
+
+Xom提供一些新鲜出炉的小吃。
+%%%%
+Xom scenery enter_abyss
+
+Xom 给耳目带来了一种新的节奏变化。
+
+Xom在现实中撕开了几个小洞。
+
+Xom将空间弯曲成结。
+%%%%
+Xom scenery trap_teleport
+
+@Xom scenery enter_abyss@
+%%%%
+Xom kind door ring
+
+ 你周围的一小段距离似乎呈现出一种奇怪的安全坚固性。
+
+Xom 创造了一个安全的冒险家外壳。
+
+ “你想要一些属于自己的空间吗，凡人？”
+%%%%
+Xom mean door ring
+
+Xom 举起并拉入临时搭建的 [warmonger|duelist] 的竞技场。
+
+Xom将你作为展品锁起来进行研究。
+
+w:5
+Xom 建造了另一个 @player_genus@ 宠物动物园。
+%%%%
+Xom bazaar trip
+
+Xom带您进入深不可测的肥胖王国！
+
+Xom 带您进入……一场购物盛宴？
+
+Xom 为您提供您可能需要的一切（逗乐 Xom）。
+
+w:5
+Xom 为您提供您可能需要的一切（在 Xom 绝对正确的神圣判断力中）。
+
+当Xom欢快的笑声响起时，世界疯狂旋转。
+
+w:2
+“你的零钱包在它的小世界里已经变得太舒服了，凡人！”
 %%%%
 ##################
-# 佐姆的恶意
+# Xom 肮脏
 ##################
-# 误判强度为0，基本无害
-Xom zero miscast effect
+# 误施强度 0，大部分无害
+Xom 零误施效果
 
-佐姆几乎察觉到了你。
+Xom几乎注意到了你。
 
-有那么一会儿，佐姆几乎留意到了你。
+就那么一刻，Xom的注意力几乎转向了你。
 
-有那么一会儿，佐姆的力量几乎触动到了你。
+Xom的力量几乎有那么一刻触动了你。
 
-你几乎听到佐姆疯狂的笑声。
+你几乎听到 Xom 疯狂的笑声。
+%%%%
+# Keep this greater than one, and small.
+_xom_编号_
+
+两个
+
+三个
+
+四个
+
+五个
+
+六个
+%%%%
+Xom feature lava
+
+@The_feature@ 喷出火花！
+
+@The_feature@ 短暂凝固。
+%%%%
+Xom feature shallow water
+
+@The_feature@ 出现短暂气泡。
+
+@The_feature@ 短暂旋转。
+
+@The_feature@ 短时发光。
+
+@The_feature@ @any_glowing_colour@ 短时发光。
+
+@The_feature@ @any_colour@ 短暂触发。
+
+@The_feature@ 短暂发热。
+
+@The_feature@ 暂时停止。
+%%%%
+Xom feature deep water
+
+@Xom feature shallow water@
+
+在旁边，您会发现 @the_feature@ 中潜伏着一些东西。
+%%%%
+Xom feature blood
+
+@Xom feature shallow water@
+
+@The_feature@ 短暂凝固。
+%%%%
+Xom feature eyes
+
+@The_feature@ 好奇地看着你。
+
+@The_feature@ 瞬间就能看穿您。
+%%%%
+Xom feature dry
+
+水从@the_feature@短暂喷出。
+
+苏打水从@the_feature@短暂喷出。
+
+@the_feature@ 中短暂喷出血液。
+
+@the_feature@ 中冒出那么多。
+%%%%
+Xom feature statuelike
+
+@The_feature@转向给你怒视。
+
+@The_feature@ 转身扑倒你。
+
+@The_feature@ 转身背对着你。
+
+@The_feature@原地旋转。
+%%%%
+Xom feature tree
+
+@The_feature@ 向您弯曲。
+
+@The_feature@ 向远离您的方向弯曲。
+
+@The_feature@原地晃动。
+%%%%
+Xom feature translucent wall
+
+昏暗的形状在@the_feature@中游动。
+
+微弱的 @any_colour@ 火焰爬过 @the_feature@。 @the_feature@ 中简要介绍了
+
+@The_feature@。 @any_colour_pattern@ 中简要介绍了
+
+@The_feature@。 @any_glowing_colour_pattern@ 中简要介绍了
+
+@The_feature@。
+%%%%
+Xom feature metal wall
+
+电力卷须在@the_feature@上爬行。
+
+@The_feature@ 短暂出现失去镜子。
+%%%%
+Xom feature stone arch
+
+@The_feature@简要展示了另一侧阳光明媚的草地。
+
+@The_feature@ 简要地展示了另一边毫无生气的荒地。
+
+@The_feature@ 短暂地显示了另一个奇怪的 @glowing_adj@ 数字。
+
+@The_feature@ 简要展示了奇异的 @glowing_adj@ 的另一边建筑。
+
+@The_feature@ 简要显示了另一侧覆盖有 @any_colour_pattern@ 的半透明墙。
+
+@The_feature@ 简要显示了另一侧覆盖有 @any_glowing_colour_pattern@ 的半透明墙。
+
+@The_feature@ 简要显示了另一侧覆盖有 @any_graffiti@ 的半透明墙。
+%%%%
+Xom underfoot general
+
+@The_feature@ 在您脚下短暂移动。
+
+一个难以察觉的灵魂掠过你身边的@the_feature@。
+%%%%
+Xom underfoot water
+
+@The_feature@ 短暂地远离您。
+
+一种难以察觉的精神在你身边的@the_feature@中产生涟漪。
+%%%%
+Xom underfoot airborne general
+
+@The_feature@好像要从你脚下掉下来了！
+
+@The_feature@ 似乎正向你冲来！
+%%%%
+Xom underfoot airborne water
+
+@Xom underfoot airborne general@
+
+一种难以察觉的精神传入你脚下的@the_feature@。
+%%%%
+Xom inventory singular
+
+@Your_item@ 短时发光。
+
+@Your_item@ @any_glowing_colour@ 短时发光。
+
+@Your_item@ 短暂振动。
+
+@Your_item@ @any_colour@ 短暂触发。
+%%%%
+Xom inventory plural
+
+@your_item@ 短暂发光之一。
+
+@your_item@ 短暂点亮 @any_glowing_colour@ 之一。
+
+@your_item@ 短暂振动之一。
+
+@your_item@ 短暂触发 @any_colour@ 之一。
+
+@Your_item@ 短时发光。
+
+@Your_item@ 短暂地使 @any_glowing_colour@ 发光。
+
+@Your_item@ 短暂振动。
+
+@Your_item@ 短暂触发 @any_colour@。
+%%%%
+Xom floor inventory singular
+
+@Xom inventory singular@
+
+@Your_item@ 从你的背包中掉出来，然后立即跳回来！
+%%%%
+Xom floor inventory plural
+
+@Xom inventory plural@
+
+@your_item@ 从你的背包中掉出其中之一，然后立即跳回来！
+
+@Your_item@ 从你的背包中掉出来，然后立即跳回来！
+%%%%
+Xom bandages
+
+ 您会短暂地被绷带缠住。
+%%%%
+Xom floor bandages
+
+@Xom bandages@
+
+ 您被绷带绊倒。
+%%%%
+Xom one eye
+
+ 单片眼镜短暂出现在您的眼睛上方。
+
+ 眼罩短暂遮盖您的眼睛。
+
+一股@any_colour@光从你的眼睛里短暂射出！
+%%%%
+Xom eyes
+
+ 单片眼镜短暂出现在您的一只眼睛上方。
+
+ 眼罩短暂遮住您的一只眼睛。
+
+@any_colour@ 光芒从你的眼睛中短暂射出！
+%%%%
+Xom ears
+
+你的耳朵疯狂地扇动。
+
+你的耳朵在动。
+
+[Smoke|Steam] 从你的耳朵里短暂地发行来！
+%%%%
+Xom mouth
+
+您的嘴短暂地完全收缩。
+
+您的嘴巴短暂地张开，覆盖整个脸部。
+
+你短暂地又长出了一张嘴。
+
+[Smoke|Steam] 一会儿从你嘴里倒出来！
+%%%%
+Xom hair
+
+您的眉毛短暂地感觉非常浓密。
+
+你的眉毛蠕动。
+
+您短暂地长出大胡子和胡须。
+%%%%
+Xom impromptu dance
+
+您表现即兴舞蹈@dance_name@。
+
+您即兴表演 @acrobatic_move_name@。
+
+您强迫性地并英镑脚后跟@_xom_number_@次。
+
+您强迫性地踩踏 @feet@ @_xom_number_@ 次。
+%%%%
+dance_name
+
+芭蕾舞
+
+恰恰舞
+
+凡丹戈
+
+吉格舞
+
+排舞
+
+玛卡丽娜
+
+探戈
+
+踢踏舞
+
+华尔兹
+%%%%
+acrobatic_move_name
+
+@hand@静止
+
+侧手翻
+
+旋转
+
+空翻
+%%%%
+Xom tail
+
+您的尾巴短暂地缩回到身体中。
+
+你的尾巴会短暂地长到令人难以置信的长度。
+
+你短暂地长出了另一条尾巴。
+%%%%
+Xom random body part singular
+
+你的 @random_body_part_internal_singular@ 短暂地离开了你的身体，然后聚合回来！
+
+你的@random_body_part_external_singular@短暂地从你的身体上跳下来，然后重新绑在你身上！
+%%%%
+Xom random body part plural
+
+你的 @random_body_part_internal_plural@ 短暂地离开了你的身体，然后又聚合回来！
+
+你的@random_body_part_external_plural@短暂地从你的身体上跳下来，然后重新绑在你身上！
+%%%%
+Xom unarmed one hand
+
+纤细的手杖会短暂出现在您的 @hand@ 中。
+
+ 你强迫性地对着空气打拳。
+%%%%
+Xom unarmed two hands
+
+@Xom unarmed one hand@
+
+两根精美的手杖短暂出现在您的 @hands@ 中。
+
+您强迫性地鼓掌 @hands@ @_xom_number_@ 次。
+%%%%
+Xom cloak slot
+
+@Your_item@在无感的风中翻滚。
+
+@Your_item@ 会短暂地将其自身包围在您的 @head@ 周围！ @head@ 中简要介绍了
+
+@Your_item@！
+%%%%
+Xom helmet slot
+
+@Your_item@ 跳到空中，短暂旋转，然后降落在您的 @head@ 上！
+%%%%
+Xom offhand slot
+
+@Your_item@旋转！
+
+@Your_item@ 短暂触发 @any_glowing_colour@！
+%%%%
+Xom gloves slot
+
+@Your_item@ 短暂增长 @_xom_number_@ 额外手指！
+%%%%
+Xom boots slot
+
+@Your_item@ 增长到巨大尺寸，然后缩小！
+%%%%
+Xom amulet slot
+
+@Your_item@脉动！
+
+@Your_item@ 耀斑 @any_glowing_colour@，然后恢复正常。
+
+@Your_item@ 短暂飞翔并暂停在您的 @head@ 上空！
+%%%%
+Xom gizmo slot
+
+@Your_item@ 坐！
+
+@Your_item@ 泄漏@rainbow_colour@ 烟草！
+%%%%
+Xom ring slot
+
+@Your_item@抽奖！
+
+@Your_item@短暂变暗，然后再次变亮！
+
+@Your_item@短暂变亮，然后再次变暗！
+%%%%
+Xom dragon armour
+
+@your_item@上的鳞片短暂摆动。
+%%%%
+Xom animal skin
+
+@your_item@上的皮毛以惊人的速度变长，然后又缩回正常状态。
+%%%%
+Xom leather armour
+
+@Your_item@会短暂长出毛皮，然后恢复正常。
+%%%%
+Xom robe
+
+你短暂地陷入了@your_item@的困境。
+%%%%
+Xom metal armour
+
+@Your_item@ 短暂出现生锈。
 %%%%
 Xom rearrange the pieces
 
-佐姆决定重新排列这些棋子。
+Xom 决定重新排列棋子。
 
-“先到这儿，再到那儿。”
+“先是这里，现在又在那里。”
 
-“这可能会更好！”
+ “这样可能会更好！”
 
-“这就是我喜欢的！”
+ “这就是我喜欢的样子！”
 %%%%
 Xom teleportation journey
 
-“哟！”
+ “呼！”
 
-“我们去兜风吧！”
+ “我们去兜风吧！”
 
-“停在哪里，没人知道！”
+ “没有人知道它停在哪里！”
 
-佐姆扭曲了你周围的空间。
+Xom 扭曲您周围的空间。
 %%%%
 Xom confusion
 
-“呵呵……”
+ “呵呵呵……”
 
-有那么一会儿，佐姆的力量触动到了你的心灵。
+Xom的力量瞬间触动了你的心灵。
 
-佐姆咯咯地笑着。
+Xom 偷笑。
 %%%%
-# 50％属性值降低，25％衰竭，25％折磨
-Xom draining or torment
+Xom drinkless confusion
 
-“你惹恼了我，凡人。”
+ “绊倒吧，我的宠物！”
 
-“你对你那可怜的价值变得过于自信了。”
-
-有那么一会儿，佐姆的力量触动到了你。
-
-你听到佐姆疯狂的笑声。
-
-“受苦吧！”
-
-有那么一会儿，佐姆的恶意转向了你。
+Xom的力量瞬间触动你的身体和心灵。
 %%%%
-# 25％的几率是飞舞的武器，其余情况召唤敌对的怪物
-Xom hostile monster
+# Draining, player-only torment, or Doom.
+Xom 受苦
 
-“是时候找点乐子了!”
+ “你让我不高兴了，凡人。”
 
-“为生存而战，凡人。”
+ “你对自己微薄的价值太过自信了。”
 
-“我们看看他是否足够强大，能够存活下来。”
+Xom的力量瞬间触动了你。
 
-你听到佐姆疯狂的笑声。
+听到你 Xom 疯狂的笑声。
+
+ “受苦吧！”
+
+Xom 的恶意注意力暂时转向了你。
+%%%%
+Xom torment all
+
+Xom 厌倦者！
+
+Xom传播苦难与黑暗！
+
+Xom释放一波又一波的痛苦！
+
+Xom 的恶意注意力暂时转向了你的方向。
+
+w:5
+Xom 的手打破了场上所有人的灵魂。
+%%%%
+# summon hostile monster
+Xom 对敌怪物
+
+ “是时候玩点乐趣了！”
+
+ “为生存而战，凡人。”
+
+ “看看它是否强大到足以生存。”
+
+听到你 Xom 疯狂的笑声。
+%%%%
+# one friendly player illusion + two hostile player illusions
+Xom 发送克隆体
+
+Xom 感觉应该有更多的人与地下城分享。
+
+Xom轻轻地砸碎[@random_body_part_external_singular@|@random_body_part_external_plural@]上的镜子。
+
+“乘以前进！”
+%%%%
+# drain your mp, produce magicspawn
+Xom 人才流失
+
+w:20
+Xom暂时取代你的大部分魔法。
+
+w:20
+Xom 向您揭示了魔法中伟大而可怕的秘密之一。
+
+w:20
+Xom 好奇激发能量引导出你的身体。
+
+Xom拾起你的思绪，却意外地发现了它。
+
+Xom让你头疼不已。
+
+“你不需要这个，是吗？”
+%%%%
+# prints only if summons successfully spawn
+Xom 锻炼大脑
+
+w:20
+你的魔法从你晕眩的头脑中滑出！
+
+你的力量和思想被食魔者的显现所淹没！
+
+你的魔法从你的[@random_body_part_internal_singular@|@random_body_part_internal_plural@]中挣脱出来！
+
+你的魔力通过你的[@random_body_part_external_singular@|@random_body_part_external_plural@]中断！
+
+你的魔法通过你的 [@random_body_part_any_singular@|@random_body_part_any_plural@] 撕裂！
 %%%%
 Xom banishment
 
 “你在你的小世界里变得太舒服了，凡人！”
 
-佐姆把你扔入地狱！
+Xom让你跌入深渊！
 
-当佐姆疯狂的笑声在你耳边响起时，世界似乎在旋转。
+当 Xom 疯狂的笑声响起时，世界似乎在旋转。
 %%%%
 Xom revert own banishment
 
 w:30
-“开个玩笑！”
+“开玩笑！”
 
-“不过，转念一想……”
+“但转念一想……”
 
 “不，我改变主意了。”
 
-佐姆把你拉回到类似地牢的宁静之中。
+Xom 将把您带回地牢中类似的安静环境。
 %%%%
 Xom revert other banishment
 
-“给我回来！”
+“回到这里！”
 
-“别那样！”
+“不，你不！”
 
-佐姆把你拉回到类似地牢的宁静之中。
+Xom 将把您带回地牢中类似的安静环境。
 %%%%
-#  佐姆改进了附近一个敌对怪物的武器，使之附着混乱印记
-Xom chaos upgrade
+# Xom upgrades a nearby hostile monster's weapon to a chaos brand
+Xom 混沌升级
 
-佐姆的力量触动了附近的一把武器。
+Xom的力量打击附近的武器。
 
 “尝尝混乱的滋味吧，凡人。”
 
-佐姆咯咯地欢笑。
+Xom咯咯地笑。
 %%%%
 Xom noise
 
-佐姆制造了急剧的噪音！你听到@weapon_noise@
+Xom 发现噪音！您听到 @weapon_noise@
 
 w:1
 “嘘！”
 
 w:1
-佐姆在击鼓。
+Xom敲鼓。
+%%%%
+Xom fake shatter
+
+w:30
+“咔——崩溃！”
+
+“让混沌力量将这一切撕毁！”
+
+Xom抵达地球。
+
+w:1
+Xom向地牢墙壁揭示了巨大的毁灭真相！
 %%%%
 Xom blink monsters
 
-“快到那边去！”
+“现在那边！”
 
-“快过来！”
+“过来！”
 
-佐姆决定对周围的东西做一些改变。
+Xom 决定稍微改变一下。
+%%%%
+Xom fast forward
+
+Xom加快战斗速度。
+
+Xom 要求更快的节奏。
+
+“快点！”
+%%%%
+Xom slow motion
+
+Xom 感觉在场上没有人看得足够轻松。
+
+Xom 将时间打结。
+
+“别这么急！”
+%%%%
+Xom pause
+
+Xom停止一切，享受这一刻。
+
+Xom 准时了一会儿。
+
+w:1
+Xom 为观众准备地板独奏！
+%%%%
+Xom grant word of recall
+
+Xom 觉得这个微薄的聚会需要更多的客人。
+
+Xom 发出高度关注的邀请。
+%%%%
+Xom grant voiceless word of recall
+
+Xom要求戏剧性对话！
+
+Xom赋予无声者可怕的声音。
 %%%%
 #####################
 # 其他效果
 #####################
-Xom potion effect
+Xom 药水效果
 
-“去毁灭吧!”
+“前进并摧毁！”
 
-“去制造浩劫吧，凡人！”
+“快去制造破坏吧，凡人！”
 
-佐姆帮了你一个小忙。
+Xom给你一个小恩惠。
 
-佐姆对你微笑。
+Xom对你微笑。
 %%%%
 Xom cleaving
 
 @Xom potion effect@
 %%%%
-# 随机觉悟（魔法地图、探知物品、探知生物）
-Xom divination
+# random divination (magic mapping, detect items, detect creatures)
+Xom占卜
 
-“见我所能见到的，我的孩子！”
+“看看我看到了什么，我的孩子！”
 
-佐姆赐予你洞察力。
+Xom 提供您的洞察力。
 
-佐姆得意地笑着。
+Xom 傻笑。
 %%%%
-# 施放一个随机法术
-Xom spell effect
+# cast a random spell
+Xom 法术效果
 
-佐姆的力量在你身上流动！
+Xom的力量流经你！
 
-有那么一会儿，佐姆玩弄了一下现实。
+Xom暂时玩弄现实。
 
-佐姆狂笑着。
+Xom哈哈大笑。
 %%%%
-# 多色烟迹
-Xom cloud trail
+# multicoloured smoke trail
+Xom 云迹
 
-“去重新装点周围环境吧，我的孩子！”
+“去重新装修吧，我的孩子！”
 
-“这个地方需要营造一点儿氛围。”
+“这个地方需要多一点气氛。”
 %%%%
-# 加强友方，削弱敌方
-Xom good monster polymorph
+# strengthens friendlies, weakens hostiles
+Xom 良好的怪物变形
 
 “这可能会更好！”
 
-“哼，该死的……”
+“哼-迪-哼-迪-哼……”
 
-佐姆的力量触动了附近的一个怪物。
+Xom 的力量影响你的周围。
 
-你听到佐姆慈爱的轻笑声。
+你听到Xom慈祥的笑声。
 %%%%
-# 削弱友方，加强敌方
-Xom bad monster polymorph
+# weakens friendlies, strengthens hostiles
+Xom 坏怪物变形
 
 @Xom good monster polymorph@
+%%%%
+Xom wave of despair
+
+Xom瞬间讲述了一个恐怖故事。
+
+w:2
+Xom 高兴地回忆起多个地下城文明的崩溃。
 %%%%
 Xom good mutations
 
-“你需要稍微调整一下，凡人！”
+“你需要一些细微的调整，凡人！”
 
-“让我来改变你那可怜的身体吧。”
+“让我改变你可怜的身体吧。”
 
-有那么一会儿，佐姆的力量触动到了你。
+Xom的力量瞬间触动了你。
 
-你听到佐姆疯狂的咯咯笑声。
+听到你 Xom 疯狂的咯咯笑声。
+
+通过一束 [@rainbow_colour@|@misc_colour@] 光，Xom 可以重建您。
 %%%%
 Xom random mutations
 
-“你需要一些小小的提升，凡人！”
+“你需要一些小的改进，凡人！”
 
-“让我来改变你的身体吧。”
+“让我改变你的身体。”
 
-有那么一会儿，佐姆的力量轻拂过你。
+Xom的力量暂时与你擦肩而过。
 
-你听到佐姆慈爱的轻笑声。
+你听到Xom慈祥的笑声。
+
+随着 [@rainbow_colour@|@misc_colour@] 的光芒的闪烁，Xom 重建了你。
+%%%%
+Xom divine lightning
+
+该区域充满神雷！
+
+Xom投掷闪电！
+
+“准备，瞄准，开火！”
 %%%%
 Xom snakes to sticks
 
-佐姆改变了你周围的怪物。
+Xom 改变你周围的人。
 
-“我更喜欢他们这样。”
+“我更喜欢这样。”
 
-“我从来不喜欢这些扭曲的东西。”
+“从来不喜欢这些弯曲的东西。”
 
-佐姆接触你周围的环境。
+Xom 影响您的周围环境。
 
 @Xom good monster polymorph@
+%%%%
+Xom lights up webs
+
+Xom [gleefully|mirthfully] 破坏当地蜘蛛艺术品。
+
+Xom [brushes upon|sweeps through] 您周围环境的光。
+
+w:1
+@Xom fake destruction@
 %%%%
 Xom destruction
 
 “燃烧，宝贝，燃烧！”
 
-“嘭！”
+“咔嚓！”
 
-佐姆激发了巨大的爆炸。
+Xom召唤强大的爆炸。
 
-佐姆将灾难倾泻而下！
+Xom降下毁灭之雨！
+
+w:5
+Xom 猛烈地打刷新。
 
 @Xom fake destruction@
 %%%%
@@ -321,10 +925,24 @@ Xom fake destruction
 
 “感受我的力量！”
 
-佐姆展示了毁灭性的力量。
+Xom展现了破坏力。
 
 w:1
-“让一切在地狱之火中终结吧！”
+“让它在地狱之火中结束吧！”
+%%%%
+Xom force lance fleet
+
+Xom空降一个原力营！
+
+Xom召唤原力骑兵！
+
+Xom点燃原力烟花！
+
+w:1
+Xom发射了整个消防车的弹幕！
+
+w:1
+Xom演出戏剧性的管风琴和弦！
 %%%%
 Xom accidental homicide
 
@@ -332,36 +950,42 @@ Xom accidental homicide
 %%%%
 Xom weird death
 
-“那是怎么回事？奇怪。”
+“这是怎么发生的？奇怪。”
 %%%%
 Xom resurrection
 
-“让我来修复你的身体。”
+“让我修复你的身体。”
 
-佐姆欺骗了死神，把你留了下来。
+Xom 欺骗死亡让你独自一人。
 
-佐姆疯狂的笑声把死神吓跑了。
+Xom疯狂的笑声吓死了。
 
-佐姆的力量使你恢复生机。
+Xom的力量使你充满活力。
 
-佐姆让你起死回生。
+Xom让您起死回生。
 
-佐姆对你微笑。
+Xom对你微笑。
 
-“玩具，你先别死在我的眼前！”
+“玩具，你还不死在我身上吗！”
+
+Xom 在一切发生 @mono_colour@ 之前救了你。
 
 w:1
-“再[活|试|出发]一次。”
+“再来一个 [life|try|go]。”
 %%%%
 Xom repel stairs
 
-佐姆改变了场景。
+Xom改变风景。
 
-佐姆戳了戳附近的一个楼梯。
+Xom 附近的 @staircase@。
 
-“抓到你了！”
+Xom推动附近的@staircase@。
 
-佐姆改变了你周围的地牢环境。
+Xom拉动附近的@staircase@。
+
+ “标签，就是你了！”
+
+Xom 改变你周围的地牢。
 %%%%
 Xom good enchant monster
 
@@ -371,33 +995,57 @@ Xom bad enchant monster
 
 @Xom good enchant monster@
 %%%%
+Xom good hyper enchant monster
+
+“见证[hero|champion]真正的崛起！”
+
+Xom要求战斗中的荣耀！
+
+Xom的力量会非常短暂地影响你的周围环境。
+
+听到你Xom慈祥的咯咯笑声。
+%%%%
+Xom mass charm
+
+Xom 准备好混沌讨伐！
+
+Xom夺取各种傀儡线。
+
+ “孩子，你想要更多朋友吗？”
+
+w:5
+Xom 使用 @_trout_species_@ 鳟鱼贿赂附近的敌人。
+
+w:5
+Xom 的手触动了现场人们的心。
+%%%%
 Xom stealth player
 
-佐姆使你显著地安静下来。
+Xom 明显让你安静了。
 
-佐姆低语道：嘘！
+Xom 低声说道： 嘘！
 %%%%
 Xom cloud
 
-“这里的天气有点太无聊了。”
+ “这里的天气有点太无聊了。”
 
-佐姆要求卡兹拉尔，让事情变得有趣一些。
+Xom 要求 Qazlal 给事情增加一点趣味。
 
-“天气预报：多云。”
+“预报：以多云为主。”
 %%%%
 Xom life saving general
 
-“怎么了？等等，不！”
+ “什么？等等，不！”
 
-“嘿，事情才刚刚变得有趣了呢！”
+ “嘿，事情变得有趣了！”
 
-“不不不，这不是我的@_xom_plaything_@！”
+“NOOOOOOO，不是我的@_xom_plaything_@！”
 
-“不是这里，不是现在。”
+ “不在这里，现在不。”
 
-“再试一次。”
+ “再试一次。”
 
-佐姆感觉自己很宽厚。
+Xom · 觉得很巴基斯坦
 %%%%
 Xom life saving actor
 
@@ -406,202 +1054,225 @@ w:20
 
 “嘿，那是我的@_xom_plaything_@！”
 
-“噢，不，别那样！”
+ “哦，不，你不！”
 
-“那是我的@_xom_plaything_@，去拿你自己的吧！”
+“这就是我的@_xom_plaything_@，去拿你自己的吧！”
 
-“别碰我的@_xom_plaything_@！”
+“放开我的@_xom_plaything_@！”
 %%%%
 Xom boring death
 
-佐姆大声打着哈欠！
+Xom哈欠连天！
 
-“生也无趣，死也无趣……”
+“生无聊，死无聊……”
 
-“什么！？就这？”
+“什么！？就这样？”
 
-“我想，我现在需要一个新玩物了。”
+“我想我现在需要一个新玩具。”
 
-“嗯？我错过什么了吗？”
+“嗯？我是不是错过了什么？”
 
 “是时候了。”
 
 “这个玩具坏了。”
 
-“在有人失去一只眼睛前，这一切都是娱乐和游戏。”
+“这一切都很有趣和游戏，直到有人失去一只眼睛。”
 
 w:1
-“除非有人失去一只眼睛，否则这就不是娱乐和游戏。”
+“除非有人失去一只眼睛，否则这就不好玩了。”
 %%%%
-# 佐姆大笑
-# （目前仅用于在游戏结束后，响应“你死了……”）
-Xom laughter
+# Xom laughing
+# （目前仅用于赛后回应“你死了...”）
+克姆笑
 
-佐姆狂笑着！
+Xom狂笑！
 
-佐姆呵呵大笑！
+Xom哈哈大笑！
 
-佐姆觉得这太滑稽了！
+Xom 认为这很有趣！
 
-佐姆被逗乐了！
+Xom 非常好笑！
 
-佐姆放荡地咯咯笑！
+Xom 疯狂咯咯笑！
 
-佐姆窃笑着！
+Xom 偷笑！
 
-佐姆恶意地笑着！
+Xom 笑得很实在！
 
-佐姆开怀大笑！
+Xom哈哈大笑！
 
-佐姆发出一阵大笑！
+Xom大笑起来！
 
-佐姆疯狂地咯咯笑！
+Xom 疯狂咯咯笑！
 
-佐姆咯咯地笑着！
+Xom偷笑！
 
-佐姆关切地轻笑着！
+Xom哈哈大笑！
 
-佐姆咯咯地欢笑！
+Xom咯咯笑！
 %%%%
 _xom_plaything_
 
-# piety > 180 and > 80, respectively
+# 虔诚度分别 > 180 和 > 80
 {{
-if you.piety_rank() > 4 then
-    return "玩具熊"
-elseif you.piety_rank() > 2 then
-    return "玩具"
-else
-    return "玩物"
-end
+如果 you.piety_rank() > 4 那么
+返回“泰迪熊”
+elseif you.piety_rank() > 2 那么
+返回“玩具”
+别的
+返回“玩物”
+结束
 }}
 ######################################
-# 其他神的消息。
+#杂神消息。
 ######################################
 %%%%
 recite_closure
 
 “阿门！”
 
-“荣耀归于辛！”
+“荣耀归于Zin！”
 
-“原文如此。”
+“是这样写的。”
 
-“辛言道。”
+“辛如此说。”
 
-“愿你纯洁。”
+ “愿你们所有人都纯洁。”
 
-“以血书写；以你的死为印戳。”
+ “用血写成；由你的死亡封印。”
 
-“从辛的口，经辛的手。”
+“出自Zin之口，出自Zin之手。”
 
 w:5
-“它将永远如此。”
+ “就这样吧。”
 
 w:3
-“经受火焰！经受痛楚！”
+ “在火中！在痛苦中！”
 %%%%
 Ignis elemental wrath
 
-“进攻，我最后的坚定仆从！”
+ “攻击，我最后的坚定仆人！”
 
-伊格尼斯哀号着，狂怒倾泻而出！
+ 伊格尼斯愤怒地嚎叫，燃烧的怒火如雨点般倾泻而下！
 
-伊格尼斯召唤火之灵来毁灭你！
+ 伊格尼斯召唤火灵来消灭你！
 
-“燃烧吧！烧到什么都不剩！”
+ “燃烧！燃烧到什么都没有！”
 
-“他们会知道如何惩罚你！”
+ “他们会知道如何给予你应得的惩罚！”
 
-“叛徒！变节者！毁灭吧！”
-
-w:5
-“我曾用一千场火来烧毁城市，但只用这些来对付你也足够了！”
+ “背叛者！叛教者！灭亡！”
 
 w:5
-“我的手，我的牙齿，我灼热的泪水：这些永远不会背叛我！”
+ “我用一千把火烧毁了城市，但这些对你来说就足够了！”
+
+w:5
+ “我的手，我的牙齿，我燃烧的泪水：它们永远不会背叛我！”
+%%%%
+Makhleb executioner chatter
+
+w:40
+ “杀。杀。杀！”
+
+“更多。更多。更多！”
+
+ “又一个！又一个！又一个！”
+
+ “屠杀。他们。全部！”
+
+w:5
+ “一切都该死！”
 %%%%
 ######################################
-# 载入游戏后的欢迎消息
+ # 关于游戏恢复的欢迎消息
 ######################################
-Ashenzari welcome
+阿什扎里欢迎
 
-艾申扎利说：分享我的视野。分担我的诅咒。
+阿什扎里说：分享我的愿景。承受我的诅咒吧。
 %%%%
 Beogh penance
 
-比欧弗说：不要背叛你的兽人兄弟！
+ 贝奥说： 不要背叛你的兽人同胞！
 %%%%
 Beogh welcome
 
-比欧弗说：把不信教者淹死在血海里！
+Beogh 说：向世界展示成为兽人意味着什么！
+%%%%
+Beogh apostle challenge
+
+ 请注意，挑战者正在战斗中寻找你。证明你对我的忠诚！将我所有的孩子团结在一面旗帜下！
+
+ 探索者，考验你战斗勇气的时候到了。证明自己是兽人！加入真正的人吧！
+
+ # 莎士比亚/托尔金
+ 把你的勇气鼓到坚持的地方，并面对挑战。为了生存而战！大战中，一切都将是兽人！
 %%%%
 Cheibriados penance
 
-切布理亚多说：不要那么仓促！
+ 切布里亚多斯说： 别这么急！
 %%%%
 Cheibriados welcome
 
-切布理亚多说：慢慢来。
+Cheibriados说：放轻松。
 %%%%
 Cheibriados death
 
-切布理亚多欣赏死亡的静止。
+ 切布里亚多斯欣赏死亡的静止。
 %%%%
 Dithmenos welcome
 
-迪斯姆诺说：铺开永恒的黑夜。
+迪斯米诺斯说： 在黑暗的地方行走。
 %%%%
 Elyvilon penance
 
-艾利维隆说：你在照料的时候要更勤奋。
+Elyvilon 说：在你的服务中更加勤奋。
 %%%%
 Elyvilon welcome
 
-艾利维隆说：去救助弱者吧！
+Elyvilon 说：前进，帮助弱者！
 %%%%
 Fedhas penance
 
-费德哈抗议你侵犯自然。
+Fedhas 抗议您对自然的侵犯。
 %%%%
 Fedhas welcome
 
-费德哈说：散播生命和死亡。
+Fedhas说：传播生与死。
 %%%%
 Fedhas death
 
-费德哈感谢你对生态系统做出的贡献。
+Fedhas 感谢您对生态系统的贡献。
 %%%%
 Gozag welcome
 
-哥萨戈说：贪婪是好的。
+戈扎格说：贪婪是好的。
 %%%%
 Hepliaklqana welcome
 
-惠普利亚卡纳：你的过去变成了你的现在！
+Hepliaklqana 说：你的过去变成了你的现在！
 %%%%
 Hepliaklqana death
 
-惠普利亚卡纳把你带到你的先祖那里。
+Hepliaklqana 将把你带到你的祖先那里。
 %%%%
 Ignis welcome
 
-伊格尼斯的火焰柔和地温暖着你。
+伊格尼斯的火焰温柔地温暖着你。
 %%%%
 Ignis death
 
-伊格尼斯寂灭了，和你一起走向死亡。
+伊格尼斯出去，和你一起死亡。
 %%%%
 Jiyva welcome
 
-黏液效忠黏液神！
+史莱姆为史莱姆之神！
 
 w:1
-新肉体万岁！
+新肉万岁！
 %%%%
 Jiyva death corpse
 
-吉瓦派来一个胶冻来消化你的尸体。
+Jiyva 送果冻来消化你的遗骸。
 %%%%
 Jiyva death corpse undead
 
@@ -609,19 +1280,19 @@ Jiyva death corpse undead
 %%%%
 Jiyva death corpse nonliving
 
-吉瓦派来一个胶冻来消化你的装备。
+Jiyva 发送果冻来消化你的装备。
 %%%%
 Kikubaaqudgha welcome
 
-奇库巴库哈说：散播无尽的折磨和黑暗！
+Kikubaaqudgha说：传播无尽的毁灭和绝望！
 %%%%
 Kikubaaqudgha death
 
-奇库巴库哈厉声说：你让我失望了！欢迎……死亡！
+Kikubaaqudgha 刺耳的声音：你让我失望了！欢迎...死亡！
 %%%%
 Kikubaaqudgha death corpse undead
 
-奇库巴库哈厉声说：你让我失望了！欢迎……湮灭！
+Kikubaaqudgha 粗声粗气：你让我失望了！欢迎...遗忘！
 %%%%
 Kikubaaqudgha death corpse nonliving
 
@@ -637,120 +1308,120 @@ Kikubaaqudgha death nonliving
 %%%%
 Lugonu welcome
 
-卢格努说：散布屠杀和腐化！
+ 卢戈努 说： 传播屠杀和腐败！
 %%%%
 Lugonu newgame
 
-卢格努说：离开深渊去散布腐化吧，我的仆人！
-<lightgrey>（使用能力（<w>a</w>）菜单退出深渊）</lightgrey>
+ 卢戈努 说： 离开深渊，传播腐败，我的仆人！
+<lightgrey>（使用<w>a</w>能力菜单退出深渊）</lightgrey>
 %%%%
 Makhleb welcome
 
-血与灵魂，献给马科列布！
+马克勒布的血液和灵魂！
 %%%%
 Nemelex Xobeh welcome
 
-尼姆雷斯・索布说：一切尽在卡牌中！
+尼梅莱克斯·索贝说道：一切都在拍卖！
 %%%%
 Okawaru penance
 
-奥卡瓦鲁说：在战斗中夺回你的荣誉！
+ 大川丸 说： 在战斗中重获荣誉！
 %%%%
 Okawaru welcome
 
-奥卡瓦鲁说：给我带回战斗中的荣耀！
+ 大川丸 说： 在战斗中给我带来荣耀！
 %%%%
-# 当标签_主要_版本 > 34时，移除帕克拉斯的语句
-Pakellas penance
+# Remove Pakellas speech when TAG_MAJOR_VERSION > 34
+帕凯拉斯忏悔
 
-帕克拉斯说：这种方法在这里行不通。
+帕克拉斯说：这是一种局部无效的方法。
 
-帕克拉斯说：到目前为止，结果令人失望。
+帕克拉斯说：其中一个结果令人失望。
 
-帕克拉斯说：按照这个速度，我们可能不得不停止这项实验。
+帕克拉斯说：按照这个速度，我们可能不得不停止实验。
 
-帕克拉斯说：不要阻碍进程！
+ 帕克拉斯说： 不要阻碍进步！
 %%%%
 Pakellas welcome
 
 帕克拉斯说：是时候继续实验了。
 
-帕克拉斯说：是时候寻找更多测试对象了。
+ 帕克拉斯说： 是时候寻找更多的测试对象了。
 
-帕克拉斯说：准备好尝试更多装置了吗？
+Pakelas 说：准备好尝试更多设备了吗？
 
-帕克拉斯说：这产生了一些非常有趣的结果。
+Pakelas 说：这产生了一些非常有趣的结果。
 
-帕克拉斯说：你接下来会拿出什么解决方案？
+Pakelas 说：接下来你会想出什么解决方案？
 
-帕克拉斯说：前进或是消亡！
+ 帕克拉斯说： 要么进步，要么灭亡！
 
 # 尼古拉-
 w:5
-帕克拉斯说：没有人告诉神，不要扮演神！
+ 帕克拉斯说： 没有人告诉神不要扮演神！
 
 w:1
-帕克拉斯说：他们说我疯了……好吧，我们让他们看看！
+ 帕克拉斯说： 他们说我疯了……好吧，我们会让他们看看！
 %%%%
 Pakellas death
 
-帕克拉斯说：重新开始！
+ 帕克拉斯说： 回到绘图板！
 
-帕克拉斯说：现在好助手太难找了！
+ 帕克拉斯 说： 现在很难找到好的帮助了！
 
-帕克拉斯说：是时候找一个新助手了……
+帕凯拉斯说：是时候寻找新助手了……
 
-帕克拉斯说：这可能是另一种被淘汰的方法。
+帕克拉斯说：这又是一种可能被淘汰的方法。
 
-帕克拉斯说：是时候开始下一个实验了……
+ 帕克拉斯说： 是时候开始下一个实验了...
 %%%%
 Qazlal penance
 
-卡兹拉尔大发雷霆：不要干涉自然秩序！
+ 卡兹拉尔雷鸣： 不要干扰自然秩序！
 %%%%
 Qazlal welcome
 
-卡兹拉尔说：让自然的力量摧毁一切！
+卡兹拉尔说： 让自然的力量摧毁这一切吧！
 %%%%
 Ru welcome
 
-入说：切除你虚妄的肉体！
+Ru说：砍掉你的假身！
 %%%%
 Ru death
 
-入尊重你的终极舍弃。
+Ru尊敬您的最终牺牲。
 %%%%
 Sif Muna penance
 
-席夫·穆纳说：去寻求更多知识和智慧。
+ 西夫·穆纳 说： 寻找更多的知识和智慧。
 %%%%
 Sif Muna welcome
 
-席夫·穆纳低语道：我知晓很多秘密……
+Sif Muna 低语：我知道很多秘密...
 %%%%
 the Shining One penance
 
-光明神说：成为一名殉道者才有可能洗去你的罪恶！
+ 光辉者说：成为一名烈士可能会洗清你的罪孽！
 %%%%
 the Shining One welcome
 
-光明神说：带领光明力量走向胜利！
+ 光辉者说： 带领光明力量走向胜利！
 %%%%
 Trog penance
 
-特洛戈暴怒：杀光他们！
+ 穴居人愤怒：杀死他们！
 %%%%
 Trog welcome
 
-特洛戈说：杀光他们！
+ 穴居人说： 把他们都杀掉！
 %%%%
 Uskayaw welcome
 
-乌斯卡亚说：让自己沉浸于节奏中！
+ 乌斯卡亚说： 臣服于节奏！
 %%%%
 Uskayaw death corpse
 
-你的身体随着节奏完美落下。
+ 你的身体与节奏完美契合。
 %%%%
 Uskayaw death corpse undead
 
@@ -762,122 +1433,124 @@ Uskayaw death corpse nonliving
 %%%%
 Vehumet welcome
 
-维胡梅特说：让一切在地狱之火中终结吧！
+Vehumet 说： 制造在地狱之火中结束！
 %%%%
 Wu Jian welcome
 
-门派有言：践行智慧和战斗之路！
+ 理事会说：走智慧与战斗之路！
 %%%%
 Xom bored
 
-佐姆打着哈欠。
+Xom打哈欠。
 
-“我想知道，还有什么新花样……”
+ “我想知道还有什么……”
 
 @Xom welcome@
 %%%%
 Xom newgame
 
-佐姆说：一个新玩物！
+Xom 说：一个新玩具！
 %%%%
 Xom welcome
 
-佐姆窃笑着。
+Xom 偷笑。
 
-佐姆咯咯地笑着。
+Xom 偷笑。
 
 w:3
 @_xom_welcome_rare_@
 %%%%
 _xom_welcome_rare_
 
-佐姆说：我在注视着你，我@_xom_child_@孩子。
+Xom 说：我看着你，我的 @_xom_child_@ 孩子。
 
-佐姆用@_trout_species_@鳟鱼扇你耳光！
+Xom用@_trout_species_@鳟鱼打你！
 %%%%
 _xom_child_
 
-拙劣的
+ 私生子
 
-奇形怪状的
+ 混蛋
 
-丑陋的
+ 丑陋
 
-讨厌的
+ 红发步
 
-愚蠢的
+ 傻
 
-没用的
+ 没钱
 
-放荡的
+ 浪子
 
-疯狂的
+ 疯狂
 
-淘气的
+ 调皮
 %%%%
 _trout_species_
 
-一条虹
+ 彩虹
 
-一条平头
+ 平头鱼
 
-一条割喉
+ 凶手
 
-一条牛
+ 公牛
 
-一条银
+ 银色
 
 w:3
 @_trout_species_rare_@
 %%%%
 _trout_species_rare_
 
-一条费解的
+ 复杂
 
-一条多边的
+ 多边形
 
-一条虚构的
+ 想象的
 
-一条反转的
+ 逆
 
-一条不寻常的
+ 不太可能的
 
-一条用过的
+ 二手
 
-一条二手的
+ 二手
 
-一条禁用的
+ 禁止的
 
-一条令人沉思的
+ 具有挑战性的
 
-一条美味的
+ 美味的
 
-一条发霉的
+ 发霉的
 
-一条虚假的
+ 假货
+
+ 湿润的
 
 w:2
-一条基尔戈
+ 千斤顶
 %%%%
 Yredelemnul penance
 
-伊莱德莱姆努尔说：死亡面前，一切平等！神圣的殉道毫无意义！
+伊雷德莱姆努说：在死亡中人人平等！神圣的殉难毫无意义！
 %%%%
 Yredelemnul welcome
 
-伊莱德莱姆努尔说：拿着黑色的火炬！唤醒无所事事的死者！
+ 伊雷德莱姆努尔 说： 携带黑色火炬！唤醒闲散的死者！
 %%%%
 Yredelemnul death corpse
 
-你的身体以一个没有意识的丧尸的形式重生了。
+ 你的身体作为无意识的僵尸从死里复活。
 %%%%
 Yredelemnul death corpse undead
 
-你加入了亡灵的收割军团。
+你加入了不死族收割军团。
 %%%%
 Yredelemnul death corpse nonliving
 
-你的身体化为黑色火炬的燃料。
+你的身体消失在一团暗影火中。
 %%%%
 Yredelemnul death undead
 
@@ -885,33 +1558,33 @@ Yredelemnul death undead
 %%%%
 Zin penance
 
-因为你违背律令，辛惩戒你。
+Zin严厉谴责你不遵守法律。
 
-辛严厉地解释了“@_important_subject_@”的重要性。
+Zin 紧张地解释 @_important_subject_@ 的重要性
 %%%%
 Zin welcome
 
-辛说：传播光，我的孩子。
+辛说：传播光明，我的孩子。
 %%%%
 Zot death
 
-# 嗯，佐特是神吗……？
-佐特发现了你！
+# 嗯，Zot 是神吗..？
+Zot找到你了！
 
-佐特毁灭了你！
+佐特毁灭你！
 
-佐特抹除了你的存在。
+Zot将你从存在中清晰除。
 
-在一瞬间佐特触碰到了你，你就不复存在了。
+Zot接触到你的那一瞬间，你就不再存在了。
 
 w:5
-佐特的触须从你的体内爆裂！
+佐特的卷须从你体内爆发！
 
 w:3
-佐特用意志创造了一个没有你的新世界。
+佐特的意志创造了一个新的现实，而你却没有在其中。
 
 w:3
-佐特像掐灭一盏灯一样，扼杀了你。
+Zot 就像你现在一样。
 
 w:3
-佐特的力量控制了你，你化成了一团黑雾。
+佐特的力量占据上风，你消失在黑暗的迷雾中。

@@ -1,0 +1,1090 @@
+##########################################################
+# graffiti.txt: 查找涂鸦
+#
+ # 该文件包含涂鸦列表，以及与涂鸦相关的
+ # 书写类型等内容。
+#
+ # 您可以使用怪物名称和 monname.txt 中的其他所有内容，如
+ # 以及颜色名称和 colorname.txt 中的其他所有内容。
+#
+ # 请随意添加到此列表中。与其他数据库列表一样，
+ # 您可以添加权重（默认为 w:10）以使某些名称更可能出现
+ # 或更少。
+#
+##########################################################
+%%%%
+_graffiti_author_any_
+
+w:50
+ @ancestor name@
+
+ @_graffiti_author_orc_@
+
+w:2
+ @_graffiti_author_bland_@
+
+w:2
+ @RANDGEN@
+
+w:1
+ @_rare_graffiti_author_any_@
+%%%%
+# Same as @_graffiti_author_any_@, but without orc names or rare names
+ #（或罕见的兽人名字）。
+ _graffiti_author_any_changeable_
+
+w:50
+ @ancestor name@
+
+w:2
+ @_graffiti_author_bland_@
+
+w:2
+ @RANDGEN@
+%%%%
+# Same as @_graffiti_author_any_@, but without orc names, randomly
+ # 生成的名字，或者稀有名字（或者稀有兽人名字）。
+ _graffiti_author_any_changeable_non-randgen_
+
+w:50
+ @ancestor name@
+
+w:2
+ @_graffiti_author_bland_@
+%%%%
+# Same as @_graffiti_author_any_@, but without orc names.
+ _graffiti_author_any_non-orc_
+
+w:50
+ @ancestor name@
+
+w:2
+ @_graffiti_author_bland_@
+
+w:2
+ @RANDGEN@
+
+w:1
+ @_rare_graffiti_author_any_non-orc_@
+%%%%
+_graffiti_author_bland_
+
+ @bland name@
+
+w:2
+ @bland name@ (不是那个)
+
+w:2
+ @bland name@ (另一个)
+
+w:2
+ @bland name@ (是的，就是那个)
+%%%%
+# Aside from apostle-specific names, this doesn't include rare orc
+ # 名字（这是别名），所以稀有兽人名字不会出现
+ # 明显比其他罕见名称更常见。假设兽人较少
+ # 倾向于隐藏在别名后面。
+ _graffiti_author_orc_
+
+ @any orc name@ 兽人
+%%%%
+_rare_graffiti_author_any_
+
+@_rare_graffiti_author_ordinary_@
+
+w:2
+ @_rare_graffiti_author_orc_@
+
+w:2
+ @_rare_graffiti_author_title_@
+
+w:1
+ @_rare_graffiti_author_god_@
+%%%%
+# Same as @_rare_graffiti_author_any_@, but without orc names.
+ _rare_graffiti_author_any_non-orc_
+
+ @_rare_graffiti_author_ordinary_@
+
+w:2
+ @_rare_graffiti_author_title_@
+
+w:1
+ @_rare_graffiti_author_god_@
+%%%%
+_rare_graffiti_author_god_
+
+ # 对于“Woog the god”崇拜另一个神的谣言的有趣选项，或者
+ # 秘密地是无神论者，或者秘密地是吴健（
+ # 名字的相似性仅仅是巧合，尽管这可能与为什么这个
+ # 神罕见有关）。
+ 乌格神
+%%%%
+# Any name will work here, as long as it's not already in the orc names
+ # 中。
+ _rare_graffiti_author_orc_
+
+ 兽人斯巴达克斯
+%%%%
+_rare_graffiti_author_ordinary_
+
+ # 不仅仅是在文档中！
+ 狗头人杜温特
+
+ 地精 Zlaz
+
+ 鬼 Fneeb
+
+ 精灵 Vethion
+
+ 小恶魔 Frobof
+%%%%
+_rare_graffiti_author_title_
+
+ # Kilroy 在这里！
+ Kilroy
+
+ # 诺比和害怕的出租车
+ Garc the Great
+
+ # 对 make_name() 中 ploggifying 的引用。
+ Plog 无与伦比的
+
+ # 对于“死亡 [deliberately not Undead] Wendell”
+ # 值得生、死或不死的谣言的有趣选项；或崇拜光辉者。
+ 死亡温德尔
+
+ 梦想飞行女士
+%%%%
+_pattern_type_
+
+ @any_colour_pattern@
+
+ @any_glowing_colour_pattern@
+%%%%
+# Any word will work here, as long as it's not already in @glowing_adj@
+ 中即可。
+ _writing_adj_
+
+ 角度
+
+ 块状
+
+ 粗体
+
+ 曲线
+
+ 流动
+
+ 锯齿状
+
+ 脉动
+
+ 移动
+
+ 蜿蜒
+
+ 倾斜
+
+ 蜘蛛般的
+
+ 旋转
+
+ 颤动
+
+ 抽搐
+
+ 扭动
+%%%%
+# Any word other than "graffiti" will work here.
+ _writing_noun_
+
+ 二进制代码
+
+ 字符
+
+ 楔形文字
+
+ 数字
+
+ 字形
+
+ 象形文字
+
+ 表意文字
+
+ 字母
+
+ 打印输出
+
+ 符文
+
+ 潦草
+
+ 符号
+
+ 符号
+
+ 文本
+
+ 书写
+%%%%
+_writing_style_
+
+ @any_colour@
+
+ @_writing_adj_@ @any_colour@
+
+ @any_glowing_colour@
+%%%%
+_writing_type_
+
+@_writing_style_@ @_writing_noun_@
+%%%%
+_graffiti_type_
+
+ @_writing_style_@ 涂鸦
+%%%%
+_graffiti_type_with_signature_maybe_
+
+ @_graffiti_type_@
+
+ @_graffiti_type_@ 由 @_graffiti_author_any_@
+%%%%
+_graffiti_type_with_signature_maybe_non-orc_
+
+ @_graffiti_type_@
+
+ @_graffiti_type_@ 由 @_graffiti_author_any_non-orc_@ 签名
+%%%%
+_graffiti_type_with_signature_maybe_orc_
+
+ @_graffiti_type_@
+
+ @_graffiti_type_@ 由 @_graffiti_author_orc_@ 签名@_graffiti_author_orc_@
+%%%%
+_graffiti_advertisement_
+
+ 为会议做广告 @_graffiti_mass_meeting_ordinary_@
+
+ 为会议做广告 @_graffiti_mass_meeting_religious_@
+
+ 为地牢中的商店做广告，出售 [cheap|exclusive|expensive|quality|rare|useful] 商品
+
+w:2
+ 为会议做广告 @_graffiti_class_any_@
+
+w:1
+ 为会议做广告@_graffiti_author_any_@ 学习如何在地牢中生存
+
+ # 可能太低俗，但美好时光可以意味着很多事情。
+w:1
+ 宣传与 @_graffiti_author_any_@ 的美好时光
+
+ # 可以有多种颜色和类型的油漆很特别。
+w:1
+ 为用于制作它的油漆做广告
+%%%%
+# There's sometimes a chance of the two names being the same, but maybe
+ # 作者疯了，或者也许作者以与以前相同的方式拼写他们的名字
+ # 但发音不同。
+#
+ # 不要从兽人名称更改为非兽人名称，反之亦然；
+ # 暗示兽人离开了 Beogh，其中涉及的不仅仅是名称更改
+ #。另外，不要将罕见名称更改为非罕见名称
+ #，反之亦然；罕见的名称实际上是别名或标题，
+ # 也可能有后缀。
+ _graffiti_changed_names_
+
+ @_graffiti_author_any_changeable_@ 已更改名称，现在更名为 @_graffiti_author_any_changeable_@
+
+w:2
+ @_graffiti_author_orc_@ 已更改名称，现在更名为 @_graffiti_author_orc_@
+
+w:2
+ @_rare_graffiti_author_any_@ 已将名称传递给其他值得的人
+
+w:1
+ @_graffiti_author_any_changeable_non-randgen_@ 已更改名称，因为受 Xom 的影响，现在由 @RANDGEN@
+%%%%
+# This can produce an author who's compared to themselves, an author who
+ # 秘密地拥有奶酪或装满煎饼的马车的力量的作者，一个崇拜（或是）Zin 的兽人
+ # ，或者一个崇拜（或是） Beogh 的非兽人，但是
+ # 你不应该相信你读到的一切。
+ _graffiti_changed_or_compared_religions_
+
+@_graffiti_author_any_@ 已放弃 @random_god@
+
+ @_graffiti_author_any_@ 已从 @random_god@
+
+ @_graffiti_author_any_@ 已转换为 @random_god@
+
+ @_graffiti_author_any_@ 是 @_graffiti_religion_better_or_worse_@ 比 @_graffiti_author_any_@
+
+ @_graffiti_author_any_@ 秘密是无神论者
+
+ @_graffiti_author_any_@ 秘密地不是无神论者
+
+ @_graffiti_author_any_@ 秘密地崇拜 @random_god@
+
+ @_graffiti_author_any_@ 秘密地崇拜 Zin
+
+ @_graffiti_author_any_@ 秘密地崇拜 Zin 而不是 @random_god_chaotic@
+
+ @_graffiti_author_any_@ 秘密地崇拜 @random_god_chaotic@
+
+ @_graffiti_author_any_@ 秘密崇拜 @random_god_chaotic@ 而不是 Zin
+
+ @_graffiti_author_any_@ 秘密崇拜 @random_god_good@
+
+ @_graffiti_author_any_@ 秘密崇拜 @random_god_good@ 而不是 @random_god_evil@
+
+ @_graffiti_author_any_@ 秘密崇拜 @random_god_evil@
+
+ @_graffiti_author_any_@ 偷偷崇拜 @random_god_evil@ 而不是 @random_god_good@
+
+w:1
+ @_graffiti_author_any_@ 偷偷崇拜 @_graffiti_hailed_god_@
+
+w:1
+ @_graffiti_author_any_@ 偷偷崇拜 @_graffiti_hailed_god_@
+%%%%
+_graffiti_class_any_
+
+ @_graffiti_class_remedial_@
+
+w:2
+ @_graffiti_class_master_@
+%%%%
+_graffiti_class_master_
+
+ 蚁族教授的挖掘大师班
+
+ [demons|imps] 教授的侮辱大师班
+
+ # 不只是为了战斗！
+ [ogres|oni] 教授的巨型球杆多种用途的大师班
+
+ 猫科动物教授的徒手格斗大师班
+
+w:1
+ 匿名涂鸦作者教授的 [art|calligraphy] 大师班
+%%%%
+_graffiti_class_remedial_
+
+ @random_skill@ 的辅导课程@_graffiti_professor_@
+
+ 由 @_graffiti_professor_magic_type_@ 教授的 @random_skill_magic@ 补习课程 @_graffiti_professor_@
+
+ 由 @_graffiti_professor_mundane_type_@ 教授的 @random_skill_mundane@ 补习课程 @_graffiti_professor_@
+
+w:2
+ 由 @_graffiti_professor_evocations_type_@ 教授的补习召唤课程 @_graffiti_professor_@
+
+w:2
+ 补习由 @_graffiti_professor_invocations_type_@ @_graffiti_professor_@
+
+w:2
+ 教授的召唤课程 由 @_graffiti_professor_shapeshifting_type_@ @_graffiti_professor_@
+
+ 教授的补救变形课程 # 死灵法师应该能够像其他施法者一样教授死灵术或其他魔法（从
+ # 分支出来）。
+
+w:2
+ 由 @_graffiti_professor_necromancy_type_@ @_graffiti_professor_@ 教授的补习死灵课程
+
+w:2
+ 由 @_graffiti_professor_necromancy_type_@ @_graffiti_professor_@ 教授的补习 @random_skill_magic@ 课程
+%%%%
+_graffiti_duplicate_
+
+ 副本
+
+与原件无法区分的复制品
+
+冒名顶替者
+
+来自另一个现实的冒名顶替者
+
+变形者
+%%%%
+_graffiti_fight_
+
+@_graffiti_author_any_@ 和 @_graffiti_author_any_@ 之间的争论
+
+@_graffiti_author_any_@、@_graffiti_author_any_@ 和 @_graffiti_author_any_@ 之间的三向争论
+
+w:2
+[berserkers|Trog worshippers] 和红血病患者之间关于血怒的真正含义的斗争
+
+w:2
+["artists"|artists|Dithmenos worshippers] 和 [death knights|death mages|Yredelemnul worshippers|necromancers] 之间关于某物是影子还是影鬼的争斗
+%%%%
+_graffiti_hailed_god_
+
+克奥姆
+
+w:2
+一个未知的神
+
+w:1
+@_rare_graffiti_author_god_@
+
+# 看看奶酪的力量！
+w:1
+奶酪的力量
+
+# 强烈不良电子邮件#117，“蒙太奇”
+w:1
+装满煎饼的马车
+%%%%
+_graffiti_happened_reason_
+
+一次意外
+
+巧合
+
+# 盖瑞克，《星际迷航：深空九号》
+巧合，但 @_graffiti_author_any_@ 不相信巧合
+
+掩盖
+
+一场闹剧
+
+陷害
+
+一个错误
+
+嘲讽
+
+对他人的警告
+
+违背众神的意志
+
+完全随机
+
+商榷
+
+应得的
+
+只是
+
+必要的
+
+没有意外
+
+没有错
+
+更大情节的一部分
+
+# make_name() 中对 ploggifying 的引用。
+“Plog”阴谋的工作
+
+自己造成的
+
+众神的意志
+
+ 不被要求的
+
+ 不应得的
+
+ 不公正的
+
+ 不必要的
+
+ 不可想象的
+%%%%
+_graffiti_image_
+
+ 从隧道中伸出头
+
+ [a dragon|an elephant|a yak] 践踏总体而言，在其路径上 [a dragon|an elephant|a yak] 的
+
+ 挥舞着看起来很恶心的武器 [a gnoll|a human|an orc] 的
+
+ 将敌人撕成两半 [an ogre|an oni|a troll] 的
+
+ 发射魔法爆炸
+
+ # 坚持住，宝贝
+ 一只猫科动物挂在树枝上
+
+ 一个恶魔邪恶地笑着
+
+ 一个茄子坐在那里
+
+ 看起来你什么都不认识
+%%%%
+_graffiti_life_or_death_
+
+ 应该死
+
+ 应该死
+
+ 应该生
+
+ 死了
+
+ 不死
+
+ 生活
+%%%%
+_graffiti_loves_or_hates_
+
+ 诅咒
+
+ 捍卫
+
+ 讨厌
+
+ 侮辱
+
+ 喜欢
+
+ 赞扬
+%%%%
+_graffiti_mass_meeting_ordinary_
+
+ 玩 [cards|darts|hammer throw|javelin throw|Whack-A-Rock-Fish] 技师俱乐部 [cards|darts|hammer throw|javelin throw|Whack-A-Rock-Fish] PHX1ZZ 的
+
+ 地表战争老兵支持小组的
+
+ 一群 PHX0ZZ 的
+
+ 在地牢里兜售他们的商品
+
+ 一群 [apiarists|hive talisman users] 讨论他们的蜜蜂
+
+ 的 PHX1ZZ # 下面是 Gozag 的非宗教版本。
+ 一群有钱人讨论如何赚更多钱
+
+ # 下面是非宗教版的Trog。
+一群 [knights|veterans|warlords|warriors] 练习几乎没有约束的战斗
+
+# 下面是非宗教版本的 Okawaru。
+一群 [knights|veterans|warlords|warriors] 练习单人战斗
+
+# 下面是非宗教版本的 Sif Muna。
+一群 [mages|sorcerers|spellcasters|wizards] 练习 [eclectic|esoteric] 魔法
+
+# 下面是 Vehumet 的非宗教版本。
+一群 [mages|sorcerers|spellcasters|wizards] 练习 [cataclysmic|destructive] 魔法
+
+# 下面是 Kikubaaqudgha 的非宗教版本。
+一群 [death mages|necromancers] 练习 [necromancy|bringing things to unlife]
+
+# 下面是非宗教版本的 Cheibriados。
+一群哲学家讨论 [perfection|the nature of time] 谁知道要多久
+
+# 下面是 Makhleb 的非宗教版本。
+一群 [masochists|sadists] 举行痛苦耐力比赛
+
+# 下面是非宗教版本的 Fedhas。
+一群园丁炫耀他们的园艺技能
+
+# 下面是 Hepliaklqana 的非宗教版本。
+一群 [bards|historians|lorekeepers] 分享他们祖先的辉煌故事
+
+# 下面是 Uskayaw 的非宗教版本。
+一群狂欢者举办狂野舞会
+
+# 下面是 Dithmenos 的非宗教版本。
+一组 ["artists" holding a "shadow play"|artists holding a shadow play]
+
+#非宗教版本的武建会如下。
+一群修习武术的修士 [attacks|movements]
+
+# 非宗教版本的 Elyvilon 下面。
+一群药剂师正在练习治疗他人
+
+# 下面是非宗教版本的 Ru。
+一群鄙视自己身体并讨论牺牲的苦行者
+
+# 下面是光辉者的非宗教版本。
+一群 [crusaders|moralists] [discussing|opposing] 世界邪恶
+
+# 下面是非宗教版本的 Lugonu。
+一群不同的人在深渊中讨论他们的经历
+%%%%
+_graffiti_mass_meeting_religious_
+
+一个 [sharper club|group of Nemelex Xobeh worshippers] 以 Nemelex Xobeh 的方式打牌
+
+一群支持法律公理的 Zin 崇拜者
+
+一群 [chaos knights|Xom worshippers]思考一群 [chaos knights|Xom worshippers] 的神圣疯狂
+
+拥抱无情之握
+
+一群 Gozag 崇拜者讨论如何赚更多钱
+
+一群 [berserkers|Trog worshippers] 练习几乎没有约束的战斗
+
+一群 Okawaru 崇拜者练习单人战斗
+
+一群Sif Muna 崇拜者练习 [eclectic|esoteric] 魔法
+
+一群 Vehumet 崇拜者练习 [cataclysmic|destructive] 魔法
+
+ 一群 Kikubaaqudgha 崇拜者练习 [necromancy|bringing things to unlife]
+
+ 一群 Cheibriados 崇拜者讨论 [perfection|the nature of time] 谁知道多久
+
+ 一群 Makhleb 崇拜者举行疼痛耐力比赛
+
+ 一群 Fedhas
+
+ 一群 Hepliaklqana 崇拜者分享他们祖先的辉煌故事
+
+ 一群 Uskayaw 崇拜者举办狂野的舞会
+
+ 一群 Dithmenos 崇拜者拿着 ["shadow play"|shadow play]
+
+ 一群 Wujian Council 崇拜者练习武术 [attacks|movements]
+
+ 一群 Qazlal 崇拜者在室内改变天气
+
+ 一群 Elyvilon 崇拜者练习治愈他人
+
+ 一群 Ashenzari 崇拜者练习占卜
+
+ 一群 Ru 崇拜者鄙视自己的身体并讨论祭品
+
+ 一群 Shining One 崇拜者 [discussing|opposing]世界上的邪恶
+
+ 一群 [Lugonu worshippers|mad acolytes of Lugonu] 讨论他们在深渊中的经历
+
+ 一群兽人宣传 Beogh 的话
+%%%%
+_graffiti_obscenities_
+
+ 各种淫秽内容
+
+w:1
+ 一些你从未见过的非常富有想象力的淫秽内容
+%%%%
+# Use changeable names for all graffiti professors (any, magic, and
+ # 平凡），因此我们可以与他们分开处理兽人（作为涂鸦作者，其名称为
+ # 以“兽人”结尾）和稀有名称（可能
+ # 也有后缀的别名或头衔，也可能是兽人），只需
+ # 就像我们更改的那样上面的名字。教授有时可以获得怪物无法获得的头衔
+ #（例如“兽人法师某某”，或“
+ # [non-priest-type] 兽人犹大”），但他们应该是特别的。
+ _graffiti_professor_
+
+ @_graffiti_author_any_changeable_@
+
+w:2
+ @_graffiti_author_orc_@
+
+w:1
+ @_rare_graffiti_author_any_@ （据说）
+%%%%
+_graffiti_professor_evocations_type_
+
+ 工匠
+
+ 修补匠
+%%%%
+_graffiti_professor_invocations_type_
+
+ 牧师
+
+ 大祭司
+
+ 牧师
+
+ 神学家
+%%%%
+_graffiti_professor_magic_type_
+
+ 法师
+
+魔法师
+
+ 施法者
+
+ 巫师
+%%%%
+_graffiti_professor_mundane_type_
+
+ 骑士
+
+ 老兵
+
+ 军阀
+
+ 战士
+%%%%
+_graffiti_professor_necromancy_type_
+
+ 死亡法师
+
+ 死灵法师
+%%%%
+_graffiti_professor_shapeshifting_type_
+
+ 变形师
+
+ 护身符
+%%%%
+_graffiti_relative_or_quality_
+
+ 所有同伙
+
+ 血统
+
+ 孩子
+
+ 孩子
+
+ 氏族
+
+ 灵巧
+
+ 整个物种
+
+ 家庭
+
+ 朋友
+
+ 朋友
+
+ 神
+
+ 智力
+
+ 情人
+
+ 恋人
+
+ 伴侣
+
+ 伴侣
+
+ 父母
+
+ 父母
+
+ 个性
+
+ 配偶
+
+ 配偶
+
+ 实力
+%%%%
+_graffiti_religion_better_or_worse_
+
+ 较少的信徒
+
+ 较多的信徒
+
+# 是的，我确实听过这样一句话：“我是一个比你更好的无神论者。”
+
+w:1
+ 更好的无神论者
+
+w:1
+ 更差的无神论者
+%%%%
+_graffiti_religion_non-orc_
+
+ 赞扬 Zin 和 Zin 的法律
+
+ 赞扬 Zin 并谈论遵循 Zin 的法律是至关重要的
+
+ 赞扬 Zin 并谈论那些违反 Zin 的人如何法律应有的惩罚
+
+ #悖论！
+ 赞扬 Zin，但警告在表面上涂鸦通常是非法的
+%%%%
+_graffiti_religion_not_non-orc_or_orc_
+
+ [glorifying|blaspheming] 众神
+
+ 颂扬 @random_god@ 并亵渎 @random_god@
+
+ # 没有条目这里是伊格尼斯（Ignis）或吉瓦（Jiyva）。 Ignis 在
+ # Cinder Acolyte 玩家中有一位崇拜者，而 Jiyva 在
+ # Royal Jelly 中有一位（真诚的）崇拜者，他是无脑且与史莱姆坑绑在一起的。更重要的是
+#重要的是，如果玩家杀死Jiyva，Jiyva将不再在PHX0ZZ或PHX1ZZ中出现
+#，这会让详细的
+#涂鸦赞扬Jiyva（不会使用@random_god@或
+#@random_god_chaotic@）变得不协调。
+
+ 崇敬 Xom 和一切的随机性
+
+ 喜欢 Nemelex Xobeh 以及下一张牌带来的任何东西
+
+ 颂扬 Yredelemnul 和所有邪恶的东西
+
+ 赞扬 Gozag 并谈论如何有足够的黄金可以购买任何东西
+
+ 赞扬 Trog 并谈论血怒如何可以摆脱你路上的任何东西
+
+ 崇拜 Okawaru，谈论 Okawaru 如何成为一名战士所需的唯一盟友
+
+ 赞扬 Sif Muna，谈论如何通过足够的努力获得所有魔法
+
+ 崇拜 Vehumet，谈论武器化魔法如何是胜利的关键
+
+ 奉承 Kikubaaqudgha，谈论死灵魔法如何将所有血肉变成有用的工具
+
+ 向 Cheibriados 致敬，谈论如何缓慢而稳定地征服一切
+
+ 向 Makhleb 致敬，谈论 Makhleb 赋予的所有地狱力量
+
+ 欣喜若狂的 Fedhas 和自然的持久力量
+
+ 向 Hepliaklqana 致敬，谈论那些活在他人记忆中的人如何永远不会真正死亡
+
+ 表现出对 Uskayaw 的热爱，谈论生命本身的复杂舞蹈
+
+ 溺爱 Dithmenos 并谈论 [shadows|the night] 可以做的许多事情
+
+ 感谢吴建理事会并谈论适当的纪律是伟大的关键
+
+ 赞扬 Qazlal 并谈论元素如何为你工作
+
+ 促进Elyvilon 并谈论如何为世界带来和平是至关重要的
+
+ 钦佩 Ashenzari 并谈论当它们带来知识时诅咒和束缚如何是祝福
+
+ 向 Ru 致敬并谈论所有现实如何不是你所认为的
+
+ 向光辉者致敬并谈论如何从世界上光荣地消除邪恶是至关重要的
+
+奉承卢戈努并谈论卢戈努和深渊的力量将如何很快统治一切
+
+w:1
+荣耀一位不知名的神
+
+w:1
+不仅欢呼而且颂扬 @_graffiti_hailed_god_@
+%%%%
+_graffiti_religion_orc_
+
+为 Beogh 和适当的兽人传教
+
+宣称 Beogh 的弥赛亚很快就会到来
+
+感谢 Beogh 给予拯救，而其他神只在一旁观看
+
+谈论当其他神离弃你时 Beogh 将如何帮助你
+
+谈论贝奥如何与他们相处，而不是与其他异端兽人相处
+%%%%
+_graffiti_rumour_
+
+推测佐特之球的力量
+
+谈论 Zot 之球将如何[save|destroy] 所有人和一切
+
+谈论大家如何误会Zot的Orb实际上是Zot的[Cube|Egg|Pyramid]
+
+讲述一条从这里直接通往佐特球体的秘密通道
+
+倒数世界末日的日子
+
+声称知道 [life|unlife] 的含义
+
+声称找到了难以捉摸的 [cave yeti|death quokka|dire dormouse]
+
+# make_name() 中对 ploggifying 的引用。
+暗指“Plog”阴谋以及为什么它到处隐藏这个词
+%%%%
+_graffiti_short_saying_
+
+@_graffiti_author_any_@ 在这里
+
+@_graffiti_author_any_@ @_graffiti_loves_or_hates_@ @_graffiti_author_any_@
+
+@_graffiti_author_any_@ @_graffiti_loves_or_hates_@ @_graffiti_relative_or_quality_@ @_graffiti_author_any_@
+
+@_graffiti_author_any_@ @_graffiti_life_or_death_@
+
+@_graffiti_author_any_@ 销售 @_graffiti_wares_quality_@ 商品
+
+@_graffiti_author_any_@ 窃取 @_graffiti_author_any_@
+
+@_graffiti_author_any_@ 发生了什么事 @_graffiti_happened_reason_@
+
+@_graffiti_author_any_@ 已被 @_graffiti_duplicate_@ 取代
+
+@_graffiti_vengeance_@
+
+@_graffiti_changed_or_compared_religions_@
+
+# Chrono Trigger，以及对 make_name() 中 ploggifying 的引用。
+一切生命以“Plog”开始，以“Plog”结束
+
+w:2
+@_graffiti_changed_names_@
+%%%%
+_graffiti_species_
+
+哀叹科格林工程对于非科格林人来说是多么奇怪
+
+重复失落原型外骨骼套装的传说，让科格林同时挥舞三件武器
+
+想知道是什么导致巴拉奇姆反抗众神
+
+想知道无骨物种是否能够产生亡灵
+
+想知道穴居人是否能阻止死去的狂战士产卵亡魂
+
+声称知道哥布林最初来自哪里
+
+声称知道狗头人的真正起源
+
+详细描述了对洞穴兽人祖先的迫害
+
+声称一些神秘密地侍奉鬼，而不是相反
+
+# 引用其他地方提到的已删除物种。
+
+声称一些山矮人仍然活着
+
+想知道最后的污泥精灵究竟发生了什么
+
+# 提及其他地方未提及的已删除物种。
+
+声称侏儒确实存在并且非常擅长隐藏
+%%%%
+_graffiti_unique_comment_
+
+说卡桑德拉不应该再这么消极
+
+说 Crazy Yiuf 需要停止让 [little|much] 有意义
+
+说唐纳德应该闭嘴并停止抱怨
+
+说西格蒙德需要放下镰刀
+
+说埃德蒙需要克服自己
+
+说 Sprozz 试图用机械蜜蜂取代真正的蜜蜂太过分了
+
+想知道罗宾怎么可能投那么重
+
+想知道为什么特伦斯想在地牢里度过退休时光
+
+想知道 Dowan 和 Duvessa 是否是秘密三胞胎并有第三个兄弟姐妹
+
+想知道除了魔杖之外 Ijyb 还能制作什么
+
+推测耶利米主人的真实本质
+%%%%
+# This is not in @_graffiti_religion_[whatever]_@ because it's
+# 结构太不同了。假设一个人无需
+# 必然崇拜神。
+_涂鸦_不可读_
+
+难以辨认的 @_writing_type_@ 涂鸦
+
+@_writing_type_@ 的涂鸦，除了 @_graffiti_author_any_@ 的签名外无法辨认
+
+w:1
+@_writing_type_@ 的涂鸦除了 @_graffiti_hailed_god_@ 的位之外无法读取
+
+w:1
+@_writing_type_@ 的涂鸦，除了 @_graffiti_hailed_god_@ 的位和 @_graffiti_author_any_@ 的签名之外，无法读取
+%%%%
+_graffiti_vengeance_
+
+@_graffiti_author_any_@ 为 @_graffiti_author_any_@ 报仇
+
+@_graffiti_author_any_@ 为 @_graffiti_vengeance_reason_@ 为 @graffiti_author_any@ 报仇
+
+@_graffiti_author_any_@ 发誓向 @_graffiti_author_any_@ 报仇
+
+@_graffiti_author_any_@ 发誓为 @_graffiti_vengeance_reason_@ 向 @_graffiti_author_any_@ 报仇
+
+@_graffiti_author_any_@ 的幽灵仍然困扰着 @_graffiti_author_any_@
+
+@_graffiti_author_any_@ 的幽灵仍然困扰着 @_graffiti_vengeance_reason_@ 的 @_graffiti_author_any_@
+
+# 复仇在兽人中更为常见。
+
+@_graffiti_author_orc_@ 为 @_graffiti_author_any_@ 报仇
+
+@_graffiti_author_orc_@ 为 @_graffiti_vengeance_reason_@ 为 @_graffiti_author_any_@ 报仇
+
+@_graffiti_author_orc_@ 发誓向 @_graffiti_author_any_@ 报仇
+
+@_graffiti_author_orc_@ 发誓为 @_graffiti_vengeance_reason_@ 向 @_graffiti_author_any_@ 报仇
+
+@_graffiti_author_orc_@ 的鬼魂仍然困扰着 @_graffiti_author_any_@
+
+@_graffiti_author_orc_@ 的鬼魂仍然困扰着 @_graffiti_author_any_@ 的 @_graffiti_vengeance_reason_@
+%%%%
+_graffiti_vengeance_reason_
+
+放弃 @_graffiti_author_any_@
+
+放弃他们
+
+背叛 @_graffiti_author_any_@
+
+背叛他们
+
+杀死 @_graffiti_author_any_@
+
+杀死他们
+
+从 @_graffiti_author_any_@ 偷窃
+
+从他们偷窃
+
+伤害 @_graffiti_author_any_@
+
+伤害他们
+%%%%
+_graffiti_wares_quality_
+
+劣质
+
+优质
+
+劣质
+
+平庸
+
+优质
+%%%%
+any_graffiti
+
+@_pattern_type_@ 涂鸦
+
+@_writing_type_@ 涂鸦
+
+@_graffiti_unreadable_@
+
+@_graffiti_type_with_signature_maybe_@
+
+@_graffiti_type_with_signature_maybe_@ @_graffiti_image_@
+
+@_graffiti_type_with_signature_maybe_@ @_graffiti_rumour_@
+
+@_graffiti_type_with_signature_maybe_@ @_graffiti_unique_comment_@
+
+@_graffiti_type_with_signature_maybe_@ @_graffiti_species_@
+
+@_graffiti_type_@ @_graffiti_fight_@
+
+@_graffiti_type_@ @_graffiti_advertisement_@
+
+@_graffiti_type_@ 说的是 @_graffiti_short_saying_@
+
+w:2
+@_graffiti_type_with_signature_maybe_@ @_graffiti_religion_not_non-orc_or_orc_@
+
+w:2
+@_graffiti_type_with_signature_maybe_non-orc_@ @_graffiti_religion_non-orc_@
+
+w:2
+@_graffiti_type_with_signature_maybe_orc_@ @_graffiti_religion_orc_@
+
+w:1
+@_graffiti_type_@ @_graffiti_obscenities_@

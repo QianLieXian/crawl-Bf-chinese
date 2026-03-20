@@ -1,0 +1,1888 @@
+##########################################################
+# monname.txt: 查找怪物名称
+#
+ # 该文件包含怪物名称的名称列表。
+ # 目前仅当您的兽人使徒之一为
+ # Beogh 的弥赛亚被 Beogh 命名时才使用，以及 Hep 的祖先名称。
+ # 双持鳕鱼物种的武器名称也来自
+ # 这里。
+#
+ # 一些重要的兽人音节
+ # beogh, bog = 指的是 Beogh
+ # ork, orc, org, og, ok 等 = 指的是兽人
+#
+ # 其他音节可能是从现实生活中借用的，或者是自己编造的。
+#
+ # 要确定兽人使徒的名称，游戏会查找该
+ # 使徒的具体类型，后跟关键字“名称”，例如“兽人
+#使徒战士名字”或者“兽人使徒巫师名字”。使徒可以获得
+ # 一个特定类型独有的名字或一个普通的兽人名字。
+#
+ # 怪物名称支持怪物语音功能的一小部分：
+ # @RANDGEN@、@random_god@、@random_god_chaotic@、@random_god_evil@、
+ # @random_god_good@、@random_skill@、@random_skill_magic@ 和
+ # @random_skill_mundane@。
+#
+ # 请随意添加到此列表中。与其他数据库列表一样，
+ # 您可以添加权重（默认为 w:10）以使某些名称更可能出现
+ # 或更少。
+#
+##########################################################
+%%%%
+# Any orc name, apostle-specific or otherwise. Any name will work here,
+ # 只要它不在
+ # graffiti.txt 的 PHX0ZZ 中即可。
+ 任意兽人名称
+
+w:1
+ @_orc_warrior_name_@
+
+w:1
+ @_orc_wizard_name_@
+
+w:1
+ @_orc_priest_name_@
+
+w:50
+ @orc name@
+%%%%
+orc name
+
+w:14
+ @_beogh_name_@
+
+w:12
+ @_orcish_name_@
+
+w:45
+ @_other_orcish_name_@
+%%%%
+orc apostle warrior name
+
+w:1
+ @_orc_warrior_name_@
+
+w:50
+ @orc name@
+%%%%
+orc apostle wizard name
+
+w:1
+ @_orc_wizard_name_@
+
+w:50
+ @orc name@
+%%%%
+orc apostle priest name
+
+w:1
+ @_orc_priest_name_@
+
+w:50
+ @orc name@
+%%%%
+_orc_warrior_name_
+
+奥柯南
+%%%%
+_orc_wizard_name_
+
+ Simorc Magus
+%%%%
+_orc_priest_name_
+
+ # 小心！ :p
+ Judas
+%%%%
+# Obvious references to Beogh
+ # (最后计数为 20)
+ _beogh_name_
+
+ Arbeogh
+
+ Bogbarth
+
+ # 斯拉夫名字，意思是“上帝的礼物”:)
+ 博格丹
+
+ 博格达尔
+
+ 博格布兰德
+
+ 博格弗里德
+
+ 博格霍德
+
+ 博格洛特
+
+ 博格玛
+
+ 博格里克
+
+ 博格瑞姆
+
+ 博格瓦尔德
+
+ Bogward
+
+ Bogwik
+
+ Korbok
+
+ Marbaugh
+
+ Morbeogh
+
+ Orbeogh
+
+ Vorbog
+
+ Warbeogh
+%%%%
+# Obvious references to orcs in general
+ #（非常主观，最后统计为 21）
+ _orcish_name_
+
+ Alork
+
+ Borgk
+
+ Boruk
+
+ Geork
+
+ Horkud
+
+ Marbork
+
+ Milork
+
+奥喀苏斯
+
+ 奥格里克
+
+ 奥基杜
+
+ 奥克里斯特
+
+ 奥雷格
+
+ 奥格瑞姆
+
+ 奥里克
+
+ 奥克鲁尔
+
+ 奥克温
+
+ 奥鲁克
+
+ 佩林诺克
+
+ Urtork
+
+ Xexorm
+
+ Zandor
+%%%%
+# Other
+ # (最后计数 62)
+ _other_orcish_name_
+
+ Agrik
+
+ Arbolt
+
+ Argrim
+
+ Arkwar
+
+ 贝奥武夫
+
+ Berold
+
+ Benkei
+
+ Bladwarg
+
+ 布洛德维格
+
+ Boderik
+
+ Boldo
+
+ Bolgrim
+
+ Borgoth
+
+ Borgun
+
+ 布兰多
+
+ 布伦
+
+ 布鲁诺夫
+
+ 克雷布
+
+ 多罗格
+
+ 加拉托斯
+
+ 加博尔德
+
+ 戈尔巴什
+
+ 戈尔格
+
+戈姆
+
+ 格里莫德
+
+ 哈尔
+
+ 赫洛克
+
+ 希尔加
+
+ 贾斯雷克
+
+ 豪尔赫
+
+ 科罗纳
+
+ 利鲁克
+
+ 洛瓦克
+
+ 玛格里姆
+
+ 莫格达尔
+
+ 莫古斯
+
+ 莫伦
+
+ 穆格里姆
+
+ 默多
+
+ 麦格拉
+
+ 诺巴克
+
+ 诺达格
+
+ 奥尼安
+
+ 奥尔菲克
+
+奥尔夫伦
+
+ 奥托夫
+
+ 罗科
+
+ 肖巴斯
+
+ 斯皮罗克
+
+ 赛鲁斯
+
+ 塔尔维
+
+ 索罗克
+
+ 乌格伯特
+
+ 乌格里姆
+
+ 沃多克
+
+ Wargath
+
+ Wargrak
+
+ Warrok
+
+ Worak
+
+ Wulfoc
+
+ Zartorak
+
+ Zorug
+%%%%
+# Ancestor names, split by gender & culture.
+# FR: 亚洲人姓名
+ 祖先姓名
+
+ @ancestor male name@
+
+ @ancestor female name@
+%%%%
+ancestor male name
+
+ @_west_european_male_name_@
+
+ @_roman_male_name_@
+
+ @_aztec_male_name_@
+
+ @_mesopotamian_male_name_@
+
+ @_egyptian_male_name_@
+
+ @_zulu_male_name_@
+
+ # 名字不多
+w:5
+ @_arabic_male_name_@
+
+ # 名字不多
+w:5
+ @_slavic_male_name_@
+
+ # 名字不多
+w:2
+ @_brazilian_male_name_@
+%%%%
+ancestor female name
+
+ @_west_european_female_name_@
+
+ @_roman_female_name_@
+
+ @_aztec_female_name_@
+
+ @_mesopotamian_female_name_@
+
+ @_egyptian_female_name_@
+
+ @_zulu_female_name_@
+
+ # 名字不多
+w:5
+ @_arabic_female_name_@
+
+ # 名字不多
+w:5
+ @_slavic_female_name_@
+
+ # 名字不多
+w:2
+ @_brazilian_female_name_@
+%%%%
+_west_european_male_name_
+
+ Æschere
+
+ Ælfric
+
+ Æthelred
+
+ Aylmer
+
+ Beorhtric
+
+ Cenhelm
+
+ Cynebald
+
+ Dunstan
+
+ Eadwine
+
+艾德尔德
+
+ 厄德里克
+
+ 埃斯蒙德
+
+ 弗洛里蒙德
+
+ 盖瑟里克
+
+ 格拉德温
+
+ 洪德西奥
+
+ 赫罗德里克
+
+ 赫罗德夫
+
+ 赫罗斯加
+
+ 肯里克
+
+ 莱奥夫达格
+
+ 莱奥弗里克
+
+ 莱奥夫西格
+
+ 奥斯伯特
+
+ 西格德
+
+ 狄奥多里克
+
+ 乌尔里克
+
+ 维达尔
+
+ 维格蒙德
+
+ 威尔伯
+
+ 沃尔夫
+
+ 维斯坦
+%%%%
+_roman_male_name_
+
+ 阿皮乌斯
+
+ 盖乌斯
+
+ 格奈乌斯
+
+ 卢修斯
+
+ 奥克塔维斯
+
+ 保卢斯
+
+ 普布利乌斯
+
+ 昆图斯
+
+ 塞普蒂姆斯
+
+ 塞维乌斯
+
+ 塞克斯图斯
+
+ 提比略
+
+ 提图斯
+
+%%%%
+_aztec_male_name_
+
+ Cipactli
+
+ Cuahtemoc
+
+Cuetlachtli
+
+Huemac
+
+Necuametl
+
+Tenoch
+
+Tepiltzin
+
+Tlaloc
+
+Tochtli
+
+Xochipepe
+
+Zolin
+
+%%%%
+_mesopotamian_male_name_
+
+Ahumratum
+
+Akiya
+
+Ammiditana
+
+Amnanu
+
+Arammadara
+
+Baqqanum
+
+Belanum
+
+Beli-Ashared
+
+Belshunu
+
+Eanasir
+
+Iluratum
+
+Ilshubani
+
+Imgur-Sin
+
+Marduk-asir
+
+Nammahani
+
+Namzu
+
+Sagil-Zimu
+
+Shatamurrim
+
+Sinnashi
+
+Taribatum
+
+Ur-Dumizida
+
+Yamquuzzuhalamma
+
+Yayatum
+
+Zimri-Dagan
+
+%%%%
+_egyptian_male_name_
+# 包括一些托勒密（希腊）名字
+
+Aahotepre
+
+Agathocles
+
+Ahmose
+
+阿肯那顿
+
+阿米尔泰乌斯
+
+ 阿内吉布
+
+ 安克赫芬德杰夫
+
+ 凯撒里昂
+
+ 德米提鲁斯
+
+ 杜阿恩雷
+
+ 霍里
+
+ 赫塞基乌
+
+ 卡巴乌
+
+ 赫蒂
+
+ Merenptah
+
+ Paser
+
+ Psammuthes
+
+ Ramose
+
+ Senakhtenre
+
+ Shedsu-nefertum
+
+ Si-Tayit
+
+w:1
+ Snaaib
+ # lmao
+
+ Sosibius
+
+ Thamphthis
+
+ Udjahorresnet
+
+%%%%
+_zulu_male_name_
+ Ayize
+
+w:1
+ Bongani
+
+ Cashile
+
+ Chakide
+
+ Chitauli
+
+杜贝
+
+ 因吉亚布
+
+ 因皮西
+
+ 贾布
+
+ 隆迪西韦
+
+ 马内莱斯
+
+ 姆西兹
+
+ 恩贾布洛
+
+ 奇尼塞拉
+
+ 萨内莱
+
+ 西兹韦
+
+ 塔博
+
+Thulani
+
+ Vusi
+
+ Xolani
+%%%%
+_arabic_male_name_
+ Arif
+
+ Ferran
+
+ Hamal
+
+ Kateb
+
+ Lufti
+
+w:1
+ Rigel
+
+ Rabi
+
+ Shunnar
+
+ Sofian
+
+ Tawil
+
+w:1
+ 零
+%%%%
+_slavic_male_name_
+
+ Bolek
+
+ Bor
+
+ Branko
+
+ Dejan
+
+ Laslo
+
+w:1
+ 莱赫
+
+ 米洛斯
+
+ 米尔科
+
+ 普拉门
+
+ 普雷本
+
+ 斯坦科
+
+ 蒂霍米尔
+
+ 沃伊泰克
+
+ 文泽尔
+
+ Zdislav
+
+ 佐兰
+%%%%
+_west_european_female_name_
+
+ Ælfthryth
+
+ Ælfwynn
+
+ Æðelind
+
+ Audrea
+
+ Bealdhild
+
+ Cyneburga
+
+ Cynethryth
+
+埃德布加
+
+ 埃尔德吉斯
+
+ 埃德梅
+
+ 埃德温娜
+
+ 埃奥门希尔德
+
+ 弗里杜斯威þ
+
+ 戈吉福
+
+ 古德伦
+
+ 肯德拉
+
+ 米尔堡加
+
+ Saranna
+
+ Solveig
+
+ Sunngifu
+
+ Synnove
+
+ Walburga
+
+ Wilfreda
+
+ Wynnflæd
+%%%%
+_roman_female_name_
+
+ Appia
+
+ Aula
+
+ Decima
+
+ Lucia
+
+ Mettia
+
+ Numeria
+
+ Octavia
+
+ Publia
+
+ Septima
+
+ Servia
+
+ Tertia
+
+ Tiberia
+
+%%%%
+_aztec_female_name_
+
+ Centenhua
+
+ Cihuaton
+
+ Citlalmina
+
+ Izel
+
+ Nenetl
+
+ Teicuih
+
+ Tlalli
+
+ Xiloxoch
+
+ Xiuhtonal
+
+Xochitl
+
+%%%%
+_mesopotamian_female_name_
+
+Amurritum
+
+Belessunu
+
+Ealamassi
+
+Enheduana
+
+Eshargamelat
+
+Iltani
+
+Ishtar-belessa
+
+Kammani
+
+Ku-aya
+
+Nakurtum
+
+Nindada
+
+Shatu-murrim
+
+Shiptu
+
+Takurtum
+
+Yadidatum
+%%%%
+_egyptian_female_name_
+# 包括一些托勒密（希腊）名字
+
+Agathoclea
+
+Ahhotep
+
+Ankhesenamen
+
+Amenemopet
+
+Arsinoe
+
+Artakama
+
+Bintanath
+
+Djefatnebti
+
+Henutmehyt
+
+Inhapi
+
+Henutemipet
+
+Keminub
+
+Khenut
+
+Matia
+
+Nebetia
+
+Nefertari
+%%%%
+_zulu_female_name_
+Busisiwe
+
+Fikile
+
+Ingwe
+
+Kaya
+
+Lwandle
+
+Mbali
+
+Nhalahla
+
+Nkonkoni
+
+Nolwazi
+
+Nomusa
+
+Nozipho
+
+Ntombi
+
+Simosihle
+
+Thoko
+
+Zola
+%%%%
+_arabic_female_name_
+Amala
+
+Ara
+
+Atia
+
+Caliana
+
+Jaydra
+
+Khalidah
+
+w:5
+Manar
+
+Melek
+
+Muriel
+
+Oma
+
+Qitarah
+
+Rabi
+
+Rana
+
+Shunnareh
+
+Waqi
+
+Zada
+
+Zayda
+
+Zulima
+%%%%
+_slavic_female_name_
+
+博亚娜
+
+博泽纳
+
+博齐达拉
+
+达格玛
+
+杜萨娜
+
+利布萨
+
+w:5
+马尔扎纳
+
+w:5
+马尔泽纳
+
+米拉
+
+Mirna
+
+Rodica
+
+w:5
+Vesna
+
+Zarja
+
+Zorana
+%%%%
+_brazilian_female_name_
+
+Apolônia
+
+Clarinda
+
+Etelvina
+
+Josefina
+
+劳琳达
+
+乌苏拉
+%%%%
+_brazilian_male_name_
+
+Amaro
+
+Anacleto
+
+Aníbal
+
+Bonifácio
+
+Cândido
+
+Epaminondas
+
+Eustáquio
+
+Honório
+
+Januári
+%%%%
+steelspirit name
+
+w:50
+ @ancestor name@
+
+w:1
+ @RANDGEN@
+
+# 下面的名称是当代的，而不是古董。
+# 这就是为什么我们不使用它们作为祖先。
+
+w:1
+ @bland name@
+
+@_cantonese_female_name_@
+
+@_cantonese_male_name_@
+
+@_german_female_name_@
+
+@_german_male_name_@
+
+@_korean_female_name_@
+
+@_korean_male_name_@
+
+# 很多西班牙裔名字 - 让我们权重更高。
+w:15
+@_hispanic_female_name_@
+
+w:15
+@_hispanic_male_name_@
+
+@_japanese_female_name_@
+
+@_japanese_male_name_@
+
+@_sikh_female_name_@
+
+@_sikh_male_name_@
+
+@_thai_female_name_@
+
+@_thai_male_name_@
+%%%%
+bland name
+
+ # 看，这对我来说很有趣。
+ #无意冒犯。
+
+ @_bland_female_name_@
+
+ @_bland_male_name_@
+%%%%
+_bland_female_name_
+
+ Abby
+
+ Babs
+
+ Betsy
+
+ Carrie
+
+ Deb
+
+ Izzy
+
+ Jen
+
+ 米娅
+
+ 苏
+
+ 维拉
+%%%%
+_bland_male_name_
+
+ 比尔
+
+ 鲍勃
+
+ 卡尔
+
+ 戴夫
+
+ 道格
+
+ 杰夫
+
+ 吉姆
+
+ 麦克
+
+ Ned
+
+ 皮特
+%%%%
+_cantonese_female_name_
+
+ 艾
+
+ 彩虹
+
+ 春
+
+ 华
+
+ 静怡
+
+ 坤
+
+ 兰
+
+ 李
+
+ 梅
+
+ 宁
+
+ 清
+
+ 秋月
+
+舒
+
+ 秀英
+
+ 薛
+
+ 颜
+
+ 亚文
+
+ 震
+%%%%
+_cantonese_male_name_
+
+ 爱国
+
+ 博
+
+ 张
+
+ 冯
+
+ 浩然
+
+ 洪
+
+ 晋
+
+ 凯
+
+ 梁
+
+ 林
+
+ 明
+
+ 强
+
+ 邱
+
+ 石
+
+ 魏
+
+ 吴
+
+ 翔
+
+宇轩
+
+ 子涵
+%%%%
+_german_female_name_
+
+ Anneliese
+
+ Annika
+
+ Astrid
+
+ Berta
+
+ Birgit
+
+ Constanze
+
+ Dagmar
+
+ Edeltraud
+
+ Else
+
+ Ermengarde
+
+ Frauke
+
+ Friedl
+
+ Gerda
+
+吉赛尔
+
+ 海蒂
+
+ 希尔达
+
+ 伊尔莎
+
+ 英格丽德
+
+ 伊索尔德
+
+ 朱安娜
+
+ 卡罗琳
+
+ 卡特琳
+
+ 莉丝尔
+
+ 莉丝贝思
+
+玛吉特
+
+ 奥尔加
+
+ 雷纳特
+
+ 齐格林德
+
+ 西尔克
+
+ 斯文贾
+
+ 塔玛拉
+
+ 特蕾莎
+
+ 乌尔里克
+
+ 威廉米娜
+
+ 伊冯娜
+%%%%
+_german_male_name_
+
+ 阿达尔伯特
+
+ 阿尔布雷希特
+
+ 阿努尔夫
+
+ 巴斯蒂安
+
+ 伯恩哈德
+
+ 康拉德
+
+ 迪特里希
+
+ 埃格伯特
+
+ 埃贡
+
+ 恩斯特
+
+ 弗雷德里克
+
+ 弗里茨
+
+ 格布哈德
+
+ 吉尔伯特
+
+ 戈特弗里德
+
+ 冈瑟
+
+ 古斯塔夫
+
+汉斯
+
+ 海涅
+
+ 赫尔穆特
+
+ 雅各布
+
+ 约翰
+
+ 卡尔
+
+ 卡斯帕
+
+ 拉尔斯
+
+ 卢卡斯
+
+ 马格努斯
+
+ 尼克劳斯
+
+奥拉夫
+
+ 奥斯卡
+
+ 奥托
+
+ 雷蒙德
+
+ 鲁普雷希特
+
+ 齐格弗里德
+
+ 西奥博尔德
+
+ 蒂德曼
+
+ 乌尔里希
+
+ 瓦尔特
+
+ 沃尔多
+
+ 威尔弗里德
+%%%%
+_hispanic_female_name_
+
+ 阿伊达
+
+ 阿德拉
+
+ 亚历杭德拉
+
+ 安娜
+
+ 阿拉塞利
+
+ 比安卡
+
+ 卡门
+
+ 克拉拉
+
+ 康苏埃拉
+
+ 埃琳娜
+
+ 费尔南达
+
+ 弗朗西斯卡
+
+ 加布里埃拉
+
+ 格洛丽亚
+
+ 伊内斯
+
+ 伊莎贝尔
+
+杰辛塔
+
+ 莱蒂西亚
+
+ 卢西亚
+
+ 马莱娜
+
+ 玛丽亚
+
+ 马里索尔
+
+ 米兰达
+
+ 帕洛玛
+
+ 索莱达
+
+ 西梅娜
+
+ 尤兰达
+%%%%
+_hispanic_male_name_
+
+ 阿古斯丁
+
+ 阿曼多
+
+ 卡洛斯
+
+ 塞德罗
+
+ 科尔特斯
+
+ 迭戈
+
+ 恩里克
+
+ 埃斯特班
+
+ 费尔南多
+
+ 弗朗西斯科
+
+ 吉列尔莫
+
+ 古斯塔沃
+
+ 雨果
+
+w:1
+ 伊格纳西奥
+
+ 哈维尔
+
+ 何塞
+
+ 胡安
+
+ 路易斯
+
+ 潘乔
+
+ 拉斐尔
+
+ 拉蒙
+
+ 劳尔
+
+ 鲁本
+
+ 萨尔瓦多
+
+ 圣地亚哥
+
+ 桑托斯
+
+ 塞巴斯蒂安
+
+ 托马斯
+
+Vicente
+%%%%
+_irish_female_name_
+
+Áedammair
+
+Áine
+
+Aoife
+
+Bryna
+
+Caitlin
+
+Caoimhe
+
+Ciara
+
+Deidre
+
+# ...这个可能应该放在古老的集合中...
+Dubhchobhlaigh
+
+Eithne
+
+Fiadh
+
+Íde
+
+Maeve
+
+Máire
+
+Niamh
+
+Nóirín
+
+Onóra
+
+Órlaith
+
+# 另一种古老主义
+Raghnailt
+
+Róisín
+
+Saoirse
+
+Sinéad
+
+Siobhan
+
+Síofra
+
+Uasal
+%%%%
+_irish_male_name_
+
+Aodhán
+
+Cian
+
+Ciarán
+
+Colm
+
+Cormac
+
+Diarmaid
+
+Eamonn
+
+Eógan
+
+Eoin
+
+菲尔格尔
+
+Fiachra
+
+ Flann
+
+ Fothad
+
+ Muiredach
+
+ Niall
+
+ Pádraig
+
+ Rónán
+
+ Séamus
+
+w:1
+ Toirdhealbhach
+%%%%
+_japanese_female_name_
+
+ 千鸟
+
+ 千里
+
+ 英子
+
+ 悦子
+
+ 吹雪
+
+ 冬子
+
+ 花
+
+ 秀子
+
+ 久荣
+
+ 伊欧
+
+ 枫
+
+ 香织
+
+ 希子
+
+ 小栗子
+
+ 杏子
+
+ 麻衣
+
+ 玛丽亚
+
+ 松子
+
+ 水江
+
+ 夏美
+
+ 野花
+
+ 兰
+
+ Ruka
+
+ Sachi
+
+ Sarina
+
+ Tae
+
+ Tamao
+
+ Umi
+
+ Yae
+
+ Yuina
+
+梦
+%%%%
+_japanese_male_name_
+
+ 明人
+
+ 岚
+
+ 东
+
+ 近志
+
+ 中次郎
+
+ 大地
+
+ 大作
+
+ 英子
+
+ 英太郎
+
+ 文人
+
+ 房真
+
+ 玄一
+
+ 五郎
+
+ 刚太
+
+ 八郎
+
+ 春树
+
+ 早田
+
+ 英高
+
+ 久雄
+
+ 一尾
+
+ 一幸
+
+ 岩尾
+
+ 丈二
+
+ 十兵卫
+
+ 顺三
+
+ 影盛
+
+ 金平
+
+ 勘助
+
+ 一树
+
+ 贤二
+
+ 贤三
+
+ Kiyoto
+
+ Kyogo
+
+ Masaaki
+
+ Masataka
+
+ Minoru
+
+ #好吧，够了。
+%%%%
+_korean_female_name_
+
+彩元
+
+ 春熙
+
+ 恩庆
+
+ 庆子
+
+ 海恩
+
+ 焕
+
+ 伊瑟尔
+
+ 贾
+
+ 珍爱
+
+ 敏智
+
+ 米希尔
+
+ 明谷
+
+ Nari
+
+ Sanghe
+
+ Seoyun
+
+ Yeongsuk
+%%%%
+_korean_male_name_
+
+ Bonhwa
+
+ 丙浩
+
+ Chinhae
+
+ Daeho
+
+ 东律
+
+ 道允
+
+ 银宇
+
+ 河俊
+
+ 志虎
+
+ 朱元
+
+ 敏俊
+
+ 徐俊
+
+ 泰
+
+ 艺俊
+
+ 龙顺
+%%%%
+_sikh_female_name_
+
+ Ashmeen
+
+ Ajinder
+
+ Deepnoor
+
+ Gurmehar
+
+ Harkiran
+
+ Ishleen
+
+ Ishpreet
+
+Jasleen
+
+ Jaspreet
+
+ Kamaljyot
+
+ Manveen
+
+ Nimrit
+
+ Noor
+
+ Rabni
+
+ Tejnoor
+
+ Ujjalroop
+
+ Yashnoor
+%%%%
+_sikh_male_name_
+
+ 阿加姆
+
+ 阿卡尔
+
+ 巴尔文德
+
+ 达尔比尔
+
+ 埃克维尔
+
+ 法塔吉特
+
+ 伊曼维尔
+
+ 库尔维尔
+
+ 纳比尔
+
+ Paramjit
+
+ Surjit
+
+ Teghnoor
+
+ Uttamveer
+
+ Vikramjeet
+
+ Zorawar
+%%%%
+_thai_female_name_
+
+ Bangon
+
+ Chiraphon
+
+ Kanchana
+
+ Kanlaya
+
+ Kannika
+
+ Latda
+
+ Malki
+
+ Nittaya
+
+ Prani
+
+ Somchit
+
+ Sukanya
+
+ Suphaphon
+
+苏尼
+
+Thatsani
+
+Urai
+
+Wanphen
+
+Yuphin
+%%%%
+_thai_male_name_
+
+Anan
+
+Ari
+
+Arun
+
+Bunsong
+
+Charoen
+
+Kasem
+
+Narong
+
+Prasit
+
+Somchai
+
+Suchat
+
+Surin
+
+Suthep
+
+Wira
+
+Udom
