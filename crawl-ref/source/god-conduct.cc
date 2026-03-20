@@ -559,7 +559,7 @@ static like_response _on_kill(const char* desc, mon_holy_type holiness,
         _piety_bonus_for_holiness(holiness),
         18,
         god_is_good ? 0 : 2,
-        " accepts your kill.",
+        "认可了你的击杀。",
         special
     };
 }
@@ -605,7 +605,7 @@ static like_response okawaru_kill(const char* desc)
                      uppercase_first(god_name(you.religion)).c_str());
             }
             else if (piety > 9) // might still be miniscule
-                simple_god_message(" accepts your kill.");
+                simple_god_message("认可了你的击杀。");
         }
     };
 }
@@ -621,7 +621,7 @@ static const like_response _fedhas_kill_living_response()
             if (victim && mons_class_can_leave_corpse(mons_species(victim->type)))
                 simple_god_message(" appreciates your contribution to the ecosystem.");
             else
-                simple_god_message(" accepts your kill.");
+                simple_god_message("认可了你的击杀。");
         }
     };
 }

@@ -1,4 +1,4 @@
-name: "frilled lizard"
+name: "褶边蜥蜴"
 glyph: {char: "l", colour: green}
 flags: [cold_blood]
 exp: 1

@@ -925,7 +925,7 @@ void item_check()
     {
         const item_def& it(*items[0]);
         string name = menu_colour_item_name(it, DESC_A);
-        strm << "You see here " << name << '.' << endl;
+        strm << "你在这里看见了" << name << "。" << endl;
         return;
     }
 
@@ -2656,7 +2656,7 @@ bool move_item_to_grid(int *const obj, const coord_def& p, bool silent)
     }
 
     if (p == you.pos() && _id_floor_item(item))
-        mprf("You see here %s.", item.name(DESC_A).c_str());
+        mprf("你在这里看见了%s。", item.name(DESC_A).c_str());
 
     return true;
 }
