@@ -1,4 +1,5 @@
 name: "褶边蜥蜴"
+enum: frilled_lizard
 glyph: {char: "l", colour: green}
 flags: [cold_blood]
 exp: 1
