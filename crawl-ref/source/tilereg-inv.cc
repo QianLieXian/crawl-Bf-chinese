@@ -335,79 +335,79 @@ bool InventoryRegion::update_tip_text(string& tip)
             case OBJ_STAVES:
                 if (!you.has_mutation(MUT_NO_GRASPING))
                 {
-                    tmp += "Wield (%)";
+                    tmp += "装备 (%)";
                     cmd.push_back(CMD_WIELD_WEAPON);
                     if (you.has_mutation(MUT_WIELD_OFFHAND)
                         && you.hands_reqd(item) == HANDS_ONE)
                     {
-                        tmp += "\n[Ctrl + L-Click] Offhand";
+                        tmp += "\n[Ctrl + L-Click] 副手";
                     }
                 }
                 break;
             case OBJ_WEAPONS + EQUIP_OFFSET:
-                tmp += "Unwield (%-)";
+                tmp += "卸下 (%-)";
                 cmd.push_back(CMD_WIELD_WEAPON);
                 break;
             case OBJ_MISCELLANY:
             case OBJ_WANDS:
             case OBJ_TALISMANS:
-                tmp += "Evoke (%)";
+                tmp += "发动 (%)";
                 cmd.push_back(CMD_EVOKE);
                 break;
             case OBJ_ARMOUR:
                 if (!you.has_mutation(MUT_NO_ARMOUR))
                 {
-                    tmp += "Wear (%)";
+                    tmp += "穿上 (%)";
                     cmd.push_back(CMD_WEAR_ARMOUR);
                 }
                 break;
             case OBJ_ARMOUR + EQUIP_OFFSET:
-                tmp += "Take off (%)";
+                tmp += "脱下 (%)";
                 cmd.push_back(CMD_REMOVE_ARMOUR);
                 break;
             case OBJ_JEWELLERY:
-                tmp += "Put on (%)";
+                tmp += "佩戴 (%)";
                 cmd.push_back(CMD_WEAR_JEWELLERY);
                 break;
             case OBJ_JEWELLERY + EQUIP_OFFSET:
-                tmp += "Remove (%)";
+                tmp += "取下 (%)";
                 cmd.push_back(CMD_REMOVE_JEWELLERY);
                 break;
             case OBJ_MISSILES:
                 if (!you.has_mutation(MUT_NO_GRASPING))
                 {
-                    tmp += "Fire (%)";
+                    tmp += "发射 (%)";
                     cmd.push_back(CMD_FIRE);
                 }
                 break;
             case OBJ_SCROLLS:
-                tmp += "Read (%)";
+                tmp += "阅读 (%)";
                 cmd.push_back(CMD_READ);
                 break;
             case OBJ_POTIONS:
-                tmp += "Quaff (%)";
+                tmp += "饮用 (%)";
                 cmd.push_back(CMD_QUAFF);
                 break;
             case OBJ_CORPSES:
             case OBJ_BOOKS:
                 break;
             default:
-                tmp += "Use";
+                tmp += "使用";
             }
 
             if (!tmp.empty())
                 tip += tip_prefix + tmp;
         }
 
-        tip += "\n[R-Click] Describe";
+        tip += "\n[R-Click] 查看描述";
         // Has to be non-equipped or non-cursed to drop.
         if (!equipped || !you.inv[idx].cursed())
         {
-            tip += "\n[Shift + L-Click] Drop (%)";
+            tip += "\n[Shift + L-Click] 丢弃 (%)";
             cmd.push_back(CMD_DROP);
             if (you.inv[idx].quantity > 1)
             {
-                tip += "\n[Ctrl-Shift + L-Click] Drop quantity (%#)";
+                tip += "\n[Ctrl-Shift + L-Click] 丢弃数量 (%#)";
                 cmd.push_back(CMD_DROP);
             }
         }

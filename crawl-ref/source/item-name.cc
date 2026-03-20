@@ -248,19 +248,19 @@ string item_def::name(description_level_type descrip, bool terse, bool ident,
         if (eq != SLOT_UNUSED)
         {
             if (item_is_melded(*this))
-                buff << " (melded)";
+                buff << "（融合）";
             else
             {
                 switch (eq)
                 {
                 case SLOT_WEAPON:
                     if (is_weapon(*this))
-                        buff << " (weapon)";
+                        buff << "（武器）";
                     break;
                 case SLOT_WEAPON_OR_OFFHAND:
                     if (is_weapon(*this))
                     {
-                        buff << " (offhand)";
+                        buff << "（副手）";
                         break;
                     }
                     // fallthrough for non-weapons in that slot
@@ -273,13 +273,13 @@ string item_def::name(description_level_type descrip, bool terse, bool ident,
                 case SLOT_BODY_ARMOUR:
                 case SLOT_RING:
                 case SLOT_AMULET:
-                    buff << " (worn)";
+                    buff << "（已装备）";
                     break;
                 case SLOT_GIZMO:
-                    buff << " (installed)";
+                    buff << "（已安装）";
                     break;
                 case SLOT_HAUNTED_AUX:
-                    buff << " (haunted)";
+                    buff << "（闹鬼）";
                     break;
                 default:
                     die("Item in an invalid slot (%d)", eq);
@@ -287,9 +287,9 @@ string item_def::name(description_level_type descrip, bool terse, bool ident,
             }
         }
         else if (base_type == OBJ_TALISMANS && you.active_talisman() == this)
-                buff << " (worn)";
+                buff << "（已装备）";
         else if (you.quiver_action.item_is_quivered(*this))
-            buff << " (quivered)";
+            buff << "（已装填）";
     }
 
     if (descrip != DESC_BASENAME && descrip != DESC_DBNAME
@@ -304,7 +304,7 @@ string item_def::name(description_level_type descrip, bool terse, bool ident,
         && !qualname
         && is_artefact(*this) && cursed())
     {
-        buff << " (curse)";
+        buff << "（诅咒）";
     }
 
     return buff.str();
