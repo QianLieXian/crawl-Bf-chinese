@@ -81,12 +81,12 @@ int AbilityRegion::handle_mouse(wm_mouse_event &event)
 
 bool AbilityRegion::update_tab_tip_text(string &tip, bool active)
 {
-    const char *prefix1 = active ? "" : "[L-Click] ";
+    const char *prefix1 = active ? "" : "[左键] ";
     const char *prefix2 = active ? "" : "          ";
 
     tip = make_stringf("%s%s\n%s%s",
-                       prefix1, "Display abilities",
-                       prefix2, "Use abilities");
+                       prefix1, "显示能力",
+                       prefix2, "使用能力");
 
     return true;
 }
@@ -103,10 +103,10 @@ bool AbilityRegion::update_tip_text(string& tip)
     int flag = m_items[item_idx].flag;
     vector<command_type> cmd;
     if (flag & TILEI_FLAG_INVALID)
-        tip = "You cannot use this ability right now.";
+        tip = "你现在无法使用此能力。";
     else
     {
-        tip = "[L-Click] Use (%)";
+        tip = "[左键] 使用 (%)";
         cmd.push_back(CMD_USE_ABILITY);
     }
 

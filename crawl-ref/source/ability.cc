@@ -1631,7 +1631,7 @@ static void _print_talent_description(const talent& tal)
 
 void no_ability_msg()
 {
-    mpr("Sorry, you're not good enough to have a special ability.");
+    mpr("抱歉，你目前还不足以拥有特殊能力。");
 }
 
 // Prompts the user for an ability to use, first checking the lua hook
@@ -1726,7 +1726,7 @@ bool activate_ability()
                 // If we can't, cancel out.
                 if (selected < 0)
                 {
-                    mpr("You can't do that.");
+                mpr("你不能这么做。");
                     crawl_state.zero_turns_taken();
                     return false;
                 }
@@ -1751,7 +1751,7 @@ static bool _can_hop(bool quiet)
     if (you.duration[DUR_NO_HOP])
     {
         if (!quiet)
-            mpr("Your legs are too worn out to hop.");
+            mpr("你的双腿太疲惫了，无法跳跃。");
         return false;
     }
     return _can_movement_ability(quiet);
@@ -1774,7 +1774,7 @@ static bool _can_rising_flame(bool quiet)
     if (you.duration[DUR_RISING_FLAME])
     {
         if (!quiet)
-            mpr("You're already rising!");
+            mpr("你已经在上升了！");
         return false;
     }
     if (you.where_are_you == BRANCH_DUNGEON && you.depth == 1)
@@ -1784,14 +1784,14 @@ static bool _can_rising_flame(bool quiet)
         else
         {
             if (!quiet)
-                mpr("You can't rise from this level without the Orb!");
+                mpr("没有宝珠你无法从这一层上升！");
             return false;
         }
     }
     if (!level_above().is_valid())
     {
         if (!quiet)
-            mpr("You can't rise from this level!");
+            mpr("你无法从这一层上升！");
         return false;
     }
     return true;
@@ -1865,7 +1865,7 @@ static bool _check_ability_possible(const ability_def& abil, bool quiet = false)
     if (testbits(abil.flags, abflag::card) && !deck_cards(ability_deck(abil.ability)))
     {
         if (!quiet)
-            mpr("That deck is empty!");
+                mpr("那副牌是空的！");
         return false;
     }
 

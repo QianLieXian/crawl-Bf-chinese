@@ -46,12 +46,11 @@ void MemoriseRegion::draw_tag()
 
     const spell_type spell = (spell_type) idx;
     const string failure = failure_rate_to_string(raw_spell_fail(spell));
-    string desc = make_stringf("%s    (%s)    %d/%d spell slot%s",
+    string desc = make_stringf("%s    (%s)    %d/%d 法术位",
                                spell_title(spell),
                                failure.c_str(),
                                spell_levels_required(spell),
-                               player_spell_levels(),
-                               spell_levels_required(spell) > 1 ? "s" : "");
+                               player_spell_levels());
     draw_desc(desc.c_str());
 }
 
@@ -87,12 +86,12 @@ int MemoriseRegion::handle_mouse(wm_mouse_event &event)
 
 bool MemoriseRegion::update_tab_tip_text(string &tip, bool active)
 {
-    const char *prefix1 = active ? "" : "[L-Click] ";
+    const char *prefix1 = active ? "" : "[左键] ";
     const char *prefix2 = active ? "" : "          ";
 
     tip = make_stringf("%s%s\n%s%s",
-                       prefix1, "Display spells in carried books",
-                       prefix2, "Memorise spells");
+                       prefix1, "显示已携带书籍中的法术",
+                       prefix2, "记忆法术");
 
     return true;
 }
@@ -109,10 +108,10 @@ bool MemoriseRegion::update_tip_text(string& tip)
     int flag = m_items[item_idx].flag;
     vector<command_type> cmd;
     if (flag & TILEI_FLAG_INVALID)
-        tip = "You cannot memorise this spell now.";
+        tip = "你现在无法记忆这个法术。";
     else
     {
-        tip = "[L-Click] Memorise (%)";
+        tip = "[左键] 记忆 (%)";
         cmd.push_back(CMD_MEMORISE_SPELL);
     }
 

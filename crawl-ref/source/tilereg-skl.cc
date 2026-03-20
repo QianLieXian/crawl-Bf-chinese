@@ -44,7 +44,7 @@ void SkillRegion::draw_tag()
 
     string progress = "";
 
-    string desc = make_stringf("%-14s Skill %4.1f Aptitude %c%d",
+    string desc = make_stringf("%-14s 技能 %4.1f 资质 %c%d",
                                skill_name(skill),
                                you.skill(skill, 10) / 10.0,
                                apt > 0 ? '+' : ' ',
@@ -72,11 +72,11 @@ int SkillRegion::handle_mouse(wm_mouse_event &event)
 #endif
         m_last_clicked_item = item_idx;
         if (!you.can_currently_train[skill])
-            mpr("You cannot train this skill.");
+            mpr("你无法训练该技能。");
         else if (you.has_mutation(MUT_DISTRIBUTED_TRAINING))
-            mpr("You can't change your training allocations!");
+            mpr("你无法更改训练分配！");
         else if (you.skills[skill] >= 27)
-            mpr("There's no point to toggling this skill anymore.");
+            mpr("这个技能已经没必要再切换训练状态了。");
         else
         {
             tiles.set_need_redraw();
@@ -103,7 +103,7 @@ int SkillRegion::handle_mouse(wm_mouse_event &event)
 
 bool SkillRegion::update_tab_tip_text(string &tip, bool active)
 {
-    const char *prefix = active ? "" : "[L-Click] ";
+    const char *prefix = active ? "" : "[左键] ";
 
     tip = make_stringf("%s%s", prefix, "管理技能");
 
