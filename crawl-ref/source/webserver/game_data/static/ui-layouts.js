@@ -37,7 +37,7 @@ function ($, comm, client, ui, enums, cr, util, scroller, main, gui, player, opt
         // we actually need to remove it again?
         if ($container.length === 0 && spellset.length !== 0)
         {
-            root.prepend("<div class='fg4'>Buggy spellset!</div>");
+            root.prepend("<div class='fg4'>法术集异常！</div>");
             return;
         }
         $container.attr("id", "").addClass("menu_contents spellset");
@@ -453,23 +453,23 @@ function ($, comm, client, ui, enums, cr, util, scroller, main, gui, player, opt
         var have_quote = desc.quote !== "";
         var have_status = desc.status !== "";
 
-        var footer0 = "<b class=\"fg15\">Description</b>";
+        var footer0 = "<b class=\"fg15\">描述</b>";
         if (have_status)
-            footer0 += " | Status";
+            footer0 += " | 状态";
         if (have_quote)
-            footer0 += " | Quote";
+            footer0 += " | 引文";
 
-        var footer1 = "Description";
+        var footer1 = "描述";
         if (have_status)
-            footer1 += " | <b class=\"fg15\">Status</b>";
+            footer1 += " | <b class=\"fg15\">状态</b>";
         if (have_quote)
-            footer1 += " | Quote";
+            footer1 += " | 引文";
 
-        var footer2 = "Description";
+        var footer2 = "描述";
         if (have_status)
-            footer2 += " | Status";
+            footer2 += " | 状态";
         if (have_quote)
-            footer2 += " | <b class=\"fg15\">Quote</b>";
+            footer2 += " | <b class=\"fg15\">引文</b>";
 
         $footer_panes.eq(0).html(footer0);
         $footer_panes.eq(1).html(footer1);
@@ -932,7 +932,7 @@ function ($, comm, client, ui, enums, cr, util, scroller, main, gui, player, opt
     {
         var $popup = $(".templates > .describe-generic").clone();
         $popup.find(".header > span").html(util.formatted_string_to_html(msg.prompt));
-        $popup.find(".body").html("Do you want to play this combination? [Y/n/q]");
+        $popup.find(".body").html("你想玩这个组合吗？[Y/n/q]");
 
         var $canvas = $popup.find(".header > canvas");
         var renderer = new cr.DungeonCellRenderer();
@@ -1018,12 +1018,12 @@ function ($, comm, client, ui, enums, cr, util, scroller, main, gui, player, opt
         {
             popup = handler
                 ? handler(msg)
-                : $("<div>Unhandled UI type " + msg.type + "</div>");
+                : $("<div>未处理的 UI 类型：" + msg.type + "</div>");
         }
         catch (err)
         {
             console.log(err);
-            popup = $("<div>Buggy UI of type " + msg.type + "</div>");
+            popup = $("<div>该 UI 类型异常：" + msg.type + "</div>");
         }
         ui.show_popup(popup, msg["ui-centred"], msg.generation_id);
     }

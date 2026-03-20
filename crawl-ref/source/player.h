@@ -835,12 +835,12 @@ public:
     void daze(int duration) override;
     void end_daze();
     void vitrify(const actor *attacker, int duration, bool quiet = false) override;
-    bool floodify(const actor *attacker, int duration, const char* substance = "water") override;
+    bool floodify(const actor *attacker, int duration, const char* substance = "水") override;
     bool heal(int amount) override;
     bool drain(const actor *, bool quiet = false, int pow = 3) override;
     void splash_with_acid(actor *evildoer) override;
     bool corrode(const actor* source = nullptr,
-                 const char* corrosion_msg = "the acid",
+                 const char* corrosion_msg = "酸液",
                  int amount = 4) override;
     void sentinel_mark(bool trap = false);
     int hurt(const actor *attacker, int amount,
@@ -1082,19 +1082,19 @@ public:
     ~player_vanishes();
 };
 
-bool check_moveto(const coord_def& p, const string &move_verb = "step",
+bool check_moveto(const coord_def& p, const string &move_verb = "移动",
                   bool physically = true);
 bool check_moveto_terrain(const coord_def& p, const string &move_verb,
                           const string &msg = "", bool *prompted = nullptr);
-bool check_moveto_cloud(const coord_def& p, const string &move_verb = "step",
+bool check_moveto_cloud(const coord_def& p, const string &move_verb = "移动",
                         bool *prompted = nullptr);
 bool check_moveto_exclusions(const vector<coord_def> &areas,
-                             const string &move_verb = "step",
+                             const string &move_verb = "移动",
                              bool *prompted = nullptr);
 bool check_moveto_exclusion(const coord_def& p,
-                            const string &move_verb = "step",
+                            const string &move_verb = "移动",
                             bool *prompted = nullptr);
-bool check_moveto_trap(const coord_def& p, const string &move_verb = "step",
+bool check_moveto_trap(const coord_def& p, const string &move_verb = "移动",
         bool *prompted = nullptr);
 
 bool check_move_over(coord_def p, const string& move_verb);

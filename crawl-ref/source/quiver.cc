@@ -69,8 +69,8 @@ namespace quiver
     formatted_string _empty_quiver_string(bool short_desc)
     {
         return formatted_string::parse_string(
-            short_desc ? "<darkgrey>Empty</darkgrey>"
-                       : "<darkgrey>Nothing quivered</darkgrey>");
+            short_desc ? "<darkgrey>空</darkgrey>"
+                       : "<darkgrey>未设置箭袋</darkgrey>");
     }
 
     static bool _quiver_inscription_ok(int slot)
@@ -127,20 +127,20 @@ namespace quiver
                && !clua.callfn("af_mp_is_low", ">b", &af_mp_check))
         {
             if (!clua.error.empty())
-                mprf(MSGCH_ERROR, "Lua error: %s", clua.error.c_str());
+                mprf(MSGCH_ERROR, "Lua 错误：%s", clua.error.c_str());
             return true;
         }
         if (af_hp_check)
-            mpr("You are too injured to fight recklessly!");
+            mpr("你伤势太重，无法鲁莽作战！");
         else if (af_mp_check && !you.has_mutation(MUT_HP_CASTING)
             && you.magic_points == 0)
         {
-            mpr("You are out of magic!");
+            mpr("你的魔法值耗尽了！");
         }
         else if (af_mp_check)
         {
-            mprf("You are too depleted to draw on your %s recklessly!",
-                you.has_mutation(MUT_HP_CASTING) ? "health" : "magic");
+            mprf("你已过于衰竭，无法鲁莽动用你的%s！",
+                you.has_mutation(MUT_HP_CASTING) ? "生命" : "魔法");
         }
         return af_hp_check || af_mp_check;
     }
@@ -364,7 +364,7 @@ namespace quiver
             monster* mons = monster_at(target.target);
             if (mons && is_valid_tempering_target(*mons, you, true) && !you.confused())
             {
-                mprf("You deconstruct %s.", mons->name(DESC_THE).c_str());
+                mprf("你分解了%s。", mons->name(DESC_THE).c_str());
                 monster_die(*mons, KILL_RESET, NON_MONSTER);
                 you.turn_is_over = true;
                 return;
@@ -389,7 +389,7 @@ namespace quiver
 
         string quiver_verb() const override
         {
-            return "fire";
+            return "射击";
         }
 
         formatted_string valid_quiver_description(bool short_desc=false) const override
@@ -402,7 +402,7 @@ namespace quiver
 
             if (!short_desc)
             {
-                string verb = you.confused() ? "confused " : "";
+                string verb = you.confused() ? "混乱 " : "";
                 verb += quiver_verb();
                 qdesc.cprintf("%s: %c) ", uppercase_first(verb).c_str(),
                                 weapon.slot);
@@ -479,17 +479,17 @@ namespace quiver
                     // melee_attack::set_attack_verb for the real thing.
                     const vorpal_damage_type dt = you.damage_type(nullptr);
                     if (dt & DVORP_CLAWING || dt & DVORP_TENTACLE)
-                        return "attack";
+                        return "攻击";
                 }
-                return "punch";
+                return "挥拳";
             }
 
             if (weapon_reach(*weapon) > 1)
-                return "reach";
+                return "伸击";
             else if (attack_cleaves(you))
-                return "cleave";
+                return "劈砍";
             else
-                return "hit"; // could use more subtype flavor Vs?
+                return "打击"; // could use more subtype flavor Vs?
         }
 
         formatted_string valid_quiver_description(bool short_desc=false) const override
@@ -502,7 +502,7 @@ namespace quiver
 
             if (!short_desc)
             {
-                string verb = you.confused() ? "confused " : "";
+                string verb = you.confused() ? "混乱 " : "";
 
                 verb += quiver_verb();
                 qdesc.cprintf("%s: %c) ", uppercase_first(verb).c_str(),
@@ -546,7 +546,7 @@ namespace quiver
                         coord_def move(random2(3) - 1, random2(3) - 1);
                         if (move.origin())
                         {
-                            mpr("You nearly hit yourself!");
+                            mpr("你差点打到自己！");
                             you.turn_is_over = true;
                             return;
                         }
@@ -558,9 +558,9 @@ namespace quiver
                 else
                 {
                     if (target.needs_targeting())
-                        mpr("You're too confused to aim your attacks!");
+                        mpr("你太混乱了，无法瞄准攻击！");
                     else
-                        mpr("You're too confused to attack without stumbling around!");
+                        mpr("你太混乱了，攻击时站都站不稳！");
                     return;
                 }
             }
@@ -568,7 +568,7 @@ namespace quiver
             if (you.caught())
             {
                 if (target.needs_targeting())
-                    mprf("You cannot attack while %s.", held_status());
+                    mprf("你在%s时无法攻击。", held_status());
                 else
                 {
                     // assume that if a target was explicitly supplied, it was
@@ -633,7 +633,7 @@ namespace quiver
 
             if (x_distance > reach_range || y_distance > reach_range)
             {
-                mpr("Your weapon can't reach that far!");
+                mpr("你的武器够不到那么远！");
                 return;
             }
 
@@ -644,7 +644,7 @@ namespace quiver
             {
                 if (you.confused())
                 {
-                    mprf("You attack %s.",
+                    mprf("你攻击了%s。",
                          feature_description_at(target.target,
                                                 false, DESC_THE).c_str());
                     you.time_taken = attack_delay;
@@ -699,7 +699,7 @@ namespace quiver
                     if (midmons->wont_attack())
                     {
                         // Let's assume friendlies cooperate.
-                        mprf("You fail to reach past %s.", midmons->name(DESC_THE).c_str());
+                        mprf("你无法越过%s进行伸击。", midmons->name(DESC_THE).c_str());
                         you.time_taken = attack_delay;
                         you.turn_is_over = true;
 
@@ -717,12 +717,12 @@ namespace quiver
                 }
 
                 if (success)
-                    mpr("You reach to attack!");
+                    mpr("你伸手发动攻击！");
                 else
                 {
                     mprf("%s is in the way.",
                          mons->observable() ? mons->name(DESC_THE).c_str()
-                                            : "Something you can't see");
+                                            : "你看不见的东西");
                 }
             }
 
@@ -734,9 +734,9 @@ namespace quiver
                 if (!force_player_cleave(target.target) && !you.fumbles_attack())
                 {
                     if (x_distance <= 1 && y_distance <= 1)
-                        mpr("You swing at nothing.");
+                        mpr("你挥向了空气。");
                     else
-                        mpr("You attack empty space.");
+                        mpr("你攻击了空处。");
                 }
                 you.time_taken = attack_delay;
                 you.turn_is_over = true;
@@ -745,7 +745,7 @@ namespace quiver
             {
                 if (is_valid_tempering_target(*mons, you, true) && !you.confused())
                 {
-                    mprf("You deconstruct %s.", mons->name(DESC_THE).c_str());
+                    mprf("你分解了%s。", mons->name(DESC_THE).c_str());
                     monster_die(*mons, KILL_RESET, NON_MONSTER);
                     you.turn_is_over = true;
                     return;
@@ -832,7 +832,7 @@ namespace quiver
 
         // TODO: can get_fire_order be generalized?
 
-        string quiver_verb() const override { return "Activate"; }
+        string quiver_verb() const override { return "激活"; }
         virtual bool is_enabled() const override = 0;
         virtual void trigger(dist &) override = 0;
 
@@ -940,7 +940,7 @@ namespace quiver
             {
                 const string verb =
                     make_stringf("%s%s",
-                                 you.confused() ? "confused " : "",
+                                 you.confused() ? "混乱 " : "",
                                  is_throwable(&you, quiver) ? "throw" : "toss (no damage)");
                 qdesc.cprintf("%s: ", uppercase_first(verb).c_str());
             }
@@ -1171,15 +1171,15 @@ namespace quiver
 
             qdesc.textcolour(Options.status_caption_colour);
             if (channelled_spell_active(spell))
-                qdesc.cprintf("Continue: ");
+                qdesc.cprintf("继续：");
             else
-                qdesc.cprintf("Cast: ");
+                qdesc.cprintf("施法：");
 
             qdesc.textcolour(quiver_color());
 
             // TODO: is showing the spell letter useful?
             qdesc.cprintf("%s", spell == SPELL_MAXWELLS_COUPLING ?
-                                "Capacitive Coupling" : spell_title(spell));
+                                "电容耦合" : spell_title(spell));
 
             if (spell == SPELL_GRAVE_CLAW)
             {
@@ -1294,7 +1294,7 @@ namespace quiver
 
         {
             if (!quiet)
-                mpr("You can't see any hostile targets in range.");
+                mpr("你看不到射程内的敌对目标。");
             return false;
         }
         return true;
@@ -1452,7 +1452,7 @@ namespace quiver
 
             // TODO: does non-targeted case come up?
             if (target.isCancel && !target.interactive && is_targeted())
-                mpr("No targets found!");
+                mpr("未找到目标！");
 
             t = target; // copy back, in case they are different
         }
@@ -1462,7 +1462,7 @@ namespace quiver
             formatted_string qdesc;
 
             qdesc.textcolour(Options.status_caption_colour);
-            qdesc.cprintf("Abil: ");
+            qdesc.cprintf("能力：");
 
             qdesc.textcolour(quiver_color());
             string abil_name = ability_name(ability);
@@ -1471,7 +1471,7 @@ namespace quiver
             if (ability == ABIL_WIZ_BUILD_TERRAIN
                 && last_feat != DNGN_UNSEEN)
             {
-                qdesc.cprintf("Build '%s'", dungeon_feature_name(
+                qdesc.cprintf("建造‘%s’", dungeon_feature_name(
                     static_cast<dungeon_feature_type>(last_feat)));
             }
             else
@@ -1575,9 +1575,9 @@ namespace quiver
         string quiver_verb() const override
         {
             if (!is_valid())
-                return "Buggy";
-            return you.inv[item_slot].base_type == OBJ_SCROLLS ? "Read"
-                                                               : "Drink";
+                return "异常";
+            return you.inv[item_slot].base_type == OBJ_SCROLLS ? "阅读"
+                                                               : "饮用";
         }
 
         bool use_autofight_targeting() const override { return false; }
@@ -1703,7 +1703,7 @@ namespace quiver
 
         virtual string quiver_verb() const override
         {
-            return "Zap";
+            return "发射";
         }
 
         virtual vector<shared_ptr<action>> get_fire_order(
@@ -1794,7 +1794,7 @@ namespace quiver
 
         string quiver_verb() const override
         {
-            return "Evoke";
+            return "激发";
         }
 
         bool is_targeted() const override
@@ -2668,8 +2668,8 @@ namespace quiver
         bool _choose_from_inv()
         {
             int slot = prompt_invent_item(allow_empty
-                                            ? "Quiver which item? (- for none)"
-                                            : "Quiver which item?",
+                                            ? "要将哪个物品放入箭袋？（- 代表清空）"
+                                            : "要将哪个物品放入箭袋？",
                                           menu_type::invlist, OSEL_QUIVER_ACTION,
                                           OPER_QUIVER, invprompt_flag::hide_known, '-');
 
@@ -2754,7 +2754,7 @@ namespace quiver
             {
                 set_to_quiver(make_shared<quiver::action>());
                 // TODO maybe drop this messaging?
-                mpr("Clearing quiver.");
+                mpr("已清空箭袋。");
                 return false;
             }
             else if (isadigit(key))
@@ -2794,11 +2794,11 @@ namespace quiver
 
         virtual formatted_string calc_title() override
         {
-            string s = "Quiver which action? ";
+            string s = "要将哪个动作放入箭袋？";
             vector<string> extra_cmds;
 
             if (allow_empty)
-                s += "([<w>-</w>] to clear)";
+                s += "（[<w>-</w>] 清空）";
             return formatted_string::parse_string(s);
         }
 
@@ -2848,7 +2848,7 @@ namespace quiver
         // many places.
         if (is_empty())
         {
-            mpr("Nothing quivered!");
+            mpr("箭袋为空！");
             return;
         }
         shared_ptr<action> initial = get();
@@ -2936,7 +2936,7 @@ namespace quiver
 
         if (menu.pointless())
         {
-            mpr("You have nothing to quiver.");
+            mpr("你没有可放入箭袋的内容。");
             return;
         }
 
@@ -2950,7 +2950,7 @@ namespace quiver
         {
             if (!_quiver_inscription_ok(s->get_item()))
             {
-                const string prompt = make_stringf("Really quiver %s?",
+                const string prompt = make_stringf("真的要将%s放入箭袋吗？",
                     you.inv[s->get_item()].name(DESC_INVENTORY).c_str());
                 if (!yesno(prompt.c_str(), true, 'n'))
                     return false;

@@ -227,8 +227,8 @@ bool InventoryRegion::update_tab_tip_text(string &tip, bool active)
     const char *prefix2 = active ? "" : "          ";
 
     tip = make_stringf("%s%s\n%s%s",
-                       prefix1, "Display inventory",
-                       prefix2, "Use items");
+                       prefix1, "显示物品栏",
+                       prefix2, "使用物品");
 
     return true;
 }
@@ -245,12 +245,12 @@ bool InventoryRegion::update_tip_text(string& tip)
     // page next/prev
     if (_is_next_button(item_idx))
     {
-        tip = "Next page\n[L-Click] Show next page of items";
+        tip = "下一页\n[L-Click] 显示下一页物品";
         return true;
     }
     else if (_is_prev_button(item_idx))
     {
-        tip = "Previous page\n[L-Click] Show previous page of items";
+        tip = "上一页\n[L-Click] 显示上一页物品";
         return true;
     }
 
@@ -284,11 +284,11 @@ bool InventoryRegion::update_tip_text(string& tip)
 
         if (!item_is_stationary(item))
         {
-            tip += "\n[L-Click] Pick up (%)";
+            tip += "\n[L-Click] 拾取（%）";
             cmd.push_back(CMD_PICKUP);
             if (item.quantity > 1)
             {
-                tip += "\n[Ctrl + L-Click] Partial pick up (%)";
+                tip += "\n[Ctrl + L-Click] 部分拾取（%）";
                 cmd.push_back(CMD_PICKUP_QUANTITY);
             }
         }
@@ -447,12 +447,12 @@ bool InventoryRegion::update_alt_text(string &alt)
     if (_is_next_button(item_idx))
     {
         // alt text for next page button
-        inf.title = "Next page";
+        inf.title = "下一页";
     }
     else if (_is_prev_button(item_idx))
     {
         // alt text for prev page button
-        inf.title = "Previous page";
+        inf.title = "上一页";
     }
     else
         get_item_desc(*item, inf);
@@ -475,9 +475,9 @@ void InventoryRegion::draw_tag()
     bool floor = m_items[curs_index].flag & TILEI_FLAG_FLOOR;
 
     if (_is_next_button(curs_index))
-        draw_desc("Next page");
+        draw_desc("下一页");
     else if (_is_prev_button(curs_index))
-        draw_desc("Previous page");
+        draw_desc("上一页");
     else if (floor && env.item[idx].defined())
         draw_desc(env.item[idx].name(DESC_PLAIN).c_str());
     else if (!floor && you.inv[idx].defined())
