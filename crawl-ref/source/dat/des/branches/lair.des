@@ -1688,7 +1688,7 @@ TAGS:   transparent extra lairdec
 KMONS:  P = plant
 KITEM:  H = human skeleton
 KITEM:  M = black bear skeleton / elephant skeleton / anaconda skeleton
-KITEM:  d = damaged mundane 短剑
+KITEM:  d = damaged mundane short sword
 KITEM:  e = damaged mundane helmet
 NSUBST: ` = d / e, D = + / 2=. / x
 SUBST:  x = xxxx., . = ....P

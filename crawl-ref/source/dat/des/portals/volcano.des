@@ -994,7 +994,7 @@ MONS:    salamander draugr ; trident ego:flaming / \
          ogre draugr ; mace ego:flaming
 MONS:    wyvern draugr ; hand axe ego:flaming / \
          elephant draugr ; mace ego:flaming / \
-         black mamba draugr ; 短剑 ego:flaming
+         black mamba draugr ; short sword ego:flaming
 MONS:    skeletal warrior ; halberd ego:flaming pre_id | \
                             dire flail ego:flaming pre_id | \
                             great sword ego:flaming pre_id
@@ -1037,7 +1037,7 @@ MONS:    salamander draugr ; trident ego:flaming / \
          ogre draugr ; mace ego:flaming
 MONS:    wyvern draugr ; hand axe ego:flaming / \
          elephant draugr ; mace ego:flaming / \
-         black mamba draugr ; 短剑 ego:flaming
+         black mamba draugr ; short sword ego:flaming
 MONS:    skeletal warrior ; halberd ego:flaming pre_id | \
                             dire flail ego:flaming pre_id | \
                             great sword ego:flaming pre_id
@@ -1375,7 +1375,7 @@ TAGS:   no_item_gen no_monster_gen
 WEIGHT: 20
 ORIENT: encompass
 MONS:   fire elemental / hell hound, deep elf pyromancer
-MONS:   deep elf archer ; shortbow ego:flaming . 短剑 ego:flaming . \
+MONS:   deep elf archer ; shortbow ego:flaming . short sword ego:flaming . \
                           leather armour ego:fire_resistance
 KFEAT:  - = l
 SUBST:  $ = $$$defg, G : GG.

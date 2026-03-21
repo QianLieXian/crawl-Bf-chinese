@@ -1021,7 +1021,7 @@ kitem("E = minotaur skeleton, shortbow good_item / orcbow good_item / " ..
           "any misc / gold / any scroll / any potion / nothing w:60")
 
  -- Spriggan stabber.
-kitem("F = spriggan skeleton, dagger good_item / 短剑 good_item / " ..
+kitem("F = spriggan skeleton, dagger good_item / short sword good_item / " ..
           "rapier good_item / athame good_item / quick blade w:6, " ..
           "robe good_item w:120 / " .. light_scales .. " / " ..
           "shadow dragon scales, randbook disc:hexes / book of misfortune / " ..

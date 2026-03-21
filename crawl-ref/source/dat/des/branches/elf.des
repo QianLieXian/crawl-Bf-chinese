@@ -1416,8 +1416,8 @@ DEPTH:   Elf
 MONS:    deep elf pyromancer / deep elf zephyrmancer / thermic dynamo w:2
 MONS:    deep elf knight / deep elf pyromancer w:3 / deep elf zephyrmancer w:3
 MONS:    deep elf pyromancer / deep elf zephyrmancer
-MONS:    dancing weapon ; 短剑 ego:flaming | 短剑 ego:freezing | \
-                          短剑 ego:venom | 短剑 ego:electrocution
+MONS:    dancing weapon ; short sword ego:flaming | short sword ego:freezing | \
+                          short sword ego:venom | short sword ego:electrocution
 # Some basic excessive pillar randomization work,
 # with spokes per-cross and centers in mirrored / half pairs.
 SUBST:   A : xxcb..., B : xxcb..., C : xxcb..., D : xxcb...
@@ -1535,8 +1535,8 @@ DEPTH:  Elf
 ORIENT: float
 MONS:   deep elf knight / deep elf archer w:8, deep elf blademaster
 KMONS:  P = plant
-ITEM:   短剑 w:15 / rapier w:8 / athame w:2 / quick blade w:1
-ITEM:   短剑 good_item w:8 / rapier good_item w:5 / \
+ITEM:   short sword w:15 / rapier w:8 / athame w:2 / quick blade w:1
+ITEM:   short sword good_item w:8 / rapier good_item w:5 / \
         athame good_item w:2 / quick blade good_item w:2
 SUBST:  x = xc
 SUBST:  3 = 3.
@@ -1726,7 +1726,7 @@ KITEM: 123 = % w:20 / scroll of enchant weapon pre_id w:5 \
 -- vitrification
 local chaos_types = { ["spear"] = 2, ["trident"] = 2, ["mace"] = 2,
     ["flail"] = 2, ["dire flail"] = 2, ["quarterstaff"] = 2,
-    ["long sword"] = 2, ["scimitar"] = 2, ["短剑"] = 2, ["athame"] = 2,
+    ["long sword"] = 2, ["scimitar"] = 2, ["short sword"] = 2, ["athame"] = 2,
     ["rapier"] = 2, ["quick blade"] = 1, ["hand axe"] = 2, ["war axe"] = 2 }
 -- Slower weapons that will get distortion and become less than normal speed
 -- with slowness
@@ -1813,7 +1813,7 @@ NAME:  nicolae_elf_free_trip_to_the_abyss
 TAGS:  transparent
 DEPTH: Elf
 MONS:  chaos spawn / nothing
-MONS:  patrolling dancing weapon ; 短剑 ego:distortion \
+MONS:  patrolling dancing weapon ; short sword ego:distortion \
            | falchion ego:distortion | hand axe ego:distortion \
            | whip ego:distortion | spear ego:distortion
 MONS:  deep elf sorcerer / deep elf demonologist
@@ -2028,7 +2028,7 @@ ENDMAP
 NAME:    regret_index_elf_centigrade
 TAGS:    no_monster_gen no_pool_fixup misc_elf_vault
 DEPTH:   Elf
-MONS:    fire elemental, dancing weapon ; 短剑 ego:freezing
+MONS:    fire elemental, dancing weapon ; short sword ego:freezing
 MONS:    deep elf pyromancer, deep elf knight, thermic dynamo
 ITEM:    ring of protection from fire, ring of protection from cold
 ITEM:    staff of fire no_pickup, staff of cold no_pickup
@@ -2073,7 +2073,7 @@ TAGS:   no_item_gen
 SUBST:  d = ..', e = .'', f = .'''
 KPROP:  ' = bloody
 SUBST:  ' = ...'
-KITEM:  ' = 短剑 / long sword / morningstar / mace / \
+KITEM:  ' = short sword / long sword / morningstar / mace / \
             scimitar / dagger / bardiche / battleaxe / war axe
 : elven_blade_entry(_G)
 MAP
@@ -2163,7 +2163,7 @@ ENDMAP
 NAME:  nicolae_vaults_blade_armed_guards
 KMONS: 2 = deep elf knight ; hand axe | war axe | broad axe | battleaxe | \
                              flail | morningstar | great mace | \
-                             短剑 | long sword | scimitar | \
+                             short sword | long sword | scimitar | \
                              trident | partisan | glaive | . \
                              chain mail | plate armour .  kite shield | \
                              buckler w:20 | nothing w:60

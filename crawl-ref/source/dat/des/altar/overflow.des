@@ -2647,7 +2647,7 @@ KITEM:   $S = $ q:7
 KMONS:   P = bush
 # An item deliberately unlikely to be of much value, but which default
 # autoexplore stops to look at, to emphasize entering a gimmick vault.
-KITEM:   ~ = damaged 短剑 ego:heavy / \
+KITEM:   ~ = damaged short sword ego:heavy / \
              damaged sling ego:flaming / damaged whip ego:freezing
 KITEM:   ! = any potion q:1 / any scroll q:1 w:5
 KFEAT:   % = cache_of_fruit
@@ -3891,15 +3891,15 @@ KMONS:  1 = ogre god:trog ; giant club ego:antimagic | w:3 giant club / \
         ogre god:trog ; giant spiked club ego:antimagic | w:5 giant spiked club / \
         orc warrior god:trog ; halberd ego:antimagic | war axe ego:antimagic | \
         flail ego:antimagic | great mace ego:antimagic | any weapon / \
-        kobold brigand god:trog ; 短剑 ego:antimagic | dagger ego:antimagic | \
+        kobold brigand god:trog ; short sword ego:antimagic | dagger ego:antimagic | \
         rapier ego:antimagic | rapier
 SUBST:  2 = 1
 : else
 KMONS:  1 = orc god:trog ; spear ego:antimagic | hand axe ego:antimagic | \
         war axe ego:antimagic | any weapon / \
-        kobold god:trog ; 短剑 ego:antimagic | hand axe ego:antimagic | \
+        kobold god:trog ; short sword ego:antimagic | hand axe ego:antimagic | \
         club ego:antimagic | whip ego:antimagic | any weapon / \
-        goblin god:trog ; dagger ego:antimagic | 短剑 ego:antimagic / \
+        goblin god:trog ; dagger ego:antimagic | short sword ego:antimagic / \
         gnoll god:trog ; spear ego:antimagic | trident ego:antimagic | \
         halberd ego:antimagic | whip ego:antimagic | halberd | any weapon
 KMONS:  2 = brain worm
@@ -4159,7 +4159,7 @@ ENDMAP
 NAME:   nicolae_uskayaw_en_pointe
 TAGS:   transparent no_trap_gen generate_awake decor buniq_s_overflow_glass
 KPROP:  'D = no_tele_into
-MONS:   dancing weapon ; mundane 短剑
+MONS:   dancing weapon ; mundane short sword
 MONS:   dancing weapon ; mundane falchion, dancing weapon ; mundane spear
 MONS:   dancing weapon ; mundane dagger
 NSUBST: D = 2=1 / 2=2 / 2=3 / 2=4
@@ -4659,7 +4659,7 @@ KITEM: r = stone q:1 / large rock q:1 w:5
 {{
   local monsters = {}
   -- Traditional wuxia weaponry, according to the Wikipedias:
-  local weapons = " ; long sword | 短剑 | spear | club | " ..
+  local weapons = " ; long sword | short sword | spear | club | " ..
      "partisan | quarterstaff | great sword "
   if you.depth() <= 4 then
      table.insert(monsters, "goblin")
@@ -5967,7 +5967,7 @@ KMONS:  z = orc zombie / kobold zombie / hobgoblin zombie
 KMONS:  s = kobold draugr ; dagger / orc draugr ; hand axe
 KMONS:  _ = ufetubus / white imp w:5
 : else
-KMONS:  s = kobold draugr ; 短剑 / gnoll draugr ; trident
+KMONS:  s = kobold draugr ; short sword / gnoll draugr ; trident
 KMONS:  _ = ufetubus / white imp / shadow imp / drude w:5
 : end
 COLOUR: 'sz = yellow / none w:5
@@ -5996,8 +5996,8 @@ TAGS:   transparent decor no_monster_gen no_item_gen no_trap_gen
 TAGS:   buniq_s_overflow_holy_glass
 WEIGHT: 3
 KMONS:  1 = fravashi
-KMONS:  2 = deep elf blademaster ; 短剑 ego:holy_wrath . \
-              短剑 ego:holy_wrath . pearl dragon scales
+KMONS:  2 = deep elf blademaster ; short sword ego:holy_wrath . \
+              short sword ego:holy_wrath . pearl dragon scales
 KMONS:  3 = spriggan defender ; rapier ego:holy_wrath | flail ego:holy_wrath . \
               pearl dragon scales
 KMASK:  123 = opaque
@@ -6045,7 +6045,7 @@ TAGS:   buniq_s_overflow_holy_glass
 : local p = "plus:0 ego:holy_wrath pre_id no_uniq"
 : kitem("d = hand axe " .. p .. " / mace " .. p .. " / falchion " .. p ..
 :           " / spear " .. p .. " / dagger " .. p .. " / whip " .. p ..
-:           " / 短剑 " .. p)
+:           " / short sword " .. p)
 KMASK:  d = opaque
 KPROP:  d = no_tele_into
 COLOUR: cn = white

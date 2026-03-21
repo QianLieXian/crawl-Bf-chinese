@@ -19,7 +19,7 @@ function trove.get_trove_item(e, value, base_item)
   -- This function should return a table with the following values:
   --  quantity=0 (number of items, 1 unless consumables)
   --  base_type="armour" (armour, weapon, potion, scroll, jewellery, or miscellaneous)
-  --  sub_type="robe" (短剑, etc)
+  --  sub_type="robe" (short sword, etc)
   --  ego_type="resistance" (or false)
   --  plus1=4 (or false)
   --  artefact_name=false (setting this will compare artefact names and status
