@@ -69,3 +69,8 @@
 # Turn the shift-vi keys into safe move, instead of run.
 # include = safe_move_shift.txt
 
+language = zh
+tile_font_crt_file = F:\xz\crawl-Bf-chinese\crawl-ref\settings\wqy-zenhei.ttc
+tile_font_msg_file = F:\xz\crawl-Bf-chinese\crawl-ref\settings\wqy-zenhei.ttc
+tile_font_tip_file = F:\xz\crawl-Bf-chinese\crawl-ref\settings\wqy-zenhei.ttc
+tile_font_lbl_file = F:\xz\crawl-Bf-chinese\crawl-ref\settings\wqy-zenhei.ttc
