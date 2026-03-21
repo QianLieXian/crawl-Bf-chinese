@@ -1000,7 +1000,7 @@ ENDMAP
 NAME:   dreamdust_ecumenical_altar_hidden_monk_grotto
 TAGS:   transparent
 KMONS:  p = plant / fungus
-KITEM:  h = human skeleton, mundane robe
+KITEM:  h = human skeleton, robe mundane
 SUBST:  ? = pW
 : ecumenical_altar_setup(_G)
 MAP
