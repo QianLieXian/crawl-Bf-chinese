@@ -414,8 +414,8 @@ KMONS:   L = catoblepas / eight-headed hydra
 KMONS:   N = emperor scorpion / orb spider
 KMONS:   A = kraken / alligator snapping turtle
 KMONS:   S = bunyip / goliath frog
-KMONS:   z = orc warrior ; whip . leather armour / \
-             orc knight w:5 ; whip . leather armour
+KMONS:   z = orc warrior ; whip . animal skin / \
+             orc knight w:5 ; whip . animal skin
 KITEM:   $ = $ no_pickup
 NSUBST:  P = P / `, N = N / `, A = A / w, S = S / w, L = L / `
 SUBST:   T : TG
@@ -3764,7 +3764,7 @@ TAGS:    no_item_gen no_monster_gen
 # The last survivor
 KMONS:   1 = human ; war axe ego:heavy good_item \
                        | war axe ego:flaming good_item \
-                   . leather armour good_item | ring mail good_item \
+                   . animal skin good_item | ring mail good_item \
                        | scale mail good_item
 # Trying to get some good horror move trope representation
 KMONS:   2 = Rupert / reaper / vampire mage / phantasmal warrior / \

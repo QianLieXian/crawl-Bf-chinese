@@ -182,7 +182,7 @@ function make_fiery_weapon (e, weapon)
 end
 
 function setup_loot (e)
-    e.item(make_fiery_armour(e, {"leather armour w:65", "ring mail w:25",
+    e.item(make_fiery_armour(e, {"animal skin w:65", "ring mail w:25",
                                  "scale mail w:25", "chain mail w:40",
                                  "plate armour w:25", "cloak w:11",
                                  "tower shield w:1", "kite shield w:2", "buckler w:1"}) .. " / " ..
@@ -1376,7 +1376,7 @@ WEIGHT: 20
 ORIENT: encompass
 MONS:   fire elemental / hell hound, deep elf pyromancer
 MONS:   deep elf archer ; shortbow ego:flaming . short sword ego:flaming . \
-                          leather armour ego:fire_resistance
+                          animal skin ego:fire_resistance
 KFEAT:  - = l
 SUBST:  $ = $$$defg, G : GG.
 NSUBST: 2 = 1:3 / * = 22., 1 = 1:2 / * = 11.

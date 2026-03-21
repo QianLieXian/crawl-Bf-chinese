@@ -2076,7 +2076,7 @@ kfeat("D = weapon shop name:" .. owner .. " type:Merfolk suffix:Weapons ; \
       short sword | rapier | athame | quick blade | dart | javelin | \
       throwing net | boomerang" )
 kfeat("E = armour shop name:" .. owner .. " type:Merfolk suffix:Armours ; \
-      robe | leather armour | helmet | hat | pair of boots | cloak | scarf | \
+      robe | animal skin | helmet | hat | pair of boots | cloak | scarf | \
       pair of gloves | buckler" )
 kfeat("F = general shop name:" .. owner .. " type:Merfolk suffix:Magic ; \
       ring of dexterity | ring of evasion  | ring of protection | \
@@ -2468,7 +2468,7 @@ TAGS:   water_ok transparent patrolling no_pool_fixup
 DEPTH:  Shoals
 ORIENT: float
 # Someone left their gear in the changing room.
-KITEM:  p = leather armour / ring mail / scale mail / chain mail, \
+KITEM:  p = animal skin / ring mail / scale mail / chain mail, \
             long sword / short sword w:8 / rapier w:8 / athame w:4 / dagger, \
             buckler / nothing w:20
 # Some people like having a little something to read or drink on the beach.
