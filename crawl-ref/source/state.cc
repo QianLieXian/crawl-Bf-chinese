@@ -262,9 +262,9 @@ bool interrupt_cmd_repeat(activity_interrupt ai,
     if (crawl_state.repeat_cmd == CMD_WAIT)
     {
         if (ai == activity_interrupt::full_mp)
-            crawl_state.cancel_cmd_repeat("Magic restored.");
+            crawl_state.cancel_cmd_repeat("魔法值已恢复。");
         else if (ai == activity_interrupt::full_hp)
-            crawl_state.cancel_cmd_repeat("HP restored");
+            crawl_state.cancel_cmd_repeat("生命值已恢复");
         else
             crawl_state.cancel_cmd_repeat("Command repetition interrupted.");
 

@@ -147,17 +147,17 @@ static char_choice_restriction _job_allowed(species_type sp, job_type job) {
 string newgame_char_description(const newgame_def& ng)
 {
     if (_is_random_viable_choice(ng))
-        return "Recommended character";
+        return "推荐角色";
     else if (_is_random_choice(ng))
-        return "Random character";
+        return "随机角色";
     else if (_is_random_job(ng.job))
     {
-        const string j = (ng.job == JOB_RANDOM ? "Random " : "Recommended ");
+        const string j = (ng.job == JOB_RANDOM ? "随机 " : "推荐 ");
         return j + species::name(ng.species);
     }
     else if (_is_random_species(ng.species))
     {
-        const string s = (ng.species == SP_RANDOM ? "Random " : "Recommended ");
+        const string s = (ng.species == SP_RANDOM ? "随机 " : "推荐 ");
         return s + get_job_name(ng.job);
     }
     else
@@ -178,14 +178,14 @@ static string _welcome(const newgame_def& ng)
     if (!ng.name.empty())
     {
         if (!text.empty())
-            text = " the " + text;
+            text = "（" + text + "）";
         text = ng.name + text;
     }
     else if (!text.empty())
-        text = "unnamed " + text;
+        text = "未命名" + text;
     if (!text.empty())
         text = ", " + text;
-    text = "Welcome" + text + ".";
+    text = "欢迎" + text + "。";
     return text;
 }
 
@@ -358,9 +358,8 @@ static bool _reroll_random(newgame_def& ng)
     string specs = chop_string(species::name(ng.species), 79, false);
 
     formatted_string prompt;
-    prompt.cprintf("You are a%s %s %s.",
-            (is_vowel(specs[0])) ? "n" : "", specs.c_str(),
-            get_job_name(ng.job));
+    prompt.cprintf("你当前角色：%s %s。",
+            specs.c_str(), get_job_name(ng.job));
 
     auto title_hbox = make_shared<Box>(Widget::HORZ);
 #ifdef USE_TILE
@@ -379,7 +378,7 @@ static bool _reroll_random(newgame_def& ng)
 
     auto vbox = make_shared<Box>(Box::VERT);
     vbox->add_child(std::move(title_hbox));
-    vbox->add_child(make_shared<Text>("Do you want to play this combination? [Y/n/q]"));
+    vbox->add_child(make_shared<Text>("要使用这个组合开始游戏吗？[Y/n/q]"));
     auto popup = make_shared<ui::Popup>(std::move(vbox));
 
     bool done = false;
@@ -581,9 +580,8 @@ static void _choose_name(newgame_def& ng, newgame_def& choice)
     string specs = chop_string(species::name(ng.species), 79, false);
 
     formatted_string title;
-    title.cprintf("You are a%s %s %s.",
-            (is_vowel(specs[0])) ? "n" : "", specs.c_str(),
-            get_job_name(ng.job));
+    title.cprintf("你当前角色：%s %s。",
+            specs.c_str(), get_job_name(ng.job));
 
     auto title_hbox = make_shared<Box>(Widget::HORZ);
 #ifdef USE_TILE
@@ -609,15 +607,15 @@ static void _choose_name(newgame_def& ng, newgame_def& choice)
     vbox->add_child(sub_items);
 
     _add_menu_sub_item(sub_items, 0, 0,
-            "Esc - Quit", "", CK_ESCAPE, CK_ESCAPE);
+            "Esc - 退出", "", CK_ESCAPE, CK_ESCAPE);
     _add_menu_sub_item(sub_items, 1, 0,
-            "* - Random name", "", '*', '*');
+            "* - 随机姓名", "", '*', '*');
 
     auto ok_switcher = make_shared<Switcher>();
     ok_switcher->align_y = Widget::STRETCH;
     {
         auto tmp = make_shared<Text>();
-        tmp->set_text(formatted_string("Enter - Begin!", BROWN));
+        tmp->set_text(formatted_string("Enter - 开始！", BROWN));
 
         auto btn = make_shared<MenuButton>();
         btn->on_activate_event([&](const ActivateEvent&) {
@@ -704,12 +702,12 @@ static void _choose_name(newgame_def& ng, newgame_def& choice)
     {
         formatted_string prompt;
         prompt.textcolour(CYAN);
-        prompt.cprintf("What is your name today? ");
+        prompt.cprintf("请输入你的名字：");
         prompt.textcolour(LIGHTGREY);
         prompt.cprintf("%s\n", buf);
         prompt.textcolour(LIGHTRED);
         if (overwrite_prompt)
-            prompt.cprintf("You have an existing game under this name; really overwrite? [Y/n]");
+            prompt.cprintf("该名字已有存档，确认覆盖吗？[Y/n]");
         prompt_ui->set_text(prompt);
 
         ui::pump_events();
@@ -1176,8 +1174,8 @@ public:
         welcome.textcolour(BROWN);
         welcome.cprintf("%s", _welcome(m_ng).c_str());
         welcome.textcolour(YELLOW);
-        welcome.cprintf(" Please select your ");
-        welcome.cprintf(m_choice_type == C_JOB ? "background." : "species.");
+        welcome.cprintf("。请选择你的");
+        welcome.cprintf(m_choice_type == C_JOB ? "背景。" : "种族。");
         m_vbox->add_child(make_shared<Text>(welcome));
 
         descriptions = make_shared<Switcher>();
@@ -1344,7 +1342,17 @@ protected:
 
     void _add_group_title(const char* name, coord_def position)
     {
-        auto text = make_shared<Text>(formatted_string(name, LIGHTBLUE));
+        string title = name;
+        if (title == "Simple") title = "简单";
+        else if (title == "Intermediate") title = "进阶";
+        else if (title == "Advanced") title = "高级";
+        else if (title == "Warrior") title = "战士";
+        else if (title == "Zealot") title = "狂信者";
+        else if (title == "Adventurer") title = "冒险者";
+        else if (title == "Warrior-mage") title = "战法师";
+        else if (title == "Mage") title = "法师";
+
+        auto text = make_shared<Text>(formatted_string(title, LIGHTBLUE));
         text->set_margin_for_sdl(7, 0, 7, 32+2+6);
         m_main_items->add_label(std::move(text), position.x, position.y);
     }
@@ -1359,15 +1367,15 @@ protected:
                                         const newgame_def& ng,
                                         const newgame_def& defaults)
     {
-        string choice_name = choice_type == C_JOB ? "background" : "species";
-        string other_choice_name = choice_type == C_JOB ? "species" : "background";
+        string choice_name = choice_type == C_JOB ? "背景" : "种族";
+        string other_choice_name = choice_type == C_JOB ? "种族" : "背景";
 
         string text, desc;
 
         if (choice_type == C_SPECIES)
-            text = "+ - Recommended species";
+            text = "+ - 推荐种族";
         else
-            text = "+ - Recommended background";
+            text = "+ - 推荐背景";
 
         int id;
         // If the player has species chosen, use VIABLE, otherwise use RANDOM
@@ -1384,37 +1392,37 @@ protected:
                 text, '+', id, desc);
 
         _add_choice_menu_option(0, 1,
-                "# - Recommended character", '#', M_VIABLE_CHAR,
-                "Shuffles through random recommended character combinations "
-                "until you accept one.");
+                "# - 推荐角色", '#', M_VIABLE_CHAR,
+                "在推荐角色组合中随机轮换，"
+                "直到你接受为止。");
 
         _add_choice_menu_option(0, 2,
-                "% - List aptitudes", '%', M_APTITUDES,
-                "Lists the numerical skill train aptitudes for all races.");
+                "% - 查看 aptitudes（成长倾向）", '%', M_APTITUDES,
+                "显示所有种族的技能成长数值。");
 
         _add_choice_menu_option(0, 3,
-                "? - Help", '?', M_HELP,
-                "Opens the help screen.");
+                "? - 帮助", '?', M_HELP,
+                "打开帮助界面。");
 
         _add_choice_menu_option(1, 0,
-                "    * - Random " + choice_name, '*', M_RANDOM,
-                "Picks a random " + choice_name + ".");
+                "    * - 随机" + choice_name, '*', M_RANDOM,
+                "随机选择一个" + choice_name + "。");
 
         _add_choice_menu_option(1, 1,
-                "    ! - Random character", '!', M_RANDOM_CHAR,
-                "Shuffles through random character combinations "
-                "until you accept one.");
+                "    ! - 随机角色", '!', M_RANDOM_CHAR,
+                "在随机角色组合中轮换，"
+                "直到你接受为止。");
 
         if ((choice_type == C_JOB && ng.species != SP_UNKNOWN)
             || (choice_type == C_SPECIES && ng.job != JOB_UNKNOWN))
         {
-            text = "Space - Change " + other_choice_name;
-            desc = "Lets you change your " + other_choice_name + " choice.";
+            text = "Space - 更改" + other_choice_name;
+            desc = "让你更改当前" + other_choice_name + "选择。";
         }
         else
         {
-            text = "Space - Pick " + other_choice_name + " first";
-            desc = "Lets you pick your " + other_choice_name + " first.";
+            text = "Space - 先选" + other_choice_name;
+            desc = "让你先选择" + other_choice_name + "。";
         }
         _add_choice_menu_option(1, 2,
                 text, ' ', M_ABORT, desc);

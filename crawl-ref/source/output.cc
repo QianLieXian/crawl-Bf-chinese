@@ -913,7 +913,7 @@ static void _print_stats_mp(int x, int y)
     }
 
     textcolour(HUD_CAPTION_COLOUR);
-    CPRINTF(player_drained() ? "MP: " : "魔法:  ");
+    CPRINTF("MP: ");
     textcolour(mp_colour);
     CPRINTF("%d", you.magic_points);
     if (!boosted)
@@ -979,7 +979,7 @@ static void _print_stats_hp(int x, int y)
     // Health: xxx/yyy (zzz)
     CGOTOXY(x, y, GOTO_STAT);
     textcolour(HUD_CAPTION_COLOUR);
-    CPRINTF(player_drained() ? "HP: " : "生命: ");
+    CPRINTF("HP: ");
     textcolour(hp_colour);
     CPRINTF("%d", you.hp);
     if (!boosted)
@@ -2845,7 +2845,7 @@ static string _extra_passive_effects()
     }
 
     if (passives.empty())
-        return "no passive effects";
+        return "无被动效果";
     else
         return comma_separated_line(passives.begin(), passives.end(),
                                     ", ", ", ");

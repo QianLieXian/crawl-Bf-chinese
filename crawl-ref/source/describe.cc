@@ -5660,14 +5660,14 @@ static string _monster_notice_chance(const monster_info& mi)
     else
         result << perception * 100 / stealth;
 
-    result << "% chance to notice you each turn.\n";
+    result << "% 的概率在每回合察觉到你。\n";
 
     return result.str();
 }
 
 static void _describe_aux_hit_chance(ostringstream &result, vector<string>& auxes, int chance)
 {
-    result << " and " << chance << "% to hit with your ";
+    result << "，并有 " << chance << "% 的命中率使用你的";
     for (size_t i = 0; i < auxes.size(); ++i)
     {
         if (i > 0 && auxes.size() > 2)

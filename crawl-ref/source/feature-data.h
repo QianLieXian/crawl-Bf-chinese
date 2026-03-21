@@ -126,14 +126,14 @@ static feature_def feat_defs[] =
 },
 
 {
-    DNGN_ROCK_WALL, "rock wall", "rock_wall",
+    DNGN_ROCK_WALL, "岩壁", "rock_wall",
     DCHAR_WALL, DCHAR_WALL_MAGIC,
     COLOUR_IS(ETC_ROCK),
     FFT_OPAQUE | FFT_WALL | FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_SLIMY_WALL, "slime covered rock wall", "slimy_wall",
+    DNGN_SLIMY_WALL, "覆黏液岩壁", "slimy_wall",
     DCHAR_WALL, DCHAR_WALL_MAGIC,
     COLOUR_IS(LIGHTGREEN),
     FFT_OPAQUE | FFT_WALL | FFT_SOLID, MF_WALL,
@@ -147,14 +147,14 @@ static feature_def feat_defs[] =
 },
 
 {
-    DNGN_PERMAROCK_WALL, "unnaturally hard rock wall", "permarock_wall",
+    DNGN_PERMAROCK_WALL, "异常坚硬岩壁", "permarock_wall",
     DCHAR_PERMAWALL, DCHAR_WALL_MAGIC,
     COLOUR_IS(ETC_ROCK),
     FFT_OPAQUE | FFT_WALL | FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_CLEAR_ROCK_WALL, "translucent rock wall", "clear_rock_wall",
+    DNGN_CLEAR_ROCK_WALL, "半透明岩壁", "clear_rock_wall",
     DCHAR_WALL, DCHAR_WALL_MAGIC,
     COLOUR_IS(LIGHTCYAN),
     FFT_WALL | FFT_SOLID, MF_WALL,
@@ -168,7 +168,7 @@ static feature_def feat_defs[] =
 },
 
 {
-    DNGN_CLEAR_PERMAROCK_WALL, "translucent unnaturally hard rock wall", "clear_permarock_wall",
+    DNGN_CLEAR_PERMAROCK_WALL, "半透明异常坚硬岩壁", "clear_permarock_wall",
     DCHAR_PERMAWALL, DCHAR_WALL_MAGIC,
     COLOUR_IS(LIGHTCYAN),
     FFT_WALL | FFT_SOLID, MF_WALL,
