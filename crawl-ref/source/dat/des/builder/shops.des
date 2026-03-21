@@ -776,7 +776,7 @@ KITEM:  s = dagger damaged ego:none / falchion damaged ego:none / \
             spear damaged ego:none / sling damaged ego:none
 KFEAT:  S = weapon shop / antique weapon shop w:5
 : else
-KITEM:  s = robe damaged ego:none / leather armour damaged ego:none / \
+KITEM:  s = robe damaged ego:none / animal skin damaged ego:none / \
             ring mail damaged ego:none / buckler damaged ego:none / \
             helmet damaged ego:none w:2 / hat damaged ego:none w:2 / \
             pair of boots damaged ego:none w:2 / cloak damaged ego:none w:2 / \

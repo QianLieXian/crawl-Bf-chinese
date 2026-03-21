@@ -75,10 +75,10 @@ end
 function easy_axe_fighter(e, glyph)
   local axe = "hand axe w:60 | war axe"
   e.kmons(glyph .. " = orc warrior w:3 ; " .. axe .. " . ring mail / \
-                       gnoll w:7 ; " .. axe .. " . leather armour / \
-                       hobgoblin w:10 ; " .. axe .. " . leather armour / \
-                       orc w:10 ; " .. axe .. " . leather armour / \
-                       goblin w:12 ; " .. axe .. " . leather armour")
+                       gnoll w:7 ; " .. axe .. " . animal skin / \
+                       hobgoblin w:10 ; " .. axe .. " . animal skin / \
+                       orc w:10 ; " .. axe .. " . animal skin / \
+                       goblin w:12 ; " .. axe .. " . animal skin")
 end
 
 function hard_axe_fighter(e, glyph, no_knight)
@@ -394,7 +394,7 @@ ORIENT: encompass
 : orc_with_polearm(_G, "1")
 KMONS:  2 = gnoll ; halberd ego:draining | halberd ego:electrocution pre_id
 KMONS:  3 = orc warrior ; halberd ego:electrocution pre_id . plate armour / \
-            orc knight ; halberd . leather armour
+            orc knight ; halberd . animal skin
 KMONS:  4 = goblin rider
 KFEAT:  ^ = trap_tyrant
 KFEAT:  - = closed_clear_door

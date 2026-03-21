@@ -2275,7 +2275,7 @@ KMONS:  O = player ghost
 # Both pre-rework bad Oka gifts plus better weapon and armour gifts.
 : local d = "damaged pre_id"
 : kitem("O = hat " .. d .. " / cloak " .. d .. " / robe " .. d .. " / " ..
-:           "animal skin " .. d .. " / leather armour " .. d .. " / " ..
+:           "animal skin " .. d .. " / animal skin " .. d .. " / " ..
 :           "whip " .. d .. " / spear " .. d .. " / short sword " .. d .. " / " ..
 :           "dagger " .. d .. " / hand axe " .. d .. " / sling " .. d .. " / " ..
 :           "robe plus:-8 randart pre_id")
@@ -2637,7 +2637,7 @@ NAME:   biasface_necropolis_ghost_orc_armoury
 :                               "post_lair_d", "orc", "vaults_elf"})
 KMONS:  O = player ghost
 MONS:   orc, orc ; any weapon good_item | any weapon randart . \
-            leather armour good_item | leather armour randart | \
+            animal skin good_item | animal skin randart | \
             ring mail good_item | ring mail randart | scale mail good_item | \
             scale mail randart | chain mail good_item | chain mail randart
 MONS:   orc priest, warg, orc warrior, orc knight, orc high priest
@@ -3118,7 +3118,7 @@ kmons("3 = merfolk aquamancer ; " ..
            "robe good_item")
 kmons("4 = merfolk impaler ; " ..
            dgn.monster_weapon("impaler", "draining", quality) .. " . " ..
-           "robe good_item | leather armour good_item")
+           "robe good_item | animal skin good_item")
 }}
 KMONS:   5 = kraken
 KMONS:   6 = spectral kraken
@@ -3665,7 +3665,7 @@ kmons("L = deep elf blademaster ; " ..
        wrathful_weapon("blademaster", "randart") ..
        " . " .. wrathful_weapon("blademaster",
                     crawl.coinflip() and "randart" or "good_item") ..
-       " . leather armour good_item")
+       " . animal skin good_item")
 }}
 KITEM:  ? = any weapon
 KFEAT:  m = iron_grate
@@ -3685,7 +3685,7 @@ kmons("q = kobold; " .. wrathful_weapon("kobold",
       "    . dart ego:curare | dart ego:poisoned w:5")
 kmons("r = gnoll sergeant ; " .. wrathful_weapon("sergeant",
                crawl.one_chance_in(3) and "randart" or "good_item") ..
-      "    . leather armour good_item | ring mail good_item" ..
+      "    . animal skin good_item | ring mail good_item" ..
       "    . buckler good_item | kite shield good_item w:5")
 kmons("s = orc warrior ; " .. wrathful_weapon("warrior",
                crawl.one_chance_in(3) and "randart" or "good_item") ..
@@ -3699,7 +3699,7 @@ SUBST:  d = *, e = **%, f = %%$, ghij = ?
 NSUBST: - = 1:qqrs / 1:qqqr--- / 1:2 / 1:3u-- / *:-
 : elseif dgn.persist.necropolis_difficulty == "post_lair_d" then
 : kmons("z = tengu warrior ; " .. wrathful_weapon("warrior-1h", "randart") ..
-:     "    . leather armour good_item | ring mail good_item" ..
+:     "    . animal skin good_item | ring mail good_item" ..
 :     "    . buckler good_item | kite shield good_item")
 MONS:   troll / two-headed ogre
 MONS:   tengu warrior / orc knight
@@ -3720,7 +3720,7 @@ kmons("q = naga warrior ; " .. wrathful_weapon("warrior", "randart") ..
       "    . robe good_item w:95 | barding good_item w:5" ..
       "    . kite shield good_item | tower shield good_item / " ..
       "merfolk impaler ; " .. wrathful_weapon("impaler", "randart") ..
-      "    . robe good_item | leather armour good_item")
+      "    . robe good_item | animal skin good_item")
 }}
 MONS:   naga / salamander / spriggan rider
 MONS:   naga warrior / spriggan berserker w:15 / merfolk impaler
@@ -3810,7 +3810,7 @@ SUBST:  a = a -:7 ^:1, p = a -:37 ^:1
 : kmons("E = spriggan rider; " .. disto_weapon("rider", "randart") ..
 :            " . robe good_item . buckler good_item")
 : kmons("F = deep elf knight; " .. disto_weapon("elf knight", "randart") ..
-:            " . leather armour good_item | ring mail good_item" ..
+:            " . animal skin good_item | ring mail good_item" ..
 :            " | scale mail good_item | chain mail good_item" ..
 :            " . buckler good_item")
 : kmons("H = orc warlord; " .. disto_weapon("knight", "randart") ..
@@ -3822,7 +3822,7 @@ SUBST:  a = a -:7 ^:1, p = a -:37 ^:1
 :                crawl.one_chance_in(3) and "randart" or "good_item"))
 : kmons("u = gnoll sergeant; " .. disto_weapon("sergeant",
 :                crawl.one_chance_in(3) and "randart" or "good_item") ..
-:            " . leather armour good_item | ring mail good_item" ..
+:            " . animal skin good_item | ring mail good_item" ..
 :            " . buckler good_item | kite shield good_item w:5")
 : kmons("y = orc warrior ; " .. disto_weapon("warrior",
 :                crawl.one_chance_in(3) and "randart" or "good_item") ..
@@ -3886,7 +3886,7 @@ MONS:   crystal guardian w:2 / tentacled monstrosity / starcursed mass / \
         daeva god:Xom / executioner / profane servitor / hellephant
 :   if dgn.persist.necropolis_difficulty == "shoals" then
 :     kmons("q = merfolk impaler ; " .. disto_weapon("impaler", "randart") ..
-:                " . robe good_item | leather armour good_item")
+:                " . robe good_item | animal skin good_item")
 FTILE:  'PSncbv = floor_nerves_yellow
 :   elseif dgn.persist.necropolis_difficulty == "snake" then
 :     kmons("q = naga warrior ; " .. disto_weapon("warrior", "randart") ..
@@ -3919,7 +3919,7 @@ NSUBST: - = 2=1 / 4 = 1- / 2:2 / 2 = 2- / 1:3 / 1:4 / 1:M / *:-
 :             " . chain mail good_item | plate armour good_item / " ..
 :             "deep elf blademaster; " .. disto_weapon("blademaster", "randart") ..
 :             " . " .. disto_weapon("blademaster", "randart") ..
-:             " . leather armour good_item")
+:             " . animal skin good_item")
 MONS:   large abomination / worldbinder / shapeshifter / \
         thrashing horror / rakshasa / crawling flesh cage / \
         great orb of eyes / cognitogaunt / glowing shapeshifter

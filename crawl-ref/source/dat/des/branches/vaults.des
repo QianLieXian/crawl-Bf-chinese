@@ -275,9 +275,9 @@ ENDMAP
 NAME:   grunt_vaults_entry_fortified
 TAGS:   vaults_entry no_pool_fixup no_monster_gen patrolling transparent
 MONS:   human ; arbalest . short sword | dagger . \
-                leather armour w:5 | ring mail | scale mail / \
+                animal skin w:5 | ring mail | scale mail / \
         orc warrior ; orcbow . short sword | dagger . \
-                      leather armour w:5 | ring mail | scale mail / \
+                      animal skin w:5 | ring mail | scale mail / \
         deep elf knight w:5 / deep elf archer w:5 / gargoyle / yaktaur
 MONS:   vault guard / orc knight w:2
 MONS:   arcanist / tengu conjurer / orc sorcerer / ogre mage

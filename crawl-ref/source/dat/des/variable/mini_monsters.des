@@ -1974,9 +1974,9 @@ ENDMAP
 NAME:   minmay_ruffians
 TAGS:   transparent
 DEPTH:  D:6-10
-MONS:   human; club | mace w:3 . animal skin | leather armour
+MONS:   human; club | mace w:3 . animal skin | animal skin
 MONS:   human; sling . animal skin | \
-        leather armour
+        animal skin
 SUBST:  1 = 112.
 KMONS:  3 = human; flail . ring mail | scale mail
 KITEM:  3 = %
@@ -2991,7 +2991,7 @@ TAGS:   transparent patrolling no_monster_gen no_trap_gen
 :     if you.depth() < 14 then
 MONS:   deep elf archer; shortbow good_item . quarterstaff \
             . robe good_item
-MONS:   deep elf knight; quarterstaff good_item . leather armour good_item
+MONS:   deep elf knight; quarterstaff good_item . animal skin good_item
 MONS:   elephant, warg / hell hound w:5
 :     else
 MONS:   deep elf archer; longbow good_item . quarterstaff \
@@ -8949,10 +8949,10 @@ NAME:    sword_in_stone
 TAGS:    no_monster_gen patrolling vaults_hard transparent no_descent
 DEPTH:   D:6-, Depths, !Depths:$, Vaults, Orc, Elf
 WEIGHT:  3
-: local ss = "rapier | long sword . leather armour . buckler | nothing"
+: local ss = "rapier | long sword . animal skin . buckler | nothing"
 : local gs = "great sword . chain mail | plate armour"
 : local ls = "falchion | scimitar . chain mail . kite shield"
-: local rs = "long sword . robe | leather armour . kite shield"
+: local rs = "long sword . robe | animal skin . kite shield"
 KMONS:   A = gnoll sergeant ; trident . scale mail | chain mail . kite shield
 : kmons("B = wight ; " .. ls .. " | nothing")
 : kmons("C = Eustachio / orc warrior ; " .. ss .. ", " ..
@@ -10857,7 +10857,7 @@ SHUFFLE: d|
 :   if you.depth() < 10 then
 MONS:    sky beast, fire bat
 MONS:    fire elemental, tengu warrior ; long sword ego:electrocution . \
-                                         leather armour . buckler
+                                         animal skin . buckler
 KMONS:   0 = orc wizard / steam dragon / centaur / marrowcuda
 NSUBST:  . = 3:2 / 3 = 2. / *:.
 :   elseif you.depth() < 12 then

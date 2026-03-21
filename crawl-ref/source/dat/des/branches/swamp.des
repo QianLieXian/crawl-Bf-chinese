@@ -728,9 +728,9 @@ KPROP: bp = bloody
 SUBST: b = .
 {{
 dgn.delayed_decay_extra(_G, 'o', 'orc corpse', 'hand axe / broad axe, ' ..
-   'leather armour / pair of gloves, mundane quarterstaff')
+   'animal skin / pair of gloves, mundane quarterstaff')
 dgn.delayed_decay_extra(_G, 'p', 'orc corpse', 'hand axe / broad axe, ' ..
-   'leather armour / pair of gloves')
+   'animal skin / pair of gloves')
 }}
 KITEM: w = mundane quarterstaff
 KITEM: s = gold

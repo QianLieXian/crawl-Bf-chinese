@@ -322,7 +322,7 @@ function ice_cave_armour_loot(e, glyphs)
         " / helmet" .. quality .. " w:5" .. " / pair of gloves" .. quality ..
         " / pair of boots" .. quality .. " / buckler" .. coldres .. quality)
     e.kitem(glyphs:sub(2,2) .. " = robe" .. res .. quality ..
-        " / leather armour" .. res .. quality ..
+        " / animal skin" .. res .. quality ..
         " / scale mail" ..  coldres .. quality .. " / skin of zhor w:2" ..
         " / kite shield" ..  coldres .. quality)
     e.kitem(glyphs:sub(3,3) .. " = ice dragon scales" ..  quality ..

@@ -126,7 +126,7 @@
       elseif s == "K" then i = { "any" }
 
       elseif s == "L" then i = { "manual of long blades", "large rock",
-       "leather armour", "long sword", "potion of lignification", "lajatang",
+       "animal skin", "long sword", "potion of lignification", "lajatang",
        "longbow",  "book of lightning", "wand of light", "lupine talisman" }
 
       elseif s == "M" then i = { "manual of maces & flails",

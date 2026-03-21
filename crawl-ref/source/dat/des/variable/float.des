@@ -2204,7 +2204,7 @@ MONS:   jackal / hound, yak, human
 # XXX: Use some function to cover for used uniques,
 # like in kennysheep_goblin_castle.
 MONS:   Edmund / Jessica / Sigmund, Ijyb / Joseph
-KITEM:  d = robe, leather armour, club, dagger
+KITEM:  d = robe, animal skin, club, dagger
 KFEAT:  e = cache_of_fruit
 KFEAT:  f = cache_of_meat
 SUBST:  1 = 11., 3 = 3., 4 = 34, 5 = 35, d = def
@@ -6888,9 +6888,9 @@ KMONS:  3 = orc warlord ; plate armour . \
 : else
 KMONS:  1 = elf ; ring mail . \
             falchion good_item | long sword good_item
-KMONS:  2 = deep elf knight ; leather armour . \
+KMONS:  2 = deep elf knight ; animal skin . \
             scimitar good_item | great sword good_item
-KMONS:  3 = deep elf blademaster ; leather armour . \
+KMONS:  3 = deep elf blademaster ; animal skin . \
             autumn katana w:1 | demon blade good_item | \
             double sword good_item | great sword good_item | \
             triple sword good_item | great sword ego:spectral
@@ -7698,7 +7698,7 @@ NSUBST:  DEF = 1:1, D = 1:. / *:D, E = 1:. / *:E, F = 1:. / *:F
 : elseif you.branch() == "Elf" then
 MONS:    deep elf knight / deep elf blademaster simulacrum w:2
 MONS:    deep elf death mage / deep elf elementalist, thermic dynamo
-:   mons("deep elf archer ; leather armour . longbow " .. f)
+:   mons("deep elf archer ; animal skin . longbow " .. f)
 MONS:    dancing weapon ; scimitar ego:freezing
 MONS:    deep elf blademaster ; ice dragon scales . rapier ego:freezing . \
                                                     rapier ego:freezing

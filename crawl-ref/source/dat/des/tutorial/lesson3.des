@@ -186,7 +186,7 @@ KFEAT:   S = general shop use_all ; \
 ITEM:    gold q:40
 ITEM:    gold q:220
 MONS:    gnoll ; flail ego:none | morningstar ego:none | spear ego:none . \
-         leather armour | ring mail
+         animal skin | ring mail
 MONS:    ufetubus
 MONS:    orc ; scimitar ego:none | battleaxe ego:none | trident ego:none . \
          ring mail | chain mail
