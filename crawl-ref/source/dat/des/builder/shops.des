@@ -1763,7 +1763,7 @@ local name = "A" ..
   string.sub(string.lower(string.gsub(crawl.make_name(), " ", "")), 2)
 --Weights of equally rare weapons are divided by two for types with
 --two alliterative egos
-local weaponnames = {"dagger", "short sword", "falchion", "scimitar",
+local weaponnames = {"dagger", "短剑", "falchion", "scimitar",
                     "w:3 demon blade", "double sword w:3",
                     "hand axe", "executioner's axe w:6",
                     "club w:20", "flail", "demon whip w:3",

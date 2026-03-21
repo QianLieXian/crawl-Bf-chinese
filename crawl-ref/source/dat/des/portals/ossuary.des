@@ -844,7 +844,7 @@ ORIENT:  encompass
 MONS:    kobold zombie w:4 / orc zombie / gnoll zombie / \
          rat draugr w:6 ; dagger / kobold draugr w:6 ; dagger plus:-4
 MONS:    mummy
-KMONS:   3X = wight ; mace | flail | falchion | short sword . robe
+KMONS:   3X = wight ; mace | flail | falchion | 短剑 . robe
 KMONS:   4C = burial acolyte
 KITEM:   34d = any scroll / any potion
 : inkwell_talisman_chance(_G, "e")
@@ -944,7 +944,7 @@ WEIGHT:  10
 ORIENT:  encompass
 MONS:    kobold zombie / gnoll zombie / orc zombie / rat zombie / \
          goblin zombie / hobgoblin zombie
-MONS:    bat draugr ; dagger / rat draugr ; short sword / \
+MONS:    bat draugr ; dagger / rat draugr ; 短剑 / \
          goblin draugr ; club / gnoll draugr w:3 ; spear
 MONS:    mummy
 KMONS:   4 = Menkaure, weeping skull / burial acolyte
