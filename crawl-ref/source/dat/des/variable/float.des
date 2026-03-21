@@ -7698,7 +7698,7 @@ NSUBST:  DEF = 1:1, D = 1:. / *:D, E = 1:. / *:E, F = 1:. / *:F
 : elseif you.branch() == "Elf" then
 MONS:    deep elf knight / deep elf blademaster simulacrum w:2
 MONS:    deep elf death mage / deep elf elementalist, thermic dynamo
-:   mons("deep elf archer ; leather armour . longbow " .. f)
+:   mons("deep elf archer ; leather armor . longbow " .. f)
 MONS:    dancing weapon ; scimitar ego:freezing
 MONS:    deep elf blademaster ; ice dragon scales . rapier ego:freezing . \
                                                     rapier ego:freezing
