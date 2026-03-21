@@ -327,9 +327,9 @@ mons("kobold brigand ; dart ego:poisoned | dart ego:curare w:5 . " ..
 kmons("F = kobold brigand ; dart ego:poisoned | dart ego:curare w:5 . " ..
      dgn.random_item_def(brigand_weap, ego, quality, "|"))
 
-mons("kobold demonologist; dagger ego:" .. ego .. " . robe")
-kmons("H = kobold demonologist; dagger ego:" .. ego .. " " .. quality ..
-     ". robe good_item | robe randart")
+mons("kobold demonologist ; dagger ego:" .. ego .. " . robe")
+kmons("H = kobold demonologist ; dagger ego:" .. ego .. " " .. quality ..
+     " . robe " .. quality)
 }}
 MONS:   ugly thing, very ugly thing
 : if you.depth() < 5 then
