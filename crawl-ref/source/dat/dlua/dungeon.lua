@@ -833,7 +833,7 @@ favourable weights for the better weapon types. To use this, see the function
 dgn.monster_weapon() below.
 ]]
 dgn.monster_weapons = {
-    ["kobold"] =      {["dagger"] = 5, ["短剑"] = 10, ["rapier"] = 5,
+    ["kobold"] =      {["dagger"] = 5, ["short sword"] = 10, ["rapier"] = 5,
                        ["whip"] = 10},
     ["gnoll"] =       {["spear"] = 10, ["halberd"] = 5, ["whip"] = 5,
                        ["flail"] = 5},
@@ -845,7 +845,7 @@ dgn.monster_weapons = {
 
     -- Warrior and knight are based on orc warrior and orc kight, respectively,
     -- but with more types and include higher-end weapons at smaller weights.
-    ["warrior"] =     {["短剑"] = 5, ["rapier"] = 10,
+    ["warrior"] =     {["short sword"] = 5, ["rapier"] = 10,
                        ["long sword"] = 10, ["scimitar"] = 5,
                        ["great sword"] = 10, ["hand axe"] = 5,
                        ["war axe"] = 10, ["broad axe"] = 5,
@@ -883,7 +883,7 @@ dgn.monster_weapons = {
 
     -- Spriggan sets. Rider gets a small chance for a partisan, and druid
     -- gets an equal chance for a lajatang.
-    ["spriggan"] =    {["dagger"] = 1, ["短剑"] = 1, ["rapier"] = 2},
+    ["spriggan"] =    {["dagger"] = 1, ["short sword"] = 1, ["rapier"] = 2},
     ["rider"] =       {["spear"] = 5, ["trident"] = 10, ["partisan"] = 2},
     ["druid"] =       {["quarterstaff"] = 10, ["lajatang"] = 10},
     ["berserker"] =   {["rapier"] = 10, ["quick blade"] = 5, ["war axe"] = 5,

@@ -45,7 +45,7 @@ KFEAT:   ~ = +
 KFEAT:   u = t
 KFEAT:   Ff = cache_of_fruit
 KFEAT:   B7 = cache_of_baked_goods
-ITEM:    dagger / 短剑 w:6 / rapier w:6 / athame w:6 / \
+ITEM:    dagger / short sword w:6 / rapier w:6 / athame w:6 / \
          flail / whip / shortbow
 ITEM:    robe / cloak / hat / buckler / steam dragon scales w:1
 KFEAT:   _ = altar_trog

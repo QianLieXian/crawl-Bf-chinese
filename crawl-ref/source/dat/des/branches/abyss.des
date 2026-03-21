@@ -873,7 +873,7 @@ NAME:   hangedman_abyss_or_decor_stabs
 TAGS:   transparent no_pool_fixup decor
 DEPTH:  D, Depths, Abyss
 ITEM:   potion of attraction pre_id / rapier good_item / \
-        短剑 good_item / pair of boots ego:stealth good_item pre_id
+        short sword good_item / pair of boots ego:stealth good_item pre_id
 : if you.in_branch("Abyss") then
 SUBST:  xc = xxxxcccb, ' = d0, " = wl...
 : else
@@ -2352,7 +2352,7 @@ MARKER: P  = lua:fog_machine { cloud_type="blue smoke", walk_dist=1, \
              spread_rate=3, start_clouds=1, colour="blue" }
 KFEAT:  _ = altar_lugonu
 KMONS:  1 = kobold brigand w:80 ; dart ego:poisoned | dart ego:curare w:5 . \
-                  短剑 | rapier w:9 | athame w:1 | quick blade w:3 / \
+                  short sword | rapier w:9 | athame w:1 | quick blade w:3 / \
             kobold brigand w:10 ; dart ego:poisoned | dart ego:curare w:5 . \
                   quick blade ego:distortion w:6 | rapier ego:distortion | \
                   athame ego:distortion

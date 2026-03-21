@@ -73,7 +73,7 @@ function setup_xom_dancing_weapon(e, glyph)
     -- as depth increases. The very rare weapons only show up at all in later
     -- depths and always with lower weight.
     if dgn.persist.necropolis_difficulty == "pre_temple_d" or dgn.persist.necropolis_difficulty == "pre_lair_d" then
-        base_weapons = {"dagger", "短剑", "rapier", "falchion",
+        base_weapons = {"dagger", "short sword", "rapier", "falchion",
                         "whip", "mace", "hand axe", "spear"}
         good_weapons = {"scimitar", "flail", "war axe", "quarterstaff"}
         quality = crawl.one_chance_in(6) and "good_item" or ""

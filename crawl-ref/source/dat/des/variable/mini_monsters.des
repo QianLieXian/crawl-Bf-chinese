@@ -3132,7 +3132,7 @@ ENDMAP
 NAME:     blue_anna_alchemist
 TAGS:     extra
 DEPTH:    D:5-11
-MONS:     kobold brigand ; wand of flame pre_id . 短剑 . \
+MONS:     kobold brigand ; wand of flame pre_id . short sword . \
                            dart ego:poisoned | dart ego:curare w:5
 ITEM:     potion of moonshine w:50 pre_id / potion of ambrosia pre_id
 KFEAT:    e = cache_of_fruit
@@ -11621,7 +11621,7 @@ ENDMAP
 NAME:   grunt_pizzeria
 DEPTH:  D:8-11
 TAGS:   no_monster_gen no_trap_gen extra patrolling
-MONS:   human ; 短剑 | rapier / orc warrior ; dagger / spriggan ; dagger
+MONS:   human ; short sword | rapier / orc warrior ; dagger / spriggan ; dagger
 KFEAT:  d = cache_of_meat
 KFEAT:  e = cache_of_baked_goods
 TILE:   d = dngn_cache_of_pizza

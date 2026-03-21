@@ -1496,7 +1496,7 @@ ENDMAP
 NAME:   cheibrodos_spider_deadly_dance
 TAGS:   no_item_gen no_monster_gen
 ORIENT: float
-KMONS:  01 = dancing weapon ; 短剑 | mace w:15 | war axe | trident
+KMONS:  01 = dancing weapon ; short sword | mace w:15 | war axe | trident
 KMONS:  2 = tarantella / redback w:3
 KMONS:  3 = dancing weapon ; rapier | scimitar | broad axe | \
                              partisan | morningstar
