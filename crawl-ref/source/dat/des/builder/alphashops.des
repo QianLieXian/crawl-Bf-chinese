@@ -160,7 +160,7 @@
        "potion of resistance", "robe", "ring mail",
        "rimehorn talisman", "riddle talisman" }
 
-      elseif s == "S" then i = { "scarf", "scimitar", "short sword",
+      elseif s == "S" then i = { "scarf", "scimitar", "短剑",
        "scale mail", "spear", "scarab talisman", "spider talisman",
        "serpent talisman", "sanguine talisman", "storm talisman",
        "spore talisman", "ring of see invisible", "ring of slaying",

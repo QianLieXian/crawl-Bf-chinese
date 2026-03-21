@@ -2073,7 +2073,7 @@ KMONS:   3 = merfolk avatar / merfolk javelineer / merfolk impaler / \
 local owner = string.gsub(crawl.make_name(), " ", "_")
 kfeat("D = weapon shop name:" .. owner .. " type:Merfolk suffix:Weapons ; \
       spear | trident | halberd | partisan | demon trident | glaive | bardiche | \
-      short sword | rapier | athame | quick blade | dart | javelin | \
+      短剑 | rapier | athame | quick blade | dart | javelin | \
       throwing net | boomerang" )
 kfeat("E = armour shop name:" .. owner .. " type:Merfolk suffix:Armours ; \
       robe | leather armour | helmet | hat | pair of boots | cloak | scarf | \
@@ -2469,7 +2469,7 @@ DEPTH:  Shoals
 ORIENT: float
 # Someone left their gear in the changing room.
 KITEM:  p = leather armour / ring mail / scale mail / chain mail, \
-            long sword / short sword w:8 / rapier w:8 / athame w:4 / dagger, \
+            long sword / 短剑 w:8 / rapier w:8 / athame w:4 / dagger, \
             buckler / nothing w:20
 # Some people like having a little something to read or drink on the beach.
 KITEM:  12 = nothing w:30 / any book / any scroll / any potion

@@ -431,7 +431,7 @@ end
 -- are currently unpopular vs shields, so mostly lean towards those.
 function generic_ghost_weapon_loot(e, subglyph, wglyph)
     local t1 = { "dire flail", "war axe", "halberd",
-                 "quarterstaff", "short sword", "long sword" }
+                 "quarterstaff", "短剑", "long sword" }
     local t2 = { "great mace", "battleaxe", "glaive",
                  "lajatang", "rapier", "great sword" }
     local ego = ""
@@ -2276,7 +2276,7 @@ KMONS:  O = player ghost
 : local d = "damaged pre_id"
 : kitem("O = hat " .. d .. " / cloak " .. d .. " / robe " .. d .. " / " ..
 :           "animal skin " .. d .. " / leather armour " .. d .. " / " ..
-:           "whip " .. d .. " / spear " .. d .. " / short sword " .. d .. " / " ..
+:           "whip " .. d .. " / spear " .. d .. " / 短剑 " .. d .. " / " ..
 :           "dagger " .. d .. " / hand axe " .. d .. " / sling " .. d .. " / " ..
 :           "robe plus:-8 randart pre_id")
 ITEM:    athame good_item w:5 / rapier good_item w:5 / \
@@ -3264,14 +3264,14 @@ ENDMAP
 NAME:   gammafunk_necropolis_ghost_nasty_kobolds
 : necropolis_depth_tagging(_G, {"pre_temple_d", "pre_lair_d", "post_lair_d"})
 MONS:   kobold, kobold brigand, kobold demonologist
-KMONS:  D = kobold ; dart ego:poisoned . dagger | short sword | whip
+KMONS:  D = kobold ; dart ego:poisoned . dagger | 短剑 | whip
 KMONS:  E = kobold geomancer ; wand of flame | wand of mindburst | \
                 wand of polymorph | any hex wand \
-                . dagger | short sword | whip
+                . dagger | 短剑 | whip
 KMONS:  F = kobold brigand ; dart ego:poisoned | dart ego:curare w:5 \
                 . wand of flame | any beam wand | any blast wand \
                 | wand of mindburst | wand of polymorph | any hex wand \
-                . dagger | short sword | whip
+                . dagger | 短剑 | whip
 # Define some kobolds with more general nasty ego weapons.
 {{
     local egos = {["chaos"] = 10, ["venom"] = 10, ["draining"] = 10,
