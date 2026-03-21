@@ -115,7 +115,7 @@ static const vector<ego_weight_tuple> HEAVY_BODY_EGOS = {
 static int Armour_index[NUM_ARMOURS];
 static const armour_def Armour_prop[] =
 {
-    { ARM_ANIMAL_SKIN,          "animal skin",            2,   0,     3,
+    { ARM_ANIMAL_SKIN,          "兽皮",            2,   0,     3,
         SLOT_BODY_ARMOUR, SIZE_LITTLE, SIZE_GIANT, true, 1 },
     { ARM_ROBE,                 "robe",                   2,   0,     9,
         SLOT_BODY_ARMOUR, SIZE_LITTLE, SIZE_LARGE, true, 100, {
@@ -622,7 +622,7 @@ static const weapon_def Weapon_prop[] =
             { SPWPN_DISTORTION,      1 },
             { SPWPN_ANTIMAGIC,       1 },
         }},
-    { WPN_SHORT_SWORD,       "short sword",         5,  4, 10,
+    { WPN_SHORT_SWORD,       "短剑",         5,  4, 10,
         SK_SHORT_BLADES, SIZE_LITTLE, SIZE_LITTLE,
         DAMV_PIERCING, 8, 0, 30, SBL_BRANDS },
     { WPN_RAPIER,           "rapier",               7,  4, 12,
@@ -3181,7 +3181,7 @@ string talisman_type_name(int type)
 {
     switch (type)
     {
-    case TALISMAN_QUILL:    return "quill talisman";
+    case TALISMAN_QUILL:    return "尖刺护符";
     case TALISMAN_INKWELL:  return "inkwell talisman";
     case TALISMAN_PROTEAN:  return "protean talisman";
     case TALISMAN_RIMEHORN: return "rimehorn talisman";

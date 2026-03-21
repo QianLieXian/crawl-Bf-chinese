@@ -1110,12 +1110,12 @@ bool interrupt_activity(activity_interrupt ai, const activity_interrupt_data &at
     if (ai == activity_interrupt::full_hp && !you.running.notified_hp_full)
     {
         you.running.notified_hp_full = true;
-        mpr("HP restored.");
+        mpr("生命值已恢复。");
     }
     else if (ai == activity_interrupt::full_mp && !you.running.notified_mp_full)
     {
         you.running.notified_mp_full = true;
-        mpr("Magic restored.");
+        mpr("魔法值已恢复。");
     }
     else if (ai == activity_interrupt::ancestor_hp
              && !you.running.notified_ancestor_hp_full)
@@ -1123,7 +1123,7 @@ bool interrupt_activity(activity_interrupt ai, const activity_interrupt_data &at
         // This interrupt only triggers when the ancestor is in LOS,
         // so this message does not leak information.
         you.running.notified_ancestor_hp_full = true;
-        mpr("Ancestor HP restored.");
+        mpr("祖先生命值已恢复。");
     }
 
     if (_should_stop_activity(delay.get(), ai, at))

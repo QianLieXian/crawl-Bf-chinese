@@ -4651,7 +4651,7 @@ void melee_attack::do_spines()
             if (hurt > 0)
             {
                 simple_monster_message(*attacker->as_monster(),
-                                       " is struck by your quills.");
+                                       " 被你的尖刺击中。");
 
                 attacker->hurt(&you, hurt);
             }

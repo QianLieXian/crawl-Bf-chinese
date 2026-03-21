@@ -697,7 +697,7 @@ public:
                     + newgame_char_description(defaults) + "\n";
         }
         instructions_text +=
-            "<white>[ctrl-p]</white> view rc file information and log";
+            "<white>[ctrl-p]</white> 查看 rc 配置与日志信息";
         if (recent_error_messages())
             instructions_text += " (<red>Errors during initialization!</red>)";
 
