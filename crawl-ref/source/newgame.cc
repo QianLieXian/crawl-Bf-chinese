@@ -346,7 +346,7 @@ static void _choose_species_job(newgame_def& ng, newgame_def& ng_choice,
     {
         // Either an invalid combination was passed in through options,
         // or we messed up.
-        end(1, false, "Incompatible species and background (%s) selected.",
+        end(1, false, "所选种族与背景不兼容（%s）。",
                                 newgame_char_description(ng).c_str());
     }
 }
@@ -428,8 +428,8 @@ static void _choose_char(newgame_def& ng, newgame_def& choice,
     // Apologies to non-public servers.
     if (ng.type == GAME_TYPE_NORMAL || ng.type == GAME_TYPE_DESCENT)
     {
-        if (!yesno("Trunk doesn't count for the tournament, you want "
-                   TOURNEY ". Play trunk anyway? (Y/N)", false, 'n'))
+        if (!yesno("Trunk 版本不计入锦标赛，而本次是 "
+                   TOURNEY "。仍要游玩 trunk 吗？(Y/N)", false, 'n'))
         {
             game_ended(game_exit::abort);
         }
@@ -642,7 +642,7 @@ static void _choose_name(newgame_def& ng, newgame_def& choice)
         btn->highlight_colour = STARTUP_HIGHLIGHT_CONTROL;
 
         auto err = make_shared<Text>(
-                formatted_string("That's a silly name!", LIGHTRED));
+                formatted_string("这个名字太奇怪了！", LIGHTRED));
         err->set_margin_for_sdl(0, 0, 0, 10);
         auto box = make_shared<Box>(Box::HORZ);
         box->set_cross_alignment(Widget::CENTER);
@@ -774,9 +774,9 @@ public:
     void update_buttons()
     {
         if (valid_seed())
-            begin_button->set_text(formatted_string("[Enter] Begin!", BROWN));
+            begin_button->set_text(formatted_string("[Enter] 开始！", BROWN));
         else
-            begin_button->set_text(formatted_string("[Enter] Begin!", DARKGRAY));
+            begin_button->set_text(formatted_string("[Enter] 开始！", DARKGRAY));
     }
 
     void set_text(const string &s) // why is it `string s` in TextEntry?
@@ -827,7 +827,7 @@ static void _choose_seed(newgame_def& ng, newgame_def& choice,
     bool cancel = false;
 
     auto begin_label = make_shared<ui::Text>();
-    begin_label->set_text(formatted_string("[Enter] Begin!", BROWN));
+    begin_label->set_text(formatted_string("[Enter] 开始！", BROWN));
     begin_label->set_margin_for_sdl(4,8);
     begin_label->set_margin_for_crt(0, 2, 0, 0);
 
@@ -837,18 +837,18 @@ static void _choose_seed(newgame_def& ng, newgame_def& choice,
     auto popup = make_shared<ui::Popup>(box);
 
     const string title_text = make_stringf(
-        "Play a game with a custom seed for version %s.\n",
+        "使用版本 %s 的自定义种子开始游戏。\n",
         Version::Long);
     box->add_child(make_shared<ui::Text>(formatted_string(title_text, CYAN)));
 
-    const string body_text = "Choose 0 for a random seed. "
-            "[Tab]/[Shift-Tab] to cycle input focus.\n";
+    const string body_text = "输入 0 将使用随机种子。"
+            " 使用 [Tab]/[Shift-Tab] 切换输入焦点。\n";
     box->add_child(make_shared<ui::Text>(body_text));
 
     auto seed_hbox = make_shared<ui::Box>(ui::Box::HORZ);
     box->add_child(seed_hbox);
 
-    const string prompt_text = "Seed: ";
+    const string prompt_text = "种子：";
     seed_hbox->add_child(make_shared<ui::Text>(prompt_text));
     auto seed_input = make_shared<SeedTextEntry>(begin_label.get());
     seed_input->set_sync_id("seed");
@@ -862,7 +862,7 @@ static void _choose_seed(newgame_def& ng, newgame_def& choice,
     seed_hbox->set_cross_alignment(Widget::CENTER);
 
     auto clear_btn_label = make_shared<ui::Text>();
-    clear_btn_label->set_text(formatted_string("[-] Clear", BROWN));
+    clear_btn_label->set_text(formatted_string("[-] 清空", BROWN));
     clear_btn_label->set_margin_for_sdl(4, 4);
     clear_btn_label->set_margin_for_crt(0, 1, 0, 1);
     auto clear_btn = make_shared<MenuButton>();
@@ -879,7 +879,7 @@ static void _choose_seed(newgame_def& ng, newgame_def& choice,
     seed_hbox->add_child(std::move(clear_btn));
 
     auto d_btn_label = make_shared<ui::Text>();
-    d_btn_label->set_text(formatted_string("[d] Today's daily seed", BROWN));
+    d_btn_label->set_text(formatted_string("[d] 今日每日种子", BROWN));
     d_btn_label->set_margin_for_sdl(4,8);
     d_btn_label->set_margin_for_crt(0, 2, 0, 0);
 
@@ -904,16 +904,16 @@ static void _choose_seed(newgame_def& ng, newgame_def& choice,
     const string footer_text =
 #ifdef USE_TILE_LOCAL
         "\n"
-        "Press [p] or [ctrl-v] to paste a seed from the clipboard\n"
-        "(overwriting the current value).\n"
+        "按 [p] 或 [ctrl-v] 从剪贴板粘贴种子\n"
+        "（会覆盖当前值）。\n"
 #endif
         "\n"
-        "The seed will determine the dungeon layout, monsters, and items\n"
-        "that you discover, relative to this version of crawl. Upgrading\n"
-        "mid-game may affect seeding. (See the manual for more details.)\n"
+        "该种子会决定地城布局、怪物与物品\n"
+        "（相对于当前 crawl 版本）以及你的探索结果。升级版本\n"
+        "可能会影响种子结果。（详见手册）\n"
 #ifdef SEEDING_UNRELIABLE
-        "Warning: your build of crawl does not support stable seeding!\n"
-        "Levels may differ from 'official' seeded games.\n"
+        "警告：当前构建不支持稳定种子！\n"
+        "关卡可能与“官方”种子局不同。\n"
 #endif
         ;
     box->add_child(make_shared<ui::Text>(footer_text));
@@ -923,7 +923,7 @@ static void _choose_seed(newgame_def& ng, newgame_def& choice,
     choice.pregenerate = Options.pregen_dungeon == level_gen_type::full;
     pregen_check->set_checked(choice.pregenerate);
     pregen_check->set_visible(show_pregen_toggle);
-    pregen_check->set_child(make_shared<ui::Text>("Fully pregenerate the dungeon"));
+    pregen_check->set_child(make_shared<ui::Text>("完整预生成整张地城"));
     box->add_child(pregen_check);
 
     auto button_hbox = make_shared<ui::Box>(ui::Box::HORZ);
@@ -958,7 +958,7 @@ static void _choose_seed(newgame_def& ng, newgame_def& choice,
     popup->on_keydown_event([&](const KeyEvent& ev) {
         const auto key = ev.key();
         if (key == '?') // TODO: text box absorbs this still
-            show_help('D', "Seeded play"); // TODO: scroll to section
+            show_help('D', "种子模式"); // TODO: scroll to section
 #ifdef USE_TILE_LOCAL
         else if ((key == 'p' || key == 'P' || key == CONTROL('V')))
         {
@@ -1043,7 +1043,7 @@ bool choose_game(newgame_def& ng, newgame_def& choice,
 #endif
 
     if (ng.name.empty())
-        end(1, false, "No player name specified.");
+        end(1, false, "未指定玩家名称。");
 
     ASSERT(is_good_name(ng.name, false)
            && _job_allowed(ng.species, ng.job)
@@ -1113,27 +1113,27 @@ static void _construct_species_menu(const newgame_def& ng,
 static job_group jobs_order[] =
 {
     {
-        "Warrior",
+        "战士",
         coord_def(0, 0), 20,
         { JOB_FIGHTER, JOB_GLADIATOR, JOB_MONK, JOB_HUNTER, JOB_BRIGAND }
     },
     {
-        "Zealot",
+        "狂信者",
         coord_def(0, 6), 25,
         { JOB_BERSERKER, JOB_CINDER_ACOLYTE, JOB_CHAOS_KNIGHT }
     },
     {
-        "Adventurer",
+        "冒险者",
         coord_def(1, 0), 20,
         { JOB_ARTIFICER, JOB_SHAPESHIFTER, JOB_WANDERER, JOB_DELVER, }
     },
     {
-        "Warrior-mage",
+        "战法师",
         coord_def(1, 5), 26,
         { JOB_WARPER, JOB_HEXSLINGER, JOB_ENCHANTER, JOB_REAVER }
     },
     {
-        "Mage",
+        "法师",
         coord_def(2, 0), 22,
         { JOB_HEDGE_WIZARD, JOB_CONJURER, JOB_SUMMONER, JOB_NECROMANCER,
           JOB_FORGEWRIGHT, JOB_FIRE_ELEMENTALIST, JOB_ICE_ELEMENTALIST,

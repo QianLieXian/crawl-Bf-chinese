@@ -74,9 +74,9 @@ game_state::game_state()
     reset_cmd_repeat();
     reset_cmd_again();
 #ifndef UNIX
-    no_gdb = "Non-UNIX Platform -> not running gdb.";
+    no_gdb = "非 UNIX 平台 -> 不运行 gdb。";
 #else
-    no_gdb = access(GDB_PATH, 1) ? "gdb not executable." : 0;
+    no_gdb = access(GDB_PATH, 1) ? "gdb 不可执行。" : 0;
 #endif
 }
 
@@ -171,7 +171,7 @@ void game_state::cancel_cmd_all(string reason)
 void game_state::cant_cmd_repeat(string reason)
 {
     if (reason.empty())
-        reason = "Can't repeat that command.";
+        reason = "无法重复该命令。";
 
     cancel_cmd_repeat(reason);
 }
@@ -179,7 +179,7 @@ void game_state::cant_cmd_repeat(string reason)
 void game_state::cant_cmd_again(string reason)
 {
     if (reason.empty())
-        reason = "Can't redo that command.";
+        reason = "无法重做该命令。";
 
     cancel_cmd_again(reason);
 }
@@ -216,7 +216,7 @@ bool interrupt_cmd_repeat(activity_interrupt ai,
     case activity_interrupt::hp_loss:
     case activity_interrupt::monster_attacks:
     case activity_interrupt::mimic:
-        crawl_state.cancel_cmd_repeat("Command repetition interrupted.");
+        crawl_state.cancel_cmd_repeat("命令重复已被打断。");
         return true;
 
     default:
@@ -266,7 +266,7 @@ bool interrupt_cmd_repeat(activity_interrupt ai,
         else if (ai == activity_interrupt::full_hp)
             crawl_state.cancel_cmd_repeat("生命值已恢复");
         else
-            crawl_state.cancel_cmd_repeat("Command repetition interrupted.");
+            crawl_state.cancel_cmd_repeat("命令重复已被打断。");
 
         return true;
     }
@@ -284,7 +284,7 @@ bool interrupt_cmd_repeat(activity_interrupt ai,
         if (!mons_is_threatening(*mon) && mon->visible_to(&you))
             return false;
 
-        crawl_state.cancel_cmd_repeat("Command repetition interrupted.");
+        crawl_state.cancel_cmd_repeat("命令重复已被打断。");
         return true;
     }
 
@@ -619,17 +619,17 @@ string game_state::game_type_name_for(game_type _type)
         // No explicit game type name for default game.
         return "";
     case GAME_TYPE_CUSTOM_SEED:
-        return "Seeded";
+        return "种子模式";
     case GAME_TYPE_TUTORIAL:
-        return "Tutorial";
+        return "教学模式";
     case GAME_TYPE_ARENA:
-        return "Arena";
+        return "竞技场";
     case GAME_TYPE_SPRINT:
-        return "Dungeon Sprint";
+        return "地城冲刺";
     case GAME_TYPE_DESCENT:
-        return "Dungeon Descent";
+        return "地城下探";
     case NUM_GAME_TYPE:
-        return "Unknown";
+        return "未知";
     }
 }
 

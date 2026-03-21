@@ -136,10 +136,10 @@ static void _initialize()
 #endif
 
     // Initialise internal databases.
-    _loading_message("Loading databases...");
+    _loading_message("正在加载数据库...");
     databaseSystemInit();
 
-    _loading_message("Loading spells and features...");
+    _loading_message("正在加载法术与地形数据...");
     init_feat_desc_cache();
     init_spell_name_cache();
 #ifdef DEBUG
@@ -193,9 +193,9 @@ static void _initialize()
 #if !defined(DEBUG_DIAGNOSTICS) && !defined(DEBUG_TESTS)
         if (!crawl_state.script)
         {
-            end(1, false, "Non-debug Crawl cannot run tests. "
-                "Please use a debug build (defined FULLDEBUG, DEBUG_DIAGNOSTIC "
-                "or DEBUG_TESTS)");
+            end(1, false, "非调试版 Crawl 无法运行测试。"
+                "请使用调试构建（定义 FULLDEBUG、DEBUG_DIAGNOSTIC "
+                "或 DEBUG_TESTS）。");
         }
 #endif
 #ifdef USE_TILE
@@ -477,7 +477,7 @@ static void _construct_game_modes_menu(shared_ptr<OuterMenu>& container)
 
 static shared_ptr<MenuButton> _make_newgame_button(int num_chars)
 {
-    auto label = make_shared<Text>(formatted_string("New Game", WHITE));
+    auto label = make_shared<Text>(formatted_string("新游戏", WHITE));
 
 #ifdef USE_TILE_LOCAL
     auto hbox = make_shared<Box>(Box::HORZ);
@@ -629,7 +629,7 @@ public:
         save_games_menu = make_shared<OuterMenu>(num_saves > 1, 1, num_saves + 1);
         if (num_saves > 0)
         {
-            auto save_prompt = make_shared<Text>("Saved games:");
+            auto save_prompt = make_shared<Text>("已保存游戏：");
             save_prompt->set_margin_for_crt(0, 1, 1, 0);
             save_prompt->set_margin_for_sdl(0, 0, 10, 0);
             save_games_menu->set_margin_for_sdl(0, 0, 10, 10);
@@ -686,20 +686,20 @@ public:
         {
             auto save = _find_save(chars, defaults.name);
             instructions_text +=
-                    "<white>[tab]</white> quick-load last game: "
+                    "<white>[tab]</white> 快速读取上次游戏："
                     + chars[save].really_short_desc() + "\n";
         }
         else if (_game_defined(defaults))
         {
             instructions_text +=
-                    "<white>[tab]</white> quick-start last combo: "
+                    "<white>[tab]</white> 快速开始上次组合："
                     + (defaults.name.size() ? (defaults.name + " the ") : "")
                     + newgame_char_description(defaults) + "\n";
         }
         instructions_text +=
             "<white>[ctrl-p]</white> 查看 rc 配置与日志信息";
         if (recent_error_messages())
-            instructions_text += " (<red>Errors during initialization!</red>)";
+            instructions_text += "（<red>初始化期间出现错误！</red>）";
 
         m_root->add_child(make_shared<Text>(
                         formatted_string::parse_string(instructions_text)));
