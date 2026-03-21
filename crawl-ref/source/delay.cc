@@ -82,8 +82,8 @@ static const char *_activity_interrupt_name(activity_interrupt ai);
 static string _eq_category(const item_def &equip)
 {
     if (is_weapon(equip))
-        return "weapon";
-    return equip.base_type == OBJ_JEWELLERY ? "amulet" : "armour";
+        return "武器";
+    return equip.base_type == OBJ_JEWELLERY ? "护符" : "护甲";
 }
 
 void push_delay(shared_ptr<Delay> delay)
@@ -130,7 +130,7 @@ bool MemoriseDelay::try_interrupt(bool /*force*/)
 {
     // Losing work here is okay... having to start from
     // scratch is a reasonable behaviour. -- bwr
-    mpr("Your memorisation is interrupted.");
+    mpr("你的记忆过程被打断了。");
     return true;
 }
 
@@ -138,7 +138,7 @@ bool MultidropDelay::try_interrupt(bool /*force*/)
 {
     // No work lost
     if (!items.empty())
-        mpr("You stop dropping stuff.");
+        mpr("你停止丢弃物品。");
     return true;
 }
 
@@ -166,16 +166,16 @@ const char* EquipOnDelay::get_verb()
     if (is_weapon(equip))
     {
         if (you.has_mutation(MUT_SLOW_WIELD))
-            return "attuning to";
+            return "调谐";
         else
-            return "wielding";
+            return "持握";
     }
     else if (you.has_mutation(MUT_FORMLESS))
-        return "haunting";
+        return "附着";
     else if (equip.base_type == OBJ_ARMOUR && you.form == transformation::fortress_crab)
-        return "fusing with";
+        return "融合";
     else
-        return "putting on";
+        return "穿戴";
 }
 
 bool EquipOnDelay::try_interrupt(bool force)
@@ -189,7 +189,7 @@ bool EquipOnDelay::try_interrupt(bool force)
         // yesno might call this function again, don't double prompt
         was_prompted = true;
         if (!crawl_state.disables[DIS_CONFIRMATIONS]
-            && !yesno("Keep equipping yourself?", false, 0, false))
+            && !yesno("继续装备吗？", false, 0, false))
         {
             interrupt = true;
         }
@@ -197,7 +197,7 @@ bool EquipOnDelay::try_interrupt(bool force)
 
     if (interrupt)
     {
-        mprf("You stop %s your %s.", get_verb(), _eq_category(equip).c_str());
+        mprf("你停止%s你的%s。", get_verb(), _eq_category(equip).c_str());
         return true;
     }
     return false;
@@ -208,16 +208,16 @@ const char* EquipOffDelay::get_verb()
     if (is_weapon(equip))
     {
         if (you.has_mutation(MUT_SLOW_WIELD))
-            return "parting from";
+            return "脱离";
         else
-            return "unwielding";
+            return "卸下";
     }
     else if (you.has_mutation(MUT_FORMLESS))
-        return "removing yourself from";
+        return "从中移出";
     else if (equip.base_type == OBJ_ARMOUR && you.form == transformation::fortress_crab)
-        return "unfusing";
+        return "解除融合";
     else
-        return "removing";
+        return "移除";
 }
 
 bool EquipOffDelay::try_interrupt(bool force)
@@ -231,8 +231,8 @@ bool EquipOffDelay::try_interrupt(bool force)
         const bool is_armour = equip.base_type == OBJ_ARMOUR
                                // Shields and orbs aren't clothes.
                                && get_armour_slot(equip) != SLOT_OFFHAND;
-        const char* verb = is_armour ? "disrobing" : "removing your equipment";
-        const string prompt = make_stringf("Keep %s?", verb);
+        const char* verb = is_armour ? "脱下护甲" : "移除装备";
+        const string prompt = make_stringf("继续%s吗？", verb);
         // yesno might call this function again, don't double prompt
         was_prompted = true;
         if (!crawl_state.disables[DIS_CONFIRMATIONS]
@@ -244,7 +244,7 @@ bool EquipOffDelay::try_interrupt(bool force)
 
     if (interrupt)
     {
-        mprf("You stop %s your %s.", get_verb(), _eq_category(equip).c_str());
+        mprf("你停止%s你的%s。", get_verb(), _eq_category(equip).c_str());
         return true;
     }
     return false;
@@ -252,14 +252,14 @@ bool EquipOffDelay::try_interrupt(bool force)
 
 bool AscendingStairsDelay::try_interrupt(bool /*force*/)
 {
-    mpr("You stop ascending the stairs.");
+    mpr("你停止上楼。");
     untag_followers();
     return true;  // short... and probably what people want
 }
 
 bool DescendingStairsDelay::try_interrupt(bool /*force*/)
 {
-    mpr("You stop descending the stairs.");
+    mpr("你停止下楼。");
     untag_followers();
     return true;  // short... and probably what people want
 }
@@ -269,7 +269,7 @@ bool PasswallDelay::try_interrupt(bool /*force*/)
     // finish() can trigger interrupts, avoid a double message
     if (interrupt_block::blocked())
         return false;
-    mpr("Your meditation is interrupted.");
+    mpr("你的冥想被打断了。");
     you.props.erase(PASSWALL_ARMOUR_KEY);
     you.redraw_armour_class = true;
     return true;
@@ -277,7 +277,7 @@ bool PasswallDelay::try_interrupt(bool /*force*/)
 
 bool ShaftSelfDelay::try_interrupt(bool /*force*/)
 {
-    mpr("You stop digging.");
+    mpr("你停止挖掘。");
     return true;
 }
 

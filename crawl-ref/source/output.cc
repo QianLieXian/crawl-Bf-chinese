@@ -348,10 +348,10 @@ static void _cprintf_touchui(const char *format, ...)
             cprintf("%2s", buf.c_str());
             break;
         case TOUCH_T_XL:
-            cprintf("XL Next");
+            cprintf("下级经验");
             break;
         case TOUCH_T_PLACE:
-            cprintf("Place");
+            cprintf("地点");
             break;
         case TOUCH_V_PLACE:
             parts = split_string(":", _level_description_string_hud());
@@ -361,7 +361,7 @@ static void _cprintf_touchui(const char *format, ...)
                 cprintf("%s:%s", parts[0].substr(0,8-parts[1].size()).c_str(), parts[1].c_str());
             break;
         case TOUCH_T_NOISE:
-            cprintf("Noise");
+            cprintf("噪音");
             break;
         case TOUCH_T_TIME:
             buf = buf.substr(0, buf.size()-1);
@@ -647,7 +647,7 @@ void update_message_status()
     if (!SysEnv.have_messages)
         return;
 
-    static const char * const msg = "(Hit _)";
+    static const char * const msg = "（按 _）";
 
     textcolour(LIGHTBLUE);
 
@@ -724,7 +724,7 @@ static void _print_stats_equip(int x, int y)
     for (int i = SLOT_FIRST_STANDARD; i < NUM_EQUIP_SLOTS; ++i)
         total_slots += you.equipment.num_slots[i];
 
-    cprintf(total_slots > 8 ? "Eq: " : "Equip: ");
+    cprintf(total_slots > 8 ? "装: " : "装备: ");
     textcolour(LIGHTGREY);
     for (equipment_slot slot : slot_order)
     {
@@ -774,7 +774,7 @@ static void _print_stats_noise(int x, int y)
     bool silence = silenced(you.pos());
     int level = silence ? 0 : you.get_noise_perception(true);
     textcolour(HUD_CAPTION_COLOUR);
-    CPRINTF("Noise: ");
+    CPRINTF("噪音: ");
     colour_t noisecolour;
 
     // This is calibrated roughly so that in an open-ish area:
@@ -827,7 +827,7 @@ static void _print_stats_noise(int x, int y)
 
         // This needs to be one extra wide in case silence happens
         // immediately after super-loud (magenta) noise
-        CPRINTF("Silenced  ");
+        CPRINTF("已沉默  ");
         Noise_Bar.reset(); // so it doesn't display a change bar after silence ends
     }
     else
@@ -869,13 +869,13 @@ static void _print_stats_gold(int x, int y)
     if (!_is_using_small_layout())
     {
         CGOTOXY(x, y, GOTO_STAT);
-        CPRINTF("Gold:");
+        CPRINTF("金币:");
         CGOTOXY(x+6, y, GOTO_STAT);
     }
     else
     {
         CGOTOXY(3, 2, GOTO_STAT);
-        CPRINTF("Gd ");
+        CPRINTF("金 ");
     }
     if (you.duration[DUR_GOZAG_GOLD_AURA])
         textcolour(LIGHTBLUE);

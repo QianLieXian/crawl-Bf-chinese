@@ -48,7 +48,7 @@ struct armour_def
 {
     /// The armour_type enum of this armour type.
     armour_type         id;
-    /// The name of the armour. (E.g. "robe".)
+    /// The name of the armour. (E.g. "长袍".)
     const char         *name;
     /// The base AC value provided by the armour, before skill & enchant.
     int                 ac;
@@ -117,7 +117,7 @@ static const armour_def Armour_prop[] =
 {
     { ARM_ANIMAL_SKIN,          "兽皮",            2,   0,     3,
         SLOT_BODY_ARMOUR, SIZE_LITTLE, SIZE_GIANT, true, 1 },
-    { ARM_ROBE,                 "robe",                   2,   0,     9,
+    { ARM_ROBE,                 "长袍",                   2,   0,     9,
         SLOT_BODY_ARMOUR, SIZE_LITTLE, SIZE_LARGE, true, 100, {
             { SPARM_RESISTANCE,      1 },
             { SPARM_COLD_RESISTANCE, 2 },
@@ -126,11 +126,11 @@ static const armour_def Armour_prop[] =
             { SPARM_NORMAL,          4 },
             { SPARM_WILLPOWER,       4 },
     }},
-    { ARM_LEATHER_ARMOUR,       "leather armour",         3,  -40,   20,
+    { ARM_LEATHER_ARMOUR,       "皮甲",         3,  -40,   20,
         SLOT_BODY_ARMOUR, SIZE_SMALL, SIZE_MEDIUM, true, 10, BASIC_BODY_EGOS },
-    { ARM_RING_MAIL,            "ring mail",              5,  -70,   40,
+    { ARM_RING_MAIL,            "环甲",              5,  -70,   40,
         SLOT_BODY_ARMOUR, SIZE_SMALL,  SIZE_MEDIUM, true, 80, BASIC_BODY_EGOS },
-    { ARM_SCALE_MAIL,           "scale mail",             6, -100,   40,
+    { ARM_SCALE_MAIL,           "鳞甲",             6, -100,   40,
         SLOT_BODY_ARMOUR, SIZE_SMALL,  SIZE_MEDIUM, true, 60, {
             { SPARM_FIRE_RESISTANCE,   20 },
             { SPARM_COLD_RESISTANCE,   20 },
@@ -142,23 +142,23 @@ static const armour_def Armour_prop[] =
             { SPARM_DEATH,              7 },
             { SPARM_RESONANCE,          7 },
     }},
-    { ARM_CHAIN_MAIL,           "chain mail",             8, -140,   60,
+    { ARM_CHAIN_MAIL,           "锁子甲",             8, -140,   60,
         SLOT_BODY_ARMOUR, SIZE_SMALL,  SIZE_MEDIUM, true, 60, HEAVY_BODY_EGOS },
-    { ARM_PLATE_ARMOUR,         "plate armour",          10, -180,   180,
+    { ARM_PLATE_ARMOUR,         "板甲",          10, -180,   180,
         SLOT_BODY_ARMOUR, SIZE_SMALL, SIZE_MEDIUM, true, 100, HEAVY_BODY_EGOS },
-    { ARM_CRYSTAL_PLATE_ARMOUR, "crystal plate armour",  14, -230,   600,
+    { ARM_CRYSTAL_PLATE_ARMOUR, "水晶板甲",  14, -230,   600,
         SLOT_BODY_ARMOUR, SIZE_SMALL, SIZE_MEDIUM, false, 100 },
 
 #if TAG_MAJOR_VERSION == 34
-    { ARM_TROLL_HIDE, "removed troll hide",              0,    0,      0,
+    { ARM_TROLL_HIDE, "剥下的巨魔皮",              0,    0,      0,
        SLOT_BODY_ARMOUR, SIZE_LITTLE, SIZE_GIANT, false, 0, {},
        ARMF_REGENERATION, },
 #endif
-    { ARM_TROLL_LEATHER_ARMOUR, "troll leather armour",  3,  -40,    150,
+    { ARM_TROLL_LEATHER_ARMOUR, "巨魔皮甲",  3,  -40,    150,
        SLOT_BODY_ARMOUR, SIZE_LITTLE, SIZE_GIANT, false, 100, {},
        ARMF_REGENERATION },
 
-    { ARM_CLOAK,                "cloak",                  1,   0,   45,
+    { ARM_CLOAK,                "披风",                  1,   0,   45,
         SLOT_CLOAK,       SIZE_LITTLE, SIZE_LARGE, true, 0, {
             { SPARM_POISON_RESISTANCE,    2 },
             { SPARM_WILLPOWER,            2 },
@@ -166,7 +166,7 @@ static const armour_def Armour_prop[] =
             { SPARM_CORROSION_RESISTANCE, 2 },
             { SPARM_AIR,                  1 },
     }},
-    { ARM_SCARF,                "scarf",                  0,   0,   50,
+    { ARM_SCARF,                "围巾",                  0,   0,   50,
         SLOT_CLOAK,       SIZE_LITTLE, SIZE_LARGE, true, 0, {
             { SPARM_RESISTANCE,   1 },
             { SPARM_REPULSION,    1 },
@@ -175,7 +175,7 @@ static const armour_def Armour_prop[] =
             { SPARM_SHADOWS,      1 },
     }},
 
-    { ARM_GLOVES,               "gloves",                 1,   0,   45,
+    { ARM_GLOVES,               "手套",                 1,   0,   45,
         SLOT_GLOVES,      SIZE_SMALL,  SIZE_MEDIUM, true, 0, {
             { SPARM_DEXTERITY, 1 },
             { SPARM_STRENGTH,  1 },
@@ -186,7 +186,7 @@ static const armour_def Armour_prop[] =
             { SPARM_FIRE,      1 },
     }},
 
-    { ARM_HELMET,               "helmet",                 1,   0,   45,
+    { ARM_HELMET,               "头盔",                 1,   0,   45,
         SLOT_HELMET,      SIZE_SMALL,  SIZE_MEDIUM, true, 0, {
             { SPARM_LIGHT,         2 },
             { SPARM_INTELLIGENCE,  2 },
@@ -195,11 +195,11 @@ static const armour_def Armour_prop[] =
     }},
 
 #if TAG_MAJOR_VERSION == 34
-    { ARM_CAP,                  "cap",                    0,   0,   45,
+    { ARM_CAP,                  "便帽",                    0,   0,   45,
         SLOT_HELMET,      SIZE_LITTLE, SIZE_LARGE, true },
 #endif
 
-    { ARM_HAT,                  "hat",                    0,   0,   40,
+    { ARM_HAT,                  "帽子",                    0,   0,   40,
         SLOT_HELMET,      SIZE_TINY, SIZE_LARGE, true, 0, {
             { SPARM_WILLPOWER,     3 },
             { SPARM_STEALTH,       2 },
@@ -212,7 +212,7 @@ static const armour_def Armour_prop[] =
     // Note that barding size is compared against torso so it currently
     // needs to fit medium, but that doesn't matter as much as race
     // and shapeshift status.
-    { ARM_BOOTS,                "boots",                  1,   0,   45,
+    { ARM_BOOTS,                "靴子",                  1,   0,   45,
         SLOT_BOOTS,       SIZE_SMALL,  SIZE_MEDIUM, true, 0, {
             { SPARM_FLYING,    2 },
             { SPARM_STEALTH,   2 },
@@ -222,10 +222,10 @@ static const armour_def Armour_prop[] =
     // Changed max. barding size to large to allow for the appropriate
     // monster types (monsters don't differentiate between torso and general).
 #if TAG_MAJOR_VERSION == 34
-    { ARM_CENTAUR_BARDING,      "centaur barding",        4,  -60,  230,
+    { ARM_CENTAUR_BARDING,      "半人马护胫",        4,  -60,  230,
         SLOT_BARDING,     SIZE_MEDIUM, SIZE_LARGE, true },
 #endif
-    { ARM_BARDING,         "barding",           4,  -60,  230,
+    { ARM_BARDING,         "护胫",           4,  -60,  230,
         SLOT_BARDING,     SIZE_MEDIUM, SIZE_LARGE, true, 0, {
             { SPARM_FLYING,          2 },
             { SPARM_COLD_RESISTANCE, 2 },
@@ -236,7 +236,7 @@ static const armour_def Armour_prop[] =
 
     // Note: shields use ac-value as sh-value, EV pen is used as the basis
     // to calculate adjusted shield penalty.
-    { ARM_ORB,                 "orb",                     0,   0,   40,
+    { ARM_ORB,                 "宝珠",                     0,   0,   40,
         SLOT_OFFHAND,      SIZE_LITTLE, SIZE_GIANT, true, 0, {
             { SPARM_GLASS,      1 },
             { SPARM_MAYHEM,     1 },
@@ -247,7 +247,7 @@ static const armour_def Armour_prop[] =
             { SPARM_MESMERISM,  1 },
             { SPARM_ATTUNEMENT, 1 },
     }},
-    { ARM_BUCKLER,             "buckler",                 3,  -50,  45,
+    { ARM_BUCKLER,             "小圆盾",                 3,  -50,  45,
         SLOT_OFFHAND,      SIZE_LITTLE, SIZE_MEDIUM, true, 0, {
             { SPARM_RESISTANCE,        2 },
             { SPARM_FIRE_RESISTANCE,   5 },
@@ -258,7 +258,7 @@ static const armour_def Armour_prop[] =
             { SPARM_REFLECTION,        9 },
             { SPARM_PROTECTION,       14 },
     }},
-    { ARM_KITE_SHIELD,         "kite shield",             8, -100,  70,
+    { ARM_KITE_SHIELD,         "鸢盾",             8, -100,  70,
         SLOT_OFFHAND,      SIZE_SMALL,  SIZE_LARGE, true, 0,{
             { SPARM_FIRE_RESISTANCE,      4 },
             { SPARM_COLD_RESISTANCE,      4 },
@@ -269,7 +269,7 @@ static const armour_def Armour_prop[] =
             { SPARM_REFLECTION,           13 },
             { SPARM_PROTECTION,           10 },
     }},
-    { ARM_TOWER_SHIELD,        "tower shield",           13, -150,  80,
+    { ARM_TOWER_SHIELD,        "塔盾",           13, -150,  80,
         SLOT_OFFHAND,      SIZE_MEDIUM, SIZE_GIANT, true, 0, {
             { SPARM_FIRE_RESISTANCE,      3 },
             { SPARM_COLD_RESISTANCE,      3 },
@@ -282,25 +282,25 @@ static const armour_def Armour_prop[] =
     }},
 
     // Following all ARM_ entries for the benefit of util/gather_items
-    DRAGON_ARMOUR(STEAM,       "steam",                   5,   0,   375,
+    DRAGON_ARMOUR(STEAM,       "蒸汽",                   5,   0,   375,
         ARMF_RES_STEAM),
-    DRAGON_ARMOUR(ACID,        "acid",                    6,  -50,  400,
+    DRAGON_ARMOUR(ACID,        "酸蚀",                    6,  -50,  400,
         ARMF_RES_CORR),
-    DRAGON_ARMOUR(QUICKSILVER, "quicksilver",             9,  -70,  500,
+    DRAGON_ARMOUR(QUICKSILVER, "水银",             9,  -70,  500,
         ARMF_WILLPOWER),
-    DRAGON_ARMOUR(SWAMP,       "swamp",                   7,  -70,  450,
+    DRAGON_ARMOUR(SWAMP,       "沼泽",                   7,  -70,  450,
         ARMF_RES_POISON),
-    DRAGON_ARMOUR(FIRE,        "fire",                    8,  -90,  500,
+    DRAGON_ARMOUR(FIRE,        "烈焰",                    8,  -90,  500,
         ard(ARMF_RES_FIRE, 2) | ARMF_VUL_COLD),
-    DRAGON_ARMOUR(ICE,         "ice",                     9, -110,  500,
+    DRAGON_ARMOUR(ICE,         "寒冰",                     9, -110,  500,
         ard(ARMF_RES_COLD, 2) | ARMF_VUL_FIRE),
-    DRAGON_ARMOUR(PEARL,       "pearl",                  10, -110, 1000,
+    DRAGON_ARMOUR(PEARL,       "珍珠",                  10, -110, 1000,
         ARMF_RES_NEG),
-    DRAGON_ARMOUR(STORM,       "storm",                  10, -150,  650,
+    DRAGON_ARMOUR(STORM,       "风暴",                  10, -150,  650,
         ARMF_RES_ELEC),
-    DRAGON_ARMOUR(SHADOW,      "shadow",                 11, -150,  575,
+    DRAGON_ARMOUR(SHADOW,      "暗影",                 11, -150,  575,
         ARMF_STEALTH),
-    DRAGON_ARMOUR(GOLDEN,      "golden",                 12, -230,  800,
+    DRAGON_ARMOUR(GOLDEN,      "黄金",                 12, -230,  800,
         ARMF_RES_FIRE | ARMF_RES_COLD | ARMF_RES_POISON),
 
 #undef DRAGON_ARMOUR
@@ -854,7 +854,7 @@ static const staff_def Staff_prop[] =
     { STAFF_WIZARDRY,    "wizardry" },
     { STAFF_POWER,       "power" },
 #endif
-    { STAFF_FIRE,        "fire",        SK_FIRE_MAGIC,
+    { STAFF_FIRE,        "烈焰",        SK_FIRE_MAGIC,
         63, ac_type::normal, BEAM_FIRE },
     { STAFF_COLD,        "cold",        SK_ICE_MAGIC,
         63, ac_type::normal, BEAM_COLD },

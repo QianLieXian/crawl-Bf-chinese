@@ -723,8 +723,8 @@ static void _apply_flux_contam(monster &m)
 
     if (energy <= 0)
     {
-        mprf(MSGCH_DURATION, "The last of your unstable energy dissipates and "
-                             "you return to your previous form.");
+        mprf(MSGCH_DURATION, "你体内最后一丝不稳定能量消散了，"
+                             "你恢复为先前形态。");
         return_to_default_form();
     }
     else if (above_warning && energy < FLUX_ENERGY_WARNING)
@@ -912,11 +912,10 @@ bool melee_attack::handle_phase_hit()
                                     : attacker->conj_verb(mons_attack_verb());
 
             // TODO: Clean this up if possible, checking atype for do / does is ugly
-            mprf("%s %s %s but %s no damage.",
+            mprf("%s%s%s，但没有造成伤害。",
                 attacker->name(DESC_THE).c_str(),
                 attack_verb.c_str(),
-                defender_name(true).c_str(),
-                attacker->is_player() ? "do" : "does");
+                defender_name(true).c_str());
         }
     }
 
@@ -961,7 +960,7 @@ bool melee_attack::handle_phase_hit()
         if (needs_message && special_damage)
         {
             tileidx_t dummy;
-            mprf("%s and strikes %s%s",
+            mprf("%s并击中%s%s",
                  airstrike_intensity_display(spaces, dummy).c_str(),
                  defender->name(DESC_THE).c_str(),
                  attack_strength_punctuation(special_damage).c_str());
@@ -987,7 +986,7 @@ bool melee_attack::handle_phase_hit()
             && mons_has_attacks(*defender->as_monster(), false)
             && coinflip())
         {
-            mprf("%s is engulfed in spores.", defender->name(DESC_THE).c_str());
+            mprf("%s被孢子吞没。", defender->name(DESC_THE).c_str());
             defender->weaken(&you, 3);
         }
     }
@@ -1074,7 +1073,7 @@ static void _inflict_deathly_blight(monster &m)
     if (m.holiness() & (MH_NATURAL | MH_PLANT))
         worked = m.add_ench(mon_enchant(ENCH_DRAINED, &you, dur, 2)) || worked;
     if (worked && you.can_see(m))
-        simple_monster_message(m, " decays.");
+        simple_monster_message(m, "开始腐朽。");
 }
 
 bool melee_attack::handle_phase_damaged()
@@ -1083,7 +1082,7 @@ bool melee_attack::handle_phase_damaged()
         && !you.duration[DUR_SHROUD_TIMEOUT] && one_chance_in(4))
     {
         you.duration[DUR_SHROUD_TIMEOUT] = 100 + random2(damage_done) * 10;
-        mprf("your slimy shroud breaks as it bends %s attack away%s",
+        mprf("你的黏液护幕在偏转%s攻击时破碎了%s",
                      atk_name(DESC_ITS).c_str(),
                      attack_strength_punctuation(damage_done).c_str());
         did_hit = false;
@@ -1144,22 +1143,22 @@ static void _devour(monster &victim)
     // Sometimes, one's eyes are larger than one's stomach-mouth.
     const int size_delta = victim.body_size(PSIZE_BODY)
                             - you.body_size(PSIZE_BODY);
-    mprf("You devour %s%s!",
+    mprf("你吞噬了%s%s！",
          size_delta <= 0 ? "" :
-         size_delta <= 1 ? "half of " :
-                           "a chunk of ",
+         size_delta <= 1 ? "半个" :
+                           "一大块",
          victim.name(DESC_THE).c_str());
 
     // give a clearer message for eating invisible things
     if (!you.can_see(victim))
     {
-        mprf("It tastes like %s.",
+        mprf("尝起来像%s。",
              mons_type_name(mons_genus(victim.type), DESC_PLAIN).c_str());
         // this could be the actual creature name, but it feels more
         // 'flavourful' this way??
     }
     if (victim.has_ench(ENCH_STICKY_FLAME))
-        mpr("Spicy!");
+        mpr("真辣！");
 
     // Devour the corpse.
     victim.props[NEVER_CORPSE_KEY] = true;
@@ -4440,7 +4439,7 @@ void melee_attack::mons_apply_attack_flavour(attack_flavour flavour)
             // respecting the mechanic will get quite bodied. Hrm.
             tileidx_t generic = TILE_BOLT_DEFAULT_WHITE;
 
-            mprf("%s and strikes %s%s",
+            mprf("%s并击中%s%s",
                  airstrike_intensity_display(spaces, generic).c_str(),
                  defender->name(DESC_THE).c_str(),
                  attack_strength_punctuation(special_damage).c_str());

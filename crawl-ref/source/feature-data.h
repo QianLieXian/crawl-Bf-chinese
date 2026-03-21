@@ -27,14 +27,14 @@ static feature_def feat_defs[] =
 },
 
 {
-    DNGN_EXPLORE_HORIZON, "explore horizon", "explore_horizon",
+    DNGN_EXPLORE_HORIZON, "探索边界", "explore_horizon",
     NUM_DCHAR_TYPES, NUM_DCHAR_TYPES,
     COLOUR_IS(BLACK),
     FFT_NONE, MF_UNSEEN,
 },
 
 {
-    DNGN_TRAVEL_TRAIL, "travel trail", "travel_trail",
+    DNGN_TRAVEL_TRAIL, "旅行轨迹", "travel_trail",
     NUM_DCHAR_TYPES, NUM_DCHAR_TYPES,
     COLOUR_IS(BLACK),
     FFT_NONE, MF_UNSEEN,
@@ -42,84 +42,84 @@ static feature_def feat_defs[] =
 
 
 {
-    DNGN_CLOSED_DOOR, "closed door", "closed_door",
+    DNGN_CLOSED_DOOR, "关闭的门", "closed_door",
     DCHAR_DOOR_CLOSED, NUM_DCHAR_TYPES,
     COLOUR_IS(LIGHTGREY),
     FFT_OPAQUE | FFT_SOLID, MF_DOOR,
 },
 
 {
-    DNGN_RUNED_DOOR, "runed door", "runed_door",
+    DNGN_RUNED_DOOR, "符文门", "runed_door",
     DCHAR_DOOR_CLOSED, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(LIGHTBLUE),
     FFT_OPAQUE | FFT_SOLID, MF_DOOR,
 },
 
 {
-    DNGN_SEALED_DOOR, "sealed door", "sealed_door",
+    DNGN_SEALED_DOOR, "封印门", "sealed_door",
     DCHAR_DOOR_CLOSED, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(LIGHTGREEN),
     FFT_OPAQUE | FFT_SOLID, MF_DOOR,
 },
 
 {
-    DNGN_SEALED_CLEAR_DOOR, "sealed translucent door", "sealed_clear_door",
+    DNGN_SEALED_CLEAR_DOOR, "封印的半透明门", "sealed_clear_door",
     DCHAR_DOOR_CLOSED, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(WHITE),
     FFT_SOLID, MF_DOOR,
 },
 
 {
-    DNGN_CLOSED_CLEAR_DOOR, "closed translucent door", "closed_clear_door",
+    DNGN_CLOSED_CLEAR_DOOR, "关闭的半透明门", "closed_clear_door",
     DCHAR_DOOR_CLOSED, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(CYAN),
     FFT_SOLID, MF_DOOR,
 },
 
 {
-    DNGN_RUNED_CLEAR_DOOR, "runed translucent door", "runed_clear_door",
+    DNGN_RUNED_CLEAR_DOOR, "符文半透明门", "runed_clear_door",
     DCHAR_DOOR_CLOSED, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(LIGHTCYAN),
     FFT_SOLID, MF_DOOR,
 },
 
 {
-    DNGN_TREE, "tree", "tree",
+    DNGN_TREE, "树", "tree",
     DCHAR_TREE, DCHAR_WALL_MAGIC,
     COLOUR_IS(ETC_TREE),
     FFT_OPAQUE | FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_MANGROVE, "mangrove", "mangrove",
+    DNGN_MANGROVE, "红树林", "mangrove",
     DCHAR_TREE, DCHAR_WALL_MAGIC,
     COLOUR_IS(ETC_MANGROVE),
     FFT_OPAQUE | FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_DEMONIC_TREE, "demonic tree", "demonic_tree",
+    DNGN_DEMONIC_TREE, "恶魔树", "demonic_tree",
     DCHAR_TREE, DCHAR_WALL_MAGIC,
     COLOUR_IS(ETC_RANDOM),
     FFT_OPAQUE | FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_PETRIFIED_TREE, "petrified tree", "petrified_tree",
+    DNGN_PETRIFIED_TREE, "石化树", "petrified_tree",
     DCHAR_TREE, DCHAR_WALL_MAGIC,
     COLOUR_IS(DARKGREY),
     FFT_OPAQUE | FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_METAL_WALL, "metal wall", "metal_wall",
+    DNGN_METAL_WALL, "金属墙", "metal_wall",
     DCHAR_WALL, DCHAR_WALL_MAGIC,
     COLOUR_IS(CYAN),
     FFT_OPAQUE | FFT_WALL | FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_CRYSTAL_WALL, "crystal wall", "crystal_wall",
+    DNGN_CRYSTAL_WALL, "水晶墙", "crystal_wall",
     DCHAR_WALL, DCHAR_WALL_MAGIC,
     COLOUR_IS(GREEN),
     FFT_OPAQUE | FFT_WALL | FFT_SOLID, MF_WALL,
@@ -140,7 +140,7 @@ static feature_def feat_defs[] =
 },
 
 {
-    DNGN_STONE_WALL, "stone wall", "stone_wall",
+    DNGN_STONE_WALL, "石墙", "stone_wall",
     DCHAR_WALL, DCHAR_WALL_MAGIC,
     COLOUR_IS(LIGHTGREY),
     FFT_OPAQUE | FFT_WALL | FFT_SOLID, MF_WALL,
@@ -161,7 +161,7 @@ static feature_def feat_defs[] =
 },
 
 {
-    DNGN_CLEAR_STONE_WALL, "translucent stone wall", "clear_stone_wall",
+    DNGN_CLEAR_STONE_WALL, "半透明石墙", "clear_stone_wall",
     DCHAR_WALL, DCHAR_WALL_MAGIC,
     COLOUR_IS(LIGHTCYAN),
     FFT_WALL | FFT_SOLID, MF_WALL,
@@ -175,49 +175,49 @@ static feature_def feat_defs[] =
 },
 
 {
-    DNGN_GRATE, "iron grate", "iron_grate",
+    DNGN_GRATE, "铁栅栏", "iron_grate",
     DCHAR_GRATE, DCHAR_WALL_MAGIC,
     COLOUR_IS(LIGHTBLUE),
     FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_OPEN_SEA, "the open sea", "open_sea",
+    DNGN_OPEN_SEA, "外海", "open_sea",
     DCHAR_WALL, NUM_DCHAR_TYPES,
     COLOUR_IS(BLUE),
     FFT_WALL | FFT_SOLID, MF_DEEP_WATER,
 },
 
 {
-    DNGN_LAVA_SEA, "the endless lava", "endless_lava",
+    DNGN_LAVA_SEA, "无尽熔岩", "endless_lava",
     DCHAR_WALL, NUM_DCHAR_TYPES,
     COLOUR_IS(RED),
     FFT_WALL | FFT_SOLID, MF_LAVA,
 },
 
 {
-    DNGN_ENDLESS_SALT, "endless expanse of salt", "endless_salt",
+    DNGN_ENDLESS_SALT, "无尽盐原", "endless_salt",
     DCHAR_WALL, NUM_DCHAR_TYPES,
     COLOUR_IS(WHITE),
     FFT_WALL | FFT_SOLID, MF_FLOOR,
 },
 
 {
-    DNGN_ORCISH_IDOL, "orcish idol", "orcish_idol",
+    DNGN_ORCISH_IDOL, "兽人神像", "orcish_idol",
     DCHAR_STATUE, NUM_DCHAR_TYPES,
     COLOUR_IS(BROWN),
     FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_METAL_STATUE, "metal statue", "metal_statue",
+    DNGN_METAL_STATUE, "金属雕像", "metal_statue",
     DCHAR_STATUE, NUM_DCHAR_TYPES,
     COLOUR_IS(DARKGREY),
     FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_GRANITE_STATUE, "granite statue", "granite_statue",
+    DNGN_GRANITE_STATUE, "花岗岩雕像", "granite_statue",
     DCHAR_STATUE, NUM_DCHAR_TYPES,
     COLOUR_IS(DARKGREY),
     FFT_SOLID, MF_WALL,
@@ -225,63 +225,63 @@ static feature_def feat_defs[] =
 
 {
     // Names remapped based on orb in the game
-    DNGN_ZOT_STATUE, "zot statue", "zot_statue",
+    DNGN_ZOT_STATUE, "Zot 雕像", "zot_statue",
     DCHAR_STATUE, NUM_DCHAR_TYPES,
     COLOUR_IS(DARKGREY),
     FFT_SOLID | FFT_NOTABLE, MF_WALL,
 },
 
 {
-    DNGN_MALIGN_GATEWAY, "portal to somewhere", "malign_gateway",
+    DNGN_MALIGN_GATEWAY, "通往未知之地的传送门", "malign_gateway",
     DCHAR_ARCH, NUM_DCHAR_TYPES,
     COLOURS(ETC_SHIMMER_BLUE, LIGHTGREY),
     FFT_SOLID, MF_WALL,
 },
 
 {
-    DNGN_LAVA, "some lava", "lava",
+    DNGN_LAVA, "熔岩", "lava",
     DCHAR_WAVY, NUM_DCHAR_TYPES,
     COLOUR_IS(RED),
     FFT_NONE, MF_LAVA,
 },
 
 {
-    DNGN_DEEP_WATER, "some deep water", "deep_water",
+    DNGN_DEEP_WATER, "深水", "deep_water",
     DCHAR_WAVY, NUM_DCHAR_TYPES,
     COLOUR_IS(BLUE),
     FFT_NONE, MF_DEEP_WATER,
 },
 
 {
-    DNGN_SHALLOW_WATER, "some shallow water", "shallow_water",
+    DNGN_SHALLOW_WATER, "浅水", "shallow_water",
     DCHAR_SHALLOW_WAVY, NUM_DCHAR_TYPES,
     COLOUR_IS(CYAN),
     FFT_NONE, MF_WATER,
 },
 
 {
-    DNGN_TOXIC_BOG, "a toxic bog", "toxic_bog",
+    DNGN_TOXIC_BOG, "有毒沼泽", "toxic_bog",
     DCHAR_SHALLOW_WAVY, NUM_DCHAR_TYPES,
     COLOUR_IS(ETC_POISON),
     FFT_NONE, MF_WATER,
 },
 
 {
-    DNGN_MUD, "some mud", "mud",
+    DNGN_MUD, "泥地", "mud",
     DCHAR_SHALLOW_WAVY, NUM_DCHAR_TYPES,
     COLOUR_IS(BROWN),
     FFT_NONE, MF_FLOOR,
 },
 
 {
-    DNGN_FLOOR, "floor", "floor",
+    DNGN_FLOOR, "地板", "floor",
     DCHAR_FLOOR, DCHAR_FLOOR_MAGIC,
     COLOUR_IS(ETC_FLOOR),
     FFT_NONE, MF_FLOOR,
 },
 
 {
-    DNGN_ORB_DAIS, "the orb dais", "orb dais",
+    DNGN_ORB_DAIS, "宝珠基座", "orb dais",
     DCHAR_FLOOR, DCHAR_FLOOR_MAGIC,
     COLOUR_IS(ETC_FLOOR),
     FFT_NONE, MF_FLOOR,
@@ -297,35 +297,35 @@ static feature_def feat_defs[] =
 #endif
 
 {
-    DNGN_EXPIRED_PORTAL, "collapsed entrance", "expired_portal",
+    DNGN_EXPIRED_PORTAL, "坍塌入口", "expired_portal",
     DCHAR_FLOOR, DCHAR_FLOOR_MAGIC,
     COLOUR_IS(BROWN),
     FFT_NONE, MF_FLOOR,
 },
 
 {
-    DNGN_BROKEN_DOOR, "broken door", "broken_door",
+    DNGN_BROKEN_DOOR, "破损的门", "broken_door",
     DCHAR_DOOR_OPEN, NUM_DCHAR_TYPES,
     COLOUR_IS(DARKGREY), // ?
     FFT_NONE, MF_DOOR,
 },
 
 {
-    DNGN_BROKEN_CLEAR_DOOR, "broken translucent door", "broken_clear_door",
+    DNGN_BROKEN_CLEAR_DOOR, "破损的半透明门", "broken_clear_door",
     DCHAR_DOOR_OPEN, NUM_DCHAR_TYPES,
     COLOUR_IS(DARKGREY), // ?
     FFT_NONE, MF_DOOR,
 },
 
 {
-    DNGN_OPEN_DOOR, "open door", "open_door",
+    DNGN_OPEN_DOOR, "敞开的门", "open_door",
     DCHAR_DOOR_OPEN, NUM_DCHAR_TYPES,
     COLOUR_IS(LIGHTGREY),
     FFT_NONE, MF_DOOR,
 },
 
 {
-    DNGN_OPEN_CLEAR_DOOR, "open translucent door", "open_clear_door",
+    DNGN_OPEN_CLEAR_DOOR, "敞开的半透明门", "open_clear_door",
     DCHAR_DOOR_OPEN, NUM_DCHAR_TYPES,
     COLOUR_IS(CYAN),
     FFT_NONE, MF_DOOR,
@@ -340,31 +340,31 @@ static feature_def feat_defs[] =
 }
 
 #if TAG_MAJOR_VERSION == 34
-TRAP(DNGN_TRAP_MECHANICAL, "mechanical trap", "trap_mechanical", LIGHTCYAN),
-TRAP(DNGN_TRAP_SPEAR, "spear trap", "trap_mechanical", LIGHTCYAN),
-TRAP(DNGN_TRAP_BOLT, "bolt trap", "trap_mechanical", LIGHTCYAN),
+TRAP(DNGN_TRAP_MECHANICAL, "机械陷阱", "trap_mechanical", LIGHTCYAN),
+TRAP(DNGN_TRAP_SPEAR, "长矛陷阱", "trap_mechanical", LIGHTCYAN),
+TRAP(DNGN_TRAP_BOLT, "弩箭陷阱", "trap_mechanical", LIGHTCYAN),
 #endif
-TRAP(DNGN_TRAP_NET, "net trap", "trap_net", LIGHTCYAN),
-TRAP(DNGN_TRAP_PLATE, "pressure plate", "trap_pressure_plate", LIGHTCYAN),
-TRAP(DNGN_TRAP_DISPERSAL, "dispersal trap", "trap_dispersal", MAGENTA),
-TRAP(DNGN_TRAP_TELEPORT, "teleport trap", "trap_teleport", LIGHTBLUE),
-TRAP(DNGN_TRAP_TELEPORT_PERMANENT, "permanent teleport trap", "trap_teleport_permanent", LIGHTBLUE),
+TRAP(DNGN_TRAP_NET, "捕网陷阱", "trap_net", LIGHTCYAN),
+TRAP(DNGN_TRAP_PLATE, "压力板", "trap_pressure_plate", LIGHTCYAN),
+TRAP(DNGN_TRAP_DISPERSAL, "驱散陷阱", "trap_dispersal", MAGENTA),
+TRAP(DNGN_TRAP_TELEPORT, "传送陷阱", "trap_teleport", LIGHTBLUE),
+TRAP(DNGN_TRAP_TELEPORT_PERMANENT, "永久传送陷阱", "trap_teleport_permanent", LIGHTBLUE),
 #if TAG_MAJOR_VERSION == 34
-TRAP(DNGN_TRAP_SHADOW, "shadow trap", "trap_shadow", BLUE),
-TRAP(DNGN_TRAP_SHADOW_DORMANT, "dormant shadow trap", "trap_shadow_dormant", BLUE),
+TRAP(DNGN_TRAP_SHADOW, "暗影陷阱", "trap_shadow", BLUE),
+TRAP(DNGN_TRAP_SHADOW_DORMANT, "休眠暗影陷阱", "trap_shadow_dormant", BLUE),
 #endif
-TRAP(DNGN_TRAP_TYRANT, "tyrant's trap", "trap_tyrant", WHITE),
-TRAP(DNGN_TRAP_ARCHMAGE, "archmage's trap", "trap_archmage", BLUE),
-TRAP(DNGN_TRAP_HARLEQUIN, "harlequin's trap", "trap_harlequin", YELLOW),
-TRAP(DNGN_TRAP_DEVOURER, "devourer's trap", "trap_devourer", LIGHTGREEN),
-TRAP(DNGN_TRAP_ALARM, "alarm trap", "trap_alarm", LIGHTRED),
-TRAP(DNGN_TRAP_ZOT, "Zot trap", "trap_zot", LIGHTMAGENTA),
-TRAP(DNGN_PASSAGE_OF_GOLUBRIA, "passage of Golubria", "passage of golubria", GREEN),
-TRAP(DNGN_TRAP_SHAFT, "shaft", "shaft", BROWN),
-TRAP(DNGN_TRAP_WEB, "web", "web", LIGHTGREY),
+TRAP(DNGN_TRAP_TYRANT, "暴君陷阱", "trap_tyrant", WHITE),
+TRAP(DNGN_TRAP_ARCHMAGE, "大法师陷阱", "trap_archmage", BLUE),
+TRAP(DNGN_TRAP_HARLEQUIN, "丑角陷阱", "trap_harlequin", YELLOW),
+TRAP(DNGN_TRAP_DEVOURER, "吞噬者陷阱", "trap_devourer", LIGHTGREEN),
+TRAP(DNGN_TRAP_ALARM, "警报陷阱", "trap_alarm", LIGHTRED),
+TRAP(DNGN_TRAP_ZOT, "Zot 陷阱", "trap_zot", LIGHTMAGENTA),
+TRAP(DNGN_PASSAGE_OF_GOLUBRIA, "Golubria 通道", "passage of golubria", GREEN),
+TRAP(DNGN_TRAP_SHAFT, "竖井", "shaft", BROWN),
+TRAP(DNGN_TRAP_WEB, "蛛网", "web", LIGHTGREY),
 
 {
-    DNGN_TRAP_DISPERSAL_INACTIVE, "dispersal trap (recharging)", "trap_dispersal_inactive",
+    DNGN_TRAP_DISPERSAL_INACTIVE, "驱散陷阱（充能中）", "trap_dispersal_inactive",
     DCHAR_TRAP, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(LIGHTGREY),
     FFT_NONE, MF_TRAP,
@@ -372,7 +372,7 @@ TRAP(DNGN_TRAP_WEB, "web", "web", LIGHTGREY),
 
 #if TAG_MAJOR_VERSION == 34
 {
-    DNGN_UNDISCOVERED_TRAP, "floor", "undiscovered_trap",
+    DNGN_UNDISCOVERED_TRAP, "地板", "undiscovered_trap",
     DCHAR_FLOOR, DCHAR_FLOOR_MAGIC,
     COLOUR_IS(ETC_FLOOR),
     FFT_NONE, MF_FLOOR,
@@ -380,28 +380,28 @@ TRAP(DNGN_TRAP_WEB, "web", "web", LIGHTGREY),
 #endif
 
 {
-    DNGN_ENTER_SHOP, "shop", "enter_shop",
+    DNGN_ENTER_SHOP, "商店", "enter_shop",
     DCHAR_ARCH, NUM_DCHAR_TYPES,
     YELLOW, LIGHTGREY, YELLOW, YELLOW, LIGHTGREY,
     FFT_NOTABLE, MF_FEATURE,
 },
 
 {
-    DNGN_ABANDONED_SHOP, "abandoned shop", "abandoned_shop",
+    DNGN_ABANDONED_SHOP, "废弃商店", "abandoned_shop",
     DCHAR_ARCH, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(LIGHTGREY),
     FFT_NONE, MF_FLOOR,
 },
 
 {
-    DNGN_STONE_ARCH, "empty arch of ancient stone", "stone_arch",
+    DNGN_STONE_ARCH, "古老石制空拱门", "stone_arch",
     DCHAR_ARCH, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(LIGHTGREY),
     FFT_NONE, MF_FLOOR,
 },
 
 {
-    DNGN_UNKNOWN_PORTAL, "detected shop or portal", "unknown_portal",
+    DNGN_UNKNOWN_PORTAL, "已探测到的商店或传送门", "unknown_portal",
     DCHAR_ARCH, NUM_DCHAR_TYPES,
     COLOURS(BLACK, LIGHTGREY),
     FFT_NONE, MF_PORTAL,
@@ -409,7 +409,7 @@ TRAP(DNGN_TRAP_WEB, "web", "web", LIGHTGREY),
 
 #define STONE_STAIRS_DOWN(num, num2)\
 {\
-    DNGN_STONE_STAIRS_DOWN_##num, "stone staircase leading down", "stone_stairs_down_"#num2,\
+    DNGN_STONE_STAIRS_DOWN_##num, "向下的石阶", "stone_stairs_down_"#num2,\
     DCHAR_STAIRS_DOWN, NUM_DCHAR_TYPES,\
     RED, RED, RED, WHITE, WHITE,\
     FFT_NONE, MF_STAIR_DOWN,\
@@ -421,7 +421,7 @@ STONE_STAIRS_DOWN(III, iii),
 
 #define STONE_STAIRS_UP(num, num2)\
 {\
-    DNGN_STONE_STAIRS_UP_##num, "stone staircase leading up", "stone_stairs_up_"#num2,\
+    DNGN_STONE_STAIRS_UP_##num, "向上的石阶", "stone_stairs_up_"#num2,\
     DCHAR_STAIRS_UP, NUM_DCHAR_TYPES,\
     GREEN, GREEN, GREEN, WHITE, WHITE,\
     FFT_NONE, MF_STAIR_UP,\
@@ -432,28 +432,28 @@ STONE_STAIRS_UP(II, ii),
 STONE_STAIRS_UP(III, iii),
 
 {
-    DNGN_ESCAPE_HATCH_DOWN, "escape hatch in the floor", "escape_hatch_down",
+    DNGN_ESCAPE_HATCH_DOWN, "地板上的逃生舱口", "escape_hatch_down",
     DCHAR_STAIRS_DOWN, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(BROWN),
     FFT_NONE, MF_STAIR_DOWN,
 },
 
 {
-    DNGN_ESCAPE_HATCH_UP, "escape hatch in the ceiling", "escape_hatch_up",
+    DNGN_ESCAPE_HATCH_UP, "天花板上的逃生舱口", "escape_hatch_up",
     DCHAR_STAIRS_UP, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(BROWN),
     FFT_NONE, MF_STAIR_UP,
 },
 #if TAG_MAJOR_VERSION == 34
 {
-    DNGN_EXIT_LABYRINTH, "escape hatch in the ceiling", "exit_labyrinth",
+    DNGN_EXIT_LABYRINTH, "天花板上的逃生舱口", "exit_labyrinth",
     DCHAR_STAIRS_UP, NUM_DCHAR_TYPES,
     COLOUR_AND_MAP(BROWN),
     FFT_NONE, MF_STAIR_UP,
 },
 
 {
-    DNGN_ENTER_LABYRINTH, "labyrinth entrance", "enter_labyrinth",
+    DNGN_ENTER_LABYRINTH, "迷宫入口", "enter_labyrinth",
     DCHAR_ARCH, NUM_DCHAR_TYPES,
     ETC_SHIMMER_BLUE, LIGHTGREY, ETC_SHIMMER_BLUE, ETC_SHIMMER_BLUE, ETC_SHIMMER_BLUE,
     (FFT_NOTABLE | FFT_EXAMINE_HINT), MF_PORTAL,
